@@ -1,5 +1,6 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path");
+const Dotenv = require("dotenv-webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -10,7 +11,8 @@ module.exports = {
   },
   // webpack 5 comes with devServer which loads in development mode
   devServer: {
-    port: 4000 || 8080,
+    port: process.env.PORT || 5000,
+    allowedHosts: "all",
   },
   // Rules of how webpack will take our files, complie & bundle them for the browser
   module: {
@@ -28,5 +30,8 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
+  plugins: [
+    new Dotenv(),
+    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+  ],
 };
