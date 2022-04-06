@@ -6,7 +6,7 @@ describe("display on landing page",()=>{
 
   test('renders learn react link', () => {
     const { getByText } = render(<App />);
-    const linkElement = getByText('Welcome on React app');
+    const linkElement =getByText('Login Form');
     expect(linkElement).toBeInTheDocument();
   });
 })
