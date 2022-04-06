@@ -5,9 +5,10 @@ import "./counter.css";
 import { increaseValue, decreaseValue } from "../redux/actions/counterActions";
 import { useSelector, useDispatch } from "react-redux";
 
-function NumCounter() {
+const NumCounter = () => {
 	const numberState = useSelector((state) => state.counterState.count);
-	const dispatch = useDispatch;
+	const dispatch = useDispatch();
+	console.log(numberState);
 	return (
 		<div className="holder">
 			<button className="btn" onClick={() => dispatch(increaseValue())}>
@@ -19,6 +20,6 @@ function NumCounter() {
 			</button>
 		</div>
 	);
-}
+};
 
 export default NumCounter;
