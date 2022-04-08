@@ -1,12 +1,14 @@
-import React from 'react'
-import InputForm from './InputForm'
+/** @format */
+
+import React from "react";
+import NumCounter from "./component/NumCounter";
 
 const App = () => {
-  return (
-    <div>
-      <InputForm />
-    </div>
-  )
-}
+	return (
+		<div>
+			<NumCounter />
+		</div>
+	);
+};
 
-export default App
+export default App;
