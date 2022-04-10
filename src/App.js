@@ -1,12 +1,22 @@
 import React from 'react'
-import InputForm from './InputForm'
+import InputForm from './Routes/InputForm'
+import Home from './Routes/Home';
+import AboutPage from './Routes/AboutPage';
+import { Route, BrowserRouter, Switch } from "react-router-dom";
+// import {  Routes } from "react-router";
 
 const App = () => {
   return (
-    <div>
-      <InputForm />
-    </div>
-  )
+    <BrowserRouter>
+      <div>
+        <Switch>
+          <Route path="/" component={Home} exact></Route>
+          <Route path="/input" component={InputForm}></Route>
+          <Route path="/about" component={AboutPage}></Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App
