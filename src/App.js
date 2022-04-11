@@ -3,7 +3,6 @@ import InputForm from './Routes/InputForm'
 import Home from './Routes/Home';
 import AboutPage from './Routes/AboutPage';
 import { Route, BrowserRouter, Switch } from "react-router-dom";
-// import {  Routes } from "react-router";
 
 const App = () => {
   return (
