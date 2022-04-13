@@ -1,14 +1,13 @@
-import React from 'react';
-import { render,screen} from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-describe("display on landing page",()=>{
-
-  test('renders learn react link', () => {
+describe("display on landing page", () => {
+  test("renders learn react link", () => {
     const { getByText } = render(<App />);
-    const linkElement =getByText('Login Form');
+    const linkElement = getByText("HELLO FROM LANDING PAGE");
     expect(linkElement).toBeInTheDocument();
   });
-})
+});
 
 //add screen
