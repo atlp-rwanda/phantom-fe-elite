@@ -4,7 +4,7 @@ const InputForm = () => {
 console.log("hello there");
   return (
     <div>
-      <h1>Login Form</h1>
+      <h1> HELLO FROM Login Form</h1>
       <form>
         <label htmlFor="">Name</label>
         <input type="text" />
