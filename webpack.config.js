@@ -1,5 +1,6 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path");
+const Dotenv = require("dotenv-webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -8,11 +9,16 @@ module.exports = {
     filename: "index.bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
+  
   // webpack 5 comes with devServer which loads in development mode
   devServer: {
-    port: 4000 || 8080,
+    port: process.env.PORT || 3000,
+    allowedHosts: "all",
+    // this allows react to the other path other than root path.
+    historyApiFallback: true,
   },
-  // Rules of how webpack will take our files, complie & bundle them for the browser
+
+  // Rules of how webpack will take our files, compile & bundle them for the browser
   module: {
     rules: [
       {
@@ -28,5 +34,8 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
+  plugins: [
+    new Dotenv(),
+    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+  ],
 };
