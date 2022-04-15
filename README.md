@@ -1,3 +1,7 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/179c5fae9c505c838e74/maintainability)](https://codeclimate.com/github/atlp-rwanda/phantom-fe-elite/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/179c5fae9c505c838e74/test_coverage)](https://codeclimate.com/github/atlp-rwanda/phantom-fe-elite/test_coverage)
+
 # Phantom
 
 ## Description
