@@ -1,8 +1,8 @@
 /** @format */
 
 import React from "react";
-import "./counter.css";
-import { increaseValue, decreaseValue } from "../redux/actions/counterActions";
+// import "./counter.css";
+import { increaseValue, decreaseValue } from "../../redux/actions/counterActions";
 import { useSelector, useDispatch } from "react-redux";
 
 const NumCounter = () => {
