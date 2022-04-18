@@ -19,7 +19,8 @@ const Reset = () => {
             </h2>
             <form>
               <div>
-                {/* <label >Enter your Email</label> */}
+
+
                 <input
                   className="w-full px-0 py-2 text-sm leading-tight text-gray-700 border my-5 mx-0  border-sky-500 rounded "
                   type="text"

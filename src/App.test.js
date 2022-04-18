@@ -25,3 +25,4 @@ describe("display on landing page", () => {
 });
 
 //add screen
+//try to test all function
