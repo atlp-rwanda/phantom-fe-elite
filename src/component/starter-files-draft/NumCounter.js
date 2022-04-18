@@ -3,6 +3,7 @@
 import React from "react";
 // import "./counter.css";
 import { increaseValue, decreaseValue } from "../../redux/actions/counterActions";
+import { increaseValue, decreaseValue } from "../redux/actions/counterActions";
 import { useSelector, useDispatch } from "react-redux";
 
 const NumCounter = () => {
@@ -20,6 +21,7 @@ const NumCounter = () => {
 			</button>
 		</div>
 	);
+  
 };
 
 export default NumCounter;

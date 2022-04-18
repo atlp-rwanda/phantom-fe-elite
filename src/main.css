@@ -2,6 +2,7 @@
 @tailwind components;
 <<<<<<< HEAD
 @tailwind utilities;
+<<<<<<< HEAD
 
 /* custom styles */
 
@@ -16,6 +17,7 @@ nav {
 footer{
     background-image: url('/src/assets/images/footer-image.jpg');
 }
+<<<<<<< HEAD
 
 .image {
      background-image: url('/src/assets/images/secondImage.jpg');
@@ -23,3 +25,7 @@ footer{
 =======
 @tailwind utilities;
 >>>>>>>  feat(create UI landing): create UI of the landing page
+=======
+=======
+>>>>>>> ft(Register): Register Drivers & operators
+>>>>>>> ft(Register): Register Drivers & operators
