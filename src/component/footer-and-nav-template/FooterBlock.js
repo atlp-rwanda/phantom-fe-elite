@@ -33,7 +33,7 @@ const FooterBlock = () => {
               Partners
             </h3>
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-around">
             <img src={rura} alt="RURA" />
             <img src={rftc} alt="rftc" />
             <img src={jali} alt="jali transport company" />
