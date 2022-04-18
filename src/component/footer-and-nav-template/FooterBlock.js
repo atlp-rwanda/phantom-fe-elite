@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 import {
   FaGithub,
@@ -14,38 +14,30 @@ import kbs from "../../assets/images/partners/kbs.jpg";
 
 const FooterBlock = () => {
   return (
-    <footer className="h-17.5%" role="footer">
-      <div className="flex justify-around flex-col border-t border-solid border-darkBluePhant sm:flex-row-reverse  my-2 mx-0">
-        <section className="contact-box w-full sm:w-1/3 sm:border-l-4 sm:border-solid sm:border-darkBluePhant my-2">
+    <footer>
+      <div className="flex justify-around flex-row-reverse border-t border-solid border-sky-600  my-4 mx-0">
+        <section className="contact-box w-1/3 border-l-2 border-solid border-sky-600">
           <div>
-            <h3 className="text-center font-semibold mx-0 mt-1 mb-4 font-Sensation tracking-widest">
+            <h3 className="text-center font-semibold mx-0 mt-1 mb-4">
               Contact Us
             </h3>
           </div>
-          <div className="flex justify-around ">
-            <i className="cursor-pointer">
-              <FaGithub color="deepSkyBlue" size="2em" />
-            </i>
-            <i className="cursor-pointer">
-              <FaInstagram color="deepSkyBlue" size="2em" />
-            </i>
-            <i className="cursor-pointer">
-              <FaLinkedin color="deepSkyBlue" size="2em" />
-            </i>
-            <i className="cursor-pointer ">
-              <FaFacebookSquare color="deepSkyBlue" size="2em" />
-            </i>
+          <div className="flex justify-around">
+            <img src={linkedIn} alt="" />
+            <img src={facebook} alt="" />
+            <img src={instagram} alt="" />
+            <img src={github} alt="" />
           </div>
         </section>
-        <section className="sm:w-2/3 mx-8 sm:mx-0">
+        <section className="w-2/3">
           <div>
-            <h3 className="text-center font-semibold mx-0 mt-1 mb-4 font-Sensation tracking-widest">
+            <h3 className="text-center font-semibold mx-0 mt-1 mb-4">
               Partners
             </h3>
           </div>
-          <div className="flex justify-around w-full">
+          <div className="flex justify-between">
             <img src={rura} alt="RURA" />
-            <img src={rftc} alt="rftc" className="hidden sm:block" />
+            <img src={rftc} alt="rftc" />
             <img src={jali} alt="jali transport company" />
             <img src={kbs} alt="kigali bus services" />
             <img src={loyal} alt="loyal express" />
@@ -59,6 +51,6 @@ const FooterBlock = () => {
       </div>
     </footer>
   );
-}
+};
 
-export default FooterBlock
+export default FooterBlock;
