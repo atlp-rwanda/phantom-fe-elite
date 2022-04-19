@@ -5,12 +5,12 @@ import logoImg from "../../assets/images/logo.jpg";
 
 const NavBar = () => {
   return (
-    <nav className="flex justify-between w-full">
+    <nav className="flex justify-between w-full px-12 my-5">
       <ul className="flex items-end w-1/3 no-underline list-none">
         <li>
           <img src={logoImg} alt="" />
         </li>
-        <Link to="/" className="logo-brand no-underline font-medium text-5xl">
+        <Link to="/" className="logo-brand Josefin no-underline font-medium text-5xl">
           hantom
         </Link>
       </ul>
@@ -20,7 +20,7 @@ const NavBar = () => {
           <Link to="/input" className='font-semibold'>Sign In</Link>
         </li>
         <li>
-          <Link to="/about" className='text-sky-600 font-semibold'>Sign Up</Link>
+          <Link to="/about" className='text-sky-500 font-semibold'>Sign Up</Link>
         </li>
       </ul>
     </nav>
