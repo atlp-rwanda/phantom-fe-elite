@@ -1,10 +1,12 @@
-/** @format */
 
 import React from "react";
+<<<<<<< HEAD:src/component/starter-files-draft/NumCounter.js
 // import "./counter.css";
 <<<<<<< HEAD:src/component/starter-files-draft/NumCounter.js
 import { increaseValue, decreaseValue } from "../../redux/actions/counterActions";
 =======
+=======
+>>>>>>> 78c93c3 ( chore(setup): setup tailwind):src/component/NumCounter.js
 import { increaseValue, decreaseValue } from "../redux/actions/counterActions";
 >>>>>>> 411a8ad ( chore(setup): setup tailwind):src/component/NumCounter.js
 import { useSelector, useDispatch } from "react-redux";
@@ -16,7 +18,7 @@ const NumCounter = () => {
 	return (
 		<div className="holder josefinSans">
 			<button className="btn" onClick={() => dispatch(increaseValue())}>
-				Increase shhhhhhhjaaaddddddddd daskjashsfksah
+				Increase
 			</button>
 			<p>{numberState}</p>
 			<button className="btn" onClick={() => dispatch(decreaseValue())}>

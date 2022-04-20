@@ -7,7 +7,7 @@ const NavBar = () => {
 			<div>
 				<h3 className="text-2xl font-medium text-blue-500">Phantom</h3>
 			</div>
-			<div className="space-x-8 bg-gray-400">
+			<div className="space-x-8 bg-red-400">
 				<Link to="/">Home</Link>
 				<Link to="/input">Input Form</Link>
 				<Link to="/about">About</Link>
