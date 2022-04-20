@@ -13,6 +13,3 @@ module.exports = {
   plugins: [],
 };
 
-// font-family: 'Josefin Slab', serif;
-// font-family: 'Montserrat', sans-serif;
-// font-family: 'Square Peg', cursive;
