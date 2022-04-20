@@ -30,7 +30,10 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.0",
     "react-test-renderer": "^18.0.0",
-    "redux": "^4.1.2"
+    "redux": "^4.1.2",
+    "autoprefixer": "^10.2.1",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",

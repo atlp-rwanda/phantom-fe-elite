@@ -1,11 +1,11 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import App from "./App";
+import LandingPage from "../LandingPage";
 
 describe("display on landing page", () => {
   it("renders learn react link", () => {
-    render(<App />);
-    const linkElement = screen.getByText(/contact us| login/i);
+    render(<LandingPage />);
+    const linkElement = screen.getByText(/Track bus movements/i);
     expect(linkElement).toBeInTheDocument();
   });
 });

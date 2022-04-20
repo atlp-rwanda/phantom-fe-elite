@@ -8,7 +8,7 @@ const LandingPage = () => {
         className="flex 
         flex-row-reverse
          items-center justify-between
-          "
+         "
       >
         <img className="w-3/5" src={landing} alt="" />
         <div>
@@ -32,9 +32,9 @@ const LandingPage = () => {
             See for yourself
           </button>
         </div>
-        <div className="flex w-3/5 justify-around">
+        <div className="flex w-3/5 justify-around px-16">
           <input
-            className="border-2 w-80 h-12 pl-2 rounded-sm border-black border-solid "
+            className="border-2 w-80 h-12 pl-2 rounded-sm border-black border-solid"
             type="text"
             placeholder="Email ...."
           />
