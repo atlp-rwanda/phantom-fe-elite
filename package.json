@@ -7,7 +7,8 @@
     "start": "webpack serve --mode development --open",
     "build": "webpack --mode production",
     "test": "react-scripts test --watchAll=false",
-    "coverage": "react-scripts test --coverage --watchAll=false"
+    "coverage": "react-scripts test --coverage --watchAll=false",
+    "watch:css": "postcss src/assets/tailwind.css -o src/main.css"
   },
   "keywords": [
     "webpack5",
