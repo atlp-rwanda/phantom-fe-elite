@@ -1,20 +1,26 @@
 const path = require("path");
 const Dotenv = require("dotenv-webpack");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin"); // to clean the assets in the dist when reloading in the production mode
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // extract css to files
 
 module.exports = {
+
+  //Where the webpack will look when starting to bundle the files. like starting point in the folder
   entry: "./src/index.js",
+
   // Where files should be sent once they are bundled
   output: {
     filename: "index.bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
-  
+
   // webpack 5 comes with devServer which loads in development mode
   devServer: {
     port: process.env.PORT || 3000,
     allowedHosts: "all",
-    // this allows react to the other path other than root path.
+
+    // this allows react to route to the other paths other than root path.
     historyApiFallback: true,
   },
 
@@ -30,12 +36,27 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+        ],
       },
     ],
   },
   plugins: [
+    // Removes/cleans build folders and unused assets when rebuilding from the dist folder.
+    new CleanWebpackPlugin(),
+
     new Dotenv(),
-    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+    new HtmlWebpackPlugin({ template: "./src/template.html" }),
+
+    // This is responsible for extracting the css styles from the bundled files and create
+    // a separate folder named styles under the dist folder created so that it can be sent to the browser
+    new MiniCssExtractPlugin({
+      filename: "styles/[name].[contenthash].css",
+    }),
   ],
 };
+
+ 
