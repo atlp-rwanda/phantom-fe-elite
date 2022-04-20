@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import "./counter.css";
+// import "./counter.css";
 import { increaseValue, decreaseValue } from "../redux/actions/counterActions";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -10,9 +10,9 @@ const NumCounter = () => {
 	const dispatch = useDispatch();
 	console.log(numberState);
 	return (
-		<div className="holder">
+		<div className="holder josefinSans">
 			<button className="btn" onClick={() => dispatch(increaseValue())}>
-				Increase
+				Increase shhhhhhhjaaaddddddddd daskjashsfksah
 			</button>
 			<p>{numberState}</p>
 			<button className="btn" onClick={() => dispatch(decreaseValue())}>
