@@ -1,5 +1,6 @@
 module.exports = {
 <<<<<<< HEAD
+<<<<<<< HEAD
   content: ["./src/**/*.{js,jsx,ts,tsx,html}"],
   theme: {
     extend: {
@@ -30,3 +31,11 @@ module.exports = {
 // font-family: 'Montserrat', sans-serif;
 // font-family: 'Square Peg', cursive;
 >>>>>>> 411a8ad ( chore(setup): setup tailwind)
+=======
+  content: [],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+>>>>>>> 48418c0 (Initial tailwindcss setup)

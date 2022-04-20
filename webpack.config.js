@@ -40,6 +40,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
+<<<<<<< HEAD
         use: [
 <<<<<<< HEAD
           "style-loader",
@@ -71,6 +72,9 @@ module.exports = {
           "css-loader",
           "postcss-loader",
         ],
+=======
+        use: ["style-loader", "css-loader", "postcss-loader"],
+>>>>>>> 48418c0 (Initial tailwindcss setup)
       },
     ],
   },

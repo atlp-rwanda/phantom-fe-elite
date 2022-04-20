@@ -5,5 +5,9 @@ module.exports = {
         tailwindcss('./tailwind.config.js'),
         require ('autoprefixer')
     ]
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> 48418c0 (Initial tailwindcss setup)

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 body {
     font-family: 'Montserrat', sans-serif;
 }
@@ -26,3 +27,8 @@ body {
     padding: 0.5rem 1rem;
 >>>>>>> 411a8ad ( chore(setup): setup tailwind)
 }
+=======
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+>>>>>>> 48418c0 (Initial tailwindcss setup)
