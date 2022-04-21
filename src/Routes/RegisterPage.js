@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import trackroute from "/src/asset/trackroute.jpg";
+import trackroute from "/src/assets/images/trackroute.jpg";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
 const RegisterPage = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const signUpSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address")
@@ -20,7 +21,7 @@ const RegisterPage = () => {
 
   return (
     <div className="">
-      <h1 className="text-center text-2xl text-blue-500 font-semiboldb ">
+      <h1 className="text-center text-2xl text-blue-500 font-bold ">
         REGISTER
       </h1>
       <div className="flex flex-row  justify-center items-start mt-6 h-screen w-full ">
@@ -31,9 +32,13 @@ const RegisterPage = () => {
           <Formik
             initialValues={{ email: "", username: "", password: "" }}
             validationSchema={signUpSchema}
-            onSubmit={(values, { setSubmitting }) => {
+            onSubmit={(values) => {
+              setIsLoading(true);
               console.log(JSON.stringify(values, null, 2));
-              setSubmitting(true);
+              setTimeout(() => {
+                console.log("done");
+                setIsLoading(false);
+              }, 3000);
             }}
           >
             {({
@@ -102,18 +107,20 @@ const RegisterPage = () => {
                 </a>
                 <br />
                 <br />
+                {console.log(isLoading)}
                 <button
                   type="submit"
-                  className={dirty && isValid ? "" : "active:bg-blue-500"}
-                  disabled={!(dirty && isValid)}
-                  className="h-12 w-full bg-blue-500 text-white rounded text-2xl"
+                  disabled={isLoading}
+                  className={`h-12 w-full ${
+                    isLoading ? "bg-blue-100" : "bg-blue-500"
+                  } text-white rounded text-2xl`}
                 >
                   Register
                 </button>
                 <br />
                 <br />
 
-                <p className="flex flex-row  text-lg">
+                <p className="flex flex-row font-Montserrat text-lg">
                   or login with
                   <a href="" className="ml-4 ">
                     <FaLinkedin className="text-2xl text-blue-500 " />

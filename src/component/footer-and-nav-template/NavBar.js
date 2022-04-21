@@ -27,7 +27,7 @@ const NavBar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/about" className="text-sky-600 font-semibold">
+          <Link to="/register" className="text-sky-500 font-semibold">
             Sign Up
           </Link>
         </li>

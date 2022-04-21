@@ -24,10 +24,6 @@ module.exports = {
   },
 
   // Rules of how webpack will take our files, compile & bundle them for the browser
-  plugins: [
-    new Dotenv(),
-    new HtmlWebpackPlugin({ template: "./src/index.html" }),
-  ],
   module: {
     rules: [
       {
