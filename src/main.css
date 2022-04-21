@@ -2,8 +2,8 @@
 @tailwind components;
 <<<<<<< HEAD
 @tailwind utilities;
-<<<<<<< HEAD
 
+<<<<<<< HEAD
 /* custom styles */
 
 /* background images at the navbar */
@@ -28,4 +28,21 @@ footer{
 =======
 =======
 >>>>>>> ft(Register): Register Drivers & operators
+>>>>>>> ft(Register): Register Drivers & operators
+=======
+/* custom fonts */
+.holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+.btn {
+  background-color: rgb(13, 100, 214);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
 >>>>>>> ft(Register): Register Drivers & operators
