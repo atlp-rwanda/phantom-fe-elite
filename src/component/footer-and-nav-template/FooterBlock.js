@@ -5,12 +5,13 @@ import rftc from "../../assets/imgs/rftc.jpg";
 import jali from "../../assets/imgs/jali.jpg";
 import loyal from "../../assets/imgs/loyal.jpg";
 import kbs from "../../assets/imgs/kbs.jpg";
+import './footer.css';
 
 
 const FooterBlock = () => {
   
   return (
-    <footer className='py-8 mb-0 '>
+    <footer className='py-0 mb-0 '>
       <div className="flex justify-around flex-row-reverse border-t border-solid border-sky-500  my-2 mx-0">
         <section className="contact-box hidden lg:block w-1/3 border-l-4 border-solid border-sky-500 my-2">
           <div className='w-full h-auto hidden lg:block  bg-cover rounded-l-lg '>

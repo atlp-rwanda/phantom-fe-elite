@@ -66,6 +66,7 @@ module.exports = {
     new HtmlWebpackPlugin({ template: "./src/template.html" }),
 
     // This is responsible for extracting the css styles from the bundled files and create
+    
     // a separate folder named styles under the dist folder created so that it can be sent to the browser
     new MiniCssExtractPlugin({
       filename: "styles/[name].[contenthash].css",

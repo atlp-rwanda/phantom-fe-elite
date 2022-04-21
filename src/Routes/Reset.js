@@ -2,6 +2,7 @@ import React from "react";
 import destImg from "./../assets/desti.jpg";
 import {FaLinkedin} from 'react-icons/fa';
 import {FcGoogle} from 'react-icons/fc';
+import './reset.css';
 const Reset = () => {
   return (
     <div className="container mx-auto ">
