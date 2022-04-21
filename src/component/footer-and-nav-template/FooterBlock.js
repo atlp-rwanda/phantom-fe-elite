@@ -6,6 +6,7 @@ import {
   FaFacebookSquare,
   FaInstagram,
 } from "react-icons/fa";
+import {  MdLocationOn } from 'react-icons/md'
 import rura from "../../assets/images/partners/rura.jpg";
 import rftc from "../../assets/images/partners/rftc.jpg";
 import jali from "../../assets/images/partners/jali.jpg";
@@ -15,8 +16,8 @@ import kbs from "../../assets/images/partners/kbs.jpg";
 const FooterBlock = () => {
   return (
     <footer>
-      <div className="flex justify-around flex-row-reverse border-t border-solid border-sky-500  my-2 mx-0">
-        <section className="contact-box w-1/3 border-l-4 border-solid border-sky-500 my-2">
+      <div className="flex justify-around flex-col border-t border-solid border-darkBluePhant sm:flex-row-reverse  my-2 mx-0">
+        <section className="contact-box w-full sm:w-1/3 sm:border-l-4 sm:border-solid sm:border-darkBluePhant my-2">
           <div>
             <h3 className="text-center font-semibold mx-0 mt-1 mb-4">
               Contact Us
@@ -24,7 +25,13 @@ const FooterBlock = () => {
           </div>
           <div className="flex justify-around">
             <i className="cursor-pointer">
-              <FaGithub color="deepSkyBlue" size="2em" />
+              <MdLocationOn color="deepSkyBlue" size="2em" />
+            </i>
+            <i className="cursor-pointer">
+              <FaGithub
+                color="deepSkyBlue"
+                size="2em"
+              />
             </i>
             <i className="cursor-pointer">
               <FaInstagram color="deepSkyBlue" size="2em" />
@@ -37,15 +44,15 @@ const FooterBlock = () => {
             </i>
           </div>
         </section>
-        <section className="w-2/3">
+        <section className="sm:w-2/3 mx-8 sm:mx-0">
           <div>
             <h3 className="text-center font-semibold mx-0 mt-1 mb-4">
               Partners
             </h3>
           </div>
-          <div className="flex justify-around">
+          <div className="flex justify-around w-full">
             <img src={rura} alt="RURA" />
-            <img src={rftc} alt="rftc" />
+            <img src={rftc} alt="rftc" className="hidden sm:block" />
             <img src={jali} alt="jali transport company" />
             <img src={kbs} alt="kigali bus services" />
             <img src={loyal} alt="loyal express" />

@@ -14,12 +14,29 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Montserrat: ['Montserrat', 'sans-serif'],
+        Montserrat: ["Montserrat", "sans-serif"],
         josefin: ["Josefin Slab", "serif"],
         josefinSans: ["Josefin Sans", "sans-serif"],
+<<<<<<< HEAD
         squarePeg: ["Square Peg", 'cursive'],
 >>>>>>> 411a8ad ( chore(setup): setup tailwind)
+=======
+        squarePeg: ["Square Peg", "cursive"],
+>>>>>>> 97fe759 (feat(landing-page): implement responsiveness)
       },
+      // backgroundImage: {
+      //       'nature': "url('./src/assets/images/Squares.jpg')",
+      //       // "nature-dark": "url('/nature-dark.jpg')",
+      //     },
+    },
+    colors: {
+      transparent: "transparent",
+      current: "currentColor",
+      textBluePhant: "#0077B6",
+      fullBlackPhant: "#000000",
+      blackPhant: "#212529",
+      whitePhant: "#ffffff",
+      darkBluePhant: "#369FD7",
     },
   },
   plugins: [],

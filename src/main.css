@@ -11,14 +11,15 @@ body {
 @tailwind components;
 @tailwind utilities;
 
-/* custom fonts */
-.holder{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
+/* custom styles */
+
+/* background images at the navbar */
+nav {
+    background-image: url('/src/assets/images/nav-image.jpg');
+    background-size: cover;
+    height: fit-content;
 }
+<<<<<<< HEAD
 .btn{
     background-color: rgb(13, 100, 214);
     color: white;
@@ -26,6 +27,12 @@ body {
     cursor: pointer;
     padding: 0.5rem 1rem;
 >>>>>>> 411a8ad ( chore(setup): setup tailwind)
+=======
+
+/* background image at the footer */
+footer{
+    background-image: url('/src/assets/images/footer-image.jpg');
+>>>>>>> 97fe759 (feat(landing-page): implement responsiveness)
 }
 =======
 @tailwind base;

@@ -83,7 +83,7 @@ module.exports = {
     new CleanWebpackPlugin(),
 
     new Dotenv(),
-    new HtmlWebpackPlugin({ template: "./src/template.html" }),
+    new HtmlWebpackPlugin({ template: "./src/index.html" }),
 
     // This is responsible for extracting the css styles from the bundled files and create
     // a separate folder named styles under the dist folder created so that it can be sent to the browser
