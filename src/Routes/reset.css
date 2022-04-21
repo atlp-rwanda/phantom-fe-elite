@@ -1,6 +1,6 @@
 #container{
         background: url(./../assets/Imigo.jpg) no-repeat center;
         background-size: 100% 100%;
-        
+        /* height: 75px; */
         z-index: 1;
     }
