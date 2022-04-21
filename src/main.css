@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* custom fonts */
+.holder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+.btn{
+    background-color: rgb(13, 100, 214);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+}
