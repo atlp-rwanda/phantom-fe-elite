@@ -20,14 +20,17 @@ const NavBar = () => {
         </Link>
       </ul>
 
-      <ul className="no-underline list-none flex justify-evenly items-center w-1/4">
+      <ul className="no-underline list-none flex justify-between sm:justify-evenly items-center w-1/2 sm:w-1/4">
         <li>
-          <Link to="/input" className="font-semibold">
+          <Link to="/input" className="font-medium sm:font-semibold">
             Sign In
           </Link>
         </li>
         <li>
-          <Link to="/register" className="text-sky-500 font-semibold">
+          <Link
+            to="/register"
+            className="text-darkBluePhant font-medium sm:font-semibold"
+          >
             Sign Up
           </Link>
         </li>

@@ -61,7 +61,7 @@ const RegisterPage = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
-                  className="mt-14 pl-3 h-12 w-full  border border-blue-500 rounded text-2xl tablet:h-14 mt-10"
+                  className="mt-14 pl-3 h-12 w-full  border border-blue-500 rounded text-xl tablet:h-14 mt-10"
                 />
                 {touched.email && errors.email ? (
                   <span className="text-red-500 text-xs">{errors.email}</span>
@@ -76,7 +76,7 @@ const RegisterPage = () => {
                   value={values.username}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className="h-12 w-full pl-3 border border-blue-500 rounded text-2xl tablet:h-14"
+                  className="h-12 w-full pl-3 border border-blue-500 rounded text-xl tablet:h-14"
                 />
                 {touched.username && errors.username ? (
                   <span className="text-red-500 text-xs">
@@ -92,7 +92,7 @@ const RegisterPage = () => {
                   value={values.password}
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  className="h-12 w-full pl-3 border border-blue-500 rounded text-2xl tablet:h-14"
+                  className="h-12 w-full pl-3 border border-blue-500 rounded text-xl tablet:h-14"
                 />
                 {touched.password && errors.password ? (
                   <span className="text-red-500 text-xs">
@@ -113,7 +113,7 @@ const RegisterPage = () => {
                   disabled={isLoading}
                   className={`h-12 w-full ${
                     isLoading ? "bg-blue-100" : "bg-blue-500"
-                  } text-white rounded text-2xl`}
+                  } text-white rounded text-xl`}
                 >
                   Register
                 </button>
