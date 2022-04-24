@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // extract css to files
 
 module.exports = {
-
   //Where the webpack will look when starting to bundle the files. like starting point in the folder
   entry: "./src/index.js",
 
@@ -39,15 +38,6 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
-<<<<<<< HEAD
-        use: [
-<<<<<<< HEAD
-          "style-loader",
-          "css-loader",
-        ],
-      },
-      {
         test: /\.(svg|png|jpg|gif)$/,
         dependency: { not: ["url"] },
         use: {
@@ -62,19 +52,8 @@ module.exports = {
         type: "javascript/auto",
       },
       {
-        test: /\.html$/,
-        use: ["html-loader"],
-      },
-    ],
-  },
-=======
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
-        ],
-=======
-        use: ["style-loader", "css-loader", "postcss-loader"],
->>>>>>> 48418c0 (Initial tailwindcss setup)
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
     ],
   },
@@ -91,7 +70,4 @@ module.exports = {
       filename: "styles/[name].[contenthash].css",
     }),
   ],
->>>>>>> 411a8ad ( chore(setup): setup tailwind)
 };
-
- 

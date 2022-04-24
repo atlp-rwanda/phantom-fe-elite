@@ -8,7 +8,7 @@ import FooterBlock from "./component/footer-and-nav-template/FooterBlock";
 const App = () => {
 	return (
     <BrowserRouter>
-      <div className="background-image">
+      <div className='min-h-screen'>
         <NavBar />
         <Routes>
           <Route exact path="/" element={<LandingPage />}></Route>

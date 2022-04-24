@@ -5,14 +5,14 @@ import logoImg from "../../assets/images/logo.jpg";
 
 const NavBar = () => {
   return (
-    <nav className="flex justify-between sm:justify-between w-full px-6 sm:px-12 my-5 sm:bg-darkBluePhant">
-      <ul className="flex items-end w-2/5 sm:w-1/3 no-underline list-none">
+    <nav className="flex justify-between sm:justify-between w-full px-8 py-4 sm:pl-20 h-[12.5%]" role='navigation'>
+      <ul className="flex items-center w-2/5 sm:w-1/3 no-underline list-none">
         <li>
-          <img src={logoImg} alt="" />
+          <img src={logoImg} alt="" className='w-5/6 sm:w-full ' />
         </li>
         <Link
           to="/"
-          className=" font-josefin no-underline font-medium text-xl sm:text-5xl"
+          className=" font-josefin no-underline font-semibold text-xl sm:text-5xl"
         >
           hantom
         </Link>

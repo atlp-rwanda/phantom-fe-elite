@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-body {
-    font-family: 'Montserrat', sans-serif;
-}
-
-.logo-brand {
-    font-family: 'Josefin Slab', serif;
-=======
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,23 +10,12 @@ nav {
     background-size: cover;
     height: fit-content;
 }
-<<<<<<< HEAD
-.btn{
-    background-color: rgb(13, 100, 214);
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
->>>>>>> 411a8ad ( chore(setup): setup tailwind)
-=======
 
 /* background image at the footer */
 footer{
     background-image: url('/src/assets/images/footer-image.jpg');
->>>>>>> 97fe759 (feat(landing-page): implement responsiveness)
 }
-=======
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
->>>>>>> 48418c0 (Initial tailwindcss setup)
+
+.image {
+     background-image: url('/src/assets/images/secondImage.jpg');
+}
