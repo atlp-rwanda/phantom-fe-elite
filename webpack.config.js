@@ -16,7 +16,7 @@ module.exports = {
 
   // webpack 5 comes with devServer which loads in development mode
   devServer: {
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 4000,
     allowedHosts: "all",
 
     // this allows react to route to the other paths other than root path.
