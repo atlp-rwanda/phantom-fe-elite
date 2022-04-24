@@ -46,8 +46,7 @@ jobs:
     needs: [build]
     steps:
       - uses: actions/checkout@v3
-      - uses: CDNievas/heroku-action@v1.0 # This is the action
+      - uses: behe/heroku-build@v1
         with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "elite-phantom-bus-tracker"
-          heroku_email: "rachelakimana@gmail.com"
+          api-key: ${{secrets.HEROKU_API_KEY}}
+          app-name: "elite-phantom-bus-tracker"
