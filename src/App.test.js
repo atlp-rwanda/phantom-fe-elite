@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import App from "./App";
+// import App from "./App";
 import InputForm from "./Routes/InputForm";
 import AboutPage from "./Routes/AboutPage";
 import Reset from "./Routes/Reset";

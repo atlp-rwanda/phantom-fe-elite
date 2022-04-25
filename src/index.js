@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 /** @format */
-=======
-
->>>>>>> 828a684842516364ea1b8895460ad0b3a9be3d11
 
 import React from "react";
 import ReactDOM from "react-dom/client";
