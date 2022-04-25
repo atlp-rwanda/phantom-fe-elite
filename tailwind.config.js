@@ -5,8 +5,6 @@ module.exports = {
       fontFamily: {
         Montserrat: ["Montserrat", "sans-serif"],
         josefin: ["Josefin Slab", "serif"],
-        josefinSans: ["Josefin Sans", "sans-serif"],
-        squarePeg: ["Square Peg", "cursive"],
       },
     },
     colors: {

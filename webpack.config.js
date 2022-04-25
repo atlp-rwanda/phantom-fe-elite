@@ -24,10 +24,6 @@ module.exports = {
   },
 
   // Rules of how webpack will take our files, compile & bundle them for the browser
-  plugins: [
-    new Dotenv(),
-    new HtmlWebpackPlugin({ template: "./src/index.html" }),
-  ],
   module: {
     rules: [
       {
@@ -53,7 +49,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+        ],
       },
     ],
   },
@@ -71,3 +71,5 @@ module.exports = {
     }),
   ],
 };
+
+ 
