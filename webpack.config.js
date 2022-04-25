@@ -42,6 +42,7 @@ module.exports = {
           "postcss-loader",
         ],
       },
+<<<<<<< HEAD
       {
         test: /\.(svg|png|jpg|gif)$/,
         dependency: { not: ["url"] },
@@ -56,6 +57,8 @@ module.exports = {
 
         type: "javascript/auto",
       },
+=======
+>>>>>>> 828a684842516364ea1b8895460ad0b3a9be3d11
     ],
   },
   plugins: [
@@ -66,10 +69,18 @@ module.exports = {
     new HtmlWebpackPlugin({ template: "./src/template.html" }),
 
     // This is responsible for extracting the css styles from the bundled files and create
+<<<<<<< HEAD
     
+=======
+>>>>>>> 828a684842516364ea1b8895460ad0b3a9be3d11
     // a separate folder named styles under the dist folder created so that it can be sent to the browser
     new MiniCssExtractPlugin({
       filename: "styles/[name].[contenthash].css",
     }),
   ],
 };
+<<<<<<< HEAD
+=======
+
+ 
+>>>>>>> 828a684842516364ea1b8895460ad0b3a9be3d11
