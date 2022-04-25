@@ -1,3 +1,4 @@
+import "regenerator-runtime/runtime";
 import React, { useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
@@ -5,7 +6,7 @@ import trackroute from "../assets/images/trackroute.jpg";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
-const RegisterPage = () => {
+const RegisterPage = ({ onSubmit }) => {
   const [isLoading, setIsLoading] = useState(false);
   const signUpSchema = Yup.object({
     email: Yup.string()
@@ -19,26 +20,26 @@ const RegisterPage = () => {
       .required("password is Required"),
   });
 
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
   return (
     <div className="">
       <h1 className="text-center text-2xl text-blue-500 font-bold ">
         REGISTER
       </h1>
       <div className="flex flex-row  justify-center items-start mt-6 h-screen w-full ">
-        <div className="hidden md:flex md:h-2/4 md:w-2/5 lg:h-3/4 lg:w-2/6 text-center rounded-l-md  ">
+        <div className="hidden md:flex md:h-3/5 md:w-2/5 lg:h-4/5 lg:w-2/6 text-center rounded-l-md  ">
           <img src={trackroute} alt="route" className="h-full w-full" />
         </div>
-        <div className="w-5/6 h-fit flex justify-center items-start md:h-2/4 md:w-2/5 lg:h-3/4 lg:w-2/6  border border-blue-500 rounded-r-md  ">
+        <div className="w-5/6 h-fit flex justify-center items-start md:h-3/5 md:w-2/5 lg:h-4/5 lg:w-2/6  border border-blue-500 rounded-r-md  ">
           <Formik
             initialValues={{ email: "", username: "", password: "" }}
             validationSchema={signUpSchema}
-            onSubmit={(values) => {
+            onSubmit={async (values) => {
               setIsLoading(true);
-              console.log(JSON.stringify(values, null, 2));
-              setTimeout(() => {
-                console.log("done");
-                setIsLoading(false);
-              }, 3000);
+              await sleep(2000);
+              console.log(values);
+              setIsLoading(false);
             }}
           >
             {({
@@ -80,6 +81,7 @@ const RegisterPage = () => {
                   name="username"
                   placeholder="Username"
                   value={values.username}
+                  data-testid="username-input"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className="h-12 w-full pl-3 border border-blue-500 rounded text-xl md:text-2xl"
@@ -98,6 +100,7 @@ const RegisterPage = () => {
                   type="password"
                   name="password"
                   placeholder="Password"
+                  data-testid="password-input"
                   value={values.password}
                   onBlur={handleBlur}
                   onChange={handleChange}
@@ -119,9 +122,9 @@ const RegisterPage = () => {
                 </a>
                 <br />
                 <br />
-                {console.log(isLoading)}
                 <button
                   type="submit"
+                  data-testid="submit-form"
                   disabled={isLoading}
                   className={`h-12 w-full md:text-2xl ${
                     isLoading ? "bg-blue-100" : "bg-blue-500"

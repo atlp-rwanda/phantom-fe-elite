@@ -37,6 +37,8 @@
     "autoprefixer": "^10.2.1",
     "postcss-cli": "^8.3.1",
     "tailwindcss": "^2.0.2",
+    "regenerator-runtime": "^0.13.9",
+    "url-loader": "^4.1.1",
     "yup": "^0.32.11"
 
   },

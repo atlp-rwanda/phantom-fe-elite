@@ -1,6 +1,15 @@
 import React from "react";
 import "@testing-library/jest-dom";
-import { render, screen, fireEvent } from "@testing-library/react";
+import {
+  render,
+  screen,
+  fireEvent,
+  getByRole,
+  getByTestId,
+  getByText,
+  waitFor,
+} from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 import userEvent from "@testing-library/user-event";
 import RegisterPage from "../RegisterPage";
 
@@ -12,7 +21,7 @@ describe("<RegisterPage />", () => {
     expect(inputEl).toHaveAttribute("type", "email");
   });
 
-  test("pass valid email to test email input field", () => {
+  it("pass valid email to test email input field", () => {
     render(<RegisterPage />);
 
     const inputEl = screen.getByTestId("email-input");
@@ -33,7 +42,7 @@ describe("<RegisterPage />", () => {
     expect(screen.getByRole("button")).toBeInTheDocument();
   });
 
-  it("should accepts username inputs more than 3 character", () => {
+  it("should accepts username input value more than 3 character", () => {
     render(<RegisterPage />);
     const inputEl = screen.getByPlaceholderText("Username");
     fireEvent.change(inputEl, { target: { value: "kati" } });
@@ -42,7 +51,7 @@ describe("<RegisterPage />", () => {
     expect(inputEl.value.length).toBeGreaterThan(3);
     expect(screen.queryByTestId("error-msg")).not.toBeInTheDocument();
   });
-  it("should accepts password inputs more than 3 character", () => {
+  it("should accepts password input value more than 3 character", () => {
     render(<RegisterPage />);
     const inputEl = screen.getByPlaceholderText("Password");
     fireEvent.change(inputEl, { target: { value: "kati12" } });
@@ -52,27 +61,49 @@ describe("<RegisterPage />", () => {
     expect(screen.queryByTestId("error-msg")).not.toBeInTheDocument();
   });
 
-  //   it("pass invalid email to test email input field", async () => {
-  //     render(<RegisterPage />);
+  it("should validate form", async () => {
+    const handleSubmit = jest.fn();
+    render(<RegisterPage onSubmit={handleSubmit} />);
 
-  //     const inputEl = screen.getByTestId("email-input");
-  //     fireEvent.change(inputEl, { target: { value: "test" } });
+    const user = userEvent.setup();
 
-  //     expect(inputEl.value).toBe("test");
-  //     fireEvent.blur(inputEl.value);
+    const email = screen.getByTestId("email-input");
+    const username = screen.getByTestId("username-input");
+    const password = screen.getByTestId("password-input");
 
-  //     expect(screen.queryByRole("error-msg")).toHaveTextContent(
-  //       "Invalid email address"
-  //     );
-  //   });
+    fireEvent.blur(email);
+    fireEvent.blur(username);
+    fireEvent.blur(password);
 
-  it("should accepts username inputs more than 3 character", () => {
-    render(<RegisterPage />);
-    const errorMessageNode = screen.queryByTestId("error-msg");
-    const inputEl = screen.getByPlaceholderText("Username");
-
-    expect(inputEl).toHaveValue("");
-    expect(inputEl.value.length).toEqual(0);
-    expect(errorMessageNode).textContent.toBe("Username is required");
+    let errorEmail, usernameErr, errPassword;
+    await waitFor(() => {
+      errorEmail = screen.getByText("Email is Required");
+      usernameErr = screen.getByText("Username is Required");
+      errPassword = screen.getByText("password is Required");
+    });
+    expect(errorEmail).not.toBeNull();
+    expect(usernameErr).not.toBeNull();
+    expect(errPassword).not.toBeNull();
   });
+
+  // it("Test form submit and validation", async () => {
+  //   const handleSubmit = jest.fn();
+  //   render(<RegisterPage onSubmit={handleSubmit} />);
+
+  //   const user = userEvent.setup();
+
+  //   await user.type(screen.getByTestId("email-input"), "rachel@blbla.com");
+  //   await user.type(screen.getByTestId("username-input"), "Rachel");
+  //   await user.type(screen.getByTestId("password-input"), "N#@!Pass");
+
+  //   await user.click(screen.getByTestId("submit-form"));
+
+  //   await waitFor(() =>
+  //     expect(handleSubmit).toHaveBeenCalledWith({
+  //       email: "rachel@blbla.com",
+  //       username: "Rachel",
+  //       password: "N#@!Pass",
+  //     })
+  //   );
+  // });
 });

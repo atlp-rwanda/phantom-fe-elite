@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // extract css 
 
 module.exports = {
   //Where the webpack will look when starting to bundle the files. like starting point in the folder
-  entry: "./src/index.js",
+  entry: ["regenerator-runtime/runtime.js", "./src/index.js"],
 
   // Where files should be sent once they are bundled
   output: {
@@ -16,7 +16,7 @@ module.exports = {
 
   // webpack 5 comes with devServer which loads in development mode
   devServer: {
-    port: process.env.PORT || 4000,
+    port: process.env.PORT || 3000,
     allowedHosts: "all",
 
     // this allows react to route to the other paths other than root path.
