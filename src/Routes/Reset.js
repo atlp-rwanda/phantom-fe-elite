@@ -5,7 +5,7 @@ import {FcGoogle} from 'react-icons/fc';
 import './reset.css';
 const Reset = () => {
   return (
-    <div className="container mx-auto ">
+    <div className="container mx-w-md mx-auto mx-w-sm pt-8 ">
       <h1 className="pt-0 text-2xl text-center text-sky-500 font-bold">
         RESET PASSWORD
       </h1>
@@ -16,7 +16,7 @@ const Reset = () => {
               <img src={destImg} alt="" className="w-full mx-0" />
             </div>
             <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none border border-sky-500">
-              <h2 className="pt-4 text-2xl font-light text-center">
+              <h2 className="pt-4 text-xl font-light text-center ">
                 Forgot Password, Provide Your Email To Reset It
               </h2>
               <form className="mx-8">
@@ -25,6 +25,7 @@ const Reset = () => {
                   <input
                     className="w-full px-4 py-2 text-sm leading-tight text-gray-700 border my-8  border-sky-500 rounded "
                     type="email"
+                    data-testid="emailInput"
                     placeholder="Email ..."
                   />
                 </div>
@@ -32,7 +33,7 @@ const Reset = () => {
                   Reset Password
                 </button>
                 <div>
-                  <p className=" flex justify-between my-4">
+                  <p className=" flex justify-between my-4 text-sm font-light">
                     Or login with
                     <a href="" className="ml-4 ">
                       <FaLinkedin className="text-3xl text-sky-500" />

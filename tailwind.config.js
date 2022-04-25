@@ -7,6 +7,13 @@ module.exports = {
         josefin: ["Josefin Slab", "serif"],
       },
     },
+    screen: {
+
+      'sm':'425px',
+      'md':'768px',
+      'xl':'1024px',
+      '2xl':'1280px',
+    },
   },
   plugins: [],
 };

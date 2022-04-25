@@ -11,11 +11,11 @@ import './footer.css';
 const FooterBlock = () => {
   
   return (
-    <footer className='py-0 mb-0 '>
-      <div className="flex justify-around flex-row-reverse border-t border-solid border-sky-500  my-2 mx-0">
-        <section className="contact-box hidden lg:block w-1/3 border-l-4 border-solid border-sky-500 my-2">
-          <div className='w-full h-auto hidden lg:block  bg-cover rounded-l-lg '>
-            <h3 className="text-center font-semibold mx-0 mt-1 mb-4">
+    <footer className='py-0 mt-20 w-full'>
+      <div className="flex justify-around flex-col border-t border-solid border-sky-500 sm:flex-row-reverse  my-0.5 mx-0">
+        <section className="contact-box w-full sm:w-1/3 sm:border-l-4 sm:border-solid sm:border-sky-500 my-2">
+          <div className='w-full lg:block  bg-cover rounded-l-lg h-auto '>
+            <h3 className="flex justify-around text-center font-semibold mx-0 mt-1 mb-4 sm:block sm:text-center">
               Contact Us
             </h3>
           </div>
@@ -26,13 +26,13 @@ const FooterBlock = () => {
             <i className='cursor-pointer'><FaFacebookSquare color='deepSkyBlue' size='2em'/></i>
           </div>
         </section>
-        <section className="w-2/3">
+        <section className="sm:w-2/3 mx-8 sm:mx-0">
           <div>
             <h3 className="text-center font-semibold mx-0 mt-1 mb-4">
               Partners
             </h3>
           </div>
-          <div className="flex justify-between px-12 my-2 md:flex-auto lg:px-12">
+          <div className="flex justify-around w-full">
             <img src={rura} alt="RURA" className='cursor-pointer'/>
             <img src={rftc} alt="rftc"  className='cursor-pointer' />
             <img src={jali} alt="jali transport company"  className='cursor-pointer' />
@@ -42,7 +42,7 @@ const FooterBlock = () => {
         </section>
       </div>
       <div>
-        <p className="text-center text-xs pb-4">
+        <p className="text-center text-xs pt-5">
           Andela  2022. All Rights reserved. Designed by Elite Team
         </p>
       </div>
