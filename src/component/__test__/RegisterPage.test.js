@@ -10,6 +10,7 @@ import {
   waitFor,
 } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
+import { act } from "react-dom/test-utils";
 import userEvent from "@testing-library/user-event";
 import RegisterPage from "../RegisterPage";
 
@@ -63,47 +64,46 @@ describe("<RegisterPage />", () => {
 
   it("should validate form", async () => {
     const handleSubmit = jest.fn();
-    render(<RegisterPage onSubmit={handleSubmit} />);
-
+    await act(async () => {
+      render(<RegisterPage onSubmit={handleSubmit} />);
+    });
     const user = userEvent.setup();
 
     const email = screen.getByTestId("email-input");
     const username = screen.getByTestId("username-input");
     const password = screen.getByTestId("password-input");
 
+    user.click(screen.getByTestId("submit-form"));
+
     fireEvent.blur(email);
     fireEvent.blur(username);
     fireEvent.blur(password);
 
-    let errorEmail, usernameErr, errPassword;
     await waitFor(() => {
-      errorEmail = screen.getByText("Email is Required");
-      usernameErr = screen.getByText("Username is Required");
-      errPassword = screen.getByText("password is Required");
+      expect(screen.getByText("Email is Required")).toBeInTheDocument();
+      expect(screen.getByText("Username is Required")).toBeInTheDocument();
+      expect(screen.getByText("password is Required")).toBeInTheDocument();
     });
-    expect(errorEmail).not.toBeNull();
-    expect(usernameErr).not.toBeNull();
-    expect(errPassword).not.toBeNull();
   });
 
-  // it("Test form submit and validation", async () => {
-  //   const handleSubmit = jest.fn();
-  //   render(<RegisterPage onSubmit={handleSubmit} />);
+  it("Test form submit and validation", async () => {
+    const onSubmit = jest.fn();
+    render(<RegisterPage handleSubmit={onSubmit} />);
 
-  //   const user = userEvent.setup();
+    const user = userEvent.setup();
 
-  //   await user.type(screen.getByTestId("email-input"), "rachel@blbla.com");
-  //   await user.type(screen.getByTestId("username-input"), "Rachel");
-  //   await user.type(screen.getByTestId("password-input"), "N#@!Pass");
+    await user.type(screen.getByTestId("email-input"), "rachel@blbla.com");
+    await user.type(screen.getByTestId("username-input"), "Rachel");
+    await user.type(screen.getByTestId("password-input"), "N#@!Pass");
 
-  //   await user.click(screen.getByTestId("submit-form"));
+    await user.click(screen.getByTestId("submit-form"));
 
-  //   await waitFor(() =>
-  //     expect(handleSubmit).toHaveBeenCalledWith({
-  //       email: "rachel@blbla.com",
-  //       username: "Rachel",
-  //       password: "N#@!Pass",
-  //     })
-  //   );
-  // });
+    await waitFor(() =>
+      expect(onSubmit).toHaveBeenCalledWith({
+        email: "rachel@blbla.com",
+        username: "Rachel",
+        password: "N#@!Pass",
+      })
+    );
+  });
 });
