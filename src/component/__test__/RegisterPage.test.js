@@ -87,8 +87,8 @@ describe("<RegisterPage />", () => {
   });
 
   it("Test form submit and validation", async () => {
-    const onSubmit = jest.fn();
-    render(<RegisterPage handleSubmit={onSubmit} />);
+    const handleSubmit = jest.fn();
+    render(<RegisterPage onSubmit={handleSubmit} />);
 
     const user = userEvent.setup();
 
@@ -99,7 +99,7 @@ describe("<RegisterPage />", () => {
     await user.click(screen.getByTestId("submit-form"));
 
     await waitFor(() =>
-      expect(onSubmit).toHaveBeenCalledWith({
+      expect(handleSubmit).toHaveBeenCalledWith({
         email: "rachel@blbla.com",
         username: "Rachel",
         password: "N#@!Pass",

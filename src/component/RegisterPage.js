@@ -37,6 +37,7 @@ const RegisterPage = ({ onSubmit }) => {
             validationSchema={signUpSchema}
             onSubmit={async (values) => {
               setIsLoading(true);
+              onSubmit && onSubmit(values);
               await sleep(2000);
               console.log(values);
               setIsLoading(false);
