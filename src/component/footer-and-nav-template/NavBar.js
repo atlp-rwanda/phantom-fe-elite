@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import logoImg from "../../assets/imgs/logo.jpg";
+import logoImg from "../../assets/FINAL-LOGO.png";
 import './style.css';
 
 
@@ -12,7 +12,6 @@ const NavBar = () => {
           <img src={logoImg} alt="" className='cursor-pointer'/>
         </li>
         <Link to="/" className="logo-brand font-josefin no-underline mt-8 font-medium text-xl sm:text-5xl">
-          hantom
         </Link>
       </ul>
 
