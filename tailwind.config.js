@@ -5,6 +5,7 @@ module.exports = {
       fontFamily: {
         Montserrat: ["Montserrat", "sans-serif"],
         josefin: ["Josefin Slab", "serif"],
+        Sensation: ["Sansation", "sans-serif"],
       },
     },
     colors: {
@@ -16,6 +17,15 @@ module.exports = {
       whitePhant: "#ffffff",
       darkBluePhant: "#369FD7",
       errorText: "#f51c1c",
+    },
+    letterSpacing: {
+      tightest: "-.075em",
+      tighter: "-.05em",
+      tight: "-.025em",
+      normal: "0",
+      wide: ".025em",
+      wider: ".05em",
+      widest: "0.5em",
     },
   },
   plugins: [],
