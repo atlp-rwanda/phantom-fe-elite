@@ -8,6 +8,7 @@ import NavBar from "./component/footer-and-nav-template/NavBar";
 import InputForm from "./Routes/InputForm";
 import Home from "./Routes/Home";
 import AboutPage from "./Routes/AboutPage";
+import ResetP from "./Routes/ResetP";
 
 const App = () => {
 	return (
@@ -19,6 +20,7 @@ const App = () => {
 					<Route path="/input" element={<InputForm />}></Route>
 					<Route path="/about" element={<AboutPage />}></Route>
 					<Route path="/reset" element={<Reset/>}></Route>
+					<Route path="/resetp" element={<ResetP/>}></Route>
 				</Routes>
 				<FooterBlock />
 			</div>
