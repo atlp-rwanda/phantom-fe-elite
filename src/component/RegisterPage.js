@@ -39,7 +39,6 @@ const RegisterPage = ({ onSubmit }) => {
               setIsLoading(true);
               onSubmit && onSubmit(values);
               await sleep(2000);
-              console.log(values);
               setIsLoading(false);
             }}
           >
