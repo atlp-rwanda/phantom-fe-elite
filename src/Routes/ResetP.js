@@ -16,11 +16,11 @@ const onSubmit = data => alert(JSON.stringify(data));
 const password = watch('password');
     return (
       <React.Fragment>
-        <div className="container mx-w-md mx-auto mx-w-sm pt-8">
+        <div className="minGr container mx-w-md mx-auto mx-w-sm pt-8">
           <h1 className="pt-0 text-2xl text-center text-sky-500 font-bold">
             RESET PASSWORD
           </h1>
-          <div className="flex justify-center px-6 mt-5 mb-10 py-6 relative">
+          <div className="flex justify-center px-6 mt-1 mb-10 py-2 relative">
             <div className=" flex justify-center  rounded">
               <div className="w-full xl:w-3/4 lg:w-11/12 flex">
                 <div className="w-full h-96 bg-gray-200 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg border border-sky-500">

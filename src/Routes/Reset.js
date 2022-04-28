@@ -22,7 +22,7 @@ handleChange=(e)=>{
 render(){
 
   return (
-    <div className="container mx-w-md mx-auto mx-w-sm pt-8 ">
+    <div className=" minGr container mx-w-md mx-auto mx-w-sm pt-8 ">
       <h1 className="pt-0 text-2xl text-center text-sky-500 font-bold">
         RESET PASSWORD
       </h1>
