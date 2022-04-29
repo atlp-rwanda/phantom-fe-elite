@@ -5,12 +5,13 @@ import Home from "./Routes/Home";
 import AboutPage from "./Routes/AboutPage";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import NavBar from "./component/NavBar";
+import AdminLogout from "./component/AdminLogout";
 
 const App = () => {
 	return (
 		<BrowserRouter>
 			<div>
-				<NavBar/>
+				<AdminLogout/>
 				<Routes>
 					<Route exact path="/" element={<Home />}></Route>
 					<Route path="/input" element={<InputForm />}></Route>
