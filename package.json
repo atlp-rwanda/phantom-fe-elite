@@ -7,8 +7,7 @@
     "start": "webpack serve --mode development --open",
     "build": "webpack --mode production",
     "test": "react-scripts test --watchAll=false",
-    "coverage": "react-scripts test --coverage --watchAll=false",
-    "watch:css": "postcss src/assets/tailwind.css -o src/main.css"
+    "coverage": "react-scripts test --coverage --watchAll=false"
   },
   "keywords": [
     "webpack5",
@@ -21,16 +20,23 @@
     "babel-jest": "^27.5.1",
     "dotenv": "^16.0.0",
     "dotenv-webpack": "^7.1.0",
+    "formik": "^2.2.9",
     "jest": "^27.5.1",
     "path": "^0.12.7",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-icons": "^4.3.1",
     "react-redux": "^7.2.8",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.0",
     "react-test-renderer": "^18.0.0",
-    "redux": "^4.1.2"
+    "redux": "^4.1.2",
+    "autoprefixer": "^10.2.1",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.0.2",
+    "yup": "^0.32.11"
+
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
@@ -44,6 +50,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
+    "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
     "postcss": "^8.4.12",
     "postcss-loader": "^6.2.1",

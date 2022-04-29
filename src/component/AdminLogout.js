@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import logoImg from "../../assets/images/logo.jpg";
-import usericon from "../../assets/images/vector.png";
-import dropicon from "../../assets/images/polygon.png";
-import dropicon1 from "../../assets/images/Vector1.png";
-import notification from "../../assets/images/notification.png";
+import logoImg from "../assets/images/logo.jpg";
+import usericon from "../assets/images/vector.png";
+import dropicon from "../assets/images/polygon.png";
+import dropicon1 from "../assets/images/Vector1.png";
+import notification from "../assets/images/notification.png";
 import { createPopper } from '@popperjs/core';
 
 
