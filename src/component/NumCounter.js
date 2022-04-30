@@ -10,10 +10,8 @@ const NumCounter = () => {
 	const dispatch = useDispatch();
 	console.log(numberState);
 	return (
-		<div className="holder">
-			<button className="btn" onClick={() => dispatch(increaseValue())}>
+		<div className="holder josefinSans">
 				Increase
-			</button>
 			<p>{numberState}</p>
 			<button className="btn" onClick={() => dispatch(decreaseValue())}>
 				Decrease

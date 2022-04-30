@@ -2,8 +2,11 @@
 
 # dependencies
 /node_modules
+/dist
+.gitignore
 /.pnp
 .pnp.js
+.env
 
 # testing
 /coverage
