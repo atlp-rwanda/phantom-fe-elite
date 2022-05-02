@@ -24,7 +24,7 @@ const password = watch('password');
             <div className=" flex justify-center  rounded">
               <div className="w-full xl:w-3/4 lg:w-11/12 flex">
                 <div className="w-full h-96 bg-gray-200 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg border border-sky-500">
-                  <img src={destImg} alt="" className=" w-full md:w-full md:h-full mx-0" />
+                  <img src={destImg} alt="" className=" w-full md:w-full md:h-full mx-0" role='image'/>
                 </div>
                 <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none border border-sky-500">
                   <form className="mx-8 relative" onSubmit={handleSubmit()} >

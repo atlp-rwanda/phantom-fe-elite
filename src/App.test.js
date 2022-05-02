@@ -1,22 +1,9 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-// import App from "./App";
-import InputForm from "./Routes/InputForm";
-import AboutPage from "./Routes/AboutPage";
 import Reset from "./Routes/Reset";
 import ResetP from "./Routes/ResetP";
 
 describe("display on landing page", () => {
-  test("renders learn react link", () => {
-    const { getByText } = render(<InputForm />);
-    const linkElement = getByText("HELLO FROM Login Form");
-    expect(linkElement).toBeInTheDocument();
-  });
-  test('renders on about page',() => {
-    const { getByText } = render(<AboutPage />);
-    const linkElement = getByText("HELLO FROM ABOUT PAGE !!!");
-    expect(linkElement).toBeInTheDocument()
-  })
   it('renders on Reset page',() => {
     const { getByText } = render(<Reset />);
     const linkElement = getByText("RESET PASSWORD");
@@ -30,6 +17,11 @@ describe("display on landing page", () => {
   it('It should display image on side of form reset',()=>{
     render(<Reset />);
     const img =screen.getByRole("image");
+    expect(img).toBeInTheDocument();
+  })
+  it('should display image on side of form confirm password page ', ()=>{
+    render(<ResetP/>);
+    const img = screen.getByRole("image");
     expect(img).toBeInTheDocument();
   })
   
@@ -71,7 +63,7 @@ describe("Should confrim new password", () => {
     render(<ResetP />)
     const inputPass = screen.getByPlaceholderText("Password ...")
     fireEvent.change(inputPass,{target: {value:""}})
-    // expect(inputPass.value.length).toBeGreaterThanOrEqual(8);
+    // expect(inputPass.value.length).toBeGreaterThanOrEqual(9);
     expect(screen.queryAllByTestId("error-msg"))
   })
   it("Should accepts confirm password when you insert same password",()=>{

@@ -4,22 +4,22 @@ import {FaLinkedin} from 'react-icons/fa';
 import {FcGoogle} from 'react-icons/fc';
 import './reset.css';
 import { render } from "@testing-library/react";
-class Reset extends Component{
-state={
-  disabled: true
-}
-handleChange=(e)=>{
-  if(e.target.value.length >=9){
-    this.setState({
-      disabled:false
-    });
-  }else{
-    this.setState({
-      disabled: true
-    });
-  }
-}
-render(){
+const  Reset=()=>{
+// state={
+//   disabled: true
+// }
+// handleChange=(e)=>{
+//   if(e.target.value.length >=9){
+//     this.setState({
+//       disabled:false
+//     });
+//   }else{
+//     this.setState({
+//       disabled: true
+//     });
+//   }
+// }
+// render(){
 
   return (
     <div className=" minGr container mx-w-md mx-auto mx-w-sm pt-8 ">
@@ -44,10 +44,10 @@ render(){
                     type="email"
                     data-testid="emailInput"
                     placeholder="Email ..."
-                    onChange={this.handleChange}
+                    
                   />
                 </div>
-                <button disabled={this.state.disabled} className=" btn w-full my-6 py-2 bg-sky-500 shadow-lg border-sky-500 rounded text-white">
+                <button  className=" btn w-full my-6 py-2 bg-adminFooterBackground shadow-lg border-sky-500 rounded text-white">
                   Reset Password
                 </button>
                 <div>
@@ -69,6 +69,5 @@ render(){
     </div>
   );
 };
-}
 
 export default Reset;
