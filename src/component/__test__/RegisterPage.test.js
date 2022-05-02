@@ -34,8 +34,8 @@ describe("<RegisterPage />", () => {
 
   it("render input username", () => {
     render(<RegisterPage />);
-    expect(screen.getByPlaceholderText("Username")).toBeInTheDocument();
-    expect(screen.getByPlaceholderText("Password")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Username...")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Password...")).toBeInTheDocument();
   });
 
   it("renders a submit button", () => {
@@ -45,7 +45,7 @@ describe("<RegisterPage />", () => {
 
   it("should accepts username input value more than 3 character", () => {
     render(<RegisterPage />);
-    const inputEl = screen.getByPlaceholderText("Username");
+    const inputEl = screen.getByPlaceholderText("Username...");
     fireEvent.change(inputEl, { target: { value: "kati" } });
 
     expect(inputEl.value).toBe("kati");
@@ -54,7 +54,7 @@ describe("<RegisterPage />", () => {
   });
   it("should accepts password input value more than 3 character", () => {
     render(<RegisterPage />);
-    const inputEl = screen.getByPlaceholderText("Password");
+    const inputEl = screen.getByPlaceholderText("Password...");
     fireEvent.change(inputEl, { target: { value: "kati12" } });
 
     expect(inputEl.value).toBe("kati12");

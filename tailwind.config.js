@@ -2,9 +2,6 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx,html}"],
   theme: {
     extend: {
-      backgroundImage: {
-        trackroute: "url('./src/assets/images/trackroute.jpg')",
-      },
       fontFamily: {
         Montserrat: ["Montserrat", "sans-serif"],
         josefin: ["Josefin Slab", "serif"],

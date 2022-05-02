@@ -31,12 +31,12 @@ const RegisterPage = ({ onSubmit }) => {
       <div className="flex flex-row  justify-center items-start my-6 w-full h-[90%]">
         <div
           style={{ backgroundImage: `url(${trackroute})` }}
-          className="hidden md:flex text-center rounded-l-md  w-3/4 lg:w-[27%] md:w-[45%] h-full bg-no-repeat bg-cover"
+          className="hidden md:flex text-center rounded-l-md  w-96 lg:w-80 md:w-[45%] h-full bg-no-repeat bg-cover"
         >
           {/* <img src="" alt="route" className="" /> */}
         </div>
 
-        <div className="w-3/4 h-full lg:h-fulf lg:w-[27%] md:w-[45%]  flex justify-center items-start  border border-blue-500 rounded-r-md  ">
+        <div className="w-96 lg:w-80 md:w-[45%] h-full lg:h-full flex justify-center items-start  border border-blue-500 rounded-r-md  ">
           <Formik
             initialValues={{ email: "", username: "", password: "" }}
             validationSchema={signUpSchema}
