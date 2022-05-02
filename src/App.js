@@ -10,12 +10,14 @@ import FooterBlock from "./component/footer-and-nav-template/FooterBlock";
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="background-image">
+      <div className="h-screen flex flex-col ">
         <NavBar />
-        <Routes>
-          <Route exact path="/" element={<LandingPage />}></Route>
-          <Route exact path="/register" element={<RegisterPage />}></Route>
-        </Routes>
+        <main className="mb-auto flex-grow">
+          <Routes>
+            <Route exact path="/" element={<LandingPage />}></Route>
+            <Route exact path="/register" element={<RegisterPage />}></Route>
+          </Routes>
+        </main>
         <FooterBlock />
       </div>
     </BrowserRouter>

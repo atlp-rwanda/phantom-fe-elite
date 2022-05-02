@@ -23,15 +23,20 @@ const RegisterPage = ({ onSubmit }) => {
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
   return (
-    <div className="">
-      <h1 className="text-center text-2xl text-blue-500 font-bold ">
+    <div className=" flex flex-col w-full h-full lg:w-full">
+      <h1 className="text-center text-2xl text-textBluePhant font-bold h-[8%]">
         REGISTER
       </h1>
-      <div className="flex flex-row  justify-center items-start mt-6 h-screen w-full ">
-        <div className="hidden md:flex md:h-3/5 md:w-2/5 lg:h-4/5 lg:w-2/6 text-center rounded-l-md  ">
-          <img src={trackroute} alt="route" className="h-full w-full" />
+
+      <div className="flex flex-row  justify-center items-start my-6 w-full h-[90%]">
+        <div
+          style={{ backgroundImage: `url(${trackroute})` }}
+          className="hidden md:flex text-center rounded-l-md  w-3/4 lg:w-[27%] md:w-[45%] h-full bg-no-repeat bg-cover"
+        >
+          {/* <img src="" alt="route" className="" /> */}
         </div>
-        <div className="w-5/6 h-fit flex justify-center items-start md:h-3/5 md:w-2/5 lg:h-4/5 lg:w-2/6  border border-blue-500 rounded-r-md  ">
+
+        <div className="w-3/4 h-full lg:h-fulf lg:w-[27%] md:w-[45%]  flex justify-center items-start  border border-blue-500 rounded-r-md  ">
           <Formik
             initialValues={{ email: "", username: "", password: "" }}
             validationSchema={signUpSchema}
@@ -52,93 +57,90 @@ const RegisterPage = ({ onSubmit }) => {
               isSubmitting,
               isValid,
               dirty,
-              /* and other goodies */
             }) => (
               <form className=" h-full w-5/6 pb-10 " onSubmit={handleSubmit}>
                 <input
                   type="email"
                   name="email"
                   data-testid="email-input"
-                  placeholder="Email"
+                  placeholder="Email..."
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
-                  className="mt-8 pl-3 h-12 w-full  border border-blue-500 rounded text-xl md:text-2xl"
+                  className="mt-5 lg:mt-8 md:mt-14 pl-3 h-10 lg:h-9 md:h-14 w-full  border border-darkBluePhant rounded text-lg font-Montserrat"
                 />
                 {touched.email && errors.email ? (
                   <span
                     data-testid="error-msg"
-                    className="text-red-500 text-xs"
+                    className="text-errorText text-xs"
                   >
                     {errors.email}
                   </span>
                 ) : null}
 
                 <br />
-                <br />
+
                 <input
                   type="text"
                   name="username"
-                  placeholder="Username"
+                  placeholder="Username..."
                   value={values.username}
                   data-testid="username-input"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className="h-12 w-full pl-3 border border-blue-500 rounded text-xl md:text-2xl"
+                  className="h-10 lg:h-9 md:h-14 w-full pl-3 mt-3 lg:mt-3 md:mt-8 border border-darkBluePhant rounded text-lg font-Montserrat"
                 />
                 {touched.username && errors.username ? (
                   <span
                     data-testid="error-msg"
-                    className="text-red-500 text-xs"
+                    className="text-errorText text-xs"
                   >
                     {errors.username}
                   </span>
                 ) : null}
                 <br />
-                <br />
+
                 <input
                   type="password"
                   name="password"
-                  placeholder="Password"
+                  placeholder="Password..."
                   data-testid="password-input"
                   value={values.password}
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  className="h-12 w-full pl-3 border border-blue-500 rounded text-xl md:text-2xl"
+                  className="h-10 lg:h-9 md:h-14 w-full mt-3 lg:mt-3 md:mt-8 mb-4 pl-3 border border-darkBluePhant rounded text-lg font-Montserrat"
                 />
                 {touched.password && errors.password ? (
                   <span
                     data-testid="error-msg"
-                    className="text-red-500 text-xs"
+                    className="text-errorText text-xs"
                   >
                     {errors.password}
                   </span>
                 ) : null}
                 <br />
-                <br />
 
-                <a href="" className=" font-Montserrat text-xl">
+                <a href="" className="font-Montserrat text-md">
                   Reset Password
                 </a>
                 <br />
-                <br />
+
                 <button
                   type="submit"
                   data-testid="submit-form"
                   disabled={isLoading}
-                  className={`h-12 w-full md:text-2xl ${
-                    isLoading ? "bg-blue-100" : "bg-blue-500"
-                  } text-white rounded text-xl`}
+                  className={`h-10 lg:h-9 md:h-14 mt-2 lg:mt-2 md:mt-6 w-full text-md ${
+                    isLoading ? "bg-blue-100" : "bg-darkBluePhant"
+                  } text-whitePhant rounded text-lg font-bold`}
                 >
                   Register
                 </button>
                 <br />
-                <br />
 
-                <p className="flex flex-row font-Montserrat text-lg md:text-xl">
+                <p className="flex flex-row mt-2 lg:mt-2 md:mt-10 font-Montserrat text-md ">
                   or login with
                   <a href="" className="ml-4 ">
-                    <FaLinkedin className="text-2xl text-blue-500 " />
+                    <FaLinkedin className="text-2xl text-darkBluePhant " />
                   </a>
                   <a href="" className="ml-4">
                     <FcGoogle className="text-2xl " />
