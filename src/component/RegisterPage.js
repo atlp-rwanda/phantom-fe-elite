@@ -36,7 +36,7 @@ const RegisterPage = ({ onSubmit }) => {
           {/* <img src="" alt="route" className="" /> */}
         </div>
 
-        <div className="w-96 lg:w-80 md:w-[45%] h-full lg:h-full flex justify-center items-start  border border-blue-500 rounded-r-md  ">
+        <div className="w-96 lg:w-80 md:w-[45%] h-full lg:h-full flex justify-center items-start  border border-darkBluePhant rounded-r-md  ">
           <Formik
             initialValues={{ email: "", username: "", password: "" }}
             validationSchema={signUpSchema}
