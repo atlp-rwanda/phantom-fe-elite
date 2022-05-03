@@ -6,16 +6,16 @@
 
 /* background images at the navbar */
 nav {
-    background-image: url('/src/assets/images/nav-image.jpg');
-    background-size: cover;
-    height: fit-content;
+  background-image: url("/src/assets/images/nav-image.jpg");
+  background-size: cover;
+  height: fit-content;
 }
 
 /* background image at the footer */
-footer{
-    background-image: url('/src/assets/images/footer-image.jpg');
+footer {
+  background-image: url("/src/assets/images/footer-image.jpg");
 }
 
 .image {
-     background-image: url('/src/assets/images/secondImage.jpg');
+  background-image: url("/src/assets/images/secondImage.jpg");
 }

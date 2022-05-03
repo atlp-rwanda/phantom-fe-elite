@@ -1,14 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import logoImg from "../../assets/images/logo.jpg";
-
 
 const NavBar = () => {
   return (
-    <nav className="flex justify-between sm:justify-between w-full px-8 py-4 sm:pl-20 h-[12.5%]" role='navigation'>
+    <nav
+      className="flex justify-between sm:justify-between w-full px-8 py-4 sm:pl-20 h-[12.5%]"
+      role="navigation"
+    >
       <ul className="flex items-center w-2/5 sm:w-1/3 no-underline list-none">
         <li>
-          <img src={logoImg} alt="" className='w-5/6 sm:w-full ' />
+          <img src={logoImg} alt="" className="w-5/6 sm:w-full " />
         </li>
         <Link
           to="/"
@@ -26,7 +28,7 @@ const NavBar = () => {
         </li>
         <li>
           <Link
-            to="/about"
+            to="/register"
             className="text-darkBluePhant font-medium sm:font-semibold"
           >
             Sign Up
@@ -35,6 +37,6 @@ const NavBar = () => {
       </ul>
     </nav>
   );
-}
+};
 
-export default NavBar
+export default NavBar;
