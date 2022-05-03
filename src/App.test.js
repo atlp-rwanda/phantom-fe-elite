@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Reset from "./Routes/Reset";
 import ResetP from "./Routes/ResetP";
+import destImg from './assets/desti.jpg'
 
 describe("display on landing page", () => {
   it('renders on Reset page',() => {
@@ -23,6 +24,10 @@ describe("display on landing page", () => {
     render(<ResetP/>);
     const img = screen.getByRole("image");
     expect(img).toBeInTheDocument();
+  })
+  it('',()=>{
+    const worpWrapper = render(<ResetP />);
+    worpWrapper.findAllByDisplayValue(destImg)
   })
   
 });
@@ -63,7 +68,7 @@ describe("Should confrim new password", () => {
     render(<ResetP />)
     const inputPass = screen.getByPlaceholderText("Password ...")
     fireEvent.change(inputPass,{target: {value:""}})
-    // expect(inputPass.value.length).toBeGreaterThanOrEqual(9);
+    // expect(inputPass.value.length).toHaveLength(9);
     expect(screen.queryAllByTestId("error-msg"))
   })
   it("Should accepts confirm password when you insert same password",()=>{
