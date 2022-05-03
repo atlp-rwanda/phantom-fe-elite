@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-// import logo from "../assets/images/logo.jpg";
+import logo from "../../assets/images/logo.jpg";
 import { VscCompass } from "react-icons/vsc";
 import {RiArrowDropDownFill,} from "react-icons/ri";
 import { IoMdNotifications } from "react-icons/io";
@@ -38,7 +38,7 @@ const Admin = ({ children }) => {
 				{children}
 			</main>
 			<aside className="bg-white col-start-1 col-end-3 text-black row-span-full border-r-2 border-solid border-[#f3f3f3]">
-				<img src="../assets/images/logo.jpg" className="mx-7 mt-3" />
+				<img src={logo} className="mx-7 mt-3" />
 				<br />
 				<div className=" tracking-wider mt-8 ml-5 flex justify-start gap-5 ">
 					<VscCompass className="text-[26px]" />
@@ -67,11 +67,11 @@ const Admin = ({ children }) => {
 					</div>
 				</div>
 			</aside>
-			<footer className="bg-adminFooterBackground font-Montserrat font-medium col-start-3 col-end-13 row-start-12 row-end-13  flex justify-center items-center ">
+			<div className="bg-adminFooterBackground font-Montserrat font-medium col-start-3 col-end-13 row-start-12 row-end-13  flex justify-center items-center ">
 				<p className="text-white text-xs">
 					Andela 2022 All rights Reserved. Designed by Elite Team
 				</p>
-			</footer>
+			</div>
 		</div>
 	);
 };

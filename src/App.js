@@ -1,23 +1,21 @@
 /** @format */
 import React from "react";
-import InputForm from "./Routes/InputForm";
-import Home from "./Routes/Home";
-import AboutPage from "./Routes/AboutPage";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
-import NavBar from "./component/NavBar";
+import RegisterPage from "./Routes/RegisterPage";
+import LandingPage from "./Routes/LandingPage";
 import Bus from "./views/admin/Bus";
 
 const App = () => {
 	return (
 		<BrowserRouter>
-			<div>
-				{/* <NavBar /> */}
-				<Routes>
-					<Route exact path="/" element={<Home />}></Route>
-					<Route path="/input" element={<InputForm />}></Route>
-					<Route path="/about" element={<AboutPage />}></Route>
-					<Route path="/bus" element={<Bus/>}></Route>
-				</Routes>
+			<div className="h-screen flex flex-col ">
+				<main className="mb-auto flex-grow">
+					<Routes>
+						<Route exact path="/" element={<LandingPage />}></Route>
+						<Route exact path="/register" element={<RegisterPage />}></Route>
+						<Route exact path="/bus" element={<Bus />}></Route>
+					</Routes>
+				</main>
 			</div>
 		</BrowserRouter>
 	);
