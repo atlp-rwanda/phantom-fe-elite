@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import trackroute from "../assets/images/trackroute.jpg";
+import secondimage from "../assets/images/secondImage.jpg";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
@@ -28,15 +29,16 @@ const RegisterPage = ({ onSubmit }) => {
         REGISTER
       </h1>
 
-      <div className="flex flex-row  justify-center items-start my-6 w-full h-[90%]">
+      <div
+        style={{ backgroundImage: `url(${secondimage})` }}
+        className="flex flex-row  justify-center items-start my-6 w-full h-[90%]"
+      >
         <div
           style={{ backgroundImage: `url(${trackroute})` }}
-          className="hidden md:flex text-center rounded-l-md  w-96 lg:w-80 md:w-[45%] h-full bg-no-repeat bg-cover"
-        >
-          {/* <img src="" alt="route" className="" /> */}
-        </div>
+          className="hidden md:flex text-center rounded-l-md  w-72 lg:w-80  h-full bg-no-repeat bg-cover"
+        ></div>
 
-        <div className="w-96 lg:w-80 md:w-[45%] h-full lg:h-full flex justify-center items-start  border border-darkBluePhant rounded-r-md  ">
+        <div className="w-72 lg:w-80 h-full lg:h-full flex justify-center items-start  border border-darkBluePhant rounded-r-md  ">
           <Formik
             initialValues={{ email: "", username: "", password: "" }}
             validationSchema={signUpSchema}
@@ -54,9 +56,6 @@ const RegisterPage = ({ onSubmit }) => {
               handleChange,
               handleBlur,
               handleSubmit,
-              isSubmitting,
-              isValid,
-              dirty,
             }) => (
               <form className=" h-full w-5/6 pb-10 " onSubmit={handleSubmit}>
                 <input
@@ -67,7 +66,7 @@ const RegisterPage = ({ onSubmit }) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
-                  className="mt-5 lg:mt-8 md:mt-14 pl-3 h-10 lg:h-9 md:h-14 w-full  border border-darkBluePhant rounded text-lg font-Montserrat"
+                  className="mt-5 lg:mt-6 md:mt-10 pl-3 h-10 lg:h-9 md:h-12 w-full  border border-darkBluePhant rounded text-md font-Montserrat"
                 />
                 {touched.email && errors.email ? (
                   <span
@@ -88,7 +87,7 @@ const RegisterPage = ({ onSubmit }) => {
                   data-testid="username-input"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className="h-10 lg:h-9 md:h-14 w-full pl-3 mt-3 lg:mt-3 md:mt-8 border border-darkBluePhant rounded text-lg font-Montserrat"
+                  className="h-10 lg:h-9 md:h-12 w-full pl-3 mt-3 lg:mt-3 md:mt-6 border border-darkBluePhant rounded text-md font-Montserrat"
                 />
                 {touched.username && errors.username ? (
                   <span
@@ -108,7 +107,7 @@ const RegisterPage = ({ onSubmit }) => {
                   value={values.password}
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  className="h-10 lg:h-9 md:h-14 w-full mt-3 lg:mt-3 md:mt-8 mb-4 pl-3 border border-darkBluePhant rounded text-lg font-Montserrat"
+                  className="h-10 lg:h-9 md:h-12 w-full mt-3 lg:mt-3 md:mt-6 mb-4 pl-3 border border-darkBluePhant rounded text-md font-Montserrat"
                 />
                 {touched.password && errors.password ? (
                   <span
@@ -120,7 +119,7 @@ const RegisterPage = ({ onSubmit }) => {
                 ) : null}
                 <br />
 
-                <a href="" className="font-Montserrat text-md">
+                <a href="" className="font-Montserrat text-sm">
                   Reset Password
                 </a>
                 <br />
@@ -129,7 +128,7 @@ const RegisterPage = ({ onSubmit }) => {
                   type="submit"
                   data-testid="submit-form"
                   disabled={isLoading}
-                  className={`h-10 lg:h-9 md:h-14 mt-2 lg:mt-2 md:mt-6 w-full text-md ${
+                  className={`h-10 lg:h-9 md:h-12 mt-2 lg:mt-2 md:mt-6 mb-3 w-full text-md ${
                     isLoading ? "bg-blue-100" : "bg-darkBluePhant"
                   } text-whitePhant rounded text-lg font-bold`}
                 >
@@ -137,7 +136,7 @@ const RegisterPage = ({ onSubmit }) => {
                 </button>
                 <br />
 
-                <p className="flex flex-row mt-2 lg:mt-2 md:mt-10 font-Montserrat text-md ">
+                <p className="flex flex-row mt-2 lg:mt-2 md:mt-10 font-Montserrat text-sm ">
                   or login with
                   <a href="" className="ml-4 ">
                     <FaLinkedin className="text-2xl text-darkBluePhant " />

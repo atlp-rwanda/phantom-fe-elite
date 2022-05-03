@@ -3,8 +3,8 @@
 import React from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import NavBar from "./component/footer-and-nav-template/NavBar";
-import RegisterPage from "./component/RegisterPage";
-import LandingPage from "./component/LandingPage";
+import RegisterPage from "./Routes/RegisterPage";
+import LandingPage from "./Routes/LandingPage";
 import FooterBlock from "./component/footer-and-nav-template/FooterBlock";
 
 const App = () => {
