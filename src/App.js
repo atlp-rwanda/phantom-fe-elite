@@ -5,7 +5,7 @@ import Home from "./Routes/Home";
 import AboutPage from "./Routes/AboutPage";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import NavBar from "./component/NavBar";
-import Layout from "./component/dashboard/Layout";
+import Bus from "./views/admin/Bus";
 
 const App = () => {
 	return (
@@ -16,7 +16,7 @@ const App = () => {
 					<Route exact path="/" element={<Home />}></Route>
 					<Route path="/input" element={<InputForm />}></Route>
 					<Route path="/about" element={<AboutPage />}></Route>
-					<Route path="/dashboard" element={<Layout />}></Route>
+					<Route path="/bus" element={<Bus/>}></Route>
 				</Routes>
 			</div>
 		</BrowserRouter>
