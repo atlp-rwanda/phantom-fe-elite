@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import AsideAdmin from './component/AsideAdmin';
 import FooterAdmin from './component/FooterAdmin';
 import HeaderAdmin from './component/HeaderAdmin';
@@ -10,7 +11,7 @@ const NewOperatorForm = () => {
       <main className="col-start-3 col-end-13 row-start-2 row-end-12 px-3 mx-2 mt-2 bg-white flex items-center justify-center">
         <div className="w-1/3 h-2/3 bg-adminFooterBackground rounded-sm p-3 box-border">
           <div className="mb-4 font-bold border-b-2 border-solid border-darkBluePhant w-[135px]">
-            Create Operator
+            Create operator 
           </div>
           <form action="">
             <div className="flex flex-col pb-1">
@@ -46,12 +47,12 @@ const NewOperatorForm = () => {
               </select>
             </div>
             <div className="flex py-4 ">
-              <div className="bg-[#19B600] h-8 px-3 mr-5 rounded-md pt-1">
-                Back
+              <div className="bg-[#19B600] h-8 px-3 mr-5 rounded-md pt-1 cursor-pointer">
+                <Link to="/admin">Back</Link>
               </div>
               <button
                 type="submit"
-                className="bg-darkBluePhant h-8 px-3 rounded-md"
+                className="bg-darkBluePhant h-8 px-3 rounded-md cursor-pointer"
               >
                 Save Operator
               </button>

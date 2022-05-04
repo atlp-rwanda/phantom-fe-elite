@@ -1,6 +1,7 @@
 import React from "react";
 import TableRow from "./TableRow";
 import { MdArrowDropDown } from "react-icons/md";
+import { Link } from "react-router-dom";
 import {
   RiAddCircleLine,
   RiArrowDropDownFill,
@@ -40,7 +41,7 @@ const Admin = () => {
           </section>
         </div>
       </header> */}
-      < HeaderAdmin />
+      <HeaderAdmin />
       <main className=" flex flex-col col-start-3 col-end-13 row-start-2 row-end-12 px-3 mx-2 mt-2 bg-white">
         <div className="my-2 font-black text-xl border-b-2 border-solid border-darkBluePhant w-[90px]">
           Operator
@@ -48,7 +49,9 @@ const Admin = () => {
         <div className="flex flex-row items-center my-3">
           <div className="bg-darkBluePhant p-2 rounded-md font-bold text-white flex items-center justify-between w-1/5">
             <RiAddCircleLine className="text-white text-2xl" />
-            <div >Add new Operator</div>
+            <div>
+              <Link to="/form">Create Operator</Link>
+            </div>
           </div>
           <form action="" className="w-2/5 h-10 mx-12">
             <input
@@ -58,14 +61,14 @@ const Admin = () => {
             />
           </form>
         </div>
-        < TableHeader /> 
+        <TableHeader />
         <div className="overflow-auto ">
           {/* rendering the all users from the database using this component TableGenerator */}
-          < TableGenerator />
+          <TableGenerator />
         </div>
       </main>
-      < AsideAdmin /> 
-      < FooterAdmin />
+      <AsideAdmin />
+      <FooterAdmin />
     </div>
   );
 };
