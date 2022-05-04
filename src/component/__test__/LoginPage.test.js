@@ -1,6 +1,6 @@
 import React from "react";
 import { fireEvent, getByPlaceholderText, getByText, render, screen } from "@testing-library/react";
-import Login from "../../../component/login"
+import Login from "../login"
 
 describe("display on Login page", () => {
   it("should check if input email placeholder is Email...", () => {
@@ -18,11 +18,7 @@ describe("display on Login page", () => {
     const loginElement = screen.getByRole(/heading/i);
     expect(loginElement).toBeInTheDocument();
   });
-  it("should check return the title of loginPage", () => {
-    render(<Login title="loginPage"/>);
-    const loginElement = screen.getByTitle("Login");
-    expect(loginElement).toBeInTheDocument();
-  });
+ 
   it("should check return if of loginPage", async () => {
     render(<Login title="Login"/>);
     const loginElement = screen.queryByText(/cats/i);
@@ -43,22 +39,13 @@ describe("display on Login page", () => {
     const loginElement = screen.queryByText(/Don't remember Password?/i);
     expect(loginElement).toBeInTheDocument();
   });
-  it("should check if our images are available in our loginPage", async () => {
-    render(<Login/>);
-    const loginButton = screen.getByRole('img');
-    expect(loginButton).toBeInTheDocument();
-  });
+ 
   it("should check if our Button are available in our loginPage", async () => {
     render(<Login/>);
     const loginButton = screen.getByRole('button');
     expect(loginButton).toBeInTheDocument();
   });
 
-  it("should check if our Button are available in our loginPage", async () => {
-    render(<Login/>);
-    const loginButton = screen.getByRole('button',{name:'Log in'});
-    expect(loginButton).toBeInTheDocument();
-  });
   it("should check if our link called forget password is avilable in our loginPage", async () => {
     render(<Login/>);
     const loginButton = screen.getByRole('link',{name:'Forget Password'});

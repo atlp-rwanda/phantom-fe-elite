@@ -7,8 +7,8 @@ import './footer.css';
 const rura = "https://res.cloudinary.com/andela-hodal/image/upload/v1651660977/images/rura_dgg2f9.jpg";
 const rftc ="https://res.cloudinary.com/andela-hodal/image/upload/v1651660977/images/rftc_qfmeqx.jpg";
 const jali="https://res.cloudinary.com/andela-hodal/image/upload/v1651660977/images/jali_vj9gbl.jpg";
-const loyal="https://res.cloudinary.com/andela-hodal/image/upload/v1651660977/images/loyal_sofepx.jpg"
-const kbs="https://res.cloudinary.com/andela-hodal/image/upload/v1651660977/images/kbs_wbykvn.jpg"
+const loyal="https://res.cloudinary.com/andela-hodal/image/upload/v1651660977/images/loyal_sofepx.jpg";
+const kbs="https://res.cloudinary.com/andela-hodal/image/upload/v1651660977/images/kbs_wbykvn.jpg";
 const FooterBlock = () => {
   
   return (

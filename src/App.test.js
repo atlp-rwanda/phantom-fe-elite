@@ -14,11 +14,6 @@ describe("display on landing page", () => {
     const headingElement = screen.getByText(/sign in/i);
     expect(headingElement).toBeInTheDocument();
 });
-it('should render if it is available in the document',()=>{
-  render(<App title="Login"/>);
-  const headingElement = screen.getByText(/sign UP/i);
-  expect(headingElement).toBeInTheDocument();
-});
 
 it('should contain the Sign in obtion in the landig page',()=>{
   render(<App title="Login"/>);

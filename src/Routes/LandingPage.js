@@ -1,7 +1,7 @@
 import React from "react";
-import landing from "../assets/images/landing-image.jpg";
 import FormSubscribe from "../component/FormSubscribe";
 
+const landing ="https://res.cloudinary.com/andela-hodal/image/upload/v1651660950/images/landing-image_t2m7d1.jpg";
 const LandingPage = () => {
   return (
     <main className="py-8 md:pb-28 lg:pb-8 lg:mb-12 sm:pl-20 px-8 h-[70%]">
@@ -17,7 +17,7 @@ const LandingPage = () => {
           <h1 className="text-textBluePhant font-bold leading-9 text-3xl sm:text-4xl font-Montserrat">
             Track bus movements
           </h1>
-          <h2 className="text-lg font-blackPhant font-medium mt-4 text-xl sm:text-4xl font-Montserrat">
+          <h2 className="text-lg font-blackPhant font-medium mt-4 sm:text-4xl font-Montserrat">
             within you hand device
           </h2>
         </div>

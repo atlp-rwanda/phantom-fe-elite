@@ -38,7 +38,7 @@ const LoginPage = ({ onSubmit }) => {
           className="hidden md:flex text-center rounded-l-md  w-72 lg:w-80  h-full bg-no-repeat bg-cover"
         ></div>
 
-        <div className="w-72 lg:w-80 h-full lg:h-full flex justify-center items-start  border border-darkBluePhant rounded-md sm:rounded-l-none  ">
+        <div className="w-72 lg:w-80 h-full lg:h-full flex justify-center items-start bg-whitePhant border border-darkBluePhant rounded-md sm:rounded-l-none  ">
           <Formik
             initialValues={{ email: "", username: "", password: "" }}
             validationSchema={signUpSchema}
@@ -58,6 +58,8 @@ const LoginPage = ({ onSubmit }) => {
               handleSubmit,
             }) => (
               <form className=" h-full w-5/6 pb-10 " onSubmit={handleSubmit}>
+                <br />
+                
                 <input
                   type="email"
                   name="email"
@@ -77,6 +79,7 @@ const LoginPage = ({ onSubmit }) => {
                   </span>
                 ) : null}
 
+               
                 <br />
 
                 <input
@@ -102,6 +105,7 @@ const LoginPage = ({ onSubmit }) => {
                 <a href="" className="font-Montserrat text-sm">
                   Reset Password
                 </a>
+                
                 <br />
 
                 <button
@@ -115,6 +119,9 @@ const LoginPage = ({ onSubmit }) => {
                   Log In
                 </button>
                 <br />
+                <p className="border-secondary smallDev sm:small my-4 ">
+                  Don't remember Password? <span><a href="">Forget Password</a></span>
+                </p>
 
                 <p className="flex flex-row mt-2 lg:mt-2 md:mt-10 font-Montserrat text-sm ">
                   or login with

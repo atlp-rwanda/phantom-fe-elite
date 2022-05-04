@@ -16,7 +16,7 @@ const App = () => {
         <main className="mb-auto flex-grow">
           <Routes>
             <Route exact path="/" element={<LandingPage />}></Route>
-            <Route exact path="/input" element={<LoginPage />}></Route>
+            <Route exact path="/login" element={<LoginPage />}></Route>
             <Route exact path="/register" element={<RegisterPage />}></Route>
           </Routes>
         </main>

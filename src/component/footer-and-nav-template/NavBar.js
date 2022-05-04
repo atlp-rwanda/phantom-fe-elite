@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import LoginForm from "../../component/login"
 
 const logoImg ="https://res.cloudinary.com/andela-hodal/image/upload/v1651663565/images/FINAL-LOGO_jevsgo.jpg";
 const NavBar = () => {
@@ -23,7 +23,7 @@ const NavBar = () => {
 
       <ul className="no-underline list-none flex justify-between sm:justify-evenly items-center w-1/2 sm:w-1/4">
         <li>
-          <Link to="/input" className="font-medium sm:font-semibold">
+          <Link to="/login" className="font-medium sm:font-semibold">
             Sign In
           </Link>
         </li>
