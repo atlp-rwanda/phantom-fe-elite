@@ -5,9 +5,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // extract css to files
 
 module.exports = {
-
   //Where the webpack will look when starting to bundle the files. like starting point in the folder
-  entry: "./src/index.js",
+  entry: ["regenerator-runtime/runtime.js", "./src/index.js"],
 
   // Where files should be sent once they are bundled
   output: {
@@ -35,14 +34,6 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
-        ],
-      },
-      {
         test: /\.(svg|png|jpg|gif)$/,
         dependency: { not: ["url"] },
         use: {
@@ -56,6 +47,10 @@ module.exports = {
 
         type: "javascript/auto",
       },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+      },
     ],
   },
   plugins: [
@@ -63,10 +58,9 @@ module.exports = {
     new CleanWebpackPlugin(),
 
     new Dotenv(),
-    new HtmlWebpackPlugin({ template: "./src/template.html" }),
+    new HtmlWebpackPlugin({ template: "./src/index.html" }),
 
     // This is responsible for extracting the css styles from the bundled files and create
-    
     // a separate folder named styles under the dist folder created so that it can be sent to the browser
     new MiniCssExtractPlugin({
       filename: "styles/[name].[contenthash].css",

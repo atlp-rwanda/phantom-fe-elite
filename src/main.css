@@ -3,3 +3,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* custom styles */
+
+/* background images at the navbar */
+/* nav {
+  background-image: url("/src/assets/Imigongo.jpg");
+  background-size: cover;
+  height: fit-content;
+}
+
+/* background image at the footer */
+footer {
+  background-image: url("/src/assets/Imigo.jpg");
+}
+
+.image {
+  background-image: url("/src/assets/Imigo.jpg");
+} 
