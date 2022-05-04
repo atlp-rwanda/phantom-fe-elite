@@ -14,7 +14,7 @@ import kbs from "../../assets/images/partners/kbs.jpg";
 
 const FooterBlock = () => {
   return (
-    <footer className="h-17.5%" role="footer">
+    <footer className="h-17.5%" role="footer" id='footer'>
       <div className="flex justify-around flex-col border-t border-solid border-darkBluePhant sm:flex-row-reverse  my-2 mx-0">
         <section className="contact-box w-full sm:w-1/3 sm:border-l-4 sm:border-solid sm:border-darkBluePhant my-2">
           <div>
