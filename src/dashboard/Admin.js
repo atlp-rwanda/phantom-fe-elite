@@ -48,7 +48,7 @@ const Admin = () => {
         <div className="flex flex-row items-center my-3">
           <div className="bg-darkBluePhant p-2 rounded-md font-bold text-white flex items-center justify-between w-1/5">
             <RiAddCircleLine className="text-white text-2xl" />
-            <div>Add new Operator</div>
+            <div >Add new Operator</div>
           </div>
           <form action="" className="w-2/5 h-10 mx-12">
             <input
