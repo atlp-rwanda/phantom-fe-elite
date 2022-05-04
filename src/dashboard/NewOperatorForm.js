@@ -35,7 +35,7 @@ const NewOperatorForm = () => {
               <select
                 name="pets"
                 id="route-select"
-                className="h-8 rounded-sm bg-[#F4F4F4]"
+                className="h-8 py-0 rounded-sm bg-[#F4F4F4]"
               >
                 <option value="">Select Route</option>
                 <option value="dog">Kimironko</option>

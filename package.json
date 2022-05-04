@@ -21,6 +21,7 @@
     "babel-jest": "^27.5.1",
     "dotenv": "^16.0.0",
     "dotenv-webpack": "^7.1.0",
+    "flowbite": "^1.4.5",
     "formik": "^2.2.9",
     "jest": "^27.5.1",
     "path": "^0.12.7",
