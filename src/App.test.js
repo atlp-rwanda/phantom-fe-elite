@@ -4,8 +4,10 @@ import App from "./App";
 import FooterBlock from "../src/component/footer-and-nav-template/FooterBlock"
 
 describe("display on landing page", () => {
-  test("renders learn react link", () => {
-    const { getByText } = render(<App />);
+  it("renders learn react link", () => {
+    render(<App />);
+    const linkElement = screen.getByText(/contact us| login/i);
+    expect(linkElement).toBeInTheDocument();
   });
   it('should render if it is available in the document',()=>{
     render(<App title="Login"/>);
@@ -44,20 +46,4 @@ it('should render Contact Us if it is available in the document',()=>{
   const headingElement = screen.getByText(/Contact Us/i);
   expect(headingElement).toBeInTheDocument();
 });
-
-
 });
-
-//test footer 
-
-describe("render footer block",()=>{
-  test("should check if the footer is available",()=>{
-    const {getByText}=render(<FooterBlock/>);
-
-  });
-  it("should check if the footer block has subtitle ",()=>{
-    render(<FooterBlock/>);
-    const checkSubTitle=screen.getByText("Partners");
-    expect(checkSubTitle).toBeInTheDocument();
-  });
-})

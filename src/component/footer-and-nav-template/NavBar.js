@@ -1,23 +1,43 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import smallImg from '../../assets/FINAL-LOGO.jpg'
-import "./style.css"
+import React from "react";
+import { Link } from "react-router-dom";
+
+
+const logoImg ="https://res.cloudinary.com/andela-hodal/image/upload/v1651663565/images/FINAL-LOGO_jevsgo.jpg";
 const NavBar = () => {
   return (
-		<nav className="container flex justify-around py-4 mx-auto " title="NavBarPage">
-			<div className="">
-			<img src={smallImg} id="smallImage"className="w-md lg:w-full"/>
-			</div>
-			<div className=" flex justify-center items-end sm:ml-40">
-  <div>
-	<Link to="/login" className='ml-10 lg:font-semibold sm:text-end headerSmallFont sm:text-sm lg:text-md text-third-text1'>Sign In</Link>
-  </div>
-  <div >
-	<Link to="/register" className='ml-4 text-secondary  font-semibold  headerSmallFont sm:text-sm lg:text-md'>Sign Up</Link>
-  </div>
-  </div>
-		</nav>
-	);
-}
+    <nav
+      className="flex justify-between sm:justify-between w-full px-8 py-4 sm:pl-20 h-[12.5%]"
+      role="navigation"
+    >
+      <ul className="flex items-center w-2/5 sm:w-1/3 no-underline list-none">
+       
+        <Link
+          to="/"
+          className=" font-josefin no-underline font-semibold text-xl sm:text-5xl"
+        >
+           <li>
+          <img src={logoImg} alt="" className="w-5/6 sm:w-full " />
+        </li>
+        </Link>
+      </ul>
 
-export default NavBar
+      <ul className="no-underline list-none flex justify-between sm:justify-evenly items-center w-1/2 sm:w-1/4">
+        <li>
+          <Link to="/input" className="font-medium sm:font-semibold">
+            Sign In
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/register"
+            className="text-darkBluePhant font-medium sm:font-semibold"
+          >
+            Sign Up
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  );
+};
+
+export default NavBar;

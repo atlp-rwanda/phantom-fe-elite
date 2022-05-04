@@ -2,7 +2,7 @@ name: react CI/CD
 
 on:
   push:
-    branches: [develop]
+    branches: [develop, bg-heroku-deploy]
 
 jobs:
   build:
@@ -12,7 +12,7 @@ jobs:
       matrix:
         node-version: [16.x]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -45,9 +45,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build]
     steps:
-      - uses: actions/checkout@v3
-
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "elite-phantom-bus-tracker"
-          heroku_email: "rachelakimana@gmail.com"
+          heroku_app_name: elite-phantom-bus-tracker
+          heroku_email: rachelakimana@gmail.com
