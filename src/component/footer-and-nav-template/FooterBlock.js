@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 import {
   FaGithub,
@@ -59,6 +59,6 @@ const FooterBlock = () => {
       </div>
     </footer>
   );
-}
+};
 
-export default FooterBlock
+export default FooterBlock;
