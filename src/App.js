@@ -1,20 +1,19 @@
 /** @format */
 import React from "react";
-import InputForm from "./Routes/InputForm";
-import Home from "./Routes/Home";
-import AboutPage from "./Routes/AboutPage";
-import UpdateOperator from "./Routes/UpdateOperator";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
-
+import RegisterPage from "./Routes/RegisterPage";
+import LandingPage from "./Routes/LandingPage";
+import Bus from "./views/operator/Bus";
+import UpdateOperator from "./views/operator/UpdateOperator";
 const App = () => {
 	return (
 		<BrowserRouter>
-			<div>
+			<div className="h-screen flex flex-col ">
 				<Routes>
-					<Route exact path="/" element={<Home />}></Route>
-					<Route path="/input" element={<InputForm />}></Route>
-					<Route path="/about" element={<AboutPage />}></Route>
-					<Route path="/update" element={<UpdateOperator />}></Route>
+					<Route exact path="/" element={<LandingPage />}></Route>
+					<Route exact path="/register" element={<RegisterPage />}></Route>
+					<Route exact path="/bus" element={<Bus />}></Route>
+					<Route exact path="/updateoperator" element={<UpdateOperator />}></Route>
 				</Routes>
 			</div>
 		</BrowserRouter>

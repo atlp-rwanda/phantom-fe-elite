@@ -1,4 +1,4 @@
-import UpdateOperator from "../../Routes/UpdateOperator";
+import UpdateOperator from "../../views/operator/UpdateOperator";
 import { render, screen } from "@testing-library/react";
 
 it('should see if the input is visible to the user', () => {

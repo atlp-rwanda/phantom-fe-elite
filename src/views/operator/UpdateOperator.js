@@ -1,6 +1,7 @@
 import React from 'react'
 import * as Yup from "yup"
 import { useFormik } from 'formik'
+import Admin from "../../component/layout/Admin";
 
 const UpdateOperator = () => {
   const formik = useFormik({
@@ -23,9 +24,11 @@ const UpdateOperator = () => {
 
   console.log(formik.touched);
   return (
-    <div>
-      <h3 className='text-center relative top-28 font-bold underline decoration-sky-500'>SETTINGS</h3>
-        <form onSubmit={formik.handleSubmit} className='border-2 w-2/4 h-96 bg-adminformbgcolor ml-96 mt-40 shadow-xl'>
+    <>
+    <Admin>
+      <h3 className='font-bold underline decoration-sky-500'>Update Operator Profile</h3>
+    <h3 className='text-center relative top-20 font-bold underline decoration-sky-500'>SETTINGS</h3>
+    <form onSubmit={formik.handleSubmit} className='border-2 w-2/4 h-96 bg-adminformbgcolor relative left-80 mt-28 shadow-xl'>
             <div className='word flex flex-col place-items-center mt-10'>
             <input 
             placeholder='Username...' 
@@ -51,7 +54,11 @@ const UpdateOperator = () => {
             <button className='mt-20 bg-adminFooterBackground p-2 w-9/12' type='submit' title='button'>Update profile</button>
             </div>
         </form>
-    </div>
+
+
+    </Admin>
+      
+    </>
   )
 }
 export default UpdateOperator
