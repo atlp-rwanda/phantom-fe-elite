@@ -1,10 +1,11 @@
 import React from "react";
-import FormSubscribe from "../component/FormSubscribe";
+import landing from "../../assets/images/landing-image.jpg";
+import FormSubscribe from "../FormSubscribe";
+import "../../main.css"
 
-const landing ="https://res.cloudinary.com/andela-hodal/image/upload/v1651660950/images/landing-image_t2m7d1.jpg";
 const LandingPage = () => {
   return (
-    <main className="py-8 md:pb-28 lg:pb-8 lg:mb-12 sm:pl-20 px-8 h-[70%]">
+    <main className="py-8 md:pb-28 lg:pb-8 lg:mb-12 sm:pl-20 px-8 h-[70%]" test-data="landing-page">
       <section
         className="flex
         flex-col-reverse

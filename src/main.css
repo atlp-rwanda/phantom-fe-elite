@@ -6,16 +6,113 @@
 
 /* background images at the navbar */
 nav {
-  background-image: url("/src/assets/images/nav-image.jpg");
-  background-size: cover;
-  height: fit-content;
+    background-image: url('/src/assets/images/nav-image.jpg');
+    background-size: cover;
+    height: fit-content;
 }
 
 /* background image at the footer */
-footer {
-  background-image: url("/src/assets/images/footer-image.jpg");
+footer{
+    background-image: url('/src/assets/images/footer-image.jpg');
 }
 
 .image {
-  background-image: url("/src/assets/images/secondImage.jpg");
+     background-image: url('/src/assets/images/secondImage.jpg');
 }
+
+
+main{
+    background: url(./assets/Imigo.jpg) no-repeat;
+    background-size: 100% 60%;
+    background-position:left -10% bottom 30px;
+    height:10%;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo-brand {
+    font-family: 'Josefin Slab', serif;
+} 
+/* custom fonts */
+.holder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+h1{
+    color:#0077B6;
+}
+.btn{
+    background-color: #369FD7;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+}
+.small{
+    font-size:.55rem;
+    padding-top: 1em;
+}
+.smallDev{
+    font-size: .3em;
+    padding-top: 1em;
+}
+.small3{
+    font-size:2rem;
+    padding-top: 1em;
+}
+.small2{
+    font-size:1rem;
+    padding-top: 1em;
+}
+
+.negativeMargin{
+    margin-left: -.09rem;
+}
+.paddin_1{
+    
+    padding: 2rem 0rem;
+}
+.negativeM{
+    margin-bottom:-10em;
+}
+
+
+/*removing scroll bar*/
+
+html{
+    overflow:scroll;
+    overflow-x:none;
+
+}::-webkit-scrollbar{
+    width:0px;
+}
+::-webkit-scrollbar-thumb{
+background:#FF0000;
+}
+
+.removegapInSmall{
+    margin-top: -8rem;
+    margin-bottom:-10rem;
+}
+.extremLeftMargin{
+    margin-left:-20rem;
+}
+.image2{
+    background-image: url('https://www.shutterstock.com/image-photo/poznan-pol-jan-6-2021-laptop-1926024755');
+    background-size: cover;
+    height: fit-content;
+    width: 100vw;
+}
+
+.marginBottomForErrors{
+    margin-bottom: -16px;
+}
+
+.marginBottonInXl{
+    margin-top:-24em;
+}
+

@@ -9,7 +9,7 @@ const NavBar = () => {
       </div>
       <div className="space-x-8 bg-red-400">
         <Link to="/">Home</Link>
-        <Link to="/input">Input Form</Link>
+        <Link to="/login">Input Form</Link>
         <Link to="/about">About</Link>
       </div>
     </nav>

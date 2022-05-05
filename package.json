@@ -7,7 +7,7 @@
     "start": "webpack serve --mode development --open",
     "build": "webpack --mode production",
     "test": "react-scripts test --watchAll=false",
-    "coverage": "react-scripts test --coverage --watchAll=false"
+    "coverage": "react-scripts test --coverage --watchAll=true"
   },
   "keywords": [
     "webpack5",
@@ -60,5 +60,11 @@
     "webpack": "^5.71.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js"
+    ]
   }
 }

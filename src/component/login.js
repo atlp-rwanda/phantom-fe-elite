@@ -1,3 +1,5 @@
+
+
 import "regenerator-runtime/runtime";
 import React, { useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
@@ -8,15 +10,12 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 
 const trackroute ="https://res.cloudinary.com/andela-hodal/image/upload/v1651660951/images/trackroute_hotaxz.jpg";
-const RegisterPage = ({ onSubmit }) => {
+const LoginPage = ({ onSubmit }) => {
   const [isLoading, setIsLoading] = useState(false);
   const signUpSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is Required"),
-    username: Yup.string()
-      .min(4, "Minimum of 4 letters")
-      .required("Username is Required"),
     password: Yup.string()
       .min(4, "Minimum of 4 letters")
       .required("password is Required"),
@@ -27,7 +26,7 @@ const RegisterPage = ({ onSubmit }) => {
   return (
     <div className=" flex flex-col w-full h-full lg:w-full">
       <h1 className="text-center text-2xl text-textBluePhant font-bold h-[8%]">
-        REGISTER
+        LOGIN
       </h1>
 
       <div
@@ -39,7 +38,7 @@ const RegisterPage = ({ onSubmit }) => {
           className="hidden md:flex text-center rounded-l-md  w-72 lg:w-80  h-full bg-no-repeat bg-cover"
         ></div>
 
-        <div className="w-72 lg:w-80 h-full lg:h-full flex justify-center items-start  border border-darkBluePhant rounded-r-md  ">
+        <div className="w-72 lg:w-80 h-full lg:h-full flex justify-center items-start bg-whitePhant border border-darkBluePhant rounded-md sm:rounded-l-none  ">
           <Formik
             initialValues={{ email: "", username: "", password: "" }}
             validationSchema={signUpSchema}
@@ -59,6 +58,8 @@ const RegisterPage = ({ onSubmit }) => {
               handleSubmit,
             }) => (
               <form className=" h-full w-5/6 pb-10 " onSubmit={handleSubmit}>
+                <br />
+                
                 <input
                   type="email"
                   name="email"
@@ -78,26 +79,7 @@ const RegisterPage = ({ onSubmit }) => {
                   </span>
                 ) : null}
 
-                <br />
-
-                <input
-                  type="text"
-                  name="username"
-                  placeholder="Username..."
-                  value={values.username}
-                  data-testid="username-input"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className="h-10 lg:h-9 md:h-12 w-full pl-3 mt-3 lg:mt-3 md:mt-6 border border-darkBluePhant rounded text-md font-Montserrat"
-                />
-                {touched.username && errors.username ? (
-                  <span
-                    data-testid="error-msg"
-                    className="text-errorText text-xs"
-                  >
-                    {errors.username}
-                  </span>
-                ) : null}
+               
                 <br />
 
                 <input
@@ -123,6 +105,7 @@ const RegisterPage = ({ onSubmit }) => {
                 <a href="" className="font-Montserrat text-sm">
                   Reset Password
                 </a>
+                
                 <br />
 
                 <button
@@ -133,9 +116,12 @@ const RegisterPage = ({ onSubmit }) => {
                     isLoading ? "bg-blue-100" : "bg-darkBluePhant"
                   } text-whitePhant rounded text-lg font-bold`}
                 >
-                  Register
+                  Log In
                 </button>
                 <br />
+                <p className="border-secondary smallDev sm:small my-4 ">
+                  Don't remember Password? <span><a href="">Forget Password</a></span>
+                </p>
 
                 <p className="flex flex-row mt-2 lg:mt-2 md:mt-10 font-Montserrat text-sm ">
                   or login with
@@ -155,4 +141,10 @@ const RegisterPage = ({ onSubmit }) => {
   );
 };
 
-export default RegisterPage;
+export default LoginPage;
+
+
+
+
+
+
