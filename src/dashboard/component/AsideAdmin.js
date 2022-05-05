@@ -1,15 +1,16 @@
 import { VscCompass } from "react-icons/vsc";
 import { MdAssignmentTurnedIn } from "react-icons/md";
-import { FaBus, FaUserCircle } from "react-icons/fa";
+import { FaBus } from "react-icons/fa";
 import { MdAltRoute } from "react-icons/md";
 import { AiOutlineSetting } from "react-icons/ai";
 import logo from "../../assets/images/logo.jpg";
 
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AsideAdmin = () => {
   return (
-    <aside className="bg-white col-start-1 col-end-3 text-black row-span-full border-r-2 border-solid border-[#f3f3f3]">
+    <aside className="bg-white sm:col-start-1 sm:col-end-3 hidden sm:block text-black row-span-full border-r-2 border-solid border-[#f3f3f3]">
       <img src={logo} className="mx-7 mt-3" />
       <br />
       <div className="text-xl tracking-wider m-auto font-semibold mt-8 ml-3 mb-3 flex justify-evenly">
@@ -30,12 +31,16 @@ const AsideAdmin = () => {
         </div>
         <div className="flex gap-5">
           <MdAltRoute size={25} className="mt-1 " />
-          <p className="ml-1">Driver</p>
+          <Link to="/admin/driver">
+            <p className="ml-1">Driver</p>
+          </Link>
         </div>
 
         <div className="flex gap-5">
           <AiOutlineSetting size={25} className="mt-1 darkBluePhant" />
-          <p className="ml-1">Operator</p>
+          <Link to="/dmin/operator">
+            <p className="ml-1">Operator</p>
+          </Link>
         </div>
       </div>
     </aside>

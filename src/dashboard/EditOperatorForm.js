@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { DataPostingInsideJsonServer } from '../redux/fetchApi';
-const NewOperatorForm = ({ setOpenModal }) => {
+import { DataUpdatingInsideJsonServer } from '../redux/fetchApi';
+
+const EditOperatorForm = ({ setOpenModal, update, setCloseUpdate }) => {
   const dispatch = useDispatch();
-    let initialData = {
-      name: "",
-      email: "",
-      route: "",
-    };
+  const { name, email, route } = update;
+  let initialData = {
+    name,
+    email,
+    route,
+  };
   const [formData, setFormData] = useState(initialData);
 
   const handleChange = (event) => {
@@ -20,20 +22,25 @@ const NewOperatorForm = ({ setOpenModal }) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    // dispatch(addTodoAction(formData));
-    dispatch(DataPostingInsideJsonServer(formData)); 
+    const packageData = {
+      data: formData,
+      id: update.number
+    }
+    // dispatch(removeTodoAction(update.number));
+    dispatch(DataUpdatingInsideJsonServer(packageData));
     setFormData({
       name: "",
       email: "",
       route: "",
-    });  // the redux thunk
+    });
+    setCloseUpdate("")
   };
 
   return (
     <div className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50">
       <div className="w-1/4 h-3/5 bg-white rounded-md p-4 box-border">
         <div className="mb-4 font-bold border-b-2 border-solid border-darkBluePhant w-[130px] pt-6">
-          Create Operator
+          {update ? "Edit Operator" : "Create New Operator"}
         </div>
         <form action="" onSubmit={handleSubmit}>
           <div className="flex flex-col pb-1">
@@ -67,7 +74,9 @@ const NewOperatorForm = ({ setOpenModal }) => {
               id="route-select"
               className="h-8 py-0 rounded-sm bg-[#F4F4F4]"
             >
-              <option value="">--Select route--</option>
+              <option value={formData.route}>
+                {update ? formData.route : "--Select route--"}
+              </option>
               <option value="Kimironko">Kimironko</option>
               <option value="Remera">Remera</option>
               <option value="Downtown">Downtown</option>
@@ -82,6 +91,7 @@ const NewOperatorForm = ({ setOpenModal }) => {
               <button
                 onClick={() => {
                   setOpenModal(false);
+                   setCloseUpdate("");
                 }}
               >
                 Back
@@ -91,7 +101,7 @@ const NewOperatorForm = ({ setOpenModal }) => {
               type="submit"
               className="bg-darkBluePhant h-8 px-3 rounded-md cursor-pointer"
             >
-              Save Operator
+              {update ? "Update Operator" : "Save Operator"}
             </button>
           </div>
         </form>
@@ -100,4 +110,4 @@ const NewOperatorForm = ({ setOpenModal }) => {
   );
 };
 
-export default NewOperatorForm;
+export default EditOperatorForm;

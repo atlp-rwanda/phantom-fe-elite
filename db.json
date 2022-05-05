@@ -1,0 +1,16 @@
+{
+  "operatorsDb": [
+    {
+      "name": "juno",
+      "email": "kizigenza",
+      "route": "Kimironko",
+      "id": 1
+    },
+    {
+      "name": "kalisa ",
+      "email": "kalisa@gmail.com",
+      "route": "Remera",
+      "id": 2
+    }
+  ]
+}

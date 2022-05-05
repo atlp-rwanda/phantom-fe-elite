@@ -7,9 +7,9 @@ import { FaBus, FaUserCircle } from "react-icons/fa";
 
 const HeaderAdmin = () => {
   return (
-    <header className="bg-white col-start-3 col-end-13  row-start-1 row-end-2">
+    <header className="bg-white col-start-1 sm:col-start-3 col-end-13  row-start-1 row-end-2">
       <div className="flex justify-end h-full">
-        <section className="w-1/3 flex justify-between items-center h-full">
+        <section className=" w-full sm:w-1/3 flex justify-between items-center h-full">
           <div className="flex items-center">
             <div className="font-black text-xl">EN</div>
             <RiArrowDropDownFill className="text-4xl" />

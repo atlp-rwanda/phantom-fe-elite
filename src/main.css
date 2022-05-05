@@ -14,7 +14,7 @@ nav {
 /* background image at the footer */
 #footer{
     background-image: url('/src/assets/images/footer-image.jpg');
-    color: #5a0202;
+    color: #000000;
 }
 
 .image {

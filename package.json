@@ -7,7 +7,8 @@
     "start": "webpack serve --mode development --open",
     "build": "webpack --mode production",
     "test": "react-scripts test --watchAll=false",
-    "coverage": "react-scripts test --coverage --watchAll=false"
+    "coverage": "react-scripts test --coverage --watchAll=false",
+    "server": "json-server --watch db.json --port 5000"
   },
   "keywords": [
     "webpack5",
@@ -17,13 +18,19 @@
   "author": "elite team member",
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^14.1.1",
     "autoprefixer": "^10.2.1",
+    "axios": "^0.27.2",
     "babel-jest": "^27.5.1",
     "dotenv": "^16.0.0",
     "dotenv-webpack": "^7.1.0",
     "flowbite": "^1.4.5",
     "formik": "^2.2.9",
     "jest": "^27.5.1",
+    "json-server": "^0.17.0",
     "path": "^0.12.7",
     "postcss-cli": "^8.3.1",
     "react": "^18.0.0",
@@ -42,8 +49,6 @@
     "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.0.0",
     "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.4",
     "babel-plugin-transform-runtime": "^6.23.0",
