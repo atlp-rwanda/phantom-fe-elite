@@ -70,6 +70,7 @@ const password = watch('password');
                     </div>
                     <button
                       className=" btn w-full my-3 py-2 bg-adminFooterBackground shadow-lg shadow-sky-500/60 border-textBluePhant rounded text-whitePhant"
+                      data-testid="btn-sub"
                     >
                       Reset
                     </button>
@@ -77,7 +78,7 @@ const password = watch('password');
                       <p className=" flex justify-between my-4 text-sm font-light font-Montserrat ">
                         Or login with
                         <a href="" className="ml-2 ">
-                          <FaLinkedin className="text-3xl text-sky-500" />
+                          <FaLinkedin className="text-3xl text-textBluePhant" />
                         </a>
                         <a href="" className="ml-2 flex">
                           <FcGoogle className="text-3xl" />

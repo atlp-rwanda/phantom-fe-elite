@@ -1,7 +1,7 @@
 import React from "react";
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/extend-expect";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, getByTestId} from "@testing-library/react";
 import Reset from "../../Routes/Reset";
 import ResetP from "../../Routes/confirmation-password";
 import destImg from "../../assets/desti.jpg";
@@ -186,4 +186,28 @@ describe("Should confrim new password", () => {
     expect(inputEl.value).toBe("1111111@Test");
     expect(screen.queryByTestId("error-msg")).not.toBeInTheDocument();
   });
+  it('',()=>{
+    const appwrapper = render(<Router>
+      <ResetP/>
+    </Router>)
+    const appValidate = appwrapper.findAllByDisplayValue();
+    expect(appValidate).not.toBeNull();
+  })
+  it('',()=>{
+    render(<Router>
+      <ResetP/>
+    </Router>)
+    const submBtn = screen.getByRole("button")
+    const inputEl = screen.getByTestId("password")
+    const inputPass = screen.getByPlaceholderText("Confirm password ...");
+
+    fireEvent.change(inputEl,{
+      target:{
+        value:""
+      }
+    })
+    fireEvent.click(submBtn)
+    expect(inputPass.textContent).toBe("")
+  })
+ 
 });
