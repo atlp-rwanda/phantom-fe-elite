@@ -4,6 +4,7 @@ import { Route, BrowserRouter, Routes } from "react-router-dom";
 import RegisterPage from "./Routes/RegisterPage";
 import LandingPage from "./Routes/LandingPage";
 import Bus from "./views/admin/Bus";
+import Operator from "./views/admin/Operator";
 
 const App = () => {
 	return (
@@ -14,6 +15,7 @@ const App = () => {
 						<Route exact path="/" element={<LandingPage />}></Route>
 						<Route exact path="/register" element={<RegisterPage />}></Route>
 						<Route exact path="/bus" element={<Bus />}></Route>
+						<Route exact path="/operator" element={<Operator/>}></Route>
 					</Routes>
 				</main>
 			</div>

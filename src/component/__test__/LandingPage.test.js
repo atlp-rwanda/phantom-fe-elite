@@ -33,12 +33,5 @@ describe("rendering of the landing page", () => {
         const form = screen.getByRole('form');
         expect(form).toBeInTheDocument();
       });
-import LandingPage from "../LandingPage";
+    })
 
-describe("display on landing page", () => {
-  it("renders learn react link", () => {
-    render(<LandingPage />);
-    const linkElement = screen.getByText(/Track bus movements/i);
-    expect(linkElement).toBeInTheDocument();
-  });
-});

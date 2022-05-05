@@ -22,7 +22,7 @@ const LandingPage = () => {
 						<h1 className="text-textBluePhant font-bold leading-9 text-3xl sm:text-4xl font-Montserrat">
 							Track bus movements
 						</h1>
-						<h2 className="text-lg font-blackPhant font-medium mt-4 text-xl sm:text-4xl font-Montserrat">
+						<h2 className="text-lg font-blackPhant font-medium mt-4 sm:text-4xl font-Montserrat">
 							within you hand device
 						</h2>
 					</div>

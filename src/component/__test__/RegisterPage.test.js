@@ -12,7 +12,7 @@ import {
 import "@testing-library/jest-dom/extend-expect";
 import { act } from "react-dom/test-utils";
 import userEvent from "@testing-library/user-event";
-import RegisterPage from "../RegisterPage";
+import RegisterPage from "../../Routes/RegisterPage";
 
 describe("<RegisterPage />", () => {
   it("render email input", () => {
