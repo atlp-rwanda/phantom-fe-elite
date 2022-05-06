@@ -2,6 +2,7 @@ import React from "react";
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/extend-expect";
 import { render, screen, fireEvent, getByTestId} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import Reset from "../../Routes/Reset";
 import ResetP from "../../Routes/confirmation-password";
 import destImg from "../../assets/desti.jpg";
@@ -208,6 +209,6 @@ describe("Should confrim new password", () => {
     })
     fireEvent.click(submBtn)
     expect(inputPass.textContent).toBe("")
-  })
+  });
  
 });
