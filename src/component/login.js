@@ -8,6 +8,8 @@ import { FcGoogle } from "react-icons/fc";
 import secondimage from "../assets/images/secondImage.jpg";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import NavBar from "./footer-and-nav-template/NavBar";
+import FooterBlock from "./footer-and-nav-template/FooterBlock";
 
 const trackroute ="https://res.cloudinary.com/andela-hodal/image/upload/v1651660951/images/trackroute_hotaxz.jpg";
 const LoginPage = ({ onSubmit }) => {
@@ -24,14 +26,16 @@ const LoginPage = ({ onSubmit }) => {
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
   return (
-    <div className=" flex flex-col w-full h-full lg:w-full">
-      <h1 className="text-center text-2xl text-textBluePhant font-bold h-[8%]">
+    <>
+    <NavBar />
+    <div className=" flex flex-col w-full h-[70%] lg:w-full">
+      <h1 className="text-center text-2xl text-textBluePhant font-bold h-[8%] py-4">
         LOGIN
       </h1>
 
       <div
         style={{ backgroundImage: `url(${secondimage})` }}
-        className="flex flex-row  justify-center items-start my-6 w-full h-[90%]"
+        className="flex flex-row  justify-center items-start my-2 w-full h-[75%]"
       >
         <div
           style={{ backgroundImage: `url(${trackroute})` }}
@@ -40,7 +44,7 @@ const LoginPage = ({ onSubmit }) => {
 
         <div className="w-72 lg:w-80 h-full lg:h-full flex justify-center items-start bg-whitePhant border border-darkBluePhant rounded-md sm:rounded-l-none  ">
           <Formik
-            initialValues={{ email: "", username: "", password: "" }}
+            initialValues={{ email: "", password: "" }}
             validationSchema={signUpSchema}
             onSubmit={async (values) => {
               setIsLoading(true);
@@ -113,7 +117,7 @@ const LoginPage = ({ onSubmit }) => {
                   data-testid="submit-form"
                   disabled={isLoading}
                   className={`h-10 lg:h-9 md:h-12 mt-2 lg:mt-2 md:mt-6 mb-3 w-full text-md ${
-                    isLoading ? "bg-blue-100" : "bg-darkBluePhant"
+                    isLoading ? "bg-blue-100" : "bg-adminFooterBackground"
                   } text-whitePhant rounded text-lg font-bold`}
                 >
                   Log In
@@ -138,6 +142,8 @@ const LoginPage = ({ onSubmit }) => {
         </div>
       </div>
     </div>
+    <FooterBlock />
+    </>
   );
 };
 

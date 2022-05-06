@@ -54,5 +54,7 @@ module.exports = {
       widest: "0.5em",
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 };
