@@ -1,0 +1,34 @@
+[
+    {
+        "id":1,
+        "category":"Buses",
+        "caption":"All buses",
+        "icon":"../../../assets/admin-panel/emojione_oncoming-bus.jpg",
+        "number":40
+
+    },
+    {
+        "id":2,
+        "category":"Drivers",
+        "caption":"All drivers",
+        "icon":"../../../assets/images/admin-panel/emojione_oncoming-bus.jpg",
+        "number":40
+
+    },
+    {
+        "id":3,
+        "category":"Routes",
+        "caption":"All routes",
+        "icon":"../../../assets/admin-panel/healthicons_truck-driver-outline.jpg",
+        "number":40
+
+    },
+    {
+        "id":4,
+        "category":"Users",
+        "caption":"All users",
+        "icon":"../../../assets/images/admin-panel/emojione_oncoming-bus.jpg",
+        "number":40
+
+    }
+]

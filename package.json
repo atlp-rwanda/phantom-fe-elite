@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "setting up the react project for phantom app",
   "main": "index.js",
-  "jest":{
-    "collectCoverageFrom":[
+  "jest": {
+    "collectCoverageFrom": [
       "src/**/*.{js, jsx, ts, tsx}",
       "!src/component/starter-files-draft/NumCounter.js",
       "!src/redux/actions/counterActions.js",
@@ -15,7 +15,6 @@
       "!src/index.js",
       "!src/postcss.config.js"
     ]
-
   },
   "scripts": {
     "start": "webpack serve --mode development --open",
