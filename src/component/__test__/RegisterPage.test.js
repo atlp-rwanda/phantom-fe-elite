@@ -38,6 +38,7 @@ describe("<RegisterPage />", () => {
     })
     const inputEl = screen.getByTestId("email-input");
     fireEvent.change(inputEl, { target: { value: "test@mail.com" } });
+   
     await waitFor(() => {
     expect(inputEl.value).toBe("test@mail.com");
     expect(screen.queryByTestId("error-msg")).not.toBeInTheDocument();
@@ -75,6 +76,7 @@ describe("<RegisterPage />", () => {
    });
     const inputEl = screen.getByPlaceholderText("Username...");
     fireEvent.change(inputEl, { target: { value: "kati" } });
+    
     await waitFor(() => {
     expect(inputEl.value).toBe("kati");
     expect(inputEl.value.length).toBeGreaterThan(3);
@@ -88,8 +90,10 @@ describe("<RegisterPage />", () => {
     </Router>
     );
     });
+
     const inputEl = screen.getByPlaceholderText("Password...");
     fireEvent.change(inputEl, { target: { value: "kati12" } });
+    
     await waitFor(() => {
     expect(inputEl.value).toBe("kati12");
     expect(inputEl.value.length).toBeGreaterThan(3);

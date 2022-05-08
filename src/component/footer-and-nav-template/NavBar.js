@@ -1,38 +1,33 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import logoImg from "../../assets/images/logo.jpg";
+import React from 'react'
+import { Link } from 'react-router-dom';
+import logoImg from "../../assets/FINAL-LOGO.png";
+import './style.css';
 
 const NavBar = () => {
   return (
-    <nav
-      className="flex justify-between sm:justify-between w-full px-8 py-4 sm:pl-20 h-[12.5%]"
-      role="navigation"
-    >
-      <ul className="flex items-center w-2/5 sm:w-1/3 no-underline list-none">
+    <nav className="flex justify-between sm:justify-between w-full px-6 pt-5 sm:px-12 sm:my-5 ">
+      <ul className="flex items-end w-2/5 sm:w-1/3 no-underline list-none">
         <li>
-          <img src={logoImg} alt="" className="w-5/6 sm:w-full " />
+          <Link to="/">
+          <img src={logoImg} alt="" className='cursor-pointer'/>
+          </Link>
         </li>
-        <Link
-          to="/"
-          className=" font-josefin no-underline font-semibold text-xl sm:text-5xl"
-        >
-          hantom
+        <Link to="/" className="logo-brand font-josefin no-underline mt-8 font-medium text-xl sm:text-5xl">
         </Link>
       </ul>
 
-      <ul className="no-underline list-none flex justify-between sm:justify-evenly items-center w-1/2 sm:w-1/4">
+      <ul className="no-underline list-none flex space-x-12 mt-11 sm:justify-evenly items-center w-1/2 sm:w-1/4 ">
         <li>
+<<<<<<< HEAD
           <Link to="/login" className="font-medium sm:font-semibold">
             Sign In
           </Link>
+=======
+          <Link to="/login" className='font-medium sm:font-semibold sm:text-center'>Sign In</Link>
+>>>>>>> 4d1f4c37b6e459e6b1365cdab738606b7f3ca019
         </li>
         <li>
-          <Link
-            to="/register"
-            className="text-darkBluePhant font-medium sm:font-semibold"
-          >
-            Sign Up
-          </Link>
+          <Link to="/register" className='text-textBluePhant font-medium sm:font-semibold'>Sign Up</Link>
         </li>
       </ul>
     </nav>
