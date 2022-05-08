@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo.jpg"
 import { VscCompass } from "react-icons/vsc";
 import {RiArrowDropDownFill,} from "react-icons/ri";
 import { IoMdNotifications } from "react-icons/io";
