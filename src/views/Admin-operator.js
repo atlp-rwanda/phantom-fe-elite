@@ -1,17 +1,15 @@
-import React, {useEffect, useState} from "react";
-import {
-  RiAddCircleLine,
-} from "react-icons/ri";
-import TableGenerator from "./TableGenerator";
-import HeaderAdmin from "./component/HeaderAdmin";
-import AsideAdmin from "./component/AsideAdmin";
-import FooterAdmin from "./component/FooterAdmin";
-import TableHeader from "./TableHeader";
-import NewOperatorForm from "./NewOperatorForm";
-import EditOperatorForm from "./EditOperatorForm";
+import React, { useEffect, useState } from "react";
+import { RiAddCircleLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
+import EditOperatorForm from "../admin-operator-stuff/EditOperatorForm";
+import NewOperatorForm from "../admin-operator-stuff/NewOperatorForm";
+import TableGenerator from "../admin-operator-stuff/TableGenerator";
+import TableHeader from "../admin-operator-stuff/TableHeader";
+import AsideAdmin from "../admin-operator-stuff/TemplateComponent/AsideAdmin";
+import FooterAdmin from "../admin-operator-stuff/TemplateComponent/FooterAdmin";
+import HeaderAdmin from "../admin-operator-stuff/TemplateComponent/HeaderAdmin";
 import { thunkCreatorsFunctionFetchingAllData } from "../redux/fetchApi";
-
+// import { thunkCreatorsFunctionFetchingAllData } from "../redux/fetchApi";
 
 const AdminOperator = (props) => {
   let dispatch = useDispatch();
@@ -67,7 +65,7 @@ const AdminOperator = (props) => {
         </div>
         <TableHeader />
         <div className="overflow-auto ">
-          {/* rendering the all users from the database using this component TableGenerator */}
+          {/* rendering the all operators from the database using this component TableGenerator */}
           <TableGenerator
             giveMeData={dataHandler}
             setOpenModal={setModalOpen}
