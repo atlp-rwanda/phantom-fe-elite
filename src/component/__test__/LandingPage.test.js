@@ -1,6 +1,8 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from '../../App'
+import LandingPage from "../../Routes/LandingPage";
+import {Router} from 'react-router-dom'
 
 describe("rendering of the landing page", () => {
   test("It should display the the text of the heading pf the page ", () => {
@@ -33,12 +35,16 @@ describe("rendering of the landing page", () => {
         const form = screen.getByRole('form');
         expect(form).toBeInTheDocument();
       });
-import LandingPage from "../LandingPage";
 
 describe("display on landing page", () => {
   it("renders learn react link", () => {
-    render(<LandingPage />);
+    render(
+     <Router >
+      <LandingPage />
+    </Router>
+    );
     const linkElement = screen.getByText(/Track bus movements/i);
     expect(linkElement).toBeInTheDocument();
   });
 });
+})
