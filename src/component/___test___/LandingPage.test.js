@@ -1,10 +1,10 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import App from '../../App'
+import App from "../../App";
 
 describe("rendering of the landing page", () => {
   test("It should display the the text of the heading pf the page ", () => {
-    render(< App />);
+    render(<App />);
     const Title = screen.getByText(/Track bus movements/i);
     expect(Title).toBeInTheDocument();
   });
@@ -16,21 +16,19 @@ describe("rendering of the landing page", () => {
   });
 
   test("It should display NavBar components", () => {
-    render(< App />);
-      const nav = screen.getByRole("navigation");
+    render(<App />);
+    const nav = screen.getByRole("navigation");
     expect(nav).toBeInTheDocument();
-
-
-  })
+  });
   test("It should display footer components", () => {
-      render(<App />);
+    render(<App />);
     const footer = screen.getByRole("footer");
     expect(footer).toBeInTheDocument();
-    });
+  });
 
   test("It should display form on landing page", () => {
-        render(< App/>);
-        const form = screen.getByRole('form');
-        expect(form).toBeInTheDocument();
-      });
+    render(<App />);
+    const form = screen.getByRole("form");
+    expect(form).toBeInTheDocument();
+  });
 });

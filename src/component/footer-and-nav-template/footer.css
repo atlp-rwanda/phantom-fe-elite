@@ -1,0 +1,14 @@
+footer{
+    background: url(./../../assets/Imigo.jpg) no-repeat center;
+    background-size: 100% 100%;
+    position: absolute;
+    height: 130px;
+    top: 586px;
+}
+.mrginTop{
+    margin-top:-4em;
+}
+
+.reduceMarginTOP{
+    margin-top:-6em;
+}

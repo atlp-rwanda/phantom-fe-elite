@@ -1,0 +1,11 @@
+
+.btn:disabled{
+    margin: 12px 0 12px 0;
+    padding: 8px 0 8px 0;
+    background: rgb(172, 222, 241);
+}
+.minGr{
+    background: url(./../assets/Imigo.jpg) no-repeat;
+    background-size: 100% 60%;
+    background-position:left -10% bottom -30px;
+}

@@ -1,5 +1,4 @@
 /** @format */
-
 module.exports = {
 	content: ["./src/**/*.{js,jsx,ts,tsx}"],
 	theme: {
@@ -30,6 +29,29 @@ module.exports = {
 				12: "12",
 				13: "13",
 			},
+      screens:{
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+      },
+      colors:{
+        primary:"#0077B6",
+        secondary:"#369FD7",
+        red:'#FC2249',
+        isLoadingColor:"#AFDCF3",
+        third:{
+          'text1':"#212529",
+          'text2':"#343A40",
+          'text3':"#495057",
+          'text4':"#6C757D",
+          'inputgray':"#F4F4F4",
+          'white':"#FFFFFF",
+          'green':'green'
+        
+        },
+      },
 			colors: {
 				transparent: "transparent",
 				current: "currentColor",
@@ -54,5 +76,7 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 };
