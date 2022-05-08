@@ -38,7 +38,7 @@ const EditOperatorForm = ({ setOpenModal, update, setCloseUpdate }) => {
 
   return (
     <div className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50">
-      <div className="w-1/4 h-3/5 bg-white rounded-md p-4 box-border">
+      <div className="w-5/6 sm:w-3/5 h-2/5 sm:h-3/5 md:w-3/5 md:h-2/6 lg:w-2/6 lg:h-3/5 xl:w-1/4 bg-white rounded-md p-3 sm:p-4 box-border">
         <div className="mb-4 font-bold border-b-2 border-solid border-darkBluePhant w-[130px] pt-6">
           {update ? "Edit Operator" : "Create New Operator"}
         </div>
@@ -91,7 +91,7 @@ const EditOperatorForm = ({ setOpenModal, update, setCloseUpdate }) => {
               <button
                 onClick={() => {
                   setOpenModal(false);
-                   setCloseUpdate("");
+                  setCloseUpdate("");
                 }}
               >
                 Back

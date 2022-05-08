@@ -1,22 +1,16 @@
 {
   "operatorsDb": [
     {
-      "name": "juno",
+      "name": "juno kanope",
       "email": "kizigenza",
       "route": "Kimironko",
       "id": 1
     },
     {
-      "name": "kalisa ",
-      "email": "kalisa@gmail.com",
-      "route": "Remera",
+      "name": "Niyibizi Fabrice",
+      "email": "hello",
+      "route": "Kanombe",
       "id": 2
-    },
-    {
-      "name": "He is the king of the jungle",
-      "email": "sure",
-      "route": "Downtown",
-      "id": 5
     }
   ]
 }

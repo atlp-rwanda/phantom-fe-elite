@@ -37,16 +37,19 @@ const AdminOperator = (props) => {
   };
 
   return (
-    <div className="grid h-screen w-screen grid-cols-12 grid-rows-12 font-Nunito bg-[#f3f3f3]">
+    <div className="grid h-screen w-screen overflow-x-hidden grid-cols-12 grid-rows-12 font-Nunito bg-[#f3f3f3]">
       <HeaderAdmin />
+      {/* conditional rendering of the edit when the button is pressed and modalOpen variable became true */}
       {modalOpen && showModal()}
-      <main className=" flex flex-col col-start-1 sm:col-start-3 col-end-13 row-start-2 row-end-12 px-3 mx-2 mt-2 bg-white">
-        <div className="my-2 font-black text-xl border-b-2 border-solid border-darkBluePhant w-[90px]">
-          Operator
+      <main className=" flex flex-col col-start-1 sm:col-start-3 md:col-start-4 lg:col-start-3 col-end-13 row-start-2 row-end-12 px-3 mx-0 sm:mx-2  mt-2 bg-white">
+        <div className="flex justify-center sm:justify-start md:justify-center lg:justify-start ">
+          <div className="m-2 font-black text-xl border-b-2 border-solid border-darkBluePhant w-[90px]">
+            Operator
+          </div>
         </div>
-        <div className="flex flex-row items-center my-3">
-          <div className="bg-darkBluePhant p-2 rounded-md font-bold text-white flex items-center justify-between w-1/6">
-            <RiAddCircleLine className="text-white text-2xl" />
+        <div className="flex flex-row justify-between sm:justify-start md:justify-evenly lg:justify-start items-center my-3">
+          <div className="bg-darkBluePhant p-1 sm:px-0 sm:p-2 rounded-md font-bold text-white flex items-center justify-evenly w-1/2 sm:w-1/6 md:w-2/6 xl:w-1/6">
+            <RiAddCircleLine className="text-white text-xl sm:text-2xl" />
             <button
               onClick={() => {
                 setModalOpen(true);
@@ -55,11 +58,14 @@ const AdminOperator = (props) => {
               Create Operator
             </button>
           </div>
-          <form action="" className="w-2/5 h-10 mx-12">
+          <form
+            action=""
+            className="w-1/2 sm:w-2/5 h-10 mx-2 sm:mx-12 md:mx-3 lg:mx-12 sm:flex sm:items-center"
+          >
             <input
               type="text"
               placeholder="Search"
-              className="w-full h-full pl-2 border-2 border-solid border-[#6C757D] rounded-md"
+              className="w-full h-5/6 sm:h-full pl-2 border-2 border-solid border-[#6C757D] rounded-md"
             />
           </form>
         </div>
