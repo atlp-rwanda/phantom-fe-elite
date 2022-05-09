@@ -8,6 +8,7 @@ import LandingPage from "./Routes/LandingPage";
 import ResetP from "./Routes/confirmation-password";
 import Bus from "./views/operator/Bus";
 import UpdateOperator from "./views/operator/UpdateOperator";
+import UpdateDriver from "./views/driver/UpdateDriver";
 const App = () => {
 	return (
 		<BrowserRouter>
@@ -20,6 +21,7 @@ const App = () => {
 					<Route exact path="/updateoperator" element={<UpdateOperator />}></Route>
 					<Route path="/reset-password" element={<Reset />}></Route>
                     <Route path="/confirm-new-password" element={<ResetP />}></Route>
+					<Route path="/updatedriver" element={<UpdateDriver />}></Route>
 				</Routes>
 			</div>
 		</BrowserRouter>
