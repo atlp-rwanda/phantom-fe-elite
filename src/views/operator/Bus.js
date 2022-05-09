@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useState, useEffect } from "react";
-import Admin from "../../component/layout/Admin";
+import Admin from "../../component/layout/Layout";
 import { RiAddCircleLine } from "react-icons/ri";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiEdit } from "react-icons/fi";
@@ -38,21 +38,25 @@ const Bus = () => {
 	return (
 		<>
 			<Admin>
-				<div className="my-2 font-black text-xl border-b-2 border-solid border-darkBluePhant w-[90px]">
-					Bus
+				<div className="flex justify-center sm:justify-start md:justify-center lg:justify-start ">
+					<div className="m-2 font-black text-xl border-b-2 border-solid border-darkBluePhant w-[90px]">
+						Bus
+					</div>
 				</div>
-				<div className="flex flex-row items-center my-3">
-					<button
-						className="bg-darkBluePhant p-2 rounded-md font-bold text-white flex items-center justify-between w-fit"
-						onClick={() => toggleModal()}>
-						<RiAddCircleLine className="text-white text-2xl" />
-						<div>Add New Bus</div>
-					</button>
-					<form action="" className="w-2/5 h-10 mx-12">
+				<div className="flex flex-row justify-between sm:justify-start md:justify-evenly lg:justify-start items-center my-3">
+					<div
+						onClick={() => toggleModal()}
+						className="bg-darkBluePhant cursor-pointer p-1 sm:px-0 sm:p-2 rounded-md font-bold text-white flex items-center justify-evenly w-1/2 sm:w-1/6 md:w-2/6 xl:w-1/6">
+						<RiAddCircleLine className="text-white text-xl sm:text-2xl" />
+						<button>Add New Bus</button>
+					</div>
+					<form
+						action=""
+						className="w-1/2 sm:w-2/5 h-10 mx-2 sm:mx-12 md:mx-3 lg:mx-12 sm:flex sm:items-center">
 						<input
 							type="text"
 							placeholder="Search"
-							className="w-full h-full pl-2 border-2 border-solid border-[#6C757D] rounded-md"
+							className="w-full h-5/6 sm:h-full pl-2 border-2 border-solid border-[#6C757D] rounded-md"
 						/>
 					</form>
 				</div>
@@ -107,21 +111,30 @@ const Bus = () => {
 								<label className="font-semibold">Bus Name</label>
 								<input
 									type="text"
+									name="busName"
 									placeholder="Bus Name"
 									className="w-full bg-gray-100 p-2 mt-2 mb-3"
 								/>
 								<label className="font-semibold">Bus Plate</label>
 								<input
 									type="text"
+									name="busPlate"
 									placeholder="Bus Plate"
 									className="w-full bg-gray-100 p-2 mt-2 mb-3"
 								/>
 								<label className="font-semibold">Bus Route</label>
-								<input
-									type="text"
-									placeholder="Bus Route"
-									className="w-full bg-gray-100 p-2 mt-2 mb-3"
-								/>
+								<select
+									name="route"
+									id="route-select"
+									className="w-full bg-gray-100 p-2 mt-2 mb-3">
+									<option value="">--Select route--</option>
+									<option value="Kimironko">Kimironko</option>
+									<option value="Remera">Remera</option>
+									<option value="Downtown">Downtown</option>
+									<option value="Kanombe">Kanombe</option>
+									<option value="Murindi">Murindi</option>
+									<option value="Kimisagara">Kimisagara</option>
+								</select>
 							</div>
 							<div className="bg-gray-200 px-4 py-3 text-left">
 								<button
