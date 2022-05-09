@@ -1,6 +1,9 @@
 /** @format */
 
 import React from "react";
+// import Admin from "../../component/layout/Admin";
+// import Topview from "./Topview";
+import { RiAddCircleLine } from "react-icons/ri";
 import logo from "../../assets/images/logo.jpg";
 import { VscCompass } from "react-icons/vsc";
 import {RiArrowDropDownFill,} from "react-icons/ri";
@@ -9,8 +12,11 @@ import { MdAssignmentTurnedIn } from "react-icons/md";
 import { FaBus, FaUserCircle } from "react-icons/fa";
 import { MdAltRoute } from "react-icons/md";
 import { AiOutlineSetting } from "react-icons/ai";
+import Topview from "./Topview";
+import BusRoutedata from "./BusRoutedata";
 
-const Admin = ({ children }) => {
+
+const AdminView = () => {
 	return (
 		<div className="grid h-screen w-screen grid-cols-12 grid-rows-12 font-Nunito bg-[#f3f3f3]">
 			<header className="bg-white col-start-3 col-end-13  row-start-1 row-end-2">
@@ -34,8 +40,10 @@ const Admin = ({ children }) => {
 					</section>
 				</div>
 			</header>
-			<main className=" flex flex-col col-start-3 col-end-13 row-start-2 row-end-12 px-3 mx-2 mt-2 bg-white">
-				{children}
+			
+			<main className=" flex flex-col col-start-3 col-end-13 row-start-2 row-end-12 mx-2 mt-2 bg-white">
+			<Topview/>
+			<BusRoutedata />
 				
 			</main>
 			<aside className="bg-white col-start-1 col-end-3 text-black row-span-full border-r-2 border-solid border-[#f3f3f3]">
@@ -68,13 +76,10 @@ const Admin = ({ children }) => {
 					</div>
 				</div>
 			</aside>
-			<div className="bg-adminFooterBackground font-Montserrat font-medium col-start-3 col-end-13 row-start-12 row-end-13  flex justify-center items-center ">
-				<p className="text-white text-xs">
-					Andela 2022 All rights Reserved. Designed by Elite Team
-				</p>
-			</div>
+		
 		</div>
 	);
+		
 };
 
-export default Admin;
+export default AdminView;

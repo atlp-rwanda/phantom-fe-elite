@@ -6,6 +6,7 @@ import RegisterPage from "./Routes/RegisterPage";
 import LoginPage from "../src/component/login";
 import LandingPage from "./Routes/LandingPage";
 import Bus from "./views/operator/Bus";
+import Admin from "./views/admin/AdminView.js"
 const App = () => {
 	return (
 		<BrowserRouter>
@@ -14,6 +15,7 @@ const App = () => {
 					<Route exact path="/" element={<LandingPage />}></Route>
 					<Route exact path="/register" element={<RegisterPage />}></Route>
 					<Route exact path="/bus" element={<Bus />}></Route>
+					<Route exact path="/admin" element={<Admin />}></Route>
           <Route path="/reset-password" element={<Reset />}></Route>
           <Route exact path="/login" element={<LoginPage />}></Route>
 				</Routes>
