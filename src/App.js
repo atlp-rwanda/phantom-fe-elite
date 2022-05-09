@@ -14,6 +14,7 @@ const App = () => {
 					<Route exact path="/bus" element={<Bus />}></Route>
 				</Routes>
 			</div>
+			
 		</BrowserRouter>
 	);
 };

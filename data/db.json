@@ -1,0 +1,34 @@
+{
+  "buses": [
+    {
+      "id": 2,
+      "busNumber": "D-35",
+      "busPlate": "RAC346B",
+      "routes": "Kimironko - Downtown"
+    },
+    {
+      "id": 3,
+      "busNumber": "D-50",
+      "busPlate": "RAC346B",
+      "routes": "Kimironko - Downtown"
+    },
+    {
+      "id": 4,
+      "busNumber": "D-115",
+      "busPlate": "RAC346B",
+      "routes": "Kimironko - Downtown"
+    }
+  ],
+  "drivers": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "operators": {
+    "id": 1,
+    "body": "some comment",
+    "postId": 1
+  }
+}

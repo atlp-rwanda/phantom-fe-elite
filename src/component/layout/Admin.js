@@ -41,7 +41,7 @@ const Admin = ({ children }) => {
 				<img src={logo} className="mx-7 mt-3" />
 				<br />
 				<div className=" tracking-wider mt-8 ml-5 flex justify-start gap-5 ">
-					<VscCompass className="text-[26px]" />
+					<VscCompass className="text-[26px] text-darkBluePhant" />
 					<p className="ml-1">Map overview</p>
 				</div>
 				<p className="text-xl tracking-wider  m-auto font-bold mt-3 ml-3 mb-2 ">
@@ -49,20 +49,20 @@ const Admin = ({ children }) => {
 				</p>
 				<div className="ml-5 flex flex-col gap-4">
 					<div className="flex gap-5">
-						<MdAssignmentTurnedIn size={25} className="mt-1 " />
+						<MdAssignmentTurnedIn size={25} className="mt-1 text-darkBluePhant " />
 						<p className="ml-1">Bus</p>
 					</div>
 					<div className="flex gap-5 ">
-						<FaBus size={25} className="mt-1 " />
+						<FaBus size={25} className="mt-1 text-darkBluePhant " />
 						<p className="ml-1">Route</p>
 					</div>
 					<div className="flex gap-5">
-						<MdAltRoute size={25} className="mt-1 " />
+						<MdAltRoute size={25} className="mt-1 text-darkBluePhant " />
 						<p className="ml-1">Driver</p>
 					</div>
 
 					<div className="flex gap-5">
-						<AiOutlineSetting size={25} className="mt-1 darkBluePhant" />
+						<AiOutlineSetting size={25} className="mt-1 text-darkBluePhant" />
 						<p className="ml-1">Operator</p>
 					</div>
 				</div>
