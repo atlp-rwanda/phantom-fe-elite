@@ -25,7 +25,7 @@ const MobileHeader = ({ setAsideOpen }) => {
 	});
 	return (
 		<aside
-			className="bg-white h-screen w-4/6 absolute text-black row-span-full border-2 border-solid border-[#f3f3f3] pb-4"
+			className="z-10 bg-white h-screen w-4/6 absolute text-black row-span-full border-2 border-solid border-[#f3f3f3] pb-4"
 			ref={sideRef}>
 			<div className="flex mx-3 justify-between items-center ">
 				<img src={logo} className=" mt-3" />

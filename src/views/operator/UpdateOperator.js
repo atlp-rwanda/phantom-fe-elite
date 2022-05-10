@@ -27,7 +27,7 @@ const UpdateOperator = () => {
     <Admin>
     <h3 className='font-bold underline decoration-sky-500' data-testid="head1">Update Operator Profile</h3>
     <h3 className='text-center relative sm:top-20 font-bold underline decoration-sky-500 top-10 md:top-10' data-testid="head2">SETTINGS</h3>
-    <form onSubmit={formik.handleSubmit} className='border-2 sm:w-2/4 h-96 bg-adminformbgcolor relative sm:left-60 sm:mt-26 shadow-xl w-4/5 left-10 mt-12 md:left-24 md:w-4/6 lg:mt-28 lg:ml-32'>
+    <form onSubmit={formik.handleSubmit} className='z-0 border-2 sm:w-2/4 h-96 bg-adminformbgcolor relative sm:left-60 sm:mt-26 shadow-xl w-4/5 left-10 mt-12 md:left-24 md:w-4/6 lg:mt-28 lg:ml-32'>
             <div className='word flex flex-col place-items-center mt-10'>
             <input 
             placeholder='Username...' 
