@@ -9,6 +9,7 @@ import ResetP from "./Routes/confirmation-password";
 import Bus from "./views/operator/Bus";
 import UpdateOperator from "./views/operator/UpdateOperator";
 import Layout from "./component/layout/Layout";
+import UpdateDriver from "./views/driver/UpdateDriver";
 const App = () => {
 	return (
 		<BrowserRouter>
@@ -22,6 +23,7 @@ const App = () => {
 					<Route path="/reset-password" element={<Reset />}></Route>
                     <Route path="/confirm-new-password" element={<ResetP />}></Route>
 					<Route exact path="/test" element={<Layout />}></Route>
+					<Route path="/updatedriver" element={<UpdateDriver />}></Route>
 				</Routes>
 			</div>
 		</BrowserRouter>
