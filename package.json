@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "setting up the react project for phantom app",
   "main": "index.js",
-  "jest":{
-    "collectCoverageFrom":[
+  "jest": {
+    "collectCoverageFrom": [
       "src/**/*.{js, jsx, ts, tsx}",
       "!src/component/starter-files-draft/NumCounter.js",
       "!src/redux/actions/counterActions.js",
@@ -15,7 +15,6 @@
       "!src/index.js",
       "!src/postcss.config.js"
     ]
-
   },
   "scripts": {
     "start": "webpack serve --mode development --open",
@@ -31,6 +30,11 @@
   "author": "elite team member",
   "license": "ISC",
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.6.2",
+    "@mui/material": "^5.6.4",
+    "@react-google-maps/api": "^2.10.2",
     "@testing-library/user-event": "^14.1.1",
     "autoprefixer": "^10.2.1",
     "babel-jest": "^27.5.1",
@@ -38,14 +42,18 @@
     "dotenv": "^16.0.0",
     "dotenv-webpack": "^7.1.0",
     "formik": "^2.2.9",
+    "google-map-react": "^2.1.10",
+    "google-maps-react": "^2.0.6",
     "jest": "^27.5.1",
+    "leaflet": "^1.8.0",
     "mini-css-extract-plugin": "^2.6.0",
     "path": "^0.12.7",
     "postcss-cli": "^8.3.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "react-hook-form": "^7.30.0",
     "react-icons": "^4.3.1",
+    "react-leaflet": "^4.0.0",
     "react-redux": "^7.2.8",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
@@ -64,6 +72,7 @@
     "@tailwindcss/forms": "^0.5.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.0",
+    "@types/leaflet": "^1.7.9",
     "babel-loader": "^8.2.4",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
