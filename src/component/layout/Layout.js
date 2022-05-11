@@ -1,12 +1,11 @@
 /** @format */
 
-import React, { useEffect, useState } from "react";
-import { RiAddCircleLine } from "react-icons/ri";
+import React from "react";
 import Footer from "../dashboard-layout/Footer";
 import Header from "../dashboard-layout/Header";
 import SideBar from "../dashboard-layout/SideBar";
 
-const Layout=({ children })=> {
+const Layout = ({ children }) => {
 	return (
 		<div className="grid h-screen w-screen overflow-x-hidden grid-cols-12 grid-rows-12 font-Nunito bg-[#f3f3f3]">
 			<Header />
@@ -17,6 +16,6 @@ const Layout=({ children })=> {
 			<Footer />
 		</div>
 	);
-}
+};
 
 export default Layout;
