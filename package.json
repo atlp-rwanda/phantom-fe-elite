@@ -20,7 +20,7 @@
     "start": "webpack serve --mode development --open",
     "build": "webpack --mode production",
     "test": "react-scripts test --watchAll=false",
-    "coverage": "react-scripts test --coverage --watchAll=false"
+    "coverage": "react-scripts test --coverage --watchAll"
   },
   "keywords": [
     "webpack5",
@@ -44,7 +44,6 @@
     "formik": "^2.2.9",
     "google-map-react": "^2.1.10",
     "google-maps-react": "^2.0.6",
-    "jest": "^27.5.1",
     "leaflet": "^1.8.0",
     "mini-css-extract-plugin": "^2.6.0",
     "path": "^0.12.7",
@@ -79,6 +78,7 @@
     "file-loader": "^6.2.0",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^28.1.0",
     "postcss": "^8.4.12",
     "postcss-loader": "^6.2.1",
     "style-loader": "^3.3.1",

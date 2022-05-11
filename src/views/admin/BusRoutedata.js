@@ -3,7 +3,7 @@ import smallImage from "../../assets/admin-panel/Bus.jpg";
 function BusRoutedata() {
   return (
     <div className="bg-white px-4 rounded-lg">
-      <div className="my-2  font-black text-xl border-b-2 border-solid border-darkBluePhant w-[180px]">
+      <div className="my-2 hidden md:block font-black text-xl border-b-2 border-solid border-darkBluePhant w-[200px]" title="Bus , Routes Data">
         Bus , Routes Data
       </div>
 
