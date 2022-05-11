@@ -1,18 +1,21 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import startupData from "./data";
 import TableRow from "./TableRow";
-// import { fakeDataArr } from "./fakeDataBase";
 
 const TableGenerator = (props) => {
+  const [data, setData] = useState(startupData);
   const captureData = (data) => {
-    // console.log(data);
        props.giveMeData(data);
   }
-  const fakeDataArr =  useSelector((data) => data.users);
+  const captureIdtoDelete = (id) => {
+      setData((prevData) => {
+         return prevData.filter((item) => item.id !== id)
+       })
+  }
   let i = 0;
   return (
     <>
-      {fakeDataArr.map((user) => {
+      {data.map((user) => {
         ++i;
         return (
           <TableRow
@@ -22,6 +25,7 @@ const TableGenerator = (props) => {
             route={user.route}
             number={user.id}
             onSaveData={captureData}
+            onDelete={captureIdtoDelete}
             setOpenModalRow={props.setOpenModal}
             key={i}
           />

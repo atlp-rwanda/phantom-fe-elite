@@ -2,14 +2,10 @@ import React from 'react'
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiEdit } from "react-icons/fi"
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { removeTodoAction } from '../redux/actions/rootAction/index';
-import { DataDeletingInsideJsonServer } from '../redux/fetchApi';
 
 const TableRow = (props) => {
-  const dispatch = useDispatch();
   const handleDelete = () => {
-        dispatch(DataDeletingInsideJsonServer(props.number));
+    props.onDelete(props.number);
   }
 let data = props;
     const handleUpdate = () => {

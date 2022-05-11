@@ -8,20 +8,19 @@ import TableHeader from "../admin-operator-stuff/TableHeader";
 import AsideAdmin from "../admin-operator-stuff/TemplateComponent/AsideAdmin";
 import FooterAdmin from "../admin-operator-stuff/TemplateComponent/FooterAdmin";
 import HeaderAdmin from "../admin-operator-stuff/TemplateComponent/HeaderAdmin";
-import { thunkCreatorsFunctionFetchingAllData } from "../redux/fetchApi";
-// import { thunkCreatorsFunctionFetchingAllData } from "../redux/fetchApi";
 
 const AdminOperator = (props) => {
-  let dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
   useEffect(() => {
-    dispatch(thunkCreatorsFunctionFetchingAllData());
   }, []);
 
   const [update, setUpdate] = useState("");
   const dataHandler = (data) => {
     setUpdate(data);
   };
+  const deleteHandle = (id) => {
+    console.log(id)
+  }
   const showModal = () => {
     if (update) {
       return (
@@ -74,6 +73,7 @@ const AdminOperator = (props) => {
           {/* rendering the all operators from the database using this component TableGenerator */}
           <TableGenerator
             giveMeData={dataHandler}
+            giveMeId = {deleteHandle}
             setOpenModal={setModalOpen}
           />
         </div>
