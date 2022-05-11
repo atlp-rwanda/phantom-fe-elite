@@ -5,6 +5,7 @@ import { RiAddCircleLine } from "react-icons/ri";
 import Footer from "../dash/Footer";
 import Header from "../dash/Header";
 import SideBar from "../dash/SideBar";
+import SideBarOperator from "../dash/SideBarOperator";
 
 const Layout=({ children })=> {
 	return (
@@ -13,7 +14,7 @@ const Layout=({ children })=> {
 			<main className=" flex flex-col col-start-1 sm:col-start-3 md:col-start-4 lg:col-start-3 col-end-13 row-start-2 row-end-12 px-3 mx-0 sm:mx-2  mt-2 bg-white">
 				{children}
 			</main>
-			<SideBar />
+			<SideBarOperator />
 			<Footer />
 		</div>
 	);

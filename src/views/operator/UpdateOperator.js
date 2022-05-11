@@ -37,6 +37,7 @@ const UpdateOperator = () => {
             name='username'
             data-testid="username-input"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.username}
             />
             {formik.touched.username && formik.errors.username ? <span className='text-red-600'data-testid="error-msg">{formik.errors.username}</span>: null}
