@@ -1,13 +1,13 @@
 import React from 'react'
-import BusRoutedata from '../BusRoutedata';
-import MapView from '../MapView';
-import Topview from '../Topview';
-import Footer from "../../../component/dash/Footer"
-import AdminView from '../AdminView';
-import MobileHeader from '../../../component/dash/MobileHeader';
+import BusRoutedata from '../../views/admin/BusRoutedata'
+import MapView from '../../views/admin/MapView'
+import AboutPage from '../../Routes/AboutPage'
+import Header from "../dash/Header"
+import Topview from '../../views/admin/Topview'
+// import AdminView from '../../views/admin/AdminView'
+// import Footer from "../../component/dash/Footer"
+// import MobileHeader from '../../component/dash/MobileHeader';
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { act } from "react-dom/test-utils";
 
 jest.spyOn(console, "error").mockImplementation(()=>{});
 
@@ -71,50 +71,38 @@ describe('show component MapView in the document', () => {
     });
    
 });
-describe('what are in the document', () => {
-    it("should render something which is not in react page",  () => {
-        render(<Topview title=""/>);
-        const headingelement = screen.queryByTestId("Topview")
-        expect(headingelement).toBeVisible
-    });
-   
-});
- describe('the MobileHeader in the document', () => {
-    it("should render something which in react page",  () => {
-        render(<MobileHeader title=""/>);
-        const headingelement = screen.queryByTestId("header")
-        expect(headingelement).toBeVisible
-    });
-});
-describe('the AdminView in the document', () => {
-    it("should render something which in react page",  () => {
-        render(<Footer title=""/>);
-        const headingelement = screen.queryByTestId("footer")
-        expect(headingelement).toBeVisible
-    });
-    it("should render something which in react page",  () => {
-        render(<Footer title=""/>);
-        const headingelement = screen.queryByTestId("footer")
-        expect(headingelement).not.toBeInTheDocument();
-    });  
-});
-describe('the AdminView in the document', () => {
-    it("should render something which in react page",  () => {
-        render(<AdminView title=""/>);
-        const headingelement = screen.queryByTestId("admin")
-        expect(headingelement).toBeInTheDocument();
-    });
-    it("should render something which in react page", async () => {
-        render(<AdminView title="mobile"/>);
-        const headingelement = await screen.queryAllByAltText("Map overview")
-        expect(headingelement).not.toBeInTheDocument();
-    });  
-});
+describe("It should render Header in the document ",()=>{
+    it("should check if the elementa are available in the document ",()=>{
+        render(<Header />);
+        const checkText=screen.getByText("EN");
+        expect(checkText).toBeVisible;
+    })
+    it("should check if the elementa are available in the document ",()=>{
+        render(<Header />);
+        const checkText1=screen.getByText("Andela Rwanda");
+        expect(checkText1).toBeVisible;
+        const checkText2=screen.getByText("User");
+        expect(checkText2).toBeVisible;
+    })
 
-describe('the AdminView in the document', () => {
-    it("should render something which in react page",  () => {
-        render(<AdminView title=""/>);
-        const headingelement = screen.queryByTestId("admin")
-        expect(headingelement).toBeInTheDocument();
-    }); 
-});
+})
+
+
+
+describe("It should render Header in the document ",()=>{
+    it("should check if the elementa are available in the document ",()=>{
+        render(<Header />);
+        const checkText=screen.getByText("EN");
+        expect(checkText).toBeVisible;
+    })
+
+})
+
+describe("It should render Header in the document ",()=>{
+    it("should check if the elementa are available in the document ",()=>{
+        render(<Topview />);
+        const checkText=screen.getByText("Router");
+        expect(checkText).toBeVisible;
+    })
+
+})

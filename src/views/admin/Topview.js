@@ -3,7 +3,6 @@ import busImage from "../../assets/admin-panel/emojione_oncoming-bus.jpg";
 import usersImage from "../../assets/admin-panel/ant-design_user-outlined.jpg";
 import routeImage from "../../assets/admin-panel/fa-solid_route.jpg";
 import driversImage from "../../assets/admin-panel/healthicons_truck-driver-outline.jpg";
-// import ImageMap from "../../assets/admin-panel/Map.jpg";
 import MapView from "./MapView";
 function Topview() {
   return (

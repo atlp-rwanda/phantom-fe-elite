@@ -2,8 +2,8 @@ import React from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 const containerStyle = {
-    width: '300px',
-    height: '600px'
+    width: '80vw',
+    height: '80vh'
   };
   
   const center = {
@@ -38,10 +38,6 @@ function MapView() {
             onLoad={onLoad}
             onUnmount={onUnmount}
           >
-            
-
-           
-            
             <></>
           </GoogleMap>
           </div>

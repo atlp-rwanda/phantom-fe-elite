@@ -13,7 +13,7 @@ const Header = () => {
 		<header className="bg-white col-start-1 sm:col-start-3 md:col-start-4 lg:col-start-3 col-end-13  row-start-1 row-end-2">
 			{asideOpen && <MobileHeader setAsideOpen={setAsideOpen} />}
 			<div className="flex sm:justify-end h-full">
-				<section className=" w-200 sm:w-1/2 md:w-2/3 lg:w-1/2 xl:w-2/5 flex justify-around sm:justify-between md:justify-around lg:justify-evenly  xl:justify-between items-center h-full">
+				<section className=" w-full md:w-3/2 lg:w-1/2 xl:w-1/2 flex justify-around sm:justify-between md:justify-around lg:justify-evenly  xl:justify-between items-center h-full">
 					<div
 						className="sm:hidden text-darkBluePhant text-2xl ml-2 md:text-3xl"
 						onClick={() => {
