@@ -11,8 +11,8 @@ import HeaderAdmin from "../admin-operator-stuff/TemplateComponent/HeaderAdmin";
 
 const AdminOperator = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
-  useEffect(() => {
-  }, []);
+  // useEffect(() => {
+  // }, []);
 
   const [update, setUpdate] = useState("");
   const dataHandler = (data) => {
