@@ -23,6 +23,10 @@ const AdminOperator = (props) => {
   const deleteHandle = (id) => {
     console.log(id)
   }
+
+  const setData = (data) => {
+      
+  }
   const showModal = () => {
     if (update) {
       return (
@@ -33,7 +37,7 @@ const AdminOperator = (props) => {
         />
       );
     } else {
-      return <NewOperatorForm setOpenModal={setModalOpen} />;
+      return <NewOperatorForm setOpenModal={setModalOpen} setData = {setData}/>;
     }
   };
 
@@ -77,6 +81,7 @@ const AdminOperator = (props) => {
             giveMeData={dataHandler}
             giveMeId = {deleteHandle}
             setOpenModal={setModalOpen}
+
           />
         </div>
       </main>

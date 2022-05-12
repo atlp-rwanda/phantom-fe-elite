@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useFormik } from "formik";
 
-const NewOperatorForm = ({ setOpenModal }) => {
+const NewOperatorForm = ({ setOpenModal, setData }) => {
     const initialData = {
       name: "",
       email: "",
@@ -9,6 +9,7 @@ const NewOperatorForm = ({ setOpenModal }) => {
     };
 const onSubmit = (values, {resetForm}) => {
   console.log(values);
+  setData(values)
   resetForm({});
 }
 const validate = (values) => {
@@ -41,14 +42,6 @@ const formik = useFormik({
         [event.target.name]: event.target.value,
       };
     });
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setFormData({
-      name: "",
-      email: "",
-      route: "",
-    });  
   };
 
 
