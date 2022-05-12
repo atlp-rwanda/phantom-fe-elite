@@ -113,7 +113,6 @@ describe("<RegisterPage />", () => {
       expect(screen.queryByTestId("error-msg")).not.toBeInTheDocument();
     });
   });
-
   it("should validate form", async () => {
     const handleSubmit = jest.fn();
     await act(async () => {
@@ -124,24 +123,19 @@ describe("<RegisterPage />", () => {
       );
     });
     const user = userEvent.setup();
-
     const email = screen.getByTestId("email-input");
     const username = screen.getByTestId("username-input");
     const password = screen.getByTestId("password-input");
-
     user.click(screen.getByTestId("submit-form"));
-
     fireEvent.blur(email);
     fireEvent.blur(username);
     fireEvent.blur(password);
-
     await waitFor(() => {
       expect(screen.getByText("Email is Required")).toBeInTheDocument();
       expect(screen.getByText("Username is Required")).toBeInTheDocument();
       expect(screen.getByText("password is Required")).toBeInTheDocument();
     });
   });
-
   it("Test form submit and validation", async () => {
     const handleSubmit = jest.fn();
     render(
@@ -151,13 +145,10 @@ describe("<RegisterPage />", () => {
     );
 
     const user = userEvent.setup();
-
     await user.type(screen.getByTestId("email-input"), "rachel@blbla.com");
     await user.type(screen.getByTestId("username-input"), "Rachel");
     await user.type(screen.getByTestId("password-input"), "N#@!Pass");
-
     await user.click(screen.getByTestId("submit-form"));
-
     await waitFor(() =>
       expect(handleSubmit).toHaveBeenCalledWith({
         email: "rachel@blbla.com",

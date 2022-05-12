@@ -9,7 +9,6 @@ const FormSubscribe = () => {
   const onSubmit = (values) => {
     // this function runs when submit button is pressed and Formik automatically passes the values an objects containing the objects containing the
     // current values of the entered data with the properties equal to the name set on the input entered data with the properties equal to the name set on the input
-    console.log(values);
   };
   // this function when passed in useFormik object, it automatically receive the objects containing the
   // current values of the

@@ -2,13 +2,13 @@ const startupData = [
   {
     name: "The punisher",
     email: "heroku repository",
-    route: "Kimironko",
+    route: "Operator",
     id: 1,
   },
   {
     name: "juno kanope",
     email: "kizigenza",
-    route: "Kimironko",
+    route: "Operator",
     id: 2,
   },
 ];

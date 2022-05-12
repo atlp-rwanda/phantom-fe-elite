@@ -68,4 +68,5 @@ module.exports = {
       filename: "styles/[name].[contenthash].css",
     }),
   ],
+  performance: { hints: false }
 };

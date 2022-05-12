@@ -8,6 +8,8 @@ import TableHeader from "../admin-operator-stuff/TableHeader";
 import AsideAdmin from "../admin-operator-stuff/TemplateComponent/AsideAdmin";
 import FooterAdmin from "../admin-operator-stuff/TemplateComponent/FooterAdmin";
 import HeaderAdmin from "../admin-operator-stuff/TemplateComponent/HeaderAdmin";
+import SideBar from "../component/dashboard-layout/SideBar";
+
 
 const AdminOperator = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -78,7 +80,7 @@ const AdminOperator = (props) => {
           />
         </div>
       </main>
-      <AsideAdmin />
+      <SideBar />
       <FooterAdmin />
     </div>
   );
