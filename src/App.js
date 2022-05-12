@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import RegisterPage from "./Routes/RegisterPage";
 import LandingPage from "./Routes/LandingPage";
-import Bus from "./views/Bus";
+import Bus from "./views/admin/Bus";
 import AdminOperator from "./views/Admin-operator";
 
 const App = () => {
