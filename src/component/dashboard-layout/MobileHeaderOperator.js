@@ -4,7 +4,7 @@ import { VscCompass } from "react-icons/vsc";
 import { MdAssignmentTurnedIn } from "react-icons/md";
 import { FaBus } from "react-icons/fa";
 import { MdAltRoute } from "react-icons/md";
-import { AiOutlineSetting } from "react-icons/ai";
+import { AiFillSetting } from "react-icons/ai";
 import logo from "../../assets/images/logo.jpg";
 import { RiCloseFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
@@ -47,27 +47,27 @@ const MobileHeader = ({ setAsideOpen }) => {
       </p>
       <div className="ml-5 flex flex-col gap-4">
         <div className="flex gap-5">
-          <MdAssignmentTurnedIn size={25} className="mt-1 text-darkBluePhant" />
-          <p className="ml-1">Bus</p>
+          <MdAssignmentTurnedIn
+            size={25}
+            className="mt-1 text-darkBluePhant "
+          />
+          <p className="ml-1 mt-1">Assign</p>
         </div>
         <div className="flex gap-5 ">
-          <FaBus size={25} className="mt-1 text-darkBluePhant" />
-          <p className="ml-1">Route</p>
+          <FaBus size={25} className="mt-1 text-darkBluePhant " />
+          <p className="ml-1 mt-1">Bus</p>
         </div>
         <div className="flex gap-5">
-          <MdAltRoute size={25} className="mt-1 text-darkBluePhant" />
+          <MdAltRoute size={25} className="mt-1 text-darkBluePhant " />
           <Link to="/admin/driver">
-            <p className="ml-1">Driver</p>
+            <p className="ml-1 mt-1">Routes</p>
           </Link>
         </div>
 
         <div className="flex gap-5">
-          <AiOutlineSetting
-            size={25}
-            className="mt-1 text-darkBluePhant darkBluePhant"
-          />
+          <AiFillSetting size={25} className="mt-1 text-darkBluePhant " />
           <Link to="/dmin/operator">
-            <p className="ml-1">Operator</p>
+            <p className="ml-1 mt-1">Settings</p>
           </Link>
         </div>
       </div>

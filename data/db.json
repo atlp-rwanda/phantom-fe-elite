@@ -1,34 +1,79 @@
 {
-  "buses": [
+  "routes": [
     {
       "id": 2,
-      "busNumber": "D-35",
-      "busPlate": "RAC346B",
-      "routes": "Kimironko - Downtown"
+      "route": "Kimironko - Downtown"
     },
     {
       "id": 3,
-      "busNumber": "D-50",
-      "busPlate": "RAC346B",
-      "routes": "Kimironko - Downtown"
+      "route": "Kimironko - Downtown"
     },
     {
       "id": 4,
-      "busNumber": "D-115",
-      "busPlate": "RAC346B",
-      "routes": "Kimironko - Downtown"
+      "route": "Kimironko - Downtown"
+    },
+    {
+      "id": 5,
+      "route": "Kimironko - Downtown"
+    },
+    {
+      "id": 6,
+      "route": "Kimironko - Downtown"
+    },
+    {
+      "id": 7,
+      "route": "Kimironko - Downtown"
     }
   ],
   "drivers": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "email": "driver1@gmail.com"
+    },
+    {
+      "id": 2,
+      "email": "driver1@gmail.com"
+    },
+    {
+      "id":3 ,
+      "email": "driver1@gmail.com"
+    },{
+      "id": 4,
+      "email": "driver1@gmail.com"
+    },{
+      "id": 5,
+      "email": "driver1@gmail.com"
+    },
+    {
+      "id": 6,
+      "email": "driver1@gmail.com"
     }
   ],
-  "operators": {
+  "buses":[
+ {
     "id": 1,
-    "body": "some comment",
-    "postId": 1
+    "platenumber": "RAB3002"
+  },
+  {
+    "id": 2,
+    "platenumber": "RAB3002"
+  },
+  {
+    "id": 3,
+    "platenumber": "RAB3002"
+  },
+  {
+    "id": 4,
+    "platenumber": "RAB3002"
   }
+  
+],
+"assigned": [
+  {
+    "id":1,
+    "routes": "KIMIRONKO-DOWNTAWN",
+    "driver-email": "driver1@gmail.com",
+    "platenumber": "RAB3002"
+  }
+]
 }
