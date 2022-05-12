@@ -18,7 +18,9 @@ const NavBar = () => {
 
       <ul className="no-underline list-none flex space-x-12 mt-11 sm:justify-evenly items-center w-1/2 sm:w-1/4 ">
         <li>
-          <Link to="/login" className='font-medium sm:font-semibold sm:text-center'>Sign In</Link>
+          <Link to="/login" className="font-medium sm:font-semibold">
+            Sign In
+          </Link>
         </li>
         <li>
           <Link to="/register" className='text-textBluePhant font-medium sm:font-semibold'>Sign Up</Link>

@@ -9,8 +9,9 @@ import trackroute from "../assets/imgs/trackroute.jpg";
 import secondimage from "../assets/images/secondImage.jpg";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import FooterBlock from "../component/footer-and-nav-template/FooterBlock";
 import NavBar from "../component/footer-and-nav-template/NavBar";
+import FormSubscribe from "../component/FormSubscribe";
+import FooterBlock from "../component/footer-and-nav-template/FooterBlock";
 
 const RegisterPage = ({ onSubmit }) => {
 	const [isLoading, setIsLoading] = useState(false);
