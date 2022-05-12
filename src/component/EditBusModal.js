@@ -3,7 +3,12 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 
 const EditBusModal = () => {
-  const formik = useFormik({
+	// modal
+	function toggleEditModal() {
+		document.getElementById("editBusModal").classList.toggle("hidden");
+	}
+
+  	const formik = useFormik({
 		initialValues: {
 			busName: "",
 			busPlate: "",
@@ -104,13 +109,13 @@ const EditBusModal = () => {
 							<button
 								type="button"
 								className="py-2 px-4 bg-green-600 text-white rounded hover:bg-gray-700 mr-2"
-								onClick={() => toggleModal()}>
+								onClick={() => toggleEditModal()}>
 								<i className="fas fa-times"></i> Back
 							</button>
 							<button
 								type="submit"
 								className="py-2 px-4 bg-textBluePhant text-white rounded hover:bg-textBluePhant mr-2">
-								<i className="fas fa-plus"></i> Save Bus
+								<i className="fas fa-plus"></i> Update Bus
 							</button>
 						</div>
 					</form>

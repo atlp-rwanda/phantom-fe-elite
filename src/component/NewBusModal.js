@@ -4,6 +4,11 @@ import React from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 const NewBusModal = () => {
+	// modal
+	function toggleModal() {
+		document.getElementById("newBusModal").classList.toggle("hidden");
+	}
+
 	const formik = useFormik({
 		initialValues: {
 			busName: "",
