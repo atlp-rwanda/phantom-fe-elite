@@ -41,6 +41,8 @@ const Admin = ({ children }) => {
 	return (
 		<div className="grid h-screen w-screen grid-cols-12 grid-rows-12 font-Nunito bg-[#f3f3f3]">
 			<header className="bg-white col-start-3 col-end-13  row-start-1 row-end-2">
+			<img src={logo} className="mx-7 mt-3" />
+
 				<div className="flex justify-end h-full">
 					<section className="w-1/3 flex justify-between items-center h-full">
 						<div className="flex items-center">
@@ -77,7 +79,6 @@ const Admin = ({ children }) => {
 				{children}
 			</main>
 			<aside className="bg-white col-start-1 col-end-3 text-black row-span-full border-r-2 border-solid border-[#f3f3f3]">
-				<img src={logo} className="mx-7 mt-3" />
 				<br />
 				<div className=" tracking-wider mt-8 ml-5 flex justify-start gap-5 ">
 					<VscCompass className="text-[26px]" />

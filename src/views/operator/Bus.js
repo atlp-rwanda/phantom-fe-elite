@@ -1,5 +1,3 @@
-/** @format */
-
 import React from "react";
 import Admin from "../../component/layout/Admin";
 import { RiAddCircleLine } from "react-icons/ri";
