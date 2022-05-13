@@ -8,8 +8,8 @@ import { FcGoogle } from "react-icons/fc";
 import secondimage from "../assets/images/secondImage.jpg";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import NavBar from "./footer-and-nav-template/NavBar";
-import FooterBlock from "./footer-and-nav-template/FooterBlock";
+import NavBar from "../component/footer-and-nav-template/NavBar";
+import FooterBlock from "../component/footer-and-nav-template/FooterBlock";
 
 const trackroute ="https://res.cloudinary.com/andela-hodal/image/upload/v1651660951/images/trackroute_hotaxz.jpg";
 const LoginPage = ({ onSubmit }) => {
@@ -148,9 +148,3 @@ const LoginPage = ({ onSubmit }) => {
 };
 
 export default LoginPage;
-
-
-
-
-
-

@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import { RiAddCircleLine } from "react-icons/ri";
-import Footer from "../dash/Footer";
-import Header from "../dash/Header";
-import SideBarDriver from "../dash/SideBarDriver";
+import Footer from "../dashboard-layout/Footer";
+import Header from "../dashboard-layout/Header";
+import SideBarDriver from "../dashboard-layout/SideBarDriver";
 
 const Driverlayout=({ children })=> {
 	return (
