@@ -29,10 +29,10 @@ const Modal = ({ open, setOpen, children }) => {
   return (
     <>
       {open && (
-        <div className="w-[100vw h-[100vh] bg-black/20 absolute">
-          <div className="relative w-[100%] h-[100%]">
+        <div className="w-[100vw h-[100vh] bg-black/20 absolute ">
+          <div className="relative w-[100%] h-[100%] ">
             <div
-              className="w-[40vw] h-fit bg-white flex flex-col items-center py-[5px] px-[5px] space-y-4
+              className="w-[40vw] h-fit bg-white flex flex-col items-center py-[15px] px-[15px] space-y-4
             absolute top-[80%] left-[50%] translate-x-[50%] translate-y-[-50%] border-2 rounded "
             >
               {children}

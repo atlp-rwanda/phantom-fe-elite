@@ -2,7 +2,7 @@ import React from "react";
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/extend-expect";
 import { act } from "react-dom/test-utils";
-import UpdateDriver from "../../views/Driver/UpdateDriver";
+import UpdateDriver from "../../views/Driver/CreateDriver";
 import { render, screen, fireEvent,  waitFor, getByTitle, getByRole } from "@testing-library/react";
 import {
     BrowserRouter as Router,
@@ -19,8 +19,8 @@ describe('Displayed how Look at Dashboard of Admin to Add Driver Information',()
                 <UpdateDriver/>
             </Router>
         );
-        const linkElement = getByText("Driver");
-    expect(linkElement).toBeInTheDocument();
+        const headingelements = screen.getByTestId("head")
+        expect(headingelements).toBeVisible
     })
     it('It should display the table name of column of page',()=>{
         const{ getByText}= render(
