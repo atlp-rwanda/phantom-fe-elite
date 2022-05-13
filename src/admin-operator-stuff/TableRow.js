@@ -6,11 +6,10 @@ import { Link } from 'react-router-dom';
 const TableRow = (props) => {
   const handleDelete = () => {
     props.onDelete(props.number);
-  }
-let data = props;
+  };
     const handleUpdate = () => {
       props.setOpenModalRow(true);
-      props.onSaveData(data);
+      props.onSaveData(props);
     };
 
 

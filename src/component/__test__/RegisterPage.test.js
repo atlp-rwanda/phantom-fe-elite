@@ -65,7 +65,7 @@ describe("<RegisterPage />", () => {
     });
   });
 
-  it("renders a submit button", async () => {
+  it("renders a create operator button", async () => {
     await act(async () => {
       render(
         <Router>

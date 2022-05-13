@@ -7,8 +7,22 @@ import { act } from "react-dom/test-utils";
 
 // const mockedSetTodo = jest.fn();
 
-describe("AddInput", () => {
- it("render email input", async () => {
+describe("Renders the operator-admin page with all of the interaction", () => {
+   it("renders a create operator button", async () => {
+     await act(async () => {
+       render(
+         <Router>
+           <AdminOperator />
+         </Router>
+       );
+     });
+
+     await waitFor(() => {
+       expect(screen.getAllByRole("button")[0]).toBeInTheDocument();
+     });
+   });
+
+ it("should render the input element ( text field )", async () => {
    await act(async () => {
      render(
        <Router>
@@ -24,7 +38,7 @@ describe("AddInput", () => {
    });
  });
 
-  it("should accepts username input value more than 3 character", async () => {
+  it("When user types into the text field the value should change", async () => {
     await act(async () => {
       render(
         <Router>
@@ -35,7 +49,6 @@ describe("AddInput", () => {
     const inputEl = screen.getByPlaceholderText("Search");
     fireEvent.click(inputEl);
     fireEvent.change(inputEl, { target: { value: "kati" } });
-
     await waitFor(() => {
       expect(inputEl.value).toBe("kati");
     });

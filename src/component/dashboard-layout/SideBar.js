@@ -43,7 +43,6 @@ const SideBar = () => {
             <p className="ml-1">Driver</p>
           </Link>
         </div>
-
         <div className="flex gap-5">
           <VscSymbolProperty size={25} className="mt-1 text-darkBluePhant " />
           <Link to="/operator">

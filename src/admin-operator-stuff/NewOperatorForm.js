@@ -33,32 +33,21 @@ const formik = useFormik({
   onSubmit,
   validate
 })
-  const [formData, setFormData] = useState(initialData);
-
-  const handleChange = (event) => {
-    setFormData((prevState) => {
-      return {
-        ...prevState,
-        [event.target.name]: event.target.value,
-      };
-    });
-  };
-
-
   return (
     <div className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50">
-      <div className="w-5/6 sm:w-3/5 h-2/5 sm:h-3/5 md:w-3/5 md:h-2/5 lg:w-2/6 lg:h-3/5 xl:w-1/3 xl:h-3/5 bg-white rounded-md px-3 py-2 sm:p-4 box-border">
+      <div className="w-5/6 sm:w-3/5 h-2/4 sm:h-3/5 md:w-3/5 md:h-2/5 lg:w-2/6 lg:h-3/5 xl:w-1/3 xl:h-3/5 bg-white rounded-md px-3 pt-2 sm:p-4 box-border">
         <div className="mb-4 font-bold border-b-2 border-solid border-darkBluePhant w-[130px] pt-2">
           Create Operator
         </div>
-        <form action="" onSubmit={formik.handleSubmit}>
+        <form action="" onSubmit={formik.handleSubmit} >
           <div className="flex flex-col pb-1">
-            <label htmlFor="">Operator Name</label>
+            <label for="name">Operator Name</label>
             <input
               onChange={formik.handleChange}
               value={formik.values.name}
               onBlur={formik.handleBlur}
               name="name"
+              id='name'
               type="text"
               placeholder="Operator Name"
               className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
@@ -69,12 +58,13 @@ const formik = useFormik({
             ) : null}
           </div>
           <div className="flex flex-col pb-1">
-            <label htmlFor="">Operator Email</label>
+            <label htmlFor="email">Operator Email</label>
             <input
               onChange={formik.handleChange}
               value={formik.values.email}
               onBlur={formik.handleBlur}
               name="email"
+              id='email'
               type="text"
               placeholder="Operator Email"
               className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
@@ -104,14 +94,11 @@ const formik = useFormik({
               <div className="text-errorText">{formik.errors.route}</div>
             ) : null}
           </div>
-          <div className="bg-gray-200 px-4 py-2 mt-4 text-left">
-            {/* <div> */}
-            {/* <Link to="/admin">Back</Link> */}
+          <div className="bg-gray-200 px-4 py-2 mt-4 text-left flex">
             <button
               className="py-2 px-4 bg-green-600 text-white rounded hover:bg-gray-700 mr-2"
               onClick={() => {
                 setOpenModal(false);
-                setCloseUpdate("");
               }}
             >
               Back
@@ -120,6 +107,7 @@ const formik = useFormik({
             <button
               type="submit"
               className="py-2 px-4 bg-textBluePhant text-white rounded hover:bg-textBluePhant mr-2"
+              // onClick={onSubmit}
             >
               <i className="fas fa-plus"></i> Save Operator
             </button>

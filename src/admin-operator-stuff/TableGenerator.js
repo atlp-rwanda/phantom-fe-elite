@@ -1,22 +1,20 @@
 import React, { useState } from "react";
-import startupData from "./data";
+// import startupData from "./data";
 import TableRow from "./TableRow";
 
 const TableGenerator = (props) => {
-  const [data, setData] = useState(startupData);
   const captureData = (data) => {
        props.giveMeData(data);
   }
+ 
+
   const captureIdtoDelete = (id) => {
-      setData((prevData) => {
-         return prevData.filter((item) => item.id !== id)
-       })
+    console.log(id);
+      props.handleDelete(id)
   }
-  let i = 0;
   return (
     <>
-      {data.map((user) => {
-        ++i;
+      {props.data.map((user) => {
         return (
           <TableRow
             name={user.name}
@@ -27,7 +25,7 @@ const TableGenerator = (props) => {
             onSaveData={captureData}
             onDelete={captureIdtoDelete}
             setOpenModalRow={props.setOpenModal}
-            key={i}
+            key={user.id}
           />
         );
       })}

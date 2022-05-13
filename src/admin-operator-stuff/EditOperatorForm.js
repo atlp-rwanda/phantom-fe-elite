@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useFormik } from "formik";
 
-const EditOperatorForm = ({ setOpenModal, update, setCloseUpdate }) => {
+const EditOperatorForm = ({ setOpenModal, update, setCloseUpdate, setData }) => {
   const { name, email, route } = update;
   let initialData = {
     name,
@@ -11,7 +11,10 @@ const EditOperatorForm = ({ setOpenModal, update, setCloseUpdate }) => {
 
 const onSubmit = (values, { resetForm }) => {
   console.log(values);
+  setData(values);
   resetForm({});
+  setCloseUpdate("");
+
 };
 const validate = (values) => {
   let errors = {};

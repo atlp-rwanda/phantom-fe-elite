@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { RiAddCircleLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
+import startupData from "../admin-operator-stuff/data";
 import EditOperatorForm from "../admin-operator-stuff/EditOperatorForm";
 import NewOperatorForm from "../admin-operator-stuff/NewOperatorForm";
 import TableGenerator from "../admin-operator-stuff/TableGenerator";
@@ -13,20 +14,46 @@ import SideBar from "../component/dashboard-layout/SideBar";
 
 const AdminOperator = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
-  // useEffect(() => {
-  // }, []);
-
+ const [datas, setDatas] = useState(startupData);
+ 
   const [update, setUpdate] = useState("");
-  const dataHandler = (data) => {
+
+  const deleteHandleForUpdate = (data) => {
+     setDatas((prevData) => {
+       return prevData.filter((item) => item.id !== data.number);
+     });
     setUpdate(data);
   };
-  const deleteHandle = (id) => {
-    console.log(id)
+  
+  const addDataFromForm = (data) => {
+        setDatas((preData) => {
+
+          // adding the id to the newly created operator object
+          data.id = preData.length + 1;
+
+          // returning the new state based on the previous data
+          return [...preData, data]
+        })
+  }
+  const addDataToUpdate = (data) => {
+     setDatas((preData) => {
+       // adding the id to the newly created operator object
+       data.id = preData.length + 1;
+
+       // returning the new state based on the previous data
+       return [...preData, data];
+     });
   }
 
-  const setData = (data) => {
-      
+
+  const deleteHandle = (id) => {
+    console.log(id, typeof id);
+    setDatas((prevData) => {
+      console.log(prevData);
+      return prevData.filter((item) => item.id !== id);
+    });
   }
+
   const showModal = () => {
     if (update) {
       return (
@@ -34,10 +61,11 @@ const AdminOperator = (props) => {
           update={update}
           setCloseUpdate={setUpdate}
           setOpenModal={setModalOpen}
+          setData={addDataToUpdate}
         />
       );
     } else {
-      return <NewOperatorForm setOpenModal={setModalOpen} setData = {setData}/>;
+      return <NewOperatorForm setOpenModal={setModalOpen} setData = {addDataFromForm}/>;
     }
   };
 
@@ -78,10 +106,10 @@ const AdminOperator = (props) => {
         <div className="overflow-auto ">
           {/* rendering the all operators from the database using this component TableGenerator */}
           <TableGenerator
-            giveMeData={dataHandler}
-            giveMeId = {deleteHandle}
+            giveMeData={deleteHandleForUpdate}
+            handleDelete={deleteHandle}
             setOpenModal={setModalOpen}
-
+            data={datas}
           />
         </div>
       </main>
