@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import App from "../../App";
+import App from '../../App'
 
 describe("rendering of the landing page", () => {
   test("It should display the the text of the heading pf the page ", () => {

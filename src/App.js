@@ -1,13 +1,13 @@
 /** @format */
-/** @format */
 import React from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
-import Reset from "./Routes/Reset";
-import RegisterPage from "./Routes/RegisterPage";
-import LoginPage from "../src/component/login";
-import LandingPage from "./Routes/LandingPage";
-import ResetP from "./Routes/confirmation-password";
+import Reset from "./views/Reset";
+import RegisterPage from "./views/RegisterPage";
+import LoginPage from "./views/login";
+import LandingPage from "./views/LandingPage";
+import ResetP from "./views/confirmation-password";
 import UpdateDriver from "./views/Driver/updateDriver";
+import CreateDriver from "./views/Driver/CreateDriver";
 
 
 const App = () => {
@@ -23,6 +23,7 @@ const App = () => {
             <Route path="/reset-password" element={<Reset />}></Route>
             <Route path="/confirm-new-password" element={<ResetP />}></Route>
             <Route path="/driver" element={<UpdateDriver />}></Route>
+            <Route path="/create-driver" element={<CreateDriver />}></Route>
            
           </Routes>
         </main>
@@ -31,5 +32,4 @@ const App = () => {
     </BrowserRouter>
   );
 };
-
 export default App;

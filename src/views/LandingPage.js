@@ -1,6 +1,7 @@
-import React from "react";
-import landing from "../assets/imgs/landing-image.jpg";
+/** @format */
 
+import React from "react";
+import landing from "../assets/images/landing-image.jpg";
 import FooterBlock from "../component/footer-and-nav-template/FooterBlock";
 import NavBar from "../component/footer-and-nav-template/NavBar";
 import FormSubscribe from "../component/FormSubscribe";
