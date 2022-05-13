@@ -7,6 +7,8 @@ import RegisterPage from "./Routes/RegisterPage";
 import LoginPage from "../src/component/login";
 import LandingPage from "./Routes/LandingPage";
 import ResetP from "./Routes/confirmation-password";
+import UpdateDriver from "./views/Driver/updateDriver";
+
 
 const App = () => {
   return (
@@ -20,6 +22,8 @@ const App = () => {
             <Route exact path="/register" element={<RegisterPage />}></Route>
             <Route path="/reset-password" element={<Reset />}></Route>
             <Route path="/confirm-new-password" element={<ResetP />}></Route>
+            <Route path="/driver" element={<UpdateDriver />}></Route>
+           
           </Routes>
         </main>
       </div>

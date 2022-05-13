@@ -16,6 +16,8 @@ import RegisterPage from "../../Routes/RegisterPage";
 import { MemoryRouter as Router } from "react-router-dom";
 import { async } from "regenerator-runtime";
 
+jest.spyOn(console, "error").mockImplementation(()=>{});
+
 describe("<RegisterPage />", () => {
   it("render email input", async() => {
    await act(async()=>{ render(

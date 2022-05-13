@@ -1,0 +1,44 @@
+{
+  "driver": [
+    {
+      "id": 2,
+      "name": "D-35",
+      "driverId": "R346B",
+      "license": " - A,B,D",
+      "mobileNumber": "078823",
+      "route": "Kimironko - Downtown"
+    },
+    {
+      "id": 2,
+      "name": "D-35",
+      "driverId": "R346B",
+      "license": " - A,B,D",
+      "mobileNumber": "078823",
+      "route": "Kimironko - Downtown"
+    },
+    {
+      "id": 2,
+      "name": "D-35",
+      "driverId": "R346B",
+      "license": " - A,B,D",
+      "mobileNumber": "078823",
+      "route": "Kimironko - Downtown"
+    },
+    {
+      "id": 2,
+      "name": "D-35",
+      "driverId": "R346B",
+      "license": " - A,B,D",
+      "mobileNumber": "078823",
+      "route": "Kimironko - Downtown"
+    },
+    {
+      "id": 2,
+      "name": "D-35",
+      "driverId": "R346B",
+      "license": " - A,B,D",
+      "mobileNumber": "078823",
+      "route": "Kimironko - Downtown"
+    }
+  ]
+}
