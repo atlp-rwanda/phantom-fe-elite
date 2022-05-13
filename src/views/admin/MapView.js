@@ -29,7 +29,7 @@ function MapView() {
       }, [])
     
       return isLoaded ? (
-        <div data-testid="Map" className="w-1/2">
+        <div data-testid="Map" className="w-1/2 pt-3">
           <GoogleMap
           
             mapContainerStyle={containerStyle}
