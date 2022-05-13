@@ -7,7 +7,7 @@ import MapView from "./MapView";
 function Topview() {
   return (
     <div>
-      <div className="bg-[#f3f3f3] py-3 px-2 text-Nunito grid place-content-center min-h-screen">
+      <div className="bg-[#f3f3f3] pb-3 px-2 text-Nunito grid place-content-center min-h-screen">
         <div className="p-4 md:px-0 grid  gap-4 md:grid-cols-2 lg:grid-cols-4">
           <div className=" bg-white rounded-md  justify-between items-center p-2">
             <h1>

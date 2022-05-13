@@ -1,47 +1,30 @@
 import React from 'react'
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-
-const containerStyle = {
-    width: '80vw',
-    height: '80vh'
-  };
-  
-  const center = {
-    lat: -1.940278,
-    lng: 29.873888
-  };
+import "./leaflet.css"
+import  mapData from "./data/map.json"
+import { MapContainer, TileLayer, Marker ,Popup} from 'react-leaflet'
 function MapView() {
-    const { isLoaded } = useJsApiLoader({
-        id: 'google-map-script',
-        googleMapsApiKey:process.env.REACT_APP_GOOGLE_MAP_API_KEY
-      })
-    
-      const [map, setMap] = React.useState(null)
-    
-      const onLoad = React.useCallback(function callback(map) {
-        const bounds = new window.google.maps.LatLngBounds(center);
-        map.fitBounds(bounds);
-        setMap(map)
-      }, [])
-    
-      const onUnmount = React.useCallback(function callback(map) {
-        setMap(null)
-      }, [])
-    
-      return isLoaded ? (
-        <div data-testid="Map" className="w-1/2">
-          <GoogleMap
-          
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={10}
-            onLoad={onLoad}
-            onUnmount={onUnmount}
-          >
-            <></>
-          </GoogleMap>
-          </div>
-      ) : <></>
+
+  const filteredStations = mapData.filter(newData=>newData.address.country==="Rwanda")
+
+  return (
+    <MapContainer center={[-1.940278,29.873888]} zoom={6} scrollWheelZoom={true}
+    >
+  <TileLayer
+    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  />
+  {
+    filteredStations.map(newData=>(
+      <Marker 
+      key={newData.id}
+      position={[newData.gps.latitude, newData.gps.longitude]}>
+   
+  </Marker>
+    ))
+  }
+  
+</MapContainer>
+  )
 }
 
 export default MapView;
