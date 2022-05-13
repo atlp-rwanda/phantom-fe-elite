@@ -11,7 +11,7 @@ import api from '../../api/driver'
 import { v4 as uuidv4 } from 'uuid';
 import { async } from "regenerator-runtime";
 import { Link } from "react-router-dom"
-const UpdateDriver = () => {
+const CreateDriver = () => {
 	const [driverData, setDriverData] = useState(null);
   const [open, setOpen] = useState(true);
 
@@ -113,4 +113,4 @@ const RetrieveDrivers = async()=>{
   );
 };
 
-export default UpdateDriver;
+export default CreateDriver;
