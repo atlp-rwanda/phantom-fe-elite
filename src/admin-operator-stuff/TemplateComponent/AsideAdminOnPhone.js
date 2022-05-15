@@ -26,10 +26,14 @@ const AsideAdminOnPhone = ({ setAsideOpen }) => {
     }
   })
   return (
-    <aside className="bg-white w-4/6 h-full absolute text-black row-span-full border-2 border-solid border-[#f3f3f3] pb-4" ref={sideRef}>
+    <aside
+      className="bg-white w-4/6 h-full absolute text-black row-span-full border-2 border-solid border-[#f3f3f3] pb-4"
+      ref={sideRef}
+    >
       <div className="flex mx-3 justify-between items-center ">
         <img src={logo} className=" mt-3" />
-        <RiCloseFill className="m-3 text-4xl"
+        <RiCloseFill
+          className="m-3 text-4xl"
           onClick={() => {
             setAsideOpen(false);
           }}
@@ -44,7 +48,7 @@ const AsideAdminOnPhone = ({ setAsideOpen }) => {
         Management
       </p>
       <div className="ml-5 flex flex-col gap-4">
-         <div className="flex gap-5">
+        <div className="flex gap-5">
           <FaBus size={25} className="mt-1 text-darkBluePhant " />
           <Link to="/bus">
             <p className="ml-1">Bus</p>

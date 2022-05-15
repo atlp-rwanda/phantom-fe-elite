@@ -6,7 +6,7 @@ const TableHeader = () => {
       <div className="col-span-1">N</div>
       <div className="col-span-3 ">Name</div>
       <div className="col-span-3 ">Email</div>
-      <div className="col-span-3 ">Routes</div>
+      <div className="col-span-3 ">Roles</div>
       <div className="col-span-2 ">Actions</div>
     </div>
   );

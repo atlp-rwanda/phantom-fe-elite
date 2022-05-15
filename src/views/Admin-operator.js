@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { RiAddCircleLine } from "react-icons/ri";
-import { useDispatch } from "react-redux";
 import startupData from "../admin-operator-stuff/data";
 import EditOperatorForm from "../admin-operator-stuff/EditOperatorForm";
 import NewOperatorForm from "../admin-operator-stuff/NewOperatorForm";
 import TableGenerator from "../admin-operator-stuff/TableGenerator";
 import TableHeader from "../admin-operator-stuff/TableHeader";
-import AsideAdmin from "../admin-operator-stuff/TemplateComponent/AsideAdmin";
 import FooterAdmin from "../admin-operator-stuff/TemplateComponent/FooterAdmin";
 import HeaderAdmin from "../admin-operator-stuff/TemplateComponent/HeaderAdmin";
 import SideBar from "../component/dashboard-layout/SideBar";

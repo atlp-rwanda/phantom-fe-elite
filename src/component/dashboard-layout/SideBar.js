@@ -1,10 +1,8 @@
 /** @format */
 
 import { VscCompass } from "react-icons/vsc";
-import { MdAssignmentTurnedIn } from "react-icons/md";
 import { FaBus } from "react-icons/fa";
 import { MdAltRoute } from "react-icons/md";
-import { AiOutlineSetting } from "react-icons/ai";
 import { GiGearStickPattern } from "react-icons/gi"
 import { VscSymbolProperty } from "react-icons/vsc"
 import logo from "../../assets/images/logo.jpg";
