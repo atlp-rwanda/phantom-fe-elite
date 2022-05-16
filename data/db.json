@@ -11,12 +11,6 @@
       "busNumber": "D-50",
       "busPlate": "RAC346B",
       "routes": "Kimironko - Downtown"
-    },
-    {
-      "id": 4,
-      "busNumber": "D-115",
-      "busPlate": "RAC346B",
-      "routes": "Kimironko - Downtown"
     }
   ],
   "drivers": [

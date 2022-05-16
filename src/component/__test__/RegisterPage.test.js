@@ -12,7 +12,7 @@ import {
 import "@testing-library/jest-dom/extend-expect";
 import { act } from "react-dom/test-utils";
 import userEvent from "@testing-library/user-event";
-import RegisterPage from "../../Routes/RegisterPage";
+import RegisterPage from "../../views/RegisterPage";
 import { MemoryRouter as Router } from "react-router-dom";
 import { async } from "regenerator-runtime";
 describe("<RegisterPage />", () => {
