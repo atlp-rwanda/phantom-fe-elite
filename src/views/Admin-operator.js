@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { RiAddCircleLine } from "react-icons/ri";
 import startupData from "../admin-operator-stuff/data";
 import EditOperatorForm from "../admin-operator-stuff/EditOperatorForm";
@@ -8,39 +9,65 @@ import TableHeader from "../admin-operator-stuff/TableHeader";
 import FooterAdmin from "../admin-operator-stuff/TemplateComponent/FooterAdmin";
 import HeaderAdmin from "../admin-operator-stuff/TemplateComponent/HeaderAdmin";
 import SideBar from "../component/dashboard-layout/SideBar";
-
-
 const AdminOperator = (props) => {
+  // to change the state for toggling the modal 
   const [modalOpen, setModalOpen] = useState(false);
- const [datas, setDatas] = useState(startupData);
- 
+
+  // global data setter when new operator is saved into the database
+ const [datas, setDatas] = useState([]);
+
+ useEffect(async () => {
+        try {
+     const operatorsData = await axios.get("http://localhost:7000/operator");
+     setDatas(operatorsData);
+   } catch (error) {
+     console.log(error);
+   }
+ }, [])
+
+//  the state to manage the updating for getting the data pre-populate them into the form field 
   const [update, setUpdate] = useState("");
 
   const deleteHandleForUpdate = (data) => {
-     setDatas((prevData) => {
-       return prevData.filter((item) => item.id !== data.number);
-     });
+    try {
+     const deletedOperator = await axios.delete(`http://localhost:7000/operator/${data.number}`);
+     const remainingOperator = await axios.get(`http://localhost:7000/operator`);
+     setDatas(remainingOperator);
     setUpdate(data);
+   } catch (error) {
+     console.log(error);
+   }
   };
   
   const addDataFromForm = (data) => {
-        setDatas((preData) => {
-
+     // uuid for creating the random id onCreating the new operator
+          data.id = uuidv4();
+     try {
+     const operator = await axios.post("http://localhost:7000/operator", data);
+      setDatas((preData) => {
           // adding the id to the newly created operator object
-          data.id = preData.length + 1;
-
           // returning the new state based on the previous data
           return [...preData, data]
         })
+        console.log(operator);
+   } catch (error) {
+     console.log(error);
+   }
   }
-  const addDataToUpdate = (data) => {
-     setDatas((preData) => {
-       // adding the id to the newly created operator object
-       data.id = preData.length + 1;
-
-       // returning the new state based on the previous data
-       return [...preData, data];
-     });
+  const addDataToUpdate = (dataFromEditForm) => {
+    // saving data after updating 
+          dataFromEditForm.id = uuidv4();
+     try {
+     const operator = await axios.post("http://localhost:7000/operator", dataFromEditForm);
+      setDatas((preData) => {
+          // adding the id to the newly created operator object
+          // returning the new state based on the previous data
+          return [...preData, dataFromEditForm]
+        })
+        console.log(operator);
+   } catch (error) {
+     console.log(error);
+   }
   }
 
 

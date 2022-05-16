@@ -20,9 +20,18 @@
       "postId": 1
     }
   ],
-  "operators": {
-    "id": 1,
-    "body": "some comment",
-    "postId": 1
+  "operators": [
+  {
+    "name": "The punisher",
+    "email": "heroku repository",
+    "route": "Operator",
+    "id": 1
+  },
+  {
+    "name": "juno kanope",
+    "email": "kizigenza",
+    "route": "Operator",
+    "id": 2
   }
+]
 }
