@@ -59,7 +59,7 @@ const RetrieveDrivers = async()=>{
               </button>
               <Modal open={open} setOpen={setOpen}>
                 <div className="my-2 font-black text-md border-b-2 border-solid border-darkBluePhant w-[50px]">
-                  <h3 className="inline">Create Driver</h3>
+                  {/* <h3 className="inline">Create Driver</h3> */}
                 </div>
               </Modal>
               <form action="" className="w-2/5 h-10 mx-12">
@@ -71,7 +71,7 @@ const RetrieveDrivers = async()=>{
                 />
               </form>
             </div>
-            <div className="overflow-auto rounded-lg shadow ">
+            <div className="overflow-auto rounded-lg shadow  ">
 
             <div className="grid grid-cols-12 border-b-2 border-black font-bold border-solid ">
               <div className="  p-3 col-span-1">No</div>
@@ -82,20 +82,21 @@ const RetrieveDrivers = async()=>{
               <div className=" p-3 col-span-2 ">Route</div>
               <div className=" p-3 col-span-1  ">Action</div>
             </div>
-            <div className=" ">
+            
 			 {driverData &&
 						driverData.map((driver) => (
 							<div
 								className="grid grid-cols-12 border-b border-black border-solid"
 								key={driver.id}>
-								<div className="whitespace-nowrap p-3 col-span-1 pl-1">{driver.id}</div>
+								<div className="  p-3 col-span-1 pl-1">{driver.id}</div>
 								<div className="whitespace-nowrap p-3 col-span-2 pl-2">{driver.name}</div>
 								<div className="whitespace-nowrap p-3 col-span-2 pl-2">{driver.driverId}</div>
 								<div className="whitespace-nowrap p-3 col-span-2 pl-2">{driver.license}</div>
 								<div className="whitespace-nowrap p-3 col-span-2 pl-2 ">{driver.mobileNumber}</div>
-								<div className="whitespace-nowrap p-3 col-span-2 pl-2 ">{driver.route}</div>
+								<div className=" p-3 col-span-2 ">{driver.route}</div>
 								<div className="whitespace-nowrap p-3  col-span-1 py-1  pl-2 flex justify-between">
-									<FiEdit className=" w-4 h-4 text-sky-500 cursor-pointer" />
+									<FiEdit className=" w-4 h-4 text-sky-500 cursor-pointer"
+                     onClick={() => setOpen(!open)} />
 									<RiDeleteBin6Line
                     role='delete'
 										className=" text-red-500 w-5 h-5 cursor-pointer"
@@ -104,7 +105,7 @@ const RetrieveDrivers = async()=>{
 								</div>
 							</div>
 						))}
-            </div>
+          
 			</div>
           </div>
         </div>

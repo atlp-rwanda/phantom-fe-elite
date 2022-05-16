@@ -29,15 +29,18 @@ const Modal = ({ open, setOpen, children }) => {
   return (
     <>
       {open && (
-        <div className="w-[100vw h-[100vh] bg-black/20 absolute ">
-          <div className="relative w-[100%] h-[100%] ">
+        <div className="w-[100vw] h-[100vh] bg-black/20 absolute z-10 overflow-y-auto ">
+          <div className="flex items-center justify-center min-height-100vh mt-80 ml-4 pt-4 px-4 pb-2 text-center sm:block sm:p-0 ">
             <div
-              className="w-[40vw] h-fit bg-white flex flex-col items-center py-[15px] px-[15px] space-y-4
-            absolute top-[80%] left-[50%] translate-x-[50%] translate-y-[-50%] border-2 rounded "
+              className="w-full py-[15px] px-[15px] space-y-4"
             >
-              {children}
-              <div className="w-full lg:w-[50%] h-full bg-white p-5 rounded-lg  border border-textBluePhant ">
-                <form className="block text-left text-sm">
+               
+              <div className="inline-block align-center  text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <form className="">
+                  <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                  <div className="flex flex-row my-2 font-black text-xl border-b-2 border-solid border-darkBluePhant w-fit">
+								Create Driver
+							</div>
                   <label>Full Names</label>
                   <input
                     type="text"
@@ -118,6 +121,7 @@ const Modal = ({ open, setOpen, children }) => {
                     >
                       <i className="fas fa-plus"></i>Save Driver
                     </button>
+                  </div>
                   </div>
                 </form>
               </div>
