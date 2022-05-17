@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
 import { useFormik } from "formik";
 
-const EditOperatorForm = ({ setOpenModal, update, setCloseUpdate, setData }) => {
-  const { name, email, route } = update;
+const EditOperatorForm = ({ setOpenModal, update, setData }) => {
+  const { name, email, role, id, number } = update;
   let initialData = {
     name,
     email,
-    route,
+    role 
   };
 
-const onSubmit = (values, { resetForm }) => {
+const onSubmit = (values, {resetForm}) => {
   console.log(values);
   setData(values);
   resetForm({});
-  setCloseUpdate("");
-
 };
 const validate = (values) => {
   let errors = {};
@@ -34,33 +32,28 @@ const validate = (values) => {
 };
 const formik = useFormik({
   initialValues: initialData,
-  onSubmit,
   validate,
+  onSubmit
 });
 
-  const [formData, setFormData] = useState(initialData);
+const handleSubmit = (event) => {
+  event.preventDefault();
+console.log("hello there amakurur")
+let values = {};
+values.name = event.target[0].value; 
+values.email = event.target[1].value; 
+values.role = event.target[2].value; 
+values.id = id; 
+values.number = number; 
+console.log(values);
+setData(values);
+event.target[0].value = "";
+event.target[1].value = "";
+event.target[2].value = "";
+update = {};
+}
 
-  const handleChange = (event) => {
-    setFormData((prevState) => {
-      return {
-        ...prevState,
-        [event.target.name]: event.target.value,
-      };
-    });
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const packageData = {
-      data: formData,
-      id: update.number
-    }
-    setFormData({
-      name: "",
-      email: "",
-      route: "",
-    });
-    setCloseUpdate("")
-  };
+
 
   return (
     <div className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50">
@@ -68,7 +61,7 @@ const formik = useFormik({
         <div className="mb-4 font-bold border-b-2 border-solid border-darkBluePhant w-[130px] pt-2">
           {update ? "Edit Operator" : "Create New Operator"}
         </div>
-        <form action="" onSubmit={formik.handleSubmit}>
+        <form action="" onSubmit={handleSubmit}>
           <div className="flex flex-col pb-1">
             <label htmlFor="">Operator Name</label>
             <input
@@ -101,28 +94,23 @@ const formik = useFormik({
             ) : null}
           </div>
           <div className="flex flex-col pb-1">
-            <label for="route-select">Roles</label>
+            <label for="select role">Roles</label>
             <select
               onChange={formik.handleChange}
-              value={formik.values.route}
+              value={formik.values.role}
               onBlur={formik.handleBlur}
-              name="route"
-              id="route-select"
+              name="role"
+              id="role-select"
               className="h-8 py-0 rounded-sm bg-[#F4F4F4]"
             >
-              <option value={formData.route}>
-                {update ? formData.route : "--Select route--"}
-              </option>
+              <option value="">--Select roles--</option>
               <option value="Operator">Operator</option>
               <option value="Driver">Driver</option>
               <option value="Admin">Admin</option>
-              {/* <option value="Kanombe">Kanombe</option>
-              <option value="Murindi">Murindi</option>
-              <option value="Kimisagara">Kimisagara</option> */}
             </select>
             {/* conditional rendering of the error message for validating the form of subscribing */}
-            {formik.touched.route && formik.errors.route ? (
-              <div className="text-errorText">{formik.errors.route}</div>
+            {formik.touched.role && formik.errors.role ? (
+              <div className="text-errorText">{formik.errors.role}</div>
             ) : null}
           </div>
           {/* <div className="flex py-4 ">
@@ -136,7 +124,6 @@ const formik = useFormik({
               className="py-2 px-4 bg-green-600 text-white rounded hover:bg-gray-700 mr-2"
               onClick={() => {
                 setOpenModal(false);
-                setCloseUpdate("");
               }}
             >
               Back

@@ -20,18 +20,27 @@
       "postId": 1
     }
   ],
-  "operators": [
-  {
-    "name": "The punisher",
-    "email": "heroku repository",
-    "route": "Operator",
-    "id": 1
-  },
-  {
-    "name": "juno kanope",
-    "email": "kizigenza",
-    "route": "Operator",
-    "id": 2
-  }
-]
+  "operator": [
+    {
+      "name": "message",
+      "email": "eric@gmail.com",
+      "role": "Driver",
+      "id": "78015c34-cdc9-4ecc-a432-0ce82400f3a8",
+      "number": 1
+    },
+    {
+      "name": "Niyibizi Fabrice",
+      "email": "fabrice6@gmail.com",
+      "role": "Operator",
+      "id": "2e1fb644-f6d4-4324-801e-00390c7c2b15",
+      "number": 2
+    },
+    {
+      "name": "hellotheremen",
+      "email": "ericpanga@gmail.com",
+      "role": "Operator",
+      "id": "868d42ef-7da3-4ef2-9d54-48806cfda56a",
+      "number": 3
+    }
+  ]
 }

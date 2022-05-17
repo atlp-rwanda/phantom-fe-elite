@@ -1,10 +1,12 @@
 // export const addTodoAction = (formData) => {
-//   return { type: "todos/addnewtodo", payload: formData };
+//   return { type: "todos/addnewoperator", payload: formData };
 // };
 
 // export const removeTodoAction = (todo_id) => {
 //     return {
-//         type: "todos/removetodo",
+//         type: "admin/removeoperator",
 //         payload: todo_id
 //     }
 // }
+
+

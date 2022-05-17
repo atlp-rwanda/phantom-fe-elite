@@ -5,7 +5,7 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
     const initialData = {
       name: "",
       email: "",
-      route: "",
+      role: "",
     };
 const onSubmit = (values, {resetForm}) => {
   console.log(values);
@@ -23,8 +23,8 @@ const validate = (values) => {
     errors.email = "Invalid email address";
   } else if (!values.name) {
     errors.name = " Name Required!";
-  } else if (!values.route) {
-    errors.route = "Select Role";
+  } else if (!values.role) {
+    errors.role = "Select Role";
   }
   return errors;
 };
@@ -75,13 +75,13 @@ const formik = useFormik({
             ) : null}
           </div>
           <div className="flex flex-col pb-1">
-            <label for="route-select">Route</label>
+            <label for="role-select">Roles</label>
             <select
               onChange={formik.handleChange}
-              value={formik.values.route}
+              value={formik.values.role}
               onBlur={formik.handleBlur}
-              name="route"
-              id="route-select"
+              name="role"
+              id="role-select"
               className="h-8 py-0 rounded-sm bg-[#F4F4F4]"
             >
               <option value="">--Select roles--</option>
@@ -90,8 +90,8 @@ const formik = useFormik({
               <option value="Admin">Admin</option>
             </select>
             {/* conditional rendering of the error message for validating the form of subscribing */}
-            {formik.touched.route && formik.errors.route ? (
-              <div className="text-errorText">{formik.errors.route}</div>
+            {formik.touched.role && formik.errors.role ? (
+              <div className="text-errorText">{formik.errors.role}</div>
             ) : null}
           </div>
           <div className="bg-gray-200 px-4 py-2 mt-4 text-left flex">

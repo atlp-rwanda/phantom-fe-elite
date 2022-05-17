@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import  axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { RiAddCircleLine } from "react-icons/ri";
-import startupData from "../admin-operator-stuff/data";
 import EditOperatorForm from "../admin-operator-stuff/EditOperatorForm";
 import NewOperatorForm from "../admin-operator-stuff/NewOperatorForm";
 import TableGenerator from "../admin-operator-stuff/TableGenerator";
@@ -10,87 +10,96 @@ import FooterAdmin from "../admin-operator-stuff/TemplateComponent/FooterAdmin";
 import HeaderAdmin from "../admin-operator-stuff/TemplateComponent/HeaderAdmin";
 import SideBar from "../component/dashboard-layout/SideBar";
 const AdminOperator = (props) => {
-  // to change the state for toggling the modal 
+  // to change the state for toggling the modal
   const [modalOpen, setModalOpen] = useState(false);
 
   // global data setter when new operator is saved into the database
- const [datas, setDatas] = useState([]);
+  const [datas, setDatas] = useState([]);
 
- useEffect(async () => {
-        try {
-     const operatorsData = await axios.get("http://localhost:7000/operator");
-     setDatas(operatorsData);
-   } catch (error) {
-     console.log(error);
-   }
- }, [])
-
-//  the state to manage the updating for getting the data pre-populate them into the form field 
+  //  the state to manage the updating for getting the data pre-populate them into the form field
   const [update, setUpdate] = useState("");
 
-  const deleteHandleForUpdate = (data) => {
-    try {
-     const deletedOperator = await axios.delete(`http://localhost:7000/operator/${data.number}`);
-     const remainingOperator = await axios.get(`http://localhost:7000/operator`);
-     setDatas(remainingOperator);
-    setUpdate(data);
-   } catch (error) {
-     console.log(error);
-   }
+
+  // fetch all data once and populate them on the table before doing any thing else
+  useEffect(() => {
+    const fetchAll = async () => {
+      try {
+        const operatorsData = await axios.get("http://localhost:7000/operator");
+        setDatas(operatorsData.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchAll();
+  }, []);
+
+  const deleteHandleForUpdate = async (data) => {
+      setUpdate(data);
   };
-  
-  const addDataFromForm = (data) => {
-     // uuid for creating the random id onCreating the new operator
-          data.id = uuidv4();
-     try {
-     const operator = await axios.post("http://localhost:7000/operator", data);
-      setDatas((preData) => {
-          // adding the id to the newly created operator object
-          // returning the new state based on the previous data
-          return [...preData, data]
-        })
-        console.log(operator);
-   } catch (error) {
-     console.log(error);
-   }
-  }
-  const addDataToUpdate = (dataFromEditForm) => {
-    // saving data after updating 
-          dataFromEditForm.id = uuidv4();
-     try {
-     const operator = await axios.post("http://localhost:7000/operator", dataFromEditForm);
-      setDatas((preData) => {
-          // adding the id to the newly created operator object
-          // returning the new state based on the previous data
-          return [...preData, dataFromEditForm]
-        })
-        console.log(operator);
-   } catch (error) {
-     console.log(error);
-   }
-  }
 
+  const addDataFromForm = async (dataFromForm) => {
+    // uuid for creating the random id onCreating the new operator
+    dataFromForm.id = uuidv4();
+    dataFromForm.number = datas.length + 1;
+       try {
+         const operator = await axios.post(
+           "http://localhost:7000/operator",
+           dataFromForm
+         );
+         const operatorsDataCurrrent = await axios.get(
+           "http://localhost:7000/operator"
+         );
+         setDatas(operatorsDataCurrrent.data);
+       } catch (error) {
+         console.log(error);
+       }
+  };
+  const addDataToUpdate = async (dataFromEditForm) => {
+ try {
+   const operator = await axios.put(
+     `http://localhost:7000/operator/${dataFromEditForm.id}`,
+     dataFromEditForm
+   );
+   const operatorsDataCurrrent = await axios.get(
+     "http://localhost:7000/operator"
+   );
+   setDatas(operatorsDataCurrrent.data);
+ } catch (error) {
+   console.log(error);
+ }
+  };
 
-  const deleteHandle = (id) => {
-    console.log(id, typeof id);
-    setDatas((prevData) => {
-      console.log(prevData);
-      return prevData.filter((item) => item.id !== id);
-    });
-  }
+  const deleteHandle = async (id) => {
+    try {
+      const deletedOperator = await axios.delete(
+        `http://localhost:7000/operator/${id}`
+      );
+      const remainingOperator = await axios.get(
+        `http://localhost:7000/operator`
+      );
+      setDatas(remainingOperator.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const showModal = () => {
     if (update) {
       return (
         <EditOperatorForm
           update={update}
-          setCloseUpdate={setUpdate}
+          // setCloseUpdate={setUpdate}
           setOpenModal={setModalOpen}
           setData={addDataToUpdate}
         />
       );
     } else {
-      return <NewOperatorForm setOpenModal={setModalOpen} setData = {addDataFromForm}/>;
+      return (
+        <NewOperatorForm
+          setOpenModal={setModalOpen}
+          setData={addDataFromForm}
+        />
+      );
     }
   };
 

@@ -19,9 +19,9 @@ const TableGenerator = (props) => {
           <TableRow
             name={user.name}
             email={user.email}
-            email2={user.email}
-            route={user.route}
-            number={user.id}
+            role={user.role}
+            id = {user.id}
+            number={user.number}
             onSaveData={captureData}
             onDelete={captureIdtoDelete}
             setOpenModalRow={props.setOpenModal}

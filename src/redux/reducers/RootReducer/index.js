@@ -1,5 +1,5 @@
 // const initialState = {
-//   users: [
+//   operators: [
 //     {
 //       name: "vicky",
 //       email: "vicky@gmail.com",
@@ -15,12 +15,12 @@
 //   ],
 // };
 
-// const todoReducer = (state = initialState, action) => {
+// const operatorReducer = (state = initialState, action) => {
 //   switch (action.type) {
-//     case "todos/addnewtodo":
+//     case "admin/addnewoperator":
 //       return {
-//         users: [
-//           ...state.users,
+//         operators: [
+//           ...state.operators,
 //           {
 //             name: action.payload.name,
 //             email: action.payload.email,
@@ -29,17 +29,17 @@
 //           },
 //         ],
 //       };
-//     case "todos/removetodo": {
-//     //   let usersCopy = [...state.users];
+//     case "admin/removetodo": {
 //       return {
-//         users: state.users.filter((item) => item.id !== action.payload),
+//         usoperators: state.operators.filter(
+//           (item) => item.id !== action.payload
+//         ),
 //       };
 //     }
-
 //     default: {
 //         return state;
 //     }
 //   }
 // };
 
-// export default todoReducer
+// export default operatorReducer;
