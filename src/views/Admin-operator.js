@@ -9,6 +9,7 @@ import TableHeader from "../admin-operator-stuff/TableHeader";
 import FooterAdmin from "../admin-operator-stuff/TemplateComponent/FooterAdmin";
 import HeaderAdmin from "../admin-operator-stuff/TemplateComponent/HeaderAdmin";
 import SideBar from "../component/dashboard-layout/SideBar";
+
 const AdminOperator = (props) => {
   // to change the state for toggling the modal
   const [modalOpen, setModalOpen] = useState(false);
@@ -88,7 +89,7 @@ const AdminOperator = (props) => {
       return (
         <EditOperatorForm
           update={update}
-          // setCloseUpdate={setUpdate}
+          setCloseUpdate={setUpdate}
           setOpenModal={setModalOpen}
           setData={addDataToUpdate}
         />

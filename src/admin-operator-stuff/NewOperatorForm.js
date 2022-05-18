@@ -39,7 +39,7 @@ const formik = useFormik({
         <div className="mb-4 font-bold border-b-2 border-solid border-darkBluePhant w-[130px] pt-2">
           Create Operator
         </div>
-        <form action="" onSubmit={formik.handleSubmit} >
+        <form action="" onSubmit={formik.handleSubmit} role="form">
           <div className="flex flex-col pb-1">
             <label for="name">Operator Name</label>
             <input
@@ -47,7 +47,7 @@ const formik = useFormik({
               value={formik.values.name}
               onBlur={formik.handleBlur}
               name="name"
-              id='name'
+              data-testid="name"
               type="text"
               placeholder="Operator Name"
               className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
@@ -64,7 +64,7 @@ const formik = useFormik({
               value={formik.values.email}
               onBlur={formik.handleBlur}
               name="email"
-              id='email'
+              data-testid="email"
               type="text"
               placeholder="Operator Email"
               className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
@@ -103,11 +103,9 @@ const formik = useFormik({
             >
               Back
             </button>
-            {/* </div> */}
             <button
               type="submit"
               className="py-2 px-4 bg-textBluePhant text-white rounded hover:bg-textBluePhant mr-2"
-              // onClick={onSubmit}
             >
               <i className="fas fa-plus"></i> Save Operator
             </button>

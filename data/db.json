@@ -22,9 +22,9 @@
   ],
   "operator": [
     {
-      "name": "message",
+      "name": "message one",
       "email": "eric@gmail.com",
-      "role": "Driver",
+      "role": "Operator",
       "id": "78015c34-cdc9-4ecc-a432-0ce82400f3a8",
       "number": 1
     },
@@ -36,8 +36,8 @@
       "number": 2
     },
     {
-      "name": "hellotheremen",
-      "email": "ericpanga@gmail.com",
+      "name": "nitwa sylvain",
+      "email": "winfield@gmail.com",
       "role": "Operator",
       "id": "868d42ef-7da3-4ef2-9d54-48806cfda56a",
       "number": 3
