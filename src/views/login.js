@@ -26,6 +26,7 @@ const LoginPage = ({ onSubmit }) => {
   });
 
   const userData = users.users
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhwIjoxNDI2NDIwODAwLCJodHRwOi8vdG9wdGFsLmNvbS9qd3RfY2xhaW1zL2lzX2FkbWluIjp0cnVlLCJjb21wYW55IjoiVG9wdGFsIiwiYXdlc29tZSI6dHJ1ZX0.yRQYnWzskCZUxPwaQupWkiUzKELZ49eM7oWxAQK_ZXw"
 
   onSubmit = fields => {
     const { email, password } = fields;
@@ -41,7 +42,7 @@ const LoginPage = ({ onSubmit }) => {
       if (email == userData[i].email) {
         if (password == userData[i].password) {
           toast('User loged in sucessful');
-          localStorage.setItem('username', 'token');
+          localStorage.setItem('token', token);
           location.href = '/updatedriver'
         } else {
           // toast('Incorect username or password');
