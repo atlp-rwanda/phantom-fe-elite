@@ -32,48 +32,49 @@
     },
     {
       "id": 2,
-      "email": "driver1@gmail.com"
+      "email": "driver2@gmail.com"
     },
     {
-      "id":3 ,
-      "email": "driver1@gmail.com"
-    },{
-      "id": 4,
-      "email": "driver1@gmail.com"
-    },{
-      "id": 5,
-      "email": "driver1@gmail.com"
-    },
-    {
-      "id": 6,
-      "email": "driver1@gmail.com"
+      "id": 3,
+      "email": "driver3@gmail.com"
     }
   ],
-  "buses":[
- {
-    "id": 1,
-    "platenumber": "RAB3002"
-  },
-  {
-    "id": 2,
-    "platenumber": "RAB3002"
-  },
-  {
-    "id": 3,
-    "platenumber": "RAB3002"
-  },
-  {
-    "id": 4,
-    "platenumber": "RAB3002"
-  }
-  
-],
-"assigned": [
-  {
-    "id":1,
-    "routes": "KIMIRONKO-DOWNTAWN",
-    "driver-email": "driver1@gmail.com",
-    "platenumber": "RAB3002"
-  }
-]
+  "buses": [
+    {
+      "id": 1,
+      "platenumber": "RAB3001"
+    },
+    {
+      "id": 2,
+      "platenumber": "RAB3002"
+    },
+    {
+      "id": 3,
+      "platenumber": "RAB3003"
+    },
+    {
+      "id": 4,
+      "platenumber": "RAB3004"
+    }
+  ],
+  "assigned": [
+    {
+      "id": 1,
+      "routes": "KIMIRONKO-DOWNTAWN",
+      "driveremail": "driver1@gmail.com",
+      "platenumber": "RAB3002"
+    },
+    {
+      "id": 2,
+      "routes": "Kimironko - Downtown",
+      "driveremail": "driver1@gmail.com",
+      "platenumber": "RAB3002"
+    },
+    {
+      "id": 5,
+      "routes": "Kimironko - Downtown",
+      "driveremail": "driver3@gmail.com",
+      "platenumber": "RAB3002"
+    }
+  ]
 }

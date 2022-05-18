@@ -10,12 +10,12 @@ import MobileHeaderOperator from "./MobileHeaderOperator";
 const Header = () => {
   const [asideOpen, setAsideOpen] = useState(false);
   return (
-    <header className="bg-white col-start-1 sm:col-start-3 md:col-start-4 lg:col-start-3 col-end-13  row-start-1 row-end-2">
+    <header className="bg-white col-start-1 lg:col-start-3 col-end-13  row-start-1 row-end-2">
       {asideOpen && <MobileHeaderOperator setAsideOpen={setAsideOpen} />}
       <div className="flex sm:justify-end h-full">
-        <section className=" w-full sm:w-1/3 md:w-2/3 lg:w-1/2 xl:w-1/3 flex justify-around sm:justify-between md:justify-around lg:justify-evenly  xl:justify-between items-center h-full">
+        <section className=" w-full sm:w-1/3 md:w-full lg:w-1/2 xl:w-1/3 flex justify-around sm:justify-between md:justify-around lg:justify-evenly  xl:justify-between items-center h-full">
           <div
-            className="sm:hidden text-darkBluePhant text-2xl"
+            className="lg:hidden text-2xl"
             onClick={() => {
               setAsideOpen(true);
             }}
@@ -27,7 +27,7 @@ const Header = () => {
             <RiArrowDropDownFill className="text-2xl sm:text-4xl" />
             <IoMdNotifications className="text-2xl sm:text-4xl" />
           </div>
-          <div className="flex items-center border-l-2 border-solid border-black h-full">
+          <div className="flex items-center lg:border-l-2 border-solid border-black h-full">
             <FaUserCircle className="text-[30px] sm:text-[40px] bg-white text-darkBluePhant mx-3 my-1" />
             <div className="flex">
               <div className="flex flex-col">

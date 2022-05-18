@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 const SideBarOperator = () => {
   return (
-    <aside className="bg-white sm:col-start-1 sm:col-end-3 md:col-end-4 lg:col-end-3 hidden sm:block text-black row-span-full border-r-2 border-solid border-[#f3f3f3]">
+    <aside className="bg-white sm:col-start-1 sm:col-end-3 md:col-end-4 lg:col-end-3 hidden lg:block text-black row-span-full border-r-2 border-solid border-[#f3f3f3]">
       <img src={logo} className="mx-7 mt-3" />
       <br />
       <p className="text-xl tracking-wider  m-auto font-bold mt-3 ml-3 mb-2 ">

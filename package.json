@@ -19,7 +19,7 @@
 	"scripts": {
 		"start": "webpack serve --mode development --open",
 		"build": "webpack --mode production",
-		"test": "react-scripts test --watchAll=false",
+		"test": "react-scripts test assign.test.js --watchAll=false",
 		"coverage": "react-scripts test --coverage --watchAll=false",
 		"db": "json-server --watch --port 7000 data/db.json"
 	},
@@ -37,6 +37,8 @@
 		"caniuse-lite": "^1.0.30001335",
 		"dotenv": "^16.0.0",
 		"dotenv-webpack": "^7.1.0",
+		"emailjs": "^4.0.0",
+		"emailjs-com": "^3.2.0",
 		"formik": "^2.2.9",
 		"jest": "^27.5.1",
 		"json-server": "^0.17.0",
@@ -51,6 +53,7 @@
 		"react-router": "^6.3.0",
 		"react-router-dom": "^6.3.0",
 		"react-scripts": "^5.0.1",
+		"react-select": "^5.3.2",
 		"react-test-renderer": "^18.0.0",
 		"redux": "^4.1.2",
 		"regenerator-runtime": "^0.13.9",
@@ -73,6 +76,7 @@
 		"html-webpack-plugin": "^5.5.0",
 		"postcss": "^8.4.12",
 		"postcss-loader": "^6.2.1",
+		"react-select-event": "^5.5.0",
 		"style-loader": "^3.3.1",
 		"tailwindcss": "^3.0.24",
 		"webpack": "^5.71.0",
