@@ -38,14 +38,14 @@ it("navigates home when you click the logo", () => {
   const root = document.createElement('div');
   document.body.appendChild(root);
   render(
-    <MemoryRouter initialEntries={['/dashboard']}>
+    <MemoryRouter initialEntries={['/']}>
       <Dropdown />
     </MemoryRouter>,
     root
   );
   act(() => {
-    const goHomeLink = screen.getByTestId("button2")
-    goHomeLink.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    const goToLandingPage = screen.getByTestId("button2")
+    goToLandingPage.dispatchEvent(new MouseEvent("click", { bubbles: true }));
   });
   expect(document.body.textContent).toBe('SettingsLogout');
 });
