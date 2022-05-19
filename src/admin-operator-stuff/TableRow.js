@@ -3,7 +3,6 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiEdit } from "react-icons/fi"
 import { Link } from 'react-router-dom';
 
-
 const TableRow = (props) => {
   const handleDelete = () => {
     props.onDelete(props.id);
@@ -14,8 +13,14 @@ const TableRow = (props) => {
     };
 
 
+    
   return (
-    <div className="grid grid-cols-12 border-b border-black border-solid" role="row-group">
+    <div
+      className="grid grid-cols-12 border-b border-black border-solid"
+      role="row-group"
+      // unique identifier for the newly row created
+      data_testid={`operator-row-${props.number}`}
+    >
       <div className="col-span-1 pl-1">{props.number}</div>
       <div className="col-span-3 pl-1">{props.name}</div>
       <div className="col-span-3 pl-1">{props.email}</div>

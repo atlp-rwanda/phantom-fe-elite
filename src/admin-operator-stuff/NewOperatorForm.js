@@ -81,7 +81,7 @@ const formik = useFormik({
               value={formik.values.role}
               onBlur={formik.handleBlur}
               name="role"
-              id="role-select"
+              data_testid ="role-select"
               className="h-8 py-0 rounded-sm bg-[#F4F4F4]"
             >
               <option value="">--Select roles--</option>
@@ -107,7 +107,7 @@ const formik = useFormik({
               type="submit"
               className="py-2 px-4 bg-textBluePhant text-white rounded hover:bg-textBluePhant mr-2"
             >
-              <i className="fas fa-plus"></i> Save Operator
+               Save Operator
             </button>
           </div>
         </form>

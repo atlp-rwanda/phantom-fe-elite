@@ -1,16 +1,19 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import AdminOperator from "../../views/Admin-operator";
-// import { MemoryRouter as Router } from "react-router-dom";
-// import { act } from "react-dom/test-utils";
 import { BrowserRouter } from "react-router-dom";
 import TableGenerator from "../../admin-operator-stuff/TableGenerator";
 import NewOperatorForm from "../../admin-operator-stuff/NewOperatorForm";
-import EditOperatorForm from "../../admin-operator-stuff/EditOperatorForm";
 
-const MockTableGenerator = ({ data }) => {
+const MockTableGenerator = ({ data, errorStatus }) => {
   return (
     <BrowserRouter>
-      <TableGenerator data={data} />
+      <TableGenerator
+        data={data}
+        error={{
+          isError: errorStatus,
+        }}
+        loading={errorStatus}
+      />
     </BrowserRouter>
   );
 };
@@ -116,22 +119,35 @@ describe("Testing the crud functionality of the app", () => {
     render(<NewOperatorForm />);
     const inputEl1 = screen.getByPlaceholderText("Operator Email");
       const inputEl2 = screen.getByPlaceholderText("Operator Name");
+      // const selectElement = screen.getAllByRole("textbox")
     fireEvent.change(inputEl2, { target: { value: "fabrice" } });
+    // fireEvent.select(selectElement[2], { target: { value: "Operator" } });
     fireEvent.change(inputEl1, { target: { value: "test@mail.com" } });
       expect(inputEl1.value).toBe("test@mail.com");
       expect(inputEl2.value).toBe("fabrice");
+      // expect(selectElement[2].value).toBe("Operator");
    });
-//  it("should render the form for submitting the new operator created", () => {  
-//   render(<EditOperatorForm update={operatorsArray[0]} />);
-//      const form = screen.getByRole("form");
-//      // role given to the inputs element with type of text is textbox
-//      const inputsRendered = screen.getAllByRole("textbox");
-//      const buttonRendered = screen.getAllByRole("button");
-//      expect(form).toBeInTheDocument();
-//      expect(buttonRendered).toBeInTheDocument();
-//      for (let input of inputsRendered) {
-//        expect(input).toBeInTheDocument();
-//        expect(input).toHaveAttribute("type", "text");
-//      }
-//    });
+
+  it("should fetch all of the operators and render them", async () => {
+    render(<MockTableGenerator data={operatorsArray} errorStatus = {false} />);
+    const operatorDivElements = await screen.findAllByRole("row-group");
+    for (let operator of operatorDivElements) {
+    expect(operator).toBeInTheDocument();
+    }
+  });
+
+  it("When user types into the text field the value should change", () => {
+    render(
+      // the component which includes link element from react-router-dom should be wrapped into
+      // into the browser router component to mimic that behaviour in the test but where there is not the link
+      // it does not matter to include browserRouter
+      <BrowserRouter>
+        <AdminOperator />
+      </BrowserRouter>
+    );
+    const inputEl = screen.getByPlaceholderText("Search");
+    fireEvent.click(inputEl);
+    fireEvent.change(inputEl, { target: { value: "kati" } });
+    expect(inputEl.value).toBe("kati");
+  });
 })

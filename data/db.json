@@ -22,24 +22,22 @@
   ],
   "operator": [
     {
-      "name": "message one",
-      "email": "eric@gmail.com",
-      "role": "Operator",
-      "id": "78015c34-cdc9-4ecc-a432-0ce82400f3a8",
-      "number": 1
+      "name": "munama",
+      "email": "munama@gmail.com",
+      "role": "Driver",
+      "id": "12f0fc6f-935e-4809-a1f2-ed02b25ec031"
     },
     {
-      "name": "Niyibizi Fabrice",
-      "email": "fabrice6@gmail.com",
-      "role": "Operator",
-      "id": "2e1fb644-f6d4-4324-801e-00390c7c2b15",
-      "number": 2
+      "name": "nyine",
+      "email": "munama@gmail.com",
+      "role": "Driver",
+      "id": "b760343d-3d56-41e9-895c-fc0fbe402b00"
     },
     {
-      "name": "nitwa sylvain",
-      "email": "winfield@gmail.com",
+      "name": "Niyibizi",
+      "email": "niyibizi@gmail.com",
       "role": "Operator",
-      "id": "868d42ef-7da3-4ef2-9d54-48806cfda56a",
+      "id": "8019e363-a98f-48c8-ac4d-112aae7052ea",
       "number": 3
     }
   ]
