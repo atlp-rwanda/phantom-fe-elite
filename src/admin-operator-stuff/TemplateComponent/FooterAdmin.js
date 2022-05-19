@@ -1,6 +1,4 @@
-
-
-import React from 'react'
+import React from "react";
 
 const FooterAdmin = () => {
   return (
@@ -14,6 +12,6 @@ const FooterAdmin = () => {
       </p>
     </footer>
   );
-}
+};
 
-export default FooterAdmin
+export default FooterAdmin;

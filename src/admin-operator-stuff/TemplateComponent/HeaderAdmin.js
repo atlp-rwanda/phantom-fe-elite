@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { RiArrowDropDownFill, RiMenuLine } from "react-icons/ri";
 import { IoMdNotifications } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
-import AsideAdminOnPhone from './AsideAdminOnPhone';
-
+import AsideAdminOnPhone from "./AsideAdminOnPhone";
 
 const HeaderAdmin = () => {
   const [asideOpen, setAsideOpen] = useState(false);
@@ -39,6 +38,6 @@ const HeaderAdmin = () => {
       </div>
     </header>
   );
-}
+};
 
-export default HeaderAdmin
+export default HeaderAdmin;

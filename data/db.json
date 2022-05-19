@@ -22,25 +22,18 @@
   ],
   "operator": [
     {
-      "name": "message one",
-      "email": "eric@gmail.com",
-      "role": "Operator",
-      "id": "78015c34-cdc9-4ecc-a432-0ce82400f3a8",
-      "number": 1
-    },
-    {
-      "name": "Niyibizi Fabrice",
-      "email": "fabrice6@gmail.com",
-      "role": "Operator",
-      "id": "2e1fb644-f6d4-4324-801e-00390c7c2b15",
-      "number": 2
-    },
-    {
-      "name": "nitwa sylvain",
-      "email": "winfield@gmail.com",
-      "role": "Operator",
-      "id": "868d42ef-7da3-4ef2-9d54-48806cfda56a",
+      "name": "killer",
+      "email": "killer@gmail.fr",
+      "role": "operator",
+      "id": "ecb715d9-a436-4443-bbb5-d32e46e716b6",
       "number": 3
+    },
+    {
+      "name": "salim",
+      "email": "eric@gmail.com",
+      "role": "operator",
+      "id": "e5c97db3-7735-4926-ac5c-53782de3d417",
+      "number": 4
     }
   ]
 }

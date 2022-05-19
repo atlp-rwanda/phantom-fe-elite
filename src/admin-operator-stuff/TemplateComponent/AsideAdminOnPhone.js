@@ -6,7 +6,6 @@ import { RiCloseFill } from "react-icons/ri";
 import { GiGearStickPattern } from "react-icons/gi";
 import { VscSymbolProperty } from "react-icons/vsc";
 
-
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -19,12 +18,12 @@ const AsideAdminOnPhone = ({ setAsideOpen }) => {
         setAsideOpen(false);
       }
     };
-    
-    document.addEventListener("mousedown", handler );
+
+    document.addEventListener("mousedown", handler);
     return () => {
-       document.addEventListener("mousedown", handler)
-    }
-  })
+      document.addEventListener("mousedown", handler);
+    };
+  });
   return (
     <aside
       className="bg-white w-4/6 h-full absolute text-black row-span-full border-2 border-solid border-[#f3f3f3] pb-4"
