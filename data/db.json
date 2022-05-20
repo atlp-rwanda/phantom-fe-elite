@@ -1,28 +1,79 @@
 {
-  "buses": [
+  "routes": [
+    {
+      "id": 1,
+      "origin": "Jabana",
+      "destination": "Kacyiru"
+    },
     {
       "id": 2,
-      "busNumber": "D-35",
-      "busPlate": "RAC346B",
-      "routes": "Kimironko - Downtown"
+      "origin": "Jabana",
+      "destination": "Kacyiru"
     },
     {
       "id": 3,
-      "busNumber": "D-50",
-      "busPlate": "RAC346B",
-      "routes": "Kimironko - Downtown"
-    }
-  ],
-  "drivers": [
+      "origin": "Jabana",
+      "destination": "Kacyiru"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "origin": "cxm",
+      "destination": "cnbsdj",
+      "id": 4
+    },
+    {
+      "origin": "zxnxn",
+      "destination": "xmx",
+      "id": 5
+    },
+    {
+      "origin": "cxm",
+      "destination": "ruier",
+      "id": 6
+    },
+    {
+      "origin": "cxm",
+      "destination": "c,m,x",
+      "id": 7
+    },
+    {
+      "origin": "cxm",
+      "destination": "ckxcx",
+      "id": 8
+    },
+    {
+      "origin": "Kanombe",
+      "destination": "gdfngjnjd",
+      "id": 9
+    },
+    {
+      "origin": "cxm",
+      "destination": "cxcmxm,c",
+      "id": 10
+    },
+    {
+      "origin": "zxnxn",
+      "destination": "c,m,x",
+      "id": 11
+    },
+    {
+      "origin": "Kanombe",
+      "destination": "Down town",
+      "id": 12
+    },
+    {
+      "origin": "Kanombe",
+      "destination": "ISI YA9",
+      "id": 13
+    },
+    {
+      "origin": "Nyanza",
+      "destination": "Kinamba",
+      "id": 14
+    },
+    {
+      "origin": "Kanombe",
+      "destination": "Kicukiro",
+      "id": 15
     }
-  ],
-  "operators": {
-    "id": 1,
-    "body": "some comment",
-    "postId": 1
-  }
+  ]
 }
