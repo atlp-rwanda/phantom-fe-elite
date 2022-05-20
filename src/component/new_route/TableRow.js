@@ -60,7 +60,7 @@ const handleDeleting = () => {
               
 
               fetchRoute().then(data=>{
-                console.log(data)
+                // console.log(data)
                 setNewRoute(data);
               // toggleUpdate();
                 
