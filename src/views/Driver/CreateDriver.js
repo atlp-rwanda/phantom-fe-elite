@@ -9,27 +9,40 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiEdit } from "react-icons/fi";
 import api from '../../api/driver'
 import { v4 as uuidv4 } from 'uuid';
-import { async } from "regenerator-runtime";
-import { Link } from "react-router-dom"
+import swal from 'sweetalert';
+
+
 const CreateDriver = () => {
 	const [driverData, setDriverData] = useState(null);
   const [open, setOpen] = useState(true);
 
 // RetrieveDrivers
 const RetrieveDrivers = async()=>{
-	const response = await api.get('/driver');
-	return response.data;
+  try{
+
+    const response = await api.get('/driver');
+    return response.data;
+  }catch(error){
+    
+    swal(`Failed to load resource: net::ERR_CONNECTION_REFUSED`);
+  }
 }
 
 
 
-// const removeContactHandler = async(driverId)=>{
-//     await api(`/driver/`+ driverId,{
-//      method:"DELETE",
-// }).then(()=>{
-// 	RetrieveDrivers()
-// })
-//   }
+const removeContactHandler = async(driverId)=>{
+  swal({
+    title: "Success!",
+    text: "Driver deleted Successfully!",
+    icon: "success",
+    button: "Ok!",
+  });
+    await api(`/driver/`+ driverId,{
+     method:"DELETE",
+}).then(()=>{
+	RetrieveDrivers()
+})
+  }
   useEffect(()=>{
 	  const getAllDrivers = async()=>{
 		  const allDrivers = await RetrieveDrivers();
@@ -50,18 +63,15 @@ const RetrieveDrivers = async()=>{
             <div className="flex flex-row items-center my-3">
               <button
                 className="bg-darkBluePhant p-2 rounded-md font-bold text-white flex items-center justify-between w-fit"
-                onClick={() => setOpen(!open)}
+                onClick={() => setOpen(!open)} 
                 title="button"
 
               >
                 <RiAddCircleLine className="text-white text-2xl" />
                 <div>Add New Driver</div>
               </button>
-              <Modal open={open} setOpen={setOpen}>
-                <div className="my-2 font-black text-md border-b-2 border-solid border-darkBluePhant w-[50px]">
-                  {/* <h3 className="inline">Create Driver</h3> */}
-                </div>
-              </Modal>
+              <Modal open={open} setOpen={setOpen}/>
+             
               <form action="" className="w-2/5 h-10 mx-12">
                 <input
                   type="text"
@@ -83,6 +93,9 @@ const RetrieveDrivers = async()=>{
               <div className=" p-3 col-span-1  ">Action</div>
             </div>
             
+            {/* <div className="bg-red-300 text-white p-5 items-center border border-l-gray-50 ">
+        <h1>server are not started?</h1>
+      </div> */}
 			 {driverData &&
 						driverData.map((driver) => (
 							<div
@@ -100,7 +113,7 @@ const RetrieveDrivers = async()=>{
 									<RiDeleteBin6Line
                     role='delete'
 										className=" text-red-500 w-5 h-5 cursor-pointer"
-										// onClick={() => removeContactHandler(driver.id)}
+										onClick={() => removeContactHandler(driver.id)}
 									/>
 								</div>
 							</div>
