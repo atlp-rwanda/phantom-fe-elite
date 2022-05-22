@@ -34,6 +34,31 @@
       "role": "operator",
       "id": "e5c97db3-7735-4926-ac5c-53782de3d417",
       "number": 4
+    },
+    {
+      "name": "kill",
+      "email": "killer@gmail.com",
+      "role": "operator",
+      "id": "d10abe56-84cd-4b38-a23f-10b751226e80"
+    },
+    {
+      "name": "hello",
+      "email": "amakuru@gmail.com",
+      "role": "operator",
+      "id": "508eae1a-dec7-4cc5-add5-be51be017316",
+      "number": 4
+    },
+    {
+      "name": "fabrice",
+      "email": "gunpowder@mail.com",
+      "role": "operator",
+      "id": "2a779e58-7f76-427f-b091-d8e38bc6bcef"
+    },
+    {
+      "name": "running",
+      "email": "run@gmail.com",
+      "role": "operator",
+      "id": "602ff4ce-e97d-488a-ab28-8d88a76a5b85"
     }
   ]
 }

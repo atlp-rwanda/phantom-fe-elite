@@ -16,21 +16,19 @@ const TableRow = (props) => {
     <div
       className="grid grid-cols-12 border-b border-black border-solid"
       role="row-group"
-      // unique identifier for the newly row created
-      data_testid={`operator-row-${props.number}`}
     >
       <div className="col-span-1 pl-1">{props.number}</div>
       <div className="col-span-3 pl-1">{props.name}</div>
       <div className="col-span-3 pl-1">{props.email}</div>
       <div className="col-span-3 lg:col-span-3 pl-2">{props.role}</div>
       <div className=" col-span-2 lg:col-span-2 lg:pl-3 flex justify-between lg:justify-between w-5/6 lg:w-2/3 xl:w-1/2">
-        <button onClick={handleUpdate}>
+        <button onClick={handleUpdate} data-testid={`row-${props.number}`}>
           <Link to="">
             <FiEdit className=" w-4 h-4" />
           </Link>
         </button>
         <button onClick={handleDelete}>
-          <RiDeleteBin6Line className=" text-red-500 w-5 h-5" />
+          <RiDeleteBin6Line className=" text-red-500 w-5 h-5" data-testid = {`row-delete-${props.number}`} />
         </button>
       </div>
     </div>

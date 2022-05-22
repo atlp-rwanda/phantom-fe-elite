@@ -4,7 +4,6 @@ import LoadingMessage from "./LoadingMessage";
 import TableRow from "./TableRow";
 
 const TableGenerator = (props) => {
-  let number = 0;
   const captureData = (data) => {
     props.giveMeData(data);
   };
@@ -20,16 +19,16 @@ const TableGenerator = (props) => {
       ) : props.error.isError ? (
         <ErrorMessageDisplay error={props.error.message} />
       ) : (
-        props.data.map((user) => {
-          ++number;
+        props.data.map((user, index) => {
           return (
             <TableRow
               name={user.name}
               email={user.email}
               role={user.role}
               id={user.id}
-              number={number}
-              data_testid={`operator-row-${number}`}
+
+              number={index + 1}
+              data_testid={`operator-row-${index + 1}`}
               onSaveData={captureData}
               onDelete={captureIdtoDelete}
               setOpenModalRow={props.setOpenModal}

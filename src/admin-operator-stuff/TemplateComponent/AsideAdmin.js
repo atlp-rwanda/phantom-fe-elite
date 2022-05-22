@@ -20,27 +20,32 @@ const AsideAdmin = () => {
       <p className="text-xl tracking-wider  m-auto font-bold mt-3 ml-3 mb-2 ">
         Management
       </p>
-      <div className="ml-5 flex flex-col gap-4">
-        <div className="flex gap-5 hover:bg-[#f3f3f3] w-full">
-          <FaBus size={25} className="mt-1 text-darkBluePhant " />
-          <p className="ml-1 hover:bg-[#f3f3f3] w-full">Bus</p>
-        </div>
-        <div className="flex gap-5 hover:bg-[#f3f3f3] w-full">
-          <MdAltRoute size={25} className="mt-1 text-darkBluePhant" />
-          <Link to="/admin/driver">
-            <p className="ml-1">Route</p>
+      <div className="flex flex-col">
+        <div className="flex pl-5  gap-5 py-2 hover:bg-[#f3f3f3] w-full">
+          <Link to="/wari" className="flex ">
+            <FaBus size={25} className="mt-1 text-darkBluePhant " />
+            <p className="ml-1 px-3 hover:bg-[#f3f3f3] w-full">Bus</p>
           </Link>
         </div>
-        <div className="flex gap-5 hover:bg-[#f3f3f3] w-full">
-          <GiGearStickPattern size={25} className="mt-1 text-darkBluePhant " />
-          <Link to="admin/driver">
-            <p className="ml-1">Driver</p>
+        <div className="flex pl-5  gap-5 py-2 hover:bg-[#f3f3f3] w-full">
+          <Link to="/admin/driver" className="flex">
+            <MdAltRoute size={25} className="mt-1 text-darkBluePhant" />
+            <p className="ml-1 px-3">Route</p>
           </Link>
         </div>
-        <div className="flex gap-5 hover:bg-[#f3f3f3] w-full">
-          <VscSymbolProperty size={25} className="mt-1 text-darkBluePhant " />
-          <Link to="/dmin/operator">
-            <p className="ml-1">Operator</p>
+        <div className="flex pl-5  gap-5 py-2 hover:bg-[#f3f3f3] w-full">
+          <Link to="admin/driver" className="flex">
+            <GiGearStickPattern
+              size={25}
+              className="mt-1 text-darkBluePhant "
+            />
+            <p className="ml-1 px-3">Driver</p>
+          </Link>
+        </div>
+        <div className="flex pl-5  gap-5 py-2 hover:bg-[#f3f3f3] w-full">
+          <Link to="/dmin/operator" className="flex">
+            <VscSymbolProperty size={25} className="mt-1 text-darkBluePhant " />
+            <p className="ml-1 px-3">Operator</p>
           </Link>
         </div>
       </div>

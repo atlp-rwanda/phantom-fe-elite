@@ -9,8 +9,8 @@ const EditOperatorForm = ({
 }) => {
   const { name, email, id, number } = update;
   let initialData = {
-    name,
-    email,
+    name:name,
+    email:email
   };
 
   const validate = (values) => {
@@ -29,8 +29,19 @@ const EditOperatorForm = ({
     }
     return errors;
   };
+
+ const onSubmit = (values, { resetForm }) => {
+   // prefilling the each and every submitted data from form with default role = operator
+   values.role = "operator";
+     values.id = id;
+     values.number = number;
+   setData(values);
+   resetForm({});
+ };
+
   const formik = useFormik({
     initialValues: initialData,
+    onSubmit,
     validate,
   });
 
@@ -39,6 +50,7 @@ const EditOperatorForm = ({
 
     // to create the object which is resembling the format the format of data tobe saved
     let values = {};
+
 
     // capturing the data from form submission using array as they come in array due to using formik
     values.name = event.target[0].value;
@@ -50,7 +62,6 @@ const EditOperatorForm = ({
     //  appending the data from form with another properties which were there before updating like id, and number
     values.id = id;
     values.number = number;
-    console.log(values);
     setData(values);
     event.target[0].value = "";
     event.target[1].value = "";
@@ -58,7 +69,7 @@ const EditOperatorForm = ({
   };
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50">
+    <div className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50" data-testid = "edit-form">
       <div className="w-5/6 sm:w-3/5 h-1/3 sm:h-3/5 md:w-3/5 lg:h-2/5 md:h-1/3 lg:w-2/6 xl:w-1/3 xl:h-2/5 bg-white rounded-md pt-2 md:pt-9 lg:pt-2 box-border">
         <div className="sm:px-4 px-3">
           <div className="mb-4 font-bold border-b-2 border-solid border-darkBluePhant w-[130px] pt-2">

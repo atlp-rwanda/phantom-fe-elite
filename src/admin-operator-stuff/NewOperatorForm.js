@@ -9,7 +9,6 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
   const onSubmit = (values, { resetForm }) => {
     // prefilling the each and every submitted data from form with default role = operator
     values.role = "operator";
-    console.log(values);
     setData(values);
     resetForm({});
   };
@@ -32,8 +31,9 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
     onSubmit,
     validate,
   });
+  
   return (
-    <div className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50">
+    <div className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50" data-testid = "new-form">
       <div className="w-5/6 sm:w-3/5 h-1/3 sm:h-3/5 md:w-3/5 lg:h-2/5 md:h-1/3 lg:w-2/6 xl:w-1/3 xl:h-2/5 bg-white rounded-md pt-2 md:pt-9 lg:pt-2 box-border">
         <div className="sm:px-4 px-3">
           <div className="mb-4 font-bold border-b-2 border-solid border-darkBluePhant w-[130px] pt-2">

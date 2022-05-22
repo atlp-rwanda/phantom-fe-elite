@@ -30,11 +30,14 @@ const AdminOperator = () => {
   //  the state to manage the updating for getting the data pre-populate them into the form field
   const [update, setUpdate] = useState("");
 
+  // function to check for dupplicate while creating new operator
+  const isRegisterDuplicated = (email) => {
+    let index = datas.findIndex((operator) => operator.email === email);
+    return index !== -1;
+  };
+
+  // function containing the errorMessage functionality
   const displayPopupMessage = (promise, actionPerformed) => {
-    // this toast.promise is handling the async behaviours of the fetching or posting data to the database
-    // and it receives that promise (operator) as a first argument and second argument is series of objects containing the configulation for
-    // handling the error message when promise rejects and success message when promise resolves
-    // it also receives the object containing the styles of the modal which pops up.
     const messages = () => {
       if (actionPerformed === "Save") {
         return {
@@ -83,6 +86,10 @@ const AdminOperator = () => {
       }
     };
 
+    // this toast.promise is handling the async behaviours of the fetching or posting data to the database
+    // and it receives that promise (operator) as a first argument and second argument is series of objects containing the configulation for
+    // handling the error message when promise rejects and success message when promise resolves
+    // it also receives the object containing the styles of the modal which pops up.
     toast.promise(promise, messages(), {
       style: {
         minWidth: "250px",
@@ -127,7 +134,6 @@ const AdminOperator = () => {
             message: `${errors.code}: ${errors.message}`,
           };
         });
-        console.log(errors);
       }
     };
     fetchAll();
@@ -135,7 +141,7 @@ const AdminOperator = () => {
 
   // this function is called by the edit button down down on the table row component
   // which capture the data of the current row edited
-  const captureDataForUpdate = async (data) => {
+  const captureDataForUpdate = (data) => {
     setUpdate(data);
   };
 
@@ -145,15 +151,19 @@ const AdminOperator = () => {
     dataFromForm.id = uuidv4();
     try {
       // this axios returns a promise which is stored into the operator
-      const operator = axios.post(
-        "http://localhost:7000/operator",
-        dataFromForm
-      );
-      // function to handle popup loading while saving and display the status message
-      displayPopupMessage(operator, "Save");
-      // the promise is awaited to resove so that it can have the values. NB: The following code 
-      // cant run before promise is resolved due to this await.
-      await operator;
+      if (isRegisterDuplicated(dataFromForm.email)) {
+        toast.error("The operator already exists! Register different operator");
+      } else {
+        const operator = axios.post(
+          "http://localhost:7000/operator",
+          dataFromForm
+        );
+        // function to handle popup loading while saving and display the status message
+        displayPopupMessage(operator, "Save");
+        // the promise is awaited to resove so that it can have the values. NB: The following code
+        // cant run before promise is resolved due to this await.
+        await operator;
+      }
 
       // fetch all data from the database
       const operatorsDataCurrrent = await axios.get(
@@ -166,19 +176,20 @@ const AdminOperator = () => {
     }
   };
 
-// function to add the data from edit form to the the database and rerender UI with the updated data
-  const addDataToUpdate = async (dataFromEditForm) => {
+  // function to add the data from edit form to the the database and rerender UI with the updated data
+ const addDataToUpdate = async (dataFromEditForm) => {
     try {
       // this axios returns a promise which is stored into the operator
-      const operator = axios.put(
-        `http://localhost:7000/operator/${dataFromEditForm.id}`,
-        dataFromEditForm
-      );
-      // function to handle popup loading while saving and display the status message
-      displayPopupMessage(operator, "Update");
-      // the promise is awaited to resove so that it can have the values. NB: The following code
-      // cant run before promise is resolved due to this await.
-      await operator;
+        const operator = axios.put(
+          `http://localhost:7000/operator/${dataFromEditForm.id}`,
+          dataFromEditForm
+        );
+        // function to handle popup loading while saving and display the status message
+        displayPopupMessage(operator, "Update");
+        // the promise is awaited to resove so that it can have the values. NB: The following code
+        // cant run before promise is resolved due to this await.
+        await operator;
+      // }
 
       // fetch all data from the database
       const operatorsDataCurrrent = await axios.get(
@@ -186,7 +197,6 @@ const AdminOperator = () => {
       );
       // update what is renderd on the screen
       setDatas(operatorsDataCurrrent.data);
-
     } catch (error) {
       console.log(error);
     }

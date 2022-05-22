@@ -114,7 +114,9 @@ describe("<RegisterPage />", () => {
     });
   });
   it("should validate form", async () => {
-    const handleSubmit = jest.fn();
+    const captureDataForUpdate = jest.fn();
+    const deleteHandle = jest.fn();
+    const setModalOpen = jest.fn();
     await act(async () => {
       render(
         <Router>

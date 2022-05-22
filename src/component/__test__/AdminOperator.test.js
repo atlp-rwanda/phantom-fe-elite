@@ -3,8 +3,40 @@ import AdminOperator from "../../views/Admin-operator";
 import { BrowserRouter } from "react-router-dom";
 import TableGenerator from "../../admin-operator-stuff/TableGenerator";
 import NewOperatorForm from "../../admin-operator-stuff/NewOperatorForm";
+import EditOperatorForm from "../../admin-operator-stuff/EditOperatorForm";
+import React from 'react'
 
-const MockTableGenerator = ({ data, errorStatus }) => {
+ const operatorsArray = [
+   {
+     name: "message one",
+     email: "eric@gmail.com",
+     role: "Operator",
+     id: "78015c34-cdc9-4ecc-a432-0ce82400f3a8",
+     number: 1,
+   },
+   {
+     name: "Niyibizi Fabrice",
+     email: "fabrice6@gmail.com",
+     role: "Operator",
+     id: "2e1fb644-f6d4-4324-801e-00390c7c2b15",
+     number: 2,
+   },
+   {
+     name: "nitwa sylvain",
+     email: "winfield@gmail.com",
+     role: "Operator",
+     id: "868d42ef-7da3-4ef2-9d54-48806cfda56a",
+     number: 3,
+   },
+ ];
+
+const MockTableGenerator = ({
+  data,
+  errorStatus,
+  giveMeData,
+  handleDelete,
+  setOpenModal,
+}) => {
   return (
     <BrowserRouter>
       <TableGenerator
@@ -13,34 +45,14 @@ const MockTableGenerator = ({ data, errorStatus }) => {
           isError: errorStatus,
         }}
         loading={errorStatus}
+        setOpenModal={setOpenModal}
+        handleDelete={handleDelete}
+        giveMeData={giveMeData}
       />
     </BrowserRouter>
   );
 };
 
- const operatorsArray = [
-    {
-      name: "message one",
-      email: "eric@gmail.com",
-      role: "Operator",
-      id: "78015c34-cdc9-4ecc-a432-0ce82400f3a8",
-      number: 1
-    },
-    {
-      name: "Niyibizi Fabrice",
-      email: "fabrice6@gmail.com",
-      role: "Operator",
-      id: "2e1fb644-f6d4-4324-801e-00390c7c2b15",
-      number: 2
-    },
-    {
-      name: "nitwa sylvain",
-      email: "winfield@gmail.com",
-      role: "Operator",
-      id: "868d42ef-7da3-4ef2-9d54-48806cfda56a",
-      number: 3
-    }
-  ]
 describe("Renders the operator-admin page with all of the interaction", () => {
   it("renders a create operator button, input element, aside, footer and header element", () => {
       render(
@@ -91,52 +103,48 @@ describe("Renders the operator-admin page with all of the interaction", () => {
       expect(inputEl.value).toBe("kati");
   });
 
-  it("Testing the table generator to see if it receive the array it is renedering the corresponding rows on the screen", async () => {
+  it("Testing the table generator to see if it receive the array it is rendering the corresponding rows on the screen", async () => {
     render(<MockTableGenerator data={operatorsArray} />);
     const rows = screen.getAllByRole("row-group");
     expect(rows.length).toBe(operatorsArray.length);
   });
+  it("should fetch all of the operators and render them", async () => {
+    render(<MockTableGenerator data={operatorsArray} errorStatus={false} />);
+    const operatorDivElements = await screen.findAllByRole("row-group");
+    for (let operator of operatorDivElements) {
+      expect(operator).toBeInTheDocument();
+    }
+  });
 });
 
-describe("Testing the crud functionality of the app", () => {
+describe("Testing the new form rendering of the app", () => {
   it("should render the form for submitting the new operator created", () => {
-    render(<NewOperatorForm />)
-    const form  = screen.getByRole("form");
+    render(<NewOperatorForm />);
+    const form = screen.getByRole("form");
     // role given to the inputs element with type of text is textbox
     const inputsRendered = screen.getAllByRole("textbox");
     const buttonRendered = screen.getAllByRole("button");
     expect(form).toBeInTheDocument();
     for (let input of inputsRendered) {
-    expect(input).toBeInTheDocument();
-    expect(input).toHaveAttribute("type", "text");
+      expect(input).toBeInTheDocument();
+      expect(input).toHaveAttribute("type", "text");
     }
-     for (let button of buttonRendered) {
-       expect(button).toBeInTheDocument();
-     }
-  })
-
-   it("the input element should change when someone clicks inside the text field", () => {
-    render(<NewOperatorForm />);
-    const inputEl1 = screen.getByPlaceholderText("Operator Email");
-      const inputEl2 = screen.getByPlaceholderText("Operator Name");
-      // const selectElement = screen.getAllByRole("textbox")
-    fireEvent.change(inputEl2, { target: { value: "fabrice" } });
-    // fireEvent.select(selectElement[2], { target: { value: "Operator" } });
-    fireEvent.change(inputEl1, { target: { value: "test@mail.com" } });
-      expect(inputEl1.value).toBe("test@mail.com");
-      expect(inputEl2.value).toBe("fabrice");
-      // expect(selectElement[2].value).toBe("Operator");
-   });
-
-  it("should fetch all of the operators and render them", async () => {
-    render(<MockTableGenerator data={operatorsArray} errorStatus = {false} />);
-    const operatorDivElements = await screen.findAllByRole("row-group");
-    for (let operator of operatorDivElements) {
-    expect(operator).toBeInTheDocument();
+    for (let button of buttonRendered) {
+      expect(button).toBeInTheDocument();
     }
   });
 
-  it("When user types into the text field the value should change", () => {
+  it("the input element should change when someone types inside the text field", () => {
+    render(<NewOperatorForm />);
+    const inputEl1 = screen.getByPlaceholderText("Operator Email");
+    const inputEl2 = screen.getByPlaceholderText("Operator Name");
+    fireEvent.change(inputEl2, { target: { value: "fabrice" } });
+    fireEvent.change(inputEl1, { target: { value: "test@mail.com" } });
+    expect(inputEl1.value).toBe("test@mail.com");
+    expect(inputEl2.value).toBe("fabrice");
+  });
+
+  it("should popup the new form modal component when new operator button is clicked ", () => {
     render(
       // the component which includes link element from react-router-dom should be wrapped into
       // into the browser router component to mimic that behaviour in the test but where there is not the link
@@ -145,9 +153,85 @@ describe("Testing the crud functionality of the app", () => {
         <AdminOperator />
       </BrowserRouter>
     );
-    const inputEl = screen.getByPlaceholderText("Search");
-    fireEvent.click(inputEl);
-    fireEvent.change(inputEl, { target: { value: "kati" } });
-    expect(inputEl.value).toBe("kati");
+    const buttonEl = screen.getByRole("button", { name: "Create Operator" });
+    fireEvent.click(buttonEl);
+    const newForm = screen.getByTestId("new-form");
+    expect(newForm).toBeInTheDocument();
   });
+
+  it("should popup the edit form modal component when new operator button is clicked ", async () => {
+    render(
+      // the component which includes link element from react-router-dom should be wrapped into
+      // into the browser router component to mimic that behaviour in the test but where there is not the link
+      // it does not matter to include browserRouter
+      <BrowserRouter>
+        <AdminOperator />
+      </BrowserRouter>
+    );
+    const editButtonEl = await screen.findByTestId("row-1");
+    fireEvent.click(editButtonEl);
+    const editForm = screen.getByTestId("edit-form");
+    expect(editForm).toBeInTheDocument();
+  });
+
+ it("should popup the edit form and prepopulate the data clicked ", async () => {
+  const addDataToUpdate = jest.fn()
+  const setModalOpen = jest.fn()
+  const setUpdate = jest.fn()
+  render(<EditOperatorForm update= {operatorsArray[0]} setData = {addDataToUpdate}  setCloseUpdate={setUpdate}
+          setOpenModal= {setModalOpen} />);
+    const inputEl1 = screen.getByPlaceholderText("Operator Email");
+    const inputEl2 = screen.getByPlaceholderText("Operator Name");
+    const button = screen.getByRole("button", { name: "Save Operator" });
+    expect(inputEl1.value).toBe("eric@gmail.com");
+    expect(inputEl2.value).toBe("message one");
+    fireEvent.change(inputEl2, { target: { value: "fabrice" } });
+    fireEvent.change(inputEl1, { target: { value: "testing@gmail.com" } });
+    expect(inputEl1.value).toBe("testing@gmail.com");
+    expect(inputEl2.value).toBe("fabrice");
+ });
+
+
+  it("the input element should be cleared if submit button is clicked", async() => {
+    render(
+      <BrowserRouter>
+        <AdminOperator />
+      </BrowserRouter>
+    );
+      const createButton = screen.getByRole("button", { name: "Create Operator" });
+      fireEvent.click(createButton);
+      const newForm = screen.getByTestId("new-form");
+    const inputEl1 =  await screen.findByPlaceholderText("Operator Email");
+    const inputEl2 =  await screen.findByPlaceholderText("Operator Name");
+    const buttonEl = screen.getByRole("button", {name:"Save Operator"});
+    const backButtonEl = screen.getByRole("button", {name:"Back"});
+    fireEvent.change(inputEl2, { target: { value: "fabrice" } });
+    fireEvent.change(inputEl1, { target: { value: "gunpowder@mail.com" } });
+    fireEvent.click(buttonEl);
+    fireEvent.click(backButtonEl);
+    expect(newForm).not.toBeInTheDocument();
+  });
+
+ it("should delete the component when delete button icon is clicked ", async () => {
+    const captureDataForUpdate = jest.fn();
+    const deleteHandle = jest.fn();
+    const setModalOpen = jest.fn();
+    render(
+      <MockTableGenerator
+        data={operatorsArray}
+        handleDelete={deleteHandle}
+        giveMeData={captureDataForUpdate}
+        setOpenModal={setModalOpen}
+      />
+    );
+     const deleteButtonEl = await screen.findByTestId("row-delete-1");
+        fireEvent.click(deleteButtonEl);  
+     await waitFor(() => {
+         expect(deleteHandle).toHaveBeenCalled();
+         expect(deleteHandle).toHaveBeenCalledTimes(1);
+         expect(captureDataForUpdate).toHaveBeenCalledTimes(0);
+       });
+  ;
+   });
+ 
 })
