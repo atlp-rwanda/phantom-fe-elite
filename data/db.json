@@ -1,0 +1,47 @@
+{
+   "user":[ {
+      "id": 1,
+      "busNo": "bus-009",
+      "seats":"20-remaining",
+      "routes": "Kimironko - Downtown",
+      "drivers": "Andela Rwanda",
+      "current_status": "Near Kicukiro",
+      "Eta": "20 min"
+    },
+    {
+      "id": 2,
+      "busNo": "buss-35",
+      "seats":"20-remaining",
+      "routes": "Kimironko - Downtown",
+      "drivers": "Andela Rwanda",
+      "current_status": "Near Kicukiro",
+      "Eta": "20 min"
+    },
+    {
+      "id": 3,
+      "busNo": "buss-45",
+      "seats":"20-remaining",
+      "routes": "Kimironko - Downtown",
+      "drivers": "Andela Rwanda",
+      "current_status": "Near Kicukiro",
+      "Eta": "20 min"
+    },
+    {
+      "id": 4,
+      "busNo": "buss-35",
+      "seats":"20-remaining",
+      "routes": "Kimironko - Downtown",
+      "drivers": "Andela Rwanda",
+      "current_status": "Near Kicukiro",
+      "Eta": "20 min"
+    },
+    {
+      "id": 5,
+      "busNo": "buss-55",
+      "seats":"20-remaining",
+      "routes": "Kimironko - Downtown",
+      "drivers": "Andela Rwanda",
+      "current_status": "Near Kicukiro",
+      "Eta": "20 min"
+    }]
+}

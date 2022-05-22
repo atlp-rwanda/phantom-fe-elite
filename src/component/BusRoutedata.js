@@ -1,14 +1,16 @@
 import React from "react";
-import smallImage from "../../assets/admin-panel/Bus.jpg";
+import smallImage from "../assets/admin-panel/Bus.jpg";
 function BusRoutedata() {
   return (
-    <div className="bg-white px-4 rounded-lg">
-      <div className="my-2 hidden md:block font-black text-xl border-b-2 border-solid border-darkBluePhant w-[200px]" title="Bus , Routes Data">
+    
+    <div className="bg-white px-4 mt-10 rounded-lg" title="data">
+
+      <div className="my-2 hidden md:block font-black text-xl border-b-2 border-solid border-darkBluePhant w-[200px]" title="Bus , Routes Data" data-testid="Bus">
         Bus , Routes Data
       </div>
-
+    
       <div className="grid grid-cols-12 border-b-2 border-black font-bold border-solid">
-        <div className="col-span-1 pt-4">Task</div>
+        <div className="col-span-1 pt-4 text-xs pr-4">Task</div>
         <div className="col-span-1 pt-4 text-xs">Bus No</div>
         <div className="col-span-2 pt-4 text-xs">Seats</div>
         <div className="col-span-3 pt-4 text-xs">Routes</div>
@@ -20,7 +22,11 @@ function BusRoutedata() {
         <div className="col-span-1">
           <img src={smallImage} alt="small Image"></img>
         </div>
-        <div className="col-span-1 pt-3 text-xs font-medium"> Bus-009</div>
+        
+        <div className="col-span-1 pt-3 text-xs font-medium">Bus-001 
+
+           </div>
+    
         <div className="col-span-2 pt-3 text-xs font-medium">20 remaining</div>
         <div className="col-span-3 pt-3 text-xs font-medium">
           Kacyiru - Nyabugogo

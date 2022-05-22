@@ -9,7 +9,7 @@ import {
 import "@testing-library/jest-dom/extend-expect";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter as Router } from "react-router-dom";
-import Login from "./../login"
+import Login from "../../views/login";
 
 describe("display on Login page", () => {
   it("should check if input email placeholder is Email...", () => {

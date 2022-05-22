@@ -5,6 +5,8 @@ import { MdAssignmentTurnedIn } from "react-icons/md";
 import { FaBus } from "react-icons/fa";
 import { MdAltRoute } from "react-icons/md";
 import { AiOutlineSetting } from "react-icons/ai";
+import { GiGearStickPattern } from "react-icons/gi"
+import { VscSymbolProperty } from "react-icons/vsc"
 import logo from "../../assets/images/logo.jpg";
 
 import React from "react";
@@ -24,25 +26,22 @@ const SideBar = () => {
 			</p>
 			<div className="ml-5 flex flex-col gap-4">
 				<div className="flex gap-5">
-					<MdAssignmentTurnedIn
-						size={25}
-						className="mt-1 text-darkBluePhant "
-					/>
+				    <FaBus size={25} className="mt-1 text-darkBluePhant " />
 					<p className="ml-1">Bus</p>
 				</div>
 				<div className="flex gap-5 ">
-					<FaBus size={25} className="mt-1 text-darkBluePhant " />
+			        <MdAltRoute size={25} className="mt-1 text-darkBluePhant " />
 					<p className="ml-1">Route</p>
 				</div>
 				<div className="flex gap-5">
-					<MdAltRoute size={25} className="mt-1 text-darkBluePhant " />
+					<GiGearStickPattern size={25} className="mt-1 text-darkBluePhant " />
 					<Link to="/admin/driver">
 						<p className="ml-1">Driver</p>
 					</Link>
 				</div>
 
 				<div className="flex gap-5">
-					<AiOutlineSetting size={25} className="mt-1 text-darkBluePhant " />
+					<VscSymbolProperty size={25} className="mt-1 text-darkBluePhant " />
 					<Link to="/dmin/operator">
 						<p className="ml-1">Operator</p>
 					</Link>

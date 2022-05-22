@@ -20,7 +20,8 @@
     "start": "webpack serve --mode development --open",
     "build": "webpack --mode production",
     "test": "react-scripts test --watchAll=false",
-    "coverage": "react-scripts test --coverage --watchAll"
+    "coverage": "react-scripts test --coverage --watchAll",
+    "db":"json-server --watch --port 7000 data/db.json"
   },
   "keywords": [
     "webpack5",
@@ -44,6 +45,7 @@
     "formik": "^2.2.9",
     "google-map-react": "^2.1.10",
     "google-maps-react": "^2.0.6",
+    "json-server": "^0.17.0",
     "leaflet": "^1.8.0",
     "mini-css-extract-plugin": "^2.6.0",
     "path": "^0.12.7",
@@ -87,7 +89,6 @@
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4"
   },
-  
   "transform": {
     "\\.js$": "<rootDir>/node_modules/babel-jest"
   }
