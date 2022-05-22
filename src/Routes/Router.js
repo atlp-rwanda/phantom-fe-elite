@@ -22,7 +22,7 @@ const Router = () => {
 					<Route path="/confirm-new-password" element={<ConfirmPassword />}></Route>
 					<Route exact path="/login" element={<LoginPage />}></Route>
 					<Route exact path="/updateoperator" element={<UpdateOperator />}></Route>
-					<Route path="/adminview" element={<AdminView />}></Route>
+					<Route path="/admin-over-view" element={<AdminView />}></Route>
 				</Routes>
 			</div>
 		</BrowserRouter>

@@ -21,7 +21,7 @@
     "build": "webpack --mode production",
     "test": "react-scripts test --watchAll=false",
     "coverage": "react-scripts test --coverage --watchAll",
-    "db":"json-server --watch --port 7000 data/db.json"
+    "db": "json-server --watch --port 7000 data/db.json"
   },
   "keywords": [
     "webpack5",
@@ -53,6 +53,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-hook-form": "^7.30.0",
+    "react-hot-toast": "^2.2.0",
     "react-icons": "^4.3.1",
     "react-leaflet": "^4.0.0",
     "react-redux": "^7.2.8",
