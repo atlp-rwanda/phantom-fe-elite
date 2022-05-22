@@ -12,6 +12,7 @@ const TableRow = (props) => {
     props.onSaveData(props);
   };
 
+    
   return (
     <div
       className="grid grid-cols-12 border-b border-black border-solid"

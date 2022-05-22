@@ -4,6 +4,7 @@ import LoadingMessage from "./LoadingMessage";
 import TableRow from "./TableRow";
 
 const TableGenerator = (props) => {
+  let number = 0 ;
   const captureData = (data) => {
     props.giveMeData(data);
   };

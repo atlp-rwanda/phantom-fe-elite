@@ -147,6 +147,7 @@ const AdminOperator = () => {
 
   // function for handling updating data into the database and rerendering UI.
   const addDataFromForm = async (dataFromForm) => {
+
     // uuid for creating the random id onCreating the new operator
     dataFromForm.id = uuidv4();
     try {

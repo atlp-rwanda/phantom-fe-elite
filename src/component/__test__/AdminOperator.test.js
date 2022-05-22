@@ -139,6 +139,7 @@ describe("Testing the new form rendering of the app", () => {
     const inputEl1 = screen.getByPlaceholderText("Operator Email");
     const inputEl2 = screen.getByPlaceholderText("Operator Name");
     fireEvent.change(inputEl2, { target: { value: "fabrice" } });
+    // fireEvent.select(selectElement[2], { target: { value: "Operator" } });
     fireEvent.change(inputEl1, { target: { value: "test@mail.com" } });
     expect(inputEl1.value).toBe("test@mail.com");
     expect(inputEl2.value).toBe("fabrice");
