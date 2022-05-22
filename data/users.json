@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "userid": 1,
+      "names": "SHYAKA Benjamin",
+      "email": "benjamin@gmail.com",
+      "password": "ben123",
+      "role": "ADMIN"
+    },
+    {
+      "userid": 2,
+      "names": "NIYONSHUTI Prince",
+      "email": "prince@gmail.com",
+      "password": "prince123",
+      "role": "ADMIN"
+    },
+    {
+      "userid": 3,
+      "names": "MUHETO Hodal",
+      "email": "hodal@gmail.com",
+      "password": "hodal",
+      "role": "ADMIN"
+    }
+  ]
+}

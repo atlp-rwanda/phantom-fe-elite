@@ -22,13 +22,6 @@
   ],
   "operator": [
     {
-      "name": "killer",
-      "email": "killer@gmail.fr",
-      "role": "operator",
-      "id": "ecb715d9-a436-4443-bbb5-d32e46e716b6",
-      "number": 3
-    },
-    {
       "name": "salim",
       "email": "eric@gmail.com",
       "role": "operator",
@@ -40,13 +33,6 @@
       "email": "killer@gmail.com",
       "role": "operator",
       "id": "d10abe56-84cd-4b38-a23f-10b751226e80"
-    },
-    {
-      "name": "hello",
-      "email": "amakuru@gmail.com",
-      "role": "operator",
-      "id": "508eae1a-dec7-4cc5-add5-be51be017316",
-      "number": 4
     },
     {
       "name": "fabrice",
