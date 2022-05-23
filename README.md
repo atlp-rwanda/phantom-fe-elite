@@ -81,5 +81,3 @@ To run the app in production build of the app, use either of the following.
 ## How to Contribute
 
 ## Tests
-
-[![react CI/CD](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/react.yml/badge.svg)](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/react.yml)
