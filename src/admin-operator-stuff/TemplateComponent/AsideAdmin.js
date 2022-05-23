@@ -4,7 +4,6 @@ import { MdAltRoute } from "react-icons/md";
 import { GiGearStickPattern } from "react-icons/gi";
 import { VscSymbolProperty } from "react-icons/vsc";
 import logo from "../../assets/images/logo.jpg";
-
 import React from "react";
 import { Link } from "react-router-dom";
 

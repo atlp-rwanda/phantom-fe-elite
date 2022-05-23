@@ -1,39 +1,51 @@
 import React from "react";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const NewOperatorForm = ({ setOpenModal, setData }) => {
+
+  // Initial data is prefilled with data from row being updated
   const initialData = {
     name: "",
     email: "",
   };
+
+  //  the function which is called by formik by default and it passes values object automatically
+  // to this onSubmit function and we can capture those values and use them!
   const onSubmit = (values, { resetForm }) => {
     // prefilling the each and every submitted data from form with default role = operator
     values.role = "operator";
     setData(values);
     resetForm({});
+    setOpenModal(false);
   };
-  const validate = (values) => {
-    let errors = {};
-    if (!values.email) {
-      errors.email = "Email Required";
-    } else if (
-      // regex to check the validity of email
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-    ) {
-      errors.email = "Invalid email address";
-    } else if (!values.name) {
-      errors.name = " Name Required!";
-    }
-    return errors;
-  };
+
+  // validationSchema which validate the form before being submitted
+  const validate = Yup.object({
+    name: Yup.string()
+      .matches(
+        /^[A-Za-z ]*$/,
+        "Please enter valid name, It should not include number"
+      )
+      .min(3, "Too Short Name!")
+      .max(50, "Too Long name!")
+      .required("Required"),
+    email: Yup.string().email("Invalid email").required("Required"),
+  });
+
+  //  the formik is the object which is returned by useFormik. this use formik is receiving
+  // functions onSubmit, InitialValues Object and Validate schema from yup
   const formik = useFormik({
     initialValues: initialData,
-    onSubmit,
-    validate,
+    onSubmit: onSubmit,
+    validationSchema: validate,
   });
-  
+
   return (
-    <div className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50" data-testid = "new-form">
+    <div
+      className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50"
+      data-testid="new-form"
+    >
       <div className="w-5/6 sm:w-3/5 h-1/3 sm:h-3/5 md:w-3/5 lg:h-2/5 md:h-1/3 lg:w-2/6 xl:w-1/3 xl:h-2/5 bg-white rounded-md pt-2 md:pt-9 lg:pt-2 box-border">
         <div className="sm:px-4 px-3">
           <div className="mb-4 font-bold border-b-2 border-solid border-darkBluePhant w-[130px] pt-2">
@@ -81,7 +93,7 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
           </div>
           <div className="bg-gray-200 px-4 py-2 mt-4 md:12 sm:mt-8 md:mt-12 lg:mt-4 rounded-b-md text-left flex">
             <button
-              className="py-2 px-4 bg-green-600 text-white rounded hover:bg-gray-700 mr-2"
+              className="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-600 mr-2"
               onClick={() => {
                 setOpenModal(false);
               }}
@@ -90,7 +102,7 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
             </button>
             <button
               type="submit"
-              className="py-2 px-4 bg-textBluePhant text-white rounded hover:bg-textBluePhant mr-2"
+              className="py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 mr-2"
             >
               Save Operator
             </button>

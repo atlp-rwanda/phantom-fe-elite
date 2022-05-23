@@ -22,29 +22,34 @@
   ],
   "operator": [
     {
-      "name": "salim",
+      "name": "clearing the ",
+      "email": "sururi@gmail.com",
+      "role": "operator",
+      "id": "1aa926d5-9842-42f4-9718-c97755ac44ee"
+    },
+    {
+      "name": "hummer",
       "email": "eric@gmail.com",
       "role": "operator",
-      "id": "e5c97db3-7735-4926-ac5c-53782de3d417",
-      "number": 4
+      "id": "cce51f76-c48a-443a-9c08-02588778fbcb"
     },
     {
-      "name": "kill",
-      "email": "killer@gmail.com",
+      "name": "williams",
+      "email": "sylvainniyonkuru6@gmail.com",
       "role": "operator",
-      "id": "d10abe56-84cd-4b38-a23f-10b751226e80"
+      "id": "c23eb607-1306-4030-8e35-b58b57a2a1b9"
     },
     {
-      "name": "fabrice",
-      "email": "gunpowder@mail.com",
+      "name": "Niyibizi Fabrice Salkozie",
+      "email": "thegame@gmail.com",
       "role": "operator",
-      "id": "2a779e58-7f76-427f-b091-d8e38bc6bcef"
+      "id": "f86c7280-c7e6-4c90-9119-acd5ceb3e48a"
     },
     {
-      "name": "running",
-      "email": "run@gmail.com",
+      "name": "wee",
+      "email": "suru@gmaile.com",
       "role": "operator",
-      "id": "602ff4ce-e97d-488a-ab28-8d88a76a5b85"
+      "id": "79fadfa5-3fac-4d65-8da0-a6f6b60f867f"
     }
   ]
 }

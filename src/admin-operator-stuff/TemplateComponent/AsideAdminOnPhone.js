@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 
 const AsideAdminOnPhone = ({ setAsideOpen }) => {
   let sideRef = useRef();
-
   useEffect(() => {
     let handler = (event) => {
       if (!sideRef.current.contains(event.target)) {

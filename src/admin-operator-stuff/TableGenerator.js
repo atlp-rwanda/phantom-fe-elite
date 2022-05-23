@@ -4,22 +4,23 @@ import LoadingMessage from "./LoadingMessage";
 import TableRow from "./TableRow";
 
 const TableGenerator = (props) => {
-  let number = 0 ;
   const captureData = (data) => {
     props.giveMeData(data);
   };
   const captureIdtoDelete = (id) => {
-    console.log(id);
     props.handleDelete(id);
   };
 
   return (
     <>
+      {/* if loading is true, show loading screen */}
       {props.loading ? (
         <LoadingMessage />
-      ) : props.error.isError ? (
+      ) : // else if there is an error show error screen
+      props.error.isError ? (
         <ErrorMessageDisplay error={props.error.message} />
-      ) : (
+      ) : ( 
+        // if neither error nor loading is true, show the rows using data from array of data fetched. 
         props.data.map((user, index) => {
           return (
             <TableRow
@@ -27,7 +28,8 @@ const TableGenerator = (props) => {
               email={user.email}
               role={user.role}
               id={user.id}
-
+              // pass id automatically from the index to dispay the number of the operator currently rendere
+              // on the screen
               number={index + 1}
               data_testid={`operator-row-${index + 1}`}
               onSaveData={captureData}

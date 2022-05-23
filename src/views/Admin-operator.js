@@ -147,7 +147,6 @@ const AdminOperator = () => {
 
   // function for handling updating data into the database and rerendering UI.
   const addDataFromForm = async (dataFromForm) => {
-
     // uuid for creating the random id onCreating the new operator
     dataFromForm.id = uuidv4();
     try {
@@ -179,10 +178,11 @@ const AdminOperator = () => {
 
   // function to add the data from edit form to the the database and rerender UI with the updated data
  const addDataToUpdate = async (dataFromEditForm) => {
+   dataFromEditForm.id = update.id;
     try {
       // this axios returns a promise which is stored into the operator
         const operator = axios.put(
-          `http://localhost:7000/operator/${dataFromEditForm.id}`,
+          `http://localhost:7000/operator/${update.id}`,
           dataFromEditForm
         );
         // function to handle popup loading while saving and display the status message
