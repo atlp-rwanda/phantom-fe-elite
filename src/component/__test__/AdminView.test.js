@@ -54,11 +54,11 @@ describe("should check on BusRoutedata component ",()=>{
         expect(element).toBeVisible;
     })
 })
-// it("should check return the the link Reset Password of loginPage", async () => {
-//     render(<Router>
-//       <UserView title="users" />
-//       </Router>);
-//     const loginElement = screen.getByTitle("users");
-//     expect(loginElement).not.toBeInTheDocument();
-//   });
+it("should check return the the link Reset Password of loginPage", async () => {
+    render(<Router>
+      <UserView title="users" />
+      </Router>);
+    const loginElement = screen.getByTitle("users");
+    expect(loginElement).not.toBeInTheDocument();
+  });
 
