@@ -2,6 +2,8 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/179c5fae9c505c838e74/test_coverage)](https://codeclimate.com/github/atlp-rwanda/phantom-fe-elite/test_coverage)
 
+[![react](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/react.yml/badge.svg)](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/react.yml)
+
 # Phantom
 
 ## Description
