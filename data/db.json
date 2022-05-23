@@ -59,22 +59,16 @@
   ],
   "assigned": [
     {
-      "id": 1,
-      "routes": "KIMIRONKO-DOWNTAWN",
-      "driveremail": "driver1@gmail.com",
-      "platenumber": "RAB3002"
-    },
-    {
-      "id": 2,
       "routes": "Kimironko - Downtown",
       "driveremail": "driver1@gmail.com",
-      "platenumber": "RAB3002"
+      "platenumber": "RAB3002",
+      "id": 1
     },
     {
-      "id": 5,
       "routes": "Kimironko - Downtown",
-      "driveremail": "driver3@gmail.com",
-      "platenumber": "RAB3002"
+      "driveremail": "driver1@gmail.com",
+      "platenumber": "RAB3002",
+      "id": 2
     }
   ]
 }
