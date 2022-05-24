@@ -23,7 +23,6 @@ const NewRouteModal = ({ newData,setModalOpen,isModalOpen }) => {
 
   const handleChangeOrigin = (event) => {
     setOrigin(event.target.value);
-    console.log(origin);
   };
   const handleChangeDest = (event) => {
     setDestination(event.target.value);

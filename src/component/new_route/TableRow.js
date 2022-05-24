@@ -5,16 +5,21 @@ import UpdateRouteLine from '../UpdateRouteModal';
 import axios from 'axios';
 // modal toggle
 
-function toggleUpdate() {
-  document.getElementById("UpdateRouteLine").classList.toggle("hidden");
-}
 
 
-function TableRow ({removeDeletedItem,...props})  {
-const [data, setData] = useState({});
-const [newRoute, setNewRoute] = useState({});
-const [dataFetched,setDataFetched] = useState(false);
-
+function TableRow ({removeDeletedItem,setRoutes,...props})  {
+  
+  
+  const [data, setData] = useState({});
+  const [newRoute, setNewRoute] = useState({});
+  const [dataFetched,setDataFetched] = useState(false);
+  const [modalOpen,setModalOpen] = useState(false);
+  
+  function toggleUpdate() {
+    setModalOpen(true)
+  }
+  
+  
 const fetchRoute = async () => {
   setDataFetched(false);
   const dataObject = await axios.get(`http://localhost:7000/routes/${props.id}`);
@@ -29,11 +34,9 @@ const fetchRoute = async () => {
 
 const deleteHandle = async () => {
   const dataObject = await axios.delete(`http://localhost:7000/routes/${props.id}`);
-  console.log(dataObject.data);
   setData(dataObject.data)
   removeDeletedItem(props.id);
 
-  // return dataObject;
 };
 
 
@@ -57,12 +60,8 @@ const handleDeleting = () => {
             className=" w-4 h-4 cursor-pointer"
             data-testid="updateRouteBtn"
             onClick={async() => {
-              
-
               fetchRoute().then(data=>{
-                // console.log(data)
                 setNewRoute(data);
-              // toggleUpdate();
                 
               });
               
@@ -76,6 +75,7 @@ const handleDeleting = () => {
         </div>
       </div>
       {dataFetched && (<UpdateRouteLine
+        setRoutes={setRoutes}
         update={newRoute}
         setDataFetched={()=>setDataFetched(false)}
       />)}

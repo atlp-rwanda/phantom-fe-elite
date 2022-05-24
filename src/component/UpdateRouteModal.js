@@ -1,40 +1,63 @@
 // import { useState, useEffect } from "react";
 
+
 import React, { useEffect, useState } from "react";
+import axios from "axios";
+
 // modal toggle
 function toggleUpdate() {
   document.getElementById("UpdateRouteLine").classList.toggle("hidden");
 }
 
-const UpdateRouteLine = ({ update,setDataFetched }) => {
-	useEffect(()=>{
-		// alert(JSON.stringify(update));
-	},[update])
-
-const originUpdate=update.origin;
-const destinationUpdate = update.destination
-const [origin, setOrigin] = useState("");
-const [destination, setDestination] = useState("");
+const UpdateRouteLine = ({ update,setDataFetched, setRoutes }) => {
+  
+  const [updated, setUpdated] = useState({origin:'', destination:''});
 
 
 
-  const handleChangeOrigin = (event) => {
-    setOrigin(event.target.value);
+  // useEffect(()=>{
+
+	// },[update])
+
+
+
+
+let originUpdate=update.origin;
+let destinationUpdate = update.destination
+
+// const [modal,setModal] = useState(false);
+
+  const handleChangeUpdate = (event) => {
+    const {name, value} = event.target
+    setUpdated(prevFormData => {
+      return {
+          ...prevFormData,
+          [name]: value
+      }
+      });
   };
-  const handleChangeDest = (event) => {
-    setDestination(event.target.value);
+
+  const updateHandle = async () => {
+    try {
+      const renewed = await axios.patch(`http://localhost:7000/routes/${update.id}`, updated);
+      const allData = await axios.get("http://localhost:7000/routes");
+      setRoutes(allData.data);
+      setDataFetched();
+    } catch (error) {
+    }
   };
+
+
+
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
-	toggleUpdate();
-    newData({
-      origin: originUpdate,
-      destination: destinationUpdate,
-    });
+    updateHandle();
   };
 
+
   const setOutModal = () => {
-	  setOrigin("");
 	setDataFetched();
   }
 
@@ -68,9 +91,8 @@ const [destination, setDestination] = useState("");
                 id="origin"
                 name="origin"
                 data-testid="busName-input"
-                onChange={handleChangeOrigin}
+                onChange={handleChangeUpdate}
                 defaultValue = {`${originUpdate}`}
-                // value={formik.values.origin}
                 placeholder="Origin"
                 className="w-full bg-gray-100 p-2 mt-2 mb-3"
               />
@@ -81,7 +103,7 @@ const [destination, setDestination] = useState("");
                 name="destination"
                 id="destination"
                 data-testid="busPlate-input"
-                onChange={handleChangeDest}
+                onChange={handleChangeUpdate}
                 defaultValue={`${destinationUpdate}`}
 
                 placeholder="Destination"

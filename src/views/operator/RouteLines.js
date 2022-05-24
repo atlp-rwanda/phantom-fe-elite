@@ -13,10 +13,11 @@ import axios from "axios";
 const RouteLine = () => {
 
 	const [modalOpen,setModalOpen] = useState(false);
+  const [routes, setRoutes] = useState([]);
+
 
 	function toggleModal() {
-		// document.getElementById("NewRouteModal").classList.toggle("hidden");
-		setModalOpen(!modalOpen);
+		setModalOpen(true);
 	}
 
 
@@ -30,10 +31,9 @@ const RouteLine = () => {
    try {
      const routesData = await axios.post("http://localhost:7000/routes", data);
      const allData = await axios.get("http://localhost:7000/routes");
-	 setModalOpen(false);
      setRoutes(allData.data);
+	   setModalOpen(false);
 
-     console.log(routesData.data);
    } catch (error) {
      console.log(error);
 
@@ -41,13 +41,12 @@ const RouteLine = () => {
    } 
  };
 
-  const [routes, setRoutes] = useState([]);
 
   useEffect(() => {
     const fetchRoutes = async () => {
       try {
         const routesData = await axios.get("http://localhost:7000/routes");
-		const allData = await axios.get("http://localhost:7000/routes");
+		    const allData = await axios.get("http://localhost:7000/routes");
         setRoutes(allData.data);
       } catch (error) {
         console.log(error);
@@ -90,7 +89,7 @@ const RouteLine = () => {
         </div>
         <ListHeader />
         <div className="overflow-auto ">
-          <ListContent handleDelete={removeItem} data={routes} />
+          <ListContent handleDelete={removeItem} data={routes} setRoutes={setRoutes}/>
         </div>
         {modalOpen && (<NewRouteModal isModalOpen={modalOpen} setModalOpen={()=>setModalOpen(false)} newData = {handleData} />)}
       </Admin>
