@@ -33,16 +33,28 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
   });
 
   const AssignmentHandler = (formikProps) => {
-    const { values, submitForm, setSubmitting } = formikProps;
+    const { values, submitForm, resetForm, setSubmitting } = formikProps;
     // console.log({ values })
+
     setData();
-    submitForm();
     AssignedData(values);
     sendEmail(values);
+    submitForm();
+
+    setSubmitting(true);
+    resetHandler(resetForm);
   };
 
-  const AssignedData = (values) => {
-    fetch("http://localhost:7000/assigned", {
+  const resetHandler = (resetForm) => {
+    setTimeout(() => {
+      // it will set formik.isDirty to false
+      // it will also keep new values
+      resetForm({ values: { driver: "", bus: "", route: "" } });
+    }, 1000);
+  };
+
+  const AssignedData = async (values) => {
+    await fetch("http://localhost:7000/assigned", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -95,7 +107,7 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
   return (
     <div className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50">
       <div className="w-5/6 sm:w-3/5 h-2/4 sm:h-3/5 md:w-3/5 md:h-2/5 lg:w-2/6 lg:h-3/5 xl:w-1/3 xl:h-4/6 bg-white rounded-md px-3 pt-2 sm:p-4 box-border">
-        <div className="mb-4 font-bold border-b-2 border-solid border-darkBluePhant w-[220px] pt-2">
+        <div className="mb-4 font-bold border-b-2 border-solid border-darkBluePhant w-[250px] pt-2">
           Assign New Driver To buses
         </div>
         <Formik

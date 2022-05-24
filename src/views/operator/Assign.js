@@ -40,9 +40,9 @@ const AssignDriversToBuses = () => {
 
   return (
     <>
+      {modalOpen && showModal()}
       <Admin>
         <div className="flex flex-col justify-center sm:justify-start md:justify-center lg:justify-start ">
-          {modalOpen && showModal()}
           <div className="m-2 font-black text-xl border-b-2 border-solid border-darkBluePhant pt-6 lg:pt-0 w-[250px]">
             OPERATOR-DASHBOARD
           </div>
@@ -60,24 +60,23 @@ const AssignDriversToBuses = () => {
         </div>
 
         <div className="flex flex-col justify-between sm:justify-start md:justify-evenly lg:justify-start items-center my-3">
-          <div className="grid grid-cols-12 border-b-2 border-black font-bold border-solid bg-green-200">
+          <div className="grid grid-cols-12 border-b-2 border-black w-full font-bold border-solid">
             <div className="col-span-1">No</div>
-            <div className="col-span-2 ">Routes</div>
-            <div className="col-span-4 ">Driver Email</div>
+            <div className="col-span-4 ">Routes</div>
+            <div className="col-span-3 ">Driver Email</div>
             <div className="col-span-2 ">Bus Plate</div>
-            <div className="col-span-2 ">Action</div>
+            <div className="col-span-2 text-center">Action</div>
           </div>
-          <div className=" ">
-            {/* /* rendering the all operators from the database using this component TableGenerator */}
-            <TableGenerator
-              // giveMeData={deleteHandleForUpdate}
-              handleDelete={deleteAssignedDriver}
-              setOpenModal={setModalOpen}
-              Data={Datas}
-              // loading={loading}
-              // error={error}
-            />
-          </div>
+
+          {/* /* rendering the all operators from the database using this component TableGenerator */}
+          <TableGenerator
+            // giveMeData={deleteHandleForUpdate}
+            handleDelete={deleteAssignedDriver}
+            setOpenModal={setModalOpen}
+            Data={Datas}
+            // loading={loading}
+            // error={error}
+          />
         </div>
       </Admin>
     </>
