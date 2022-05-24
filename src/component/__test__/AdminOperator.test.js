@@ -10,6 +10,8 @@ import React from 'react'
 
 afterEach(() => {
   axios.get.mockClear();
+  axios.post.mockClear();
+  axios.put.mockClear();
 });
 
 function mockPost(dataPosted) {
@@ -183,7 +185,7 @@ describe("Testing the new form rendering of the app", () => {
     expect(newForm).toBeInTheDocument();
   });
 
- it("should popup the edit form and prepopulate the data clicked ", async () => {
+ it("edit form should typable and the change should happen when typed inside", async () => {
     mockCall();
   const addDataToUpdate = jest.fn()
   const setModalOpen = jest.fn()
@@ -192,7 +194,6 @@ describe("Testing the new form rendering of the app", () => {
           setOpenModal= {setModalOpen} />);
     const inputEl1 = screen.getByPlaceholderText("Operator Email");
     const inputEl2 = screen.getByPlaceholderText("Operator Name");
-    const button = screen.getByRole("button", { name: "Save Operator" });
     expect(inputEl1.value).toBe("eric@gmail.com");
     expect(inputEl2.value).toBe("message");
     fireEvent.change(inputEl2, { target: { value: "fabrice" } });
@@ -203,14 +204,12 @@ describe("Testing the new form rendering of the app", () => {
 
 
   it("the input element should be cleared if submit button is clicked", async() => {
-    const setData = jest.fn();
   const data = {
     name: "fabrice",
     email: "gunpowder@mail.com",
     role: "Operator",
     id: "78015c34",
   };
-    // mockPost(data);
       axios.post.mockResolvedValueOnce({
         data: data,
       });

@@ -64,7 +64,7 @@ const EditOperatorForm = ({
             {update ? "Edit Operator" : "Create New Operator"}
           </div>
         </div>
-        <form action="" onSubmit={formik.handleSubmit} role="form" data-testid = "edit-form">
+        <form action="" onSubmit={formik.handleSubmit} role="form">
           <div className="flex flex-col pb-1 sm:px-4 px-3">
             <label for="name" className=" my-2 md:my-0  md:py-3 lg:py-0">
               Operator Name
@@ -85,7 +85,7 @@ const EditOperatorForm = ({
             ) : null}
           </div>
           <div className="flex flex-col pb-1 sm:px-4 px-3 md:my-5 lg:my-0">
-            <label htmlFor="email" className="my-2 md:my-0 md:py-3 lg:py-0">
+            <label htmlFor="email" className="my-2 md:my-0 md:py-2 lg:py-0">
               Operator Email
             </label>
             <input
@@ -103,7 +103,7 @@ const EditOperatorForm = ({
               <div className="text-errorText">{formik.errors.email}</div>
             ) : null}
           </div>
-          <div className="bg-gray-200 px-4 py-2 mt-4 md:12 sm:mt-8 md:mt-12 lg:mt-4 rounded-b-md text-left flex">
+          <div className="bg-gray-200 px-4 py-2 mt-4 sm:mt-8 md:mt-5 lg:mt-2 rounded-b-md text-left flex">
             <button
               className="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-600 mr-2"
               onClick={handleBack}

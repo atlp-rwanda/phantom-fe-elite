@@ -10,7 +10,7 @@ const TableRow = (props) => {
   const handleUpdate = () => {
     props.setOpenModalRow(true);
     props.onSaveData(props);
-  }; 
+  };
   return (
     <div
       className="grid grid-cols-12 border-b border-black border-solid"
@@ -28,10 +28,13 @@ const TableRow = (props) => {
       >
         <button onClick={handleUpdate}>
           <Link to="">
-            <FiEdit className=" w-4 h-4" data-testid = {`row-edit-${props.number}`} />
+            <FiEdit
+              className=" w-4 h-4"
+              data-testid={`row-edit-${props.number}`}
+            />
           </Link>
         </button>
-        <button onClick={handleDelete} >
+        <button onClick={handleDelete}>
           <RiDeleteBin6Line
             className=" text-red-500 w-5 h-5"
             data-testid={`row-delete-${props.number}`}
