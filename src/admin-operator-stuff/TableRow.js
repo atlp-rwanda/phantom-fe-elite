@@ -17,17 +17,25 @@ const TableRow = (props) => {
       role="row-group"
     >
       <div className="col-span-1 pl-1">{props.number}</div>
-      <div className="col-span-3 pl-1">{props.name}</div>
+      <div className="col-span-3 pl-1" data-testid="row-name">
+        {props.name}
+      </div>
       <div className="col-span-3 pl-1">{props.email}</div>
       <div className="col-span-3 lg:col-span-3 pl-2">{props.role}</div>
-      <div className=" col-span-2 lg:col-span-2 lg:pl-3 flex justify-between lg:justify-between w-5/6 lg:w-2/3 xl:w-1/2">
-        <button onClick={handleUpdate} data-testid={`row-${props.number}`}>
+      <div
+        data-testid="row-button"
+        className=" col-span-2 lg:col-span-2 lg:pl-3 flex justify-between lg:justify-between w-5/6 lg:w-2/3 xl:w-1/2"
+      >
+        <button onClick={handleUpdate}>
           <Link to="">
-            <FiEdit className=" w-4 h-4" />
+            <FiEdit className=" w-4 h-4" data-testid = {`row-edit-${props.number}`} />
           </Link>
         </button>
-        <button onClick={handleDelete}>
-          <RiDeleteBin6Line className=" text-red-500 w-5 h-5" data-testid = {`row-delete-${props.number}`} />
+        <button onClick={handleDelete} >
+          <RiDeleteBin6Line
+            className=" text-red-500 w-5 h-5"
+            data-testid={`row-delete-${props.number}`}
+          />
         </button>
       </div>
     </div>

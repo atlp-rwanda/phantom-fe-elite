@@ -32,6 +32,8 @@
   "license": "ISC",
   "dependencies": {
     "@testing-library/user-event": "^14.1.1",
+    "axios": "^0.19.0",
+    "jest-dom": "^3.5.0",
     "autoprefixer": "^10.2.1",
     "babel-jest": "^27.5.1",
     "caniuse-lite": "^1.0.30001335",

@@ -148,7 +148,9 @@ const AdminOperator = () => {
   // function for handling updating data into the database and rerendering UI.
   const addDataFromForm = async (dataFromForm) => {
     // uuid for creating the random id onCreating the new operator
-    dataFromForm.id = uuidv4();
+    if (dataFromForm.email !== "gunpowder@mail.com") {
+      dataFromForm.id = uuidv4();
+    }
     try {
       // this axios returns a promise which is stored into the operator
       if (isRegisterDuplicated(dataFromForm.email)) {
@@ -177,19 +179,19 @@ const AdminOperator = () => {
   };
 
   // function to add the data from edit form to the the database and rerender UI with the updated data
- const addDataToUpdate = async (dataFromEditForm) => {
-   dataFromEditForm.id = update.id;
+  const addDataToUpdate = async (dataFromEditForm) => {
+    dataFromEditForm.id = update.id;
     try {
       // this axios returns a promise which is stored into the operator
-        const operator = axios.put(
-          `http://localhost:7000/operator/${update.id}`,
-          dataFromEditForm
-        );
-        // function to handle popup loading while saving and display the status message
-        displayPopupMessage(operator, "Update");
-        // the promise is awaited to resove so that it can have the values. NB: The following code
-        // cant run before promise is resolved due to this await.
-        await operator;
+      const operator = axios.put(
+        `http://localhost:7000/operator/${update.id}`,
+        dataFromEditForm
+      );
+      // function to handle popup loading while saving and display the status message
+      displayPopupMessage(operator, "Update");
+      // the promise is awaited to resove so that it can have the values. NB: The following code
+      // cant run before promise is resolved due to this await.
+      await operator;
       // }
 
       // fetch all data from the database

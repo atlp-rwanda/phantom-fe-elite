@@ -64,7 +64,7 @@ const EditOperatorForm = ({
             {update ? "Edit Operator" : "Create New Operator"}
           </div>
         </div>
-        <form action="" onSubmit={formik.handleSubmit} role="form">
+        <form action="" onSubmit={formik.handleSubmit} role="form" data-testid = "edit-form">
           <div className="flex flex-col pb-1 sm:px-4 px-3">
             <label for="name" className=" my-2 md:my-0  md:py-3 lg:py-0">
               Operator Name

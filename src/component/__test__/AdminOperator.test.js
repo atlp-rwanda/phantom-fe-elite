@@ -1,34 +1,57 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import AdminOperator from "../../views/Admin-operator";
 import { BrowserRouter } from "react-router-dom";
+import "jest-dom/extend-expect";
+import axios from "axios";
 import TableGenerator from "../../admin-operator-stuff/TableGenerator";
 import NewOperatorForm from "../../admin-operator-stuff/NewOperatorForm";
 import EditOperatorForm from "../../admin-operator-stuff/EditOperatorForm";
 import React from 'react'
 
- const operatorsArray = [
-   {
-     name: "message one",
-     email: "eric@gmail.com",
-     role: "Operator",
-     id: "78015c34-cdc9-4ecc-a432-0ce82400f3a8",
-     number: 1,
-   },
-   {
-     name: "Niyibizi Fabrice",
-     email: "fabrice6@gmail.com",
-     role: "Operator",
-     id: "2e1fb644-f6d4-4324-801e-00390c7c2b15",
-     number: 2,
-   },
-   {
-     name: "nitwa sylvain",
-     email: "winfield@gmail.com",
-     role: "Operator",
-     id: "868d42ef-7da3-4ef2-9d54-48806cfda56a",
-     number: 3,
-   },
- ];
+afterEach(() => {
+  axios.get.mockClear();
+});
+
+function mockPost(dataPosted) {
+  // [
+  //      {
+  //        name: "posted",
+  //        email: "posted@gmail.com",
+  //        role: "Operator",
+  //        id: "78015c34",
+  //      },
+  //    ],
+  axios.post.mockResolvedValueOnce({
+    data: dataPosted,
+  });
+}
+
+const operatorsArray = [
+  {
+    name: "message",
+    email: "eric@gmail.com",
+    role: "Operator",
+    id: "78015c34-cdc9-4ecc-a432-0ce82400f3a8",
+  },
+  {
+    name: "niyibizi",
+    email: "fabrice6@gmail.com",
+    role: "Operator",
+    id: "2e1fb644-f6d4-4324-801e-00390c7c2b15",
+  },
+  {
+    name: "sylvain",
+    email: "winfield@gmail.com",
+    role: "Operator",
+    id: "868d42ef-7da3-4ef2-9d54-48806cfda56a",
+  },
+];
+
+function mockCall() {
+  axios.get.mockResolvedValueOnce({
+    data: operatorsArray,
+  });
+}
 
 const MockTableGenerator = ({
   data,
@@ -160,22 +183,8 @@ describe("Testing the new form rendering of the app", () => {
     expect(newForm).toBeInTheDocument();
   });
 
-  it("should popup the edit form modal component when new operator button is clicked ", async () => {
-    render(
-      // the component which includes link element from react-router-dom should be wrapped into
-      // into the browser router component to mimic that behaviour in the test but where there is not the link
-      // it does not matter to include browserRouter
-      <BrowserRouter>
-        <AdminOperator />
-      </BrowserRouter>
-    );
-    const editButtonEl = await screen.findByTestId("row-1");
-    fireEvent.click(editButtonEl);
-    const editForm = screen.getByTestId("edit-form");
-    expect(editForm).toBeInTheDocument();
-  });
-
  it("should popup the edit form and prepopulate the data clicked ", async () => {
+    mockCall();
   const addDataToUpdate = jest.fn()
   const setModalOpen = jest.fn()
   const setUpdate = jest.fn()
@@ -185,7 +194,7 @@ describe("Testing the new form rendering of the app", () => {
     const inputEl2 = screen.getByPlaceholderText("Operator Name");
     const button = screen.getByRole("button", { name: "Save Operator" });
     expect(inputEl1.value).toBe("eric@gmail.com");
-    expect(inputEl2.value).toBe("message one");
+    expect(inputEl2.value).toBe("message");
     fireEvent.change(inputEl2, { target: { value: "fabrice" } });
     fireEvent.change(inputEl1, { target: { value: "testing@gmail.com" } });
     expect(inputEl1.value).toBe("testing@gmail.com");
@@ -194,6 +203,17 @@ describe("Testing the new form rendering of the app", () => {
 
 
   it("the input element should be cleared if submit button is clicked", async() => {
+    const setData = jest.fn();
+  const data = {
+    name: "fabrice",
+    email: "gunpowder@mail.com",
+    role: "Operator",
+    id: "78015c34",
+  };
+    // mockPost(data);
+      axios.post.mockResolvedValueOnce({
+        data: data,
+      });
     render(
       <BrowserRouter>
         <AdminOperator />
@@ -209,6 +229,7 @@ describe("Testing the new form rendering of the app", () => {
     fireEvent.change(inputEl2, { target: { value: "fabrice" } });
     fireEvent.change(inputEl1, { target: { value: "gunpowder@mail.com" } });
     fireEvent.click(buttonEl);
+
     fireEvent.click(backButtonEl);
     expect(newForm).not.toBeInTheDocument();
   });

@@ -46,10 +46,52 @@
       "id": "f86c7280-c7e6-4c90-9119-acd5ceb3e48a"
     },
     {
-      "name": "wee",
-      "email": "suru@gmaile.com",
+      "name": "welcome",
+      "email": "suruR@gmaile.com",
       "role": "operator",
       "id": "79fadfa5-3fac-4d65-8da0-a6f6b60f867f"
+    },
+    {
+      "name": "funny",
+      "email": "se@gmail.com",
+      "role": "operator",
+      "id": "c7231709-3678-4107-8cf9-5a908d5c8624"
+    },
+    {
+      "name": "fabrice",
+      "email": "gunpowder@mail.com",
+      "role": "operator",
+      "id": "6af40a2d-a509-4184-b839-43689c91b648"
+    },
+    {
+      "name": "fabrice",
+      "email": "gunpowder@mail.com",
+      "role": "operator",
+      "id": "684d19b3-a411-48d5-925e-ca7546de461d"
+    },
+    {
+      "name": "fabrice",
+      "email": "gunpowder@mail.com",
+      "role": "operator",
+      "id": "981571d0-4179-45df-929d-04bf4c3e41bf"
+    },
+    {
+      "name": "fabrice",
+      "email": "gunpowder@mail.com",
+      "role": "operator",
+      "id": "a212b12b-4f03-47de-b791-9bfc1a75a6fc"
+    },
+    {
+      "name": "fabrice",
+      "email": "gunpowder@mail.com",
+      "role": "operator",
+      "id": "9894178b-462d-4f39-be2e-eb39470ef00d"
+    },
+    {
+      "name": "fabrice",
+      "email": "gunpowder@mail.com",
+      "role": "operator",
+      "id": "6358d24f-c79f-4084-b003-bc2f03cb2732"
     }
   ]
 }
