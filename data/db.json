@@ -39,9 +39,30 @@
       "id": "652ac6b6-0798-4b02-88b9-12071067eff7"
     }
   ],
-  "operators": {
-    "id": 1,
-    "body": "some comment",
-    "postId": 1
-  }
+  "operator": [
+    {
+      "name": "hummer",
+      "email": "eric@gmail.com",
+      "role": "operator",
+      "id": "cce51f76-c48a-443a-9c08-02588778fbcb"
+    },
+    {
+      "name": "williams",
+      "email": "sylvainniyonkuru6@gmail.com",
+      "role": "operator",
+      "id": "c23eb607-1306-4030-8e35-b58b57a2a1b9"
+    },
+    {
+      "name": "Niyibizi Fabrice Salkozie",
+      "email": "thegame@gmail.com",
+      "role": "operator",
+      "id": "f86c7280-c7e6-4c90-9119-acd5ceb3e48a"
+    },
+    {
+      "name": "welcome",
+      "email": "suruR@gmaile.com",
+      "role": "operator",
+      "id": "79fadfa5-3fac-4d65-8da0-a6f6b60f867f"
+    }
+  ]
 }

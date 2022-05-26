@@ -1,8 +1,8 @@
-/** @format */
+// /** @format */
 
-import { combineReducers } from "redux";
-import { counterReducer } from "./counterReducer";
+// import { combineReducers } from "redux";
+// import { counterReducer } from "./counterReducer";
 
-export const rootReducer = combineReducers({
-	counterState: counterReducer,
-});
+// export const rootReducer = combineReducers({
+// 	counterState: counterReducer,
+// });
