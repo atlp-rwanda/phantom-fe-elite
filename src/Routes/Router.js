@@ -7,7 +7,7 @@ import LandingPage from "../views/LandingPage";
 import Bus from "../views/operator/Bus";
 import ConfirmPassword from '../views/confirmation-password'
 import UpdateOperator from "../views/operator/UpdateOperator";
-import UpdateDriver from "../views/driver/UpdateDriver";
+import UpdateDriver from "./../views/Driver/UpdateDriver";
 import CreateDriver from "../views/Driver/Admin-Driver"
 
 
