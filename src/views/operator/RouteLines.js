@@ -8,7 +8,7 @@ import ListHeader from "../../component/new_route/ListHeader";
 import ListContent from "../../component/new_route/ListContent";
 import axios from "axios";
 
-// modal toggle
+
 
 const RouteLine = () => {
 

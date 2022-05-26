@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 
 import React from "react";
-// modal toggle
 
 const NewRouteModal = ({ newData,setModalOpen,isModalOpen }) => {
   const [origin, setOrigin] = useState("");

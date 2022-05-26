@@ -4,8 +4,7 @@ import * as Yup from "yup"
 import axios from "axios";
 
 const UpdateRouteLine = ({ update,setDataFetched, setRoutes }) => {
-  
-  // const [updated, setUpdated] = useState({origin:'', destination:''});
+
   const {origin,destination } = update
   
   let initialData = {
@@ -13,7 +12,6 @@ const UpdateRouteLine = ({ update,setDataFetched, setRoutes }) => {
     destination:destination
   };
 
-  // validationSchema which validate the form before being submitted
    const validate = Yup.object({
      origin: Yup.string()
        .min(3, "Too Short Name!")
@@ -91,13 +89,12 @@ const UpdateRouteLine = ({ update,setDataFetched, setRoutes }) => {
                 name="origin"
                 data-testid="busName-input"
                onChange={formik.handleChange}
-                 value={formik.values.origin}
-                    onBlur={formik.handleBlur}
-                // defaultValue = {`${originUpdate}`}
+                value={formik.values.origin}
+                onBlur={formik.handleBlur}
                 placeholder="Origin"
                 className="w-full bg-gray-100 p-2 mt-2 mb-3"
               />
-               {/* conditional rendering of the error message for validating the name input field */}
+
             {formik.touched.origin && formik.errors.origin ? (
               <div className="text-errorText">{formik.errors.origin}</div>
             ) : null}
@@ -108,15 +105,12 @@ const UpdateRouteLine = ({ update,setDataFetched, setRoutes }) => {
                 name="destination"
                 id="destination"
                 data-testid="busPlate-input"
-                // onChange={handleChangeUpdate}
-                // defaultValue={`${destinationUpdate}`}
                  onChange={formik.handleChange}
                  value={formik.values.destination}
-                    onBlur={formik.handleBlur}
+                 onBlur={formik.handleBlur}
                 placeholder="Destination"
                 className="w-full bg-gray-100 p-2 mt-2 mb-3"
               />
-    {/* conditional rendering of the error message for validating the name input field */}
             {formik.touched.destination && formik.errors.destination ? (
               <div className="text-errorText">{formik.errors.destination}</div>
             ) : null}
