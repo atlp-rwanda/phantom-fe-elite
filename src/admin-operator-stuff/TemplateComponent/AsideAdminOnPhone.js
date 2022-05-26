@@ -1,22 +1,45 @@
-/** @format */
-
 import { VscCompass } from "react-icons/vsc";
 import { FaBus } from "react-icons/fa";
 import { MdAltRoute } from "react-icons/md";
-import { GiGearStickPattern } from "react-icons/gi"
-import { VscSymbolProperty } from "react-icons/vsc"
 import logo from "../../assets/images/logo.jpg";
+import { RiCloseFill } from "react-icons/ri";
+import { GiGearStickPattern } from "react-icons/gi";
+import { VscSymbolProperty } from "react-icons/vsc";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
-const SideBar = () => {
-	return (
-    <aside className="bg-white sm:col-start-1 sm:col-end-3 md:col-end-4 lg:col-end-3 hidden sm:block text-black row-span-full border-r-2 border-solid border-[#f3f3f3]">
-      <img src={logo} className="mx-7 mt-3" />
+const AsideAdminOnPhone = ({ setAsideOpen }) => {
+  let sideRef = useRef();
+  useEffect(() => {
+    let handler = (event) => {
+      if (!sideRef.current.contains(event.target)) {
+        setAsideOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+    return () => {
+      document.addEventListener("mousedown", handler);
+    };
+  });
+  return (
+    <aside
+      className="bg-white w-4/6 h-full absolute text-black row-span-full border-2 border-solid border-[#f3f3f3] pb-4"
+      ref={sideRef}
+    >
+      <div className="flex mx-3 justify-between items-center ">
+        <img src={logo} className=" mt-3" />
+        <RiCloseFill
+          className="m-3 text-4xl"
+          onClick={() => {
+            setAsideOpen(false);
+          }}
+        />
+      </div>
       <br />
-      <div className="tracking-wider mt-8 ml-5 flex justify-start gap-5">
-        <VscCompass className="text-[26px] text-darkBluePhant" />
+      <div className="text-xl tracking-wider m-auto font-semibold my-1 ml-3 flex justify-evenly">
+        <VscCompass className="text-[30px]" />
         <p>Map overview</p>
       </div>
       <p className="text-xl tracking-wider  m-auto font-bold mt-3 ml-3 mb-2 ">
@@ -52,4 +75,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default AsideAdminOnPhone;
