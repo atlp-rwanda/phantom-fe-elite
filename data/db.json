@@ -13,11 +13,30 @@
       "routes": "Kimironko - Downtown"
     }
   ],
-  "drivers": [
+  "driver": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "Kamali",
+      "driverId": "099999",
+      "license": "86556",
+      "mobileNumber": "0788856",
+      "role": "driver",
+      "id": "c666e33a-efc0-4e55-834b-a4863807efc7"
+    },
+    {
+      "name": "Remmy",
+      "driverId": "999888",
+      "license": "9876543",
+      "mobileNumber": "07894324",
+      "role": "driver",
+      "id": "1ce85e42-3593-4227-861a-e51df8519e1b"
+    },
+    {
+      "name": "Patrick",
+      "driverId": "2345",
+      "license": "Astyrueo",
+      "mobileNumber": "0784359353",
+      "role": "driver",
+      "id": "652ac6b6-0798-4b02-88b9-12071067eff7"
     }
   ],
   "operators": {

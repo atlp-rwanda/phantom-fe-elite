@@ -6,8 +6,9 @@ import driver from "./../api/driver";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import swal from 'sweetalert';
+import DriverRow from "../views/Driver/driverRow";
 
-const Modal = ({ open, setOpen, children }) => {
+const Modal = ({ open, setOpen, children , setDriverData}) => {
  const [nameData, setNameData] = useState('');
  const handleInputName =(e)=>{
    setNameData(e.target.value)
@@ -30,7 +31,7 @@ const Modal = ({ open, setOpen, children }) => {
  }
 
 
-  const [driverData, setDriverData] = useState(null);
+  // const [driverData, setDriverData] = useState(null);
 
   // AddDriverHandler
   const addDriverHandler = async (e) => {
@@ -51,8 +52,9 @@ const Modal = ({ open, setOpen, children }) => {
       route:routeData,
     };
     const response = await api.post("/driver", request);
-    console.log(response.data)
-    setDriverData([...driver, response.data]);
+    setDriverData((previData) => {
+      return [...previData, response.data];
+    })
   };
 
   
@@ -126,34 +128,12 @@ const Modal = ({ open, setOpen, children }) => {
                     <option value="Kabuga">Kabuga - DownTown</option>
                     <option value="Kabeza">Kabeza - DownTown</option>
                   </select>
-                  <div className="overflow-auto ">
+                  {/* <div className="overflow-auto ">
                     {driverData &&
                       driverData.map((driver) => (
-                        <div
-                          className="grid grid-cols-12 border-b border-black border-solid"
-                          key={driver.id}
-                        >
-                          <div className="col-span-1 pl-1">{driver.id}</div>
-                          <div className="col-span-2 pl-2">{driver.name}</div>
-                          <div className="col-span-2 pl-2">
-                            {driver.driverId}
-                          </div>
-                          <div className="col-span-2 pl-2">
-                            {driver.license}
-                          </div>
-                          <div className="col-span-2 pl-2">
-                            {driver.mobileNumber}
-                          </div>
-                          <div className="col-span-2 pl-2">{driver.route}</div>
-                          <div className="col-span-1 py-1 pl-2 flex justify-between w-1/2">
-                            <FiEdit className=" w-4 h-4 text-sky-500" />
-                            <RiDeleteBin6Line
-                              className=" text-red-500 w-5 h-5 cursor-pointer"
-                            />
-                          </div>
-                        </div>
+                       <DriverRow />
                       ))}
-                  </div>
+                  </div> */}
                   <div className="justify-between space-y-4 space-x-4">
                     <button
                       className="bg-green-500 text-white px-[5px] rounded-[5px] text-[0.8em]"

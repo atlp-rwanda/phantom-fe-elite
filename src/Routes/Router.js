@@ -8,7 +8,9 @@ import Bus from "../views/operator/Bus";
 import ConfirmPassword from '../views/confirmation-password'
 import UpdateOperator from "../views/operator/UpdateOperator";
 import UpdateDriver from "../views/driver/UpdateDriver";
-import CreateDriver from "../views/Driver/CreateDriver"
+import CreateDriver from "../views/Driver/Admin-Driver"
+
+
 
 const Router = () => {
   	return (
@@ -24,6 +26,7 @@ const Router = () => {
 					<Route exact path="/updateoperator" element={<UpdateOperator />}></Route>
 					<Route path="/updatedriver" element={<UpdateDriver />}></Route>
 					<Route path="/create-driver" element={<CreateDriver />}></Route>
+					
 				</Routes>
 			</div>
 		</BrowserRouter>

@@ -14,7 +14,7 @@
 }
 
 /* background image at the footer */
-footer {
+.footers {
   background-image: url("/src/assets/Imigo.jpg");
 }
 
