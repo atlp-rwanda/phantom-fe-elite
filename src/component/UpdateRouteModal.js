@@ -26,8 +26,7 @@ const UpdateRouteLine = ({ update,setDataFetched, setRoutes }) => {
    });
 
   const onSubmit = (values, { resetForm }) => {
-   // profiling the each and every submitted data from form with default role = operator
-  //  setUpdated(values);
+
    updateHandle(update.id,values);
    resetForm({});
  };
@@ -42,7 +41,6 @@ const UpdateRouteLine = ({ update,setDataFetched, setRoutes }) => {
       const renewed = await axios.patch(`http://localhost:7000/routes/${id}`, updated);
       const allData = await axios.get("http://localhost:7000/routes");
       setRoutes(allData.data);
-      console.log(updated);
 
       setDataFetched();
     } catch (error) {

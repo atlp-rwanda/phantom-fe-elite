@@ -10,7 +10,7 @@ let i = 0;
 const handling = (id) => {
   handleDelete(id)
 }
-console.log();
+
 return (
  <>
   {data.map((dataItem) => {
