@@ -39,6 +39,10 @@ const deleteHandle = async () => {
 
 };
 
+function dataToFill () {
+  setNewRoute(props);
+  setDataFetched(true)
+  }
 
 
 const handleDeleting = () => {
@@ -48,27 +52,25 @@ const handleDeleting = () => {
 
   return (
     <>
-      <div className="grid grid-cols-12 border-b border-black border-solid">
+      <div className="grid grid-cols-12 border-b border-black border-solid" >
         <div className="col-span-1 pl-1">{props.number}</div>
 
         <div className="col-span-2 pl-1">{props.origin}</div>
         <div className="col-span-1 pl-1">-</div>
-        <div className="col-span-6 pl-1">{props.destination}</div>
+        <div data-testid = 'row-name' className="col-span-6 pl-1">{props.destination}
+        </div>
+        
 
         <div className="col-span-2 pl-3 flex justify-between w-1/2">
           <FiEdit
+            data-testid = {`row-edit-${props.id}`}
             className=" w-4 h-4 cursor-pointer"
-            data-testid="updateRouteBtn"
-            onClick={async() => {
-              fetchRoute().then(data=>{
-                setNewRoute(data);
-                
-              });
-              
-            }}
+            // data-testid="updateRouteBtn"
+            onClick={dataToFill}
             
           />
           <RiDeleteBin6Line
+            data-testid = {`row-delete-${props.id}`}
             className=" text-red-500 w-5 h-5 cursor-pointer"
             onClick={deleteHandle}
           />

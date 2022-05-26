@@ -15,7 +15,7 @@ return (
  <>
   {data.map((dataItem) => {
     i++
-    return <TableRow removeDeletedItem={handling} origin={dataItem.origin} number={i} id = {dataItem.id} handleDelete = {handling} destination={dataItem.destination} setRoutes={setRoutes} />;
+    return <TableRow removeDeletedItem={handling} key= {dataItem.id} origin={dataItem.origin} number={i} id = {dataItem.id} handleDelete = {handling} destination={dataItem.destination} setRoutes={setRoutes} />;
   })}
 </>
  );

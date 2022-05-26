@@ -39,6 +39,7 @@ const NewRouteModal = ({ newData,setModalOpen,isModalOpen }) => {
     <div
       className="fixed z-10 overflow-y-auto top-0 w-full left-0"
       id="NewRouteModal"
+      data-testid ='NewRouteModal'
     >
       <div className="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div className="fixed inset-0 transition-opacity">
@@ -85,7 +86,7 @@ const NewRouteModal = ({ newData,setModalOpen,isModalOpen }) => {
             <div className="bg-gray-200 px-4 py-3 text-left">
               <button
                 type="button"
-                className="py-2 px-4 bg-green-600 text-white rounded hover:bg-gray-700 mr-2"
+                className="py-2 px-4 bg-gray-600 text-white rounded hover:bg-gray-700 mr-2"
                 onClick={() => {
                   toggleModal();
                 }}
@@ -96,7 +97,7 @@ const NewRouteModal = ({ newData,setModalOpen,isModalOpen }) => {
               <button
                 type="submit"
                 data-testid="saveBtn"
-                className="py-2 px-4 bg-textBluePhant text-white rounded hover:bg-textBluePhant mr-2"
+                className="py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 mr-2"
               >
                 <i className="fas fa-plus"></i> Save Route
               </button>
