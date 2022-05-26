@@ -1,9 +1,10 @@
 /** @format */
 import React from "react";
 import Router from "./Routes/Router";
+
 const App = () => {
-	return (
-		<Router />
-	)
+  return (
+    < Router />
+  );
 };
 export default App;
