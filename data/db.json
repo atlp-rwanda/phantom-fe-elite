@@ -31,7 +31,7 @@
       "id": "1ce85e42-3593-4227-861a-e51df8519e1b"
     },
     {
-      "name": "hbjb",
+      "name": "hbj",
       "driverId": "986765",
       "license": "wesrr",
       "mobileNumber": "078865443",
@@ -63,6 +63,108 @@
       "email": "suruR@gmaile.com",
       "role": "operator",
       "id": "79fadfa5-3fac-4d65-8da0-a6f6b60f867f"
+    }
+  ],
+  "routes": [
+    {
+      "id": 1,
+      "origin": "Jabana",
+      "destination": "Kacyiru"
+    },
+    {
+      "id": 2,
+      "origin": "Jabana",
+      "destination": "Kacyiru"
+    },
+    {
+      "id": 3,
+      "origin": "Jabana",
+      "destination": "Kacyiru"
+    },
+    {
+      "origin": "cxm",
+      "destination": "cnbsdj",
+      "id": 4
+    },
+    {
+      "origin": "zxnxn",
+      "destination": "xmx",
+      "id": 5
+    },
+    {
+      "origin": "cxmXMC",
+      "destination": "ruierCMX,",
+      "id": 6
+    },
+    {
+      "origin": "cxm",
+      "destination": "c,m,x",
+      "id": 7
+    },
+    {
+      "origin": "cxm",
+      "destination": "ckxcx",
+      "id": 8
+    },
+    {
+      "origin": "Kanombe",
+      "destination": "gdfngjnjd",
+      "id": 9
+    },
+    {
+      "origin": "cxm",
+      "destination": "cxcmxm,c",
+      "id": 10
+    },
+    {
+      "origin": "zxnxn",
+      "destination": "c,m,x",
+      "id": 11
+    },
+    {
+      "origin": ",mxz,mz",
+      "destination": "zxmzmmxzm",
+      "id": 12
+    },
+    {
+      "origin": "Kanombe",
+      "destination": "ISI YA9",
+      "id": 13
+    },
+    {
+      "origin": "Nyanza",
+      "destination": "Kinamba",
+      "id": 14
+    },
+    {
+      "origin": "Kanombe",
+      "destination": "Kicukiro",
+      "id": 15
+    },
+    {
+      "origin": "Kibagabagajjd",
+      "destination": "Kaguguiajsd",
+      "id": 16
+    },
+    {
+      "origin": "Kanombekl",
+      "destination": "ccxxhjhj",
+      "id": 17
+    },
+    {
+      "origin": "Karongm",
+      "destination": "Kagitumbu",
+      "id": 18
+    },
+    {
+      "origin": "Kanombe",
+      "destination": "ncvdns",
+      "id": 19
+    },
+    {
+      "origin": "hanze",
+      "destination": "imbere",
+      "id": 20
     }
   ]
 }

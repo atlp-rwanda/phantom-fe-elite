@@ -3,4 +3,5 @@ export default {
   post: jest.fn().mockResolvedValue({ data: {} }),
   delete: jest.fn().mockResolvedValue({ id: "" }),
   put: jest.fn().mockResolvedValue({ id: "", data: {} }),
+  patch: jest.fn().mockResolvedValue({ id: "", data: {} }),
 };

@@ -9,6 +9,7 @@ import ConfirmPassword from "../views/confirmation-password";
 import UpdateOperator from "../views/operator/UpdateOperator";
 import UpdateDriver from "./../views/Driver/UpdateDriver";
 import CreateDriver from "../views/Driver/Admin-Driver";
+import RouteLines from "../views/operator/RouteLines"
 import AdminOperator from "../views/Admin-operator";
 
 
@@ -28,6 +29,7 @@ const Router = () => {
 					<Route path="/updatedriver" element={<UpdateDriver />}></Route>
 					<Route path="/create-driver" element={<CreateDriver />}></Route>
                    <Route path="/operator" element={<AdminOperator />}></Route>
+                   <Route exact path="/operator-routes" element={<RouteLines />}></Route>
 				</Routes>
 			</div>
 		</BrowserRouter>
@@ -38,3 +40,5 @@ const Router = () => {
 
 
 export default Router;
+
+
