@@ -80,8 +80,8 @@ const AdminDriver = () => {
     const fetchAll = async () => {
       setLoading(true);
       try {
-        const operatorsData = await axios.get("http://localhost:7000/driver");
-        setDatas(operatorsData.data);
+        const driverData = await axios.get("http://localhost:7000/driver");
+        setDatas(driverData.data);
         setLoading(false);
         setError({
           message: "",
@@ -108,17 +108,17 @@ const AdminDriver = () => {
   const addDataFromForm = async (dataFromForm) => {
     dataFromForm.id = uuidv4();
     try {
-      const operator = axios.post("http://localhost:7000/driver", dataFromForm);
+      const driver = axios.post("http://localhost:7000/driver", dataFromForm);
 
-      displayPopupMessage(operator, "Save");
+      displayPopupMessage(driver, "Save");
 
-      await operator;
+      await driver;
 
-      const operatorsDataCurrrent = await axios.get(
+      const driverDataCurrrent = await axios.get(
         "http://localhost:7000/driver"
       );
 
-      setDatas(operatorsDataCurrrent.data);
+      setDatas(driverDataCurrrent.data);
     } catch (error) {
       console.log(error);
     }
@@ -127,20 +127,20 @@ const AdminDriver = () => {
   const addDataToUpdate = async (dataFromEditForm) => {
     dataFromEditForm.id = update.id;
     try {
-      const operator = axios.put(
+      const driver = axios.put(
         `http://localhost:7000/driver/${update.id}`,
         dataFromEditForm
       );
 
-      displayPopupMessage(operator, "Update");
+      displayPopupMessage(driver, "Update");
 
-      await operator;
+      await driver;
 
-      const operatorsDataCurrrent = await axios.get(
+      const driverDataCurrrent = await axios.get(
         "http://localhost:7000/driver"
       );
 
-      setDatas(operatorsDataCurrrent.data);
+      setDatas(driverDataCurrrent.data);
     } catch (error) {
       console.log(error);
     }
@@ -148,15 +148,15 @@ const AdminDriver = () => {
 
   const deleteHandle = async (id) => {
     try {
-      const deletedOperator = axios.delete(
+      const deletedDriver = axios.delete(
         `http://localhost:7000/driver/${id}`
       );
 
-      displayPopupMessage(deletedOperator, "Delete");
-      await deletedOperator;
+      displayPopupMessage(deletedDriver, "Delete");
+      await deletedDriver;
 
-      const remainingOperator = await axios.get(`http://localhost:7000/driver`);
-      setDatas(remainingOperator.data);
+      const remainingDriver = await axios.get(`http://localhost:7000/driver`);
+      setDatas(remainingDriver.data);
     } catch (error) {
       console.log(error);
     }

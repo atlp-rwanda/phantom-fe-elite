@@ -1,12 +1,14 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import AdminOperator from "../../views/Admin-operator";
 import { BrowserRouter } from "react-router-dom";
-import "jest-dom/extend-expect";
+// import "jest-dom/extend-expect";
 import axios from "axios";
 import TableGenerator from "../../admin-operator-stuff/TableGenerator";
 import NewOperatorForm from "../../admin-operator-stuff/NewOperatorForm";
 import EditOperatorForm from "../../admin-operator-stuff/EditOperatorForm";
 import React from 'react'
+
+jest.spyOn(console, 'error').getMockImplementation(()=>{});
 
 afterEach(() => {
   axios.get.mockClear();

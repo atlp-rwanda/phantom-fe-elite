@@ -8,6 +8,8 @@ import NewDriverForm from "./../../admin-driver-stuff/NewDriverForm";
 import EditDriverForm from "./../../admin-driver-stuff/EditDriverForm";
 import React from 'react'
 
+jest.spyOn(console, 'error').getMockImplementation(()=>{});
+
 afterEach(() => {
   axios.get.mockClear();
   axios.post.mockClear();

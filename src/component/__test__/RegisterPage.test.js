@@ -116,6 +116,7 @@ describe("<RegisterPage />", () => {
     const captureDataForUpdate = jest.fn();
     const deleteHandle = jest.fn();
     const setModalOpen = jest.fn();
+    const handleSubmit = jest.fn();
     await act(async () => {
       render(
         <Router>

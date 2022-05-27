@@ -13,7 +13,9 @@
 			"!src/redux/store/store.js",
 			"!src/redux/reducers/rootReducer.js",
 			"!src/index.js",
-			"!src/postcss.config.js"
+			"!src/postcss.config.js",
+      "!src/redux/actions/rootAction/index.js",                                           
+     "!src/redux/reducers/RootReducer/index.js" 
 		]
 	},
 	"scripts": {

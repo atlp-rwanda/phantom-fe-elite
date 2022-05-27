@@ -7,6 +7,8 @@ import { unmountComponentAtNode } from "react-dom";
 import { act } from 'react-dom/test-utils';
 import { MemoryRouter } from "react-router-dom";
 
+jest.spyOn(console, 'error').getMockImplementation(()=>{});
+
 it('should redirect and update history', () => {
     const history = createMemoryHistory();
     render(<Router location={history.location} navigator={history}><Dropdown/></Router>);

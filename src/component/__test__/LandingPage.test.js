@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from "../../App";
+jest.spyOn(console, 'error').getMockImplementation(()=>{});
 
 describe("rendering of the landing page", () => {
   test("It should display the the text of the heading pf the page ", () => {

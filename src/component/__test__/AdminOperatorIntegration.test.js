@@ -1,10 +1,11 @@
 import React from "react";
 import { fireEvent, render, waitFor, screen } from "@testing-library/react";
-import "jest-dom/extend-expect";
+// import "jest-dom/extend-expect";
 import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 import AdminOperator from "../../views/Admin-operator";
 import "./matchMedia.mock";
+jest.spyOn(console, 'error').getMockImplementation(()=>{});
 
 afterEach(() => {
   axios.get.mockClear();

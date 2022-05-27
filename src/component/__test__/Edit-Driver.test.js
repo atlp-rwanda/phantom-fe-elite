@@ -5,6 +5,7 @@ import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 import AdminDriver from "../../views/Driver/Admin-Driver";
 import "./matchMedia.mock";
+jest.spyOn(console, 'error').getMockImplementation(()=>{});
 
 afterEach(() => {
   axios.get.mockClear();
