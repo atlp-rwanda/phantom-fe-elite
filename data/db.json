@@ -1,49 +1,138 @@
 {
-  "buses": [
-    {
-      "id": 2,
-      "busNumber": "D-35",
-      "busPlate": "RAC346B",
-      "routes": "Kimironko - Downtown"
-    },
-    {
-      "id": 3,
-      "busNumber": "D-50",
-      "busPlate": "RAC346B",
-      "routes": "Kimironko - Downtown"
-    }
-  ],
-  "drivers": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "operator": [
-    {
-      "name": "hummer",
-      "email": "eric@gmail.com",
-      "role": "operator",
-      "id": "cce51f76-c48a-443a-9c08-02588778fbcb"
-    },
-    {
-      "name": "williams",
-      "email": "sylvainniyonkuru6@gmail.com",
-      "role": "operator",
-      "id": "c23eb607-1306-4030-8e35-b58b57a2a1b9"
-    },
-    {
-      "name": "Niyibizi Fabrice Salkozie",
-      "email": "thegame@gmail.com",
-      "role": "operator",
-      "id": "f86c7280-c7e6-4c90-9119-acd5ceb3e48a"
-    },
-    {
-      "name": "welcome",
-      "email": "suruR@gmaile.com",
-      "role": "operator",
-      "id": "79fadfa5-3fac-4d65-8da0-a6f6b60f867f"
-    }
-  ]
+    "routes": [{
+            "id": 1,
+            "origin": "Jabana",
+            "destination": "Kacyiru"
+        },
+        {
+            "id": 2,
+            "origin": "Jabana",
+            "destination": "Kacyiru"
+        },
+        {
+            "id": 3,
+            "origin": "Jabana",
+            "destination": "Kacyiru"
+        },
+        {
+            "origin": "cxm",
+            "destination": "cnbsdj",
+            "id": 4
+        },
+        {
+            "origin": "zxnxn",
+            "destination": "xmx",
+            "id": 5
+        },
+        {
+            "origin": "cxmXMC",
+            "destination": "ruierCMX,",
+            "id": 6
+        },
+        {
+            "origin": "cxm",
+            "destination": "c,m,x",
+            "id": 7
+        },
+        {
+            "origin": "cxm",
+            "destination": "ckxcx",
+            "id": 8
+        },
+        {
+            "origin": "Kanombe",
+            "destination": "gdfngjnjd",
+            "id": 9
+        },
+        {
+            "origin": "cxm",
+            "destination": "cxcmxm,c",
+            "id": 10
+        },
+        {
+            "origin": "zxnxn",
+            "destination": "c,m,x",
+            "id": 11
+        },
+        {
+            "origin": ",mxz,mz",
+            "destination": "zxmzmmxzm",
+            "id": 12
+        },
+        {
+            "origin": "Kanombe",
+            "destination": "ISI YA9",
+            "id": 13
+        },
+        {
+            "origin": "Nyanza",
+            "destination": "Kinamba",
+            "id": 14
+        },
+        {
+            "origin": "Kanombe",
+            "destination": "Kicukiro",
+            "id": 15
+        },
+        {
+            "origin": "Kibagabagajjd",
+            "destination": "Kaguguiajsd",
+            "id": 16
+        },
+        {
+            "origin": "Kanombekl",
+            "destination": "ccxxhjhj",
+            "id": 17
+        },
+        {
+            "origin": "Karongm",
+            "destination": "Kagitumbu",
+            "id": 18
+        },
+        {
+            "origin": "Kanombe",
+            "destination": "ncvdns",
+            "id": 19
+        },
+        {
+            "origin": "hanze",
+            "destination": "imbere",
+            "id": 20
+        },
+        {
+            "origin": ",mmmcx",
+            "destination": "mmmcxc",
+            "id": 21
+        },
+        {
+            "origin": "zxnxn",
+            "destination": "xmzmz",
+            "id": 22
+        }
+    ],
+    "operator": [{
+            "name": "hummer",
+            "email": "eric@gmail.com",
+            "role": "operator",
+            "id": "cce51f76-c48a-443a-9c08-02588778fbcb"
+        },
+        {
+            "name": "williams",
+            "email": "sylvainniyonkuru6@gmail.com",
+            "role": "operator",
+            "id": "c23eb607-1306-4030-8e35-b58b57a2a1b9"
+        },
+        {
+            "name": "Niyibizi Fabrice Salkozie",
+            "email": "thegame@gmail.com",
+            "role": "operator",
+            "id": "f86c7280-c7e6-4c90-9119-acd5ceb3e48a"
+        },
+        {
+            "name": "welcome",
+            "email": "suruR@gmaile.com",
+            "role": "operator",
+            "id": "79fadfa5-3fac-4d65-8da0-a6f6b60f867f"
+        }
+    ]
 }
