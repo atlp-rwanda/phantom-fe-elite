@@ -3,7 +3,7 @@ import { fireEvent, render, waitFor, screen } from "@testing-library/react";
 // import "jest-dom/extend-expect";
 import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
-import AdminOperator from "../../views/Admin-operator";
+import AdminDriver from "../../views/Driver/Admin-Driver";
 import "./matchMedia.mock";
 jest.spyOn(console, 'error').getMockImplementation(()=>{});
 
@@ -15,22 +15,28 @@ afterEach(() => {
 
  const operatorsArray = [
    {
-     name: "message",
-     email: "eric@gmail.com",
-     role: "Operator",
-     id: "78015c34-cdc9-4ecc-a432-0ce82400f3a8",
+    name: "Junior",
+    driverId: "099999",
+    license: "86556",
+      mobileNumber: "0788856",
+      role: "driver",
+      id: "c666e33a-efc0-4e55-834b-a4863807efc7"
    },
    {
-     name: "niyibizi",
-     email: "fabrice6@gmail.com",
-     role: "Operator",
-     id: "2e1fb644-f6d4-4324-801e-00390c7c2b15",
+    name: "Kamali",
+      driverId: "099999",
+      license: "86556",
+      mobileNumber: "0788856",
+      role: "driver",
+      id: "c666e33a-efc0-4e55-834b-a4863807efc7"
    },
    {
-     name: "sylvain",
-     email: "winfield@gmail.com",
-     role: "Operator",
-     id: "868d42ef-7da3-4ef2-9d54-48806cfda56a",
+    name: "Remmy",
+    driverId: "099999",
+    license: "86556",
+    mobileNumber: "0788856",
+    role: "driver",
+    id: "c666e33a-efc0-4e55-834b-a4863807efc7"
    },
  ];
 
@@ -46,7 +52,7 @@ test('show loader when it"s fetching data', () => {
 
   const { getByText } = render(
     <BrowserRouter>
-      <AdminOperator />
+      <AdminDriver />
     </BrowserRouter>
   );
   expect(getByText(/loading.../i)).toBeInTheDocument();
@@ -57,21 +63,20 @@ test("render operators' name at each row", async () => {
 
   const { getAllByTestId } = render(
     <BrowserRouter>
-      <AdminOperator />
+      <AdminDriver />
     </BrowserRouter>
   );
   //check what's rendered in the row
   const rowValues = await waitFor(() =>
     getAllByTestId("row-name").map((row) => row.textContent)
   );
-  expect(rowValues).toEqual(["message", "niyibizi", "sylvain"]);
+  expect(rowValues).toEqual(["Junior", "Kamali", "Remmy"]);
   expect(axios.get).toHaveBeenCalledTimes(1);
-  expect(axios.get).toHaveBeenCalledWith("http://localhost:7000/operator");
+  expect(axios.get).toHaveBeenCalledWith("http://localhost:7000/driver");
 });
-
 it("should call delete handler when delete button is clicked", async () => {
   mockCall();
-  const id = "78015c34-cdc9-4ecc-a432-0ce82400f3a8";
+  const id = "c666e33a-efc0-4e55-834b-a4863807efc7";
   axios.delete.mockResolvedValue({
     id: id,
   });
@@ -80,7 +85,7 @@ it("should call delete handler when delete button is clicked", async () => {
     // into the browser router component to mimic that behaviour in the test but where there is not the link
     // it does not matter to include browserRouter
     <BrowserRouter>
-      <AdminOperator />
+      <AdminDriver />
     </BrowserRouter>
   );
   const Element = await waitFor(() => getByTestId("row-delete-1"));
@@ -88,7 +93,7 @@ it("should call delete handler when delete button is clicked", async () => {
     fireEvent.click(Element);
     expect(axios.delete).toHaveBeenCalledTimes(1);
     expect(axios.delete).toHaveBeenCalledWith(
-      `http://localhost:7000/operator/${id}`
+      `http://localhost:7000/driver/${id}`
     );
   });
 });
@@ -97,51 +102,60 @@ it("should popup the edit form modal component when edit button is clicked and p
   mockCall();
   const { findByTestId, getByTestId } = render(
     <BrowserRouter>
-      <AdminOperator />
+      <AdminDriver />
     </BrowserRouter>
   );
   const ElementEdit = await findByTestId("row-edit-3");
   fireEvent.click(ElementEdit);
   await waitFor(() => expect(getByTestId("edit-form")).toBeInTheDocument());
-  const inputEl1 = await screen.findByPlaceholderText("Operator Email");
-  const inputEl2 = await screen.findByPlaceholderText("Operator Name");
-  expect(inputEl1.value).toBe("winfield@gmail.com");
-  expect(inputEl2.value).toBe("sylvain");
+  const inputEl1 = await screen.findByPlaceholderText("Driver Name");
+  const inputEl2 = await screen.findByPlaceholderText("Driver Id");
+  const inputEl3 = await screen.findByPlaceholderText("Mobile number");
+  const inputEl4 = await screen.findByPlaceholderText("Driver License");
+  expect(inputEl1.value).toBe("Remmy");
+  expect(inputEl2.value).toBe("099999");
+  expect(inputEl3.value).toBe("0788856");
+  expect(inputEl4.value).toBe("86556");
 });
 
 it("Should allow edit form to be typed and submitted with new data.", async () => {
   mockCall();
-  const id = "868d42ef-7da3-4ef2-9d54-48806cfda56a";
+  const id = "c666e33a-efc0-4e55-834b-a4863807efc7";
   axios.put.mockResolvedValue({
     id: id,
   });
   const { findByTestId, getByTestId, queryByTestId } = render(
     <BrowserRouter>
-      <AdminOperator />
+      <AdminDriver />
     </BrowserRouter>
   );
   const ElementEdit = await findByTestId("row-edit-3");
   fireEvent.click(ElementEdit);
   await waitFor(() => expect(getByTestId("edit-form")).toBeInTheDocument());
-  const inputEl1 = await screen.findByPlaceholderText("Operator Email");
-  const inputEl2 = await screen.findByPlaceholderText("Operator Name");
-  const saveButtonEl = screen.getByRole("button", { name: "Save Operator" });
-  fireEvent.change(inputEl2, { target: { value: "eric" } });
-  fireEvent.change(inputEl1, { target: { value: "themaster@gmail.com" } });
-  expect(inputEl1.value).toBe("themaster@gmail.com");
-  expect(inputEl2.value).toBe("eric");
+  const inputEl1 = await screen.findByPlaceholderText("Driver Name");
+  const inputEl2 = await screen.findByPlaceholderText("Driver Id");
+  const inputEl3 = await screen.findByPlaceholderText("Mobile number");
+  const inputEl4 = await screen.findByPlaceholderText("Driver License");
+  const saveButtonEl = screen.getByRole("button", { name: "Save Driver" });
+  fireEvent.change(inputEl2, { target: { value: "099999" } });
+  fireEvent.change(inputEl1, { target: { value: "Remmy" } });
+  expect(inputEl1.value).toBe("Remmy");
+  expect(inputEl2.value).toBe("099999");
+  expect(inputEl3.value).toBe("0788856");
+  expect(inputEl4.value).toBe("86556");
   fireEvent.click(saveButtonEl);
   await waitFor(() => {
     expect(axios.put).toHaveBeenCalledTimes(1);
     expect(axios.put).toHaveBeenCalledWith(
-      `http://localhost:7000/operator/${id}`,
+      `http://localhost:7000/driver/${id}`,
       {
         id: id,
-        name: "eric",
-        email: "themaster@gmail.com",
-        role: "operator",
-      }
-    );
+        name: "Remmy",
+        driverId: "099999",
+        license: "86556",
+       mobileNumber: "0788856",
+       role: "driver",
+      });
   });
   expect(queryByTestId("edit-form")).not.toBeInTheDocument();
 });

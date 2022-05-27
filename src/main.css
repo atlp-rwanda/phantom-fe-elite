@@ -14,9 +14,8 @@
 }
 
 /* background image at the footer */
-#footer{
-    background-image: url('/src/assets/images/footer-image.jpg');
-    color: #000000;
+.footers {
+  background-image: url("/src/assets/Imigo.jpg");
 }
 
 .image {

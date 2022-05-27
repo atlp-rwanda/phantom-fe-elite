@@ -3,6 +3,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
 import { MemoryRouter as Router } from "react-router-dom";
+jest.spyOn(console, 'error').getMockImplementation(()=>{});
 
 describe('visibility of elements', () => {
     it('should see if the input is visible to the user', () => {

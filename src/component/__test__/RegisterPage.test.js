@@ -11,6 +11,9 @@ import { act } from "react-dom/test-utils";
 import userEvent from "@testing-library/user-event";
 import RegisterPage from "../../Routes/RegisterPage";
 import { MemoryRouter as Router } from "react-router-dom";
+import { async } from "regenerator-runtime";
+
+jest.spyOn(console, "error").mockImplementation(()=>{});
 
 describe("<RegisterPage />", () => {
   it("render email input", async () => {
@@ -113,6 +116,7 @@ describe("<RegisterPage />", () => {
     const captureDataForUpdate = jest.fn();
     const deleteHandle = jest.fn();
     const setModalOpen = jest.fn();
+    const handleSubmit = jest.fn();
     await act(async () => {
       render(
         <Router>
