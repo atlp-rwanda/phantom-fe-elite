@@ -6,23 +6,23 @@
     },
     {
       "id": 3,
-      "route": "Kimironko - Downtown"
+      "route": "Kimironko - Remera"
     },
     {
       "id": 4,
-      "route": "Kimironko - Downtown"
+      "route": "Kimironko - Batsinda"
     },
     {
       "id": 5,
-      "route": "Kimironko - Downtown"
+      "route": "Kimironko - Ndera"
     },
     {
       "id": 6,
-      "route": "Kimironko - Downtown"
+      "route": "Kimironko - Kanombe"
     },
     {
       "id": 7,
-      "route": "Kimironko - Downtown"
+      "route": "Kimironko - Ruyenzi"
     }
   ],
   "drivers": [
@@ -95,28 +95,22 @@
       "id": 5
     },
     {
-      "routes": "Kimironko - Downtown",
+      "routes": "Kimironko - Remera",
       "driveremail": "driver1@gmail.com",
-      "platenumber": "RAB3002",
+      "platenumber": "RAB3001",
       "id": 6
     },
     {
       "routes": "Kimironko - Downtown",
       "driveremail": "driver1@gmail.com",
-      "platenumber": "RAB3002",
+      "platenumber": "RAB3001",
       "id": 7
     },
     {
-      "routes": "Kimironko - Downtown",
-      "driveremail": "driver2@gmail.com",
-      "platenumber": "RAB3002",
-      "id": 8
-    },
-    {
-      "routes": "Kimironko - Downtown",
-      "driveremail": "driver2@gmail.com",
+      "routes": "Kimironko - Batsinda",
+      "driveremail": "driver1@gmail.com",
       "platenumber": "RAB3001",
-      "id": 9
+      "id": 8
     }
   ]
 }

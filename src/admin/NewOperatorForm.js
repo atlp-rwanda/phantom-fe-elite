@@ -1,14 +1,16 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { Formik, Form } from "formik";
+import SearchbarDropdown from "./DropDownSearch";
 import * as Yup from "yup";
 import emailjs from "emailjs-com";
 
 const NewOperatorForm = ({ setOpenModal, setData }) => {
   const form = useRef(null);
-  const [Routes, setRoutes] = useState(null);
+  const [Routes, setRoutes] = useState([]);
   const [Drivers, setDrivers] = useState(null);
   const [Buses, setBuses] = useState(null);
+  // const [dataValues, setdataValues] = useState({});
   function sendEmail(values) {
     emailjs
       .send(
@@ -28,23 +30,35 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
   }
 
   const signUpSchema = Yup.object({
+    route: Yup.string().required("Route is Required"),
     driver: Yup.string().required("Driver is Required"),
     bus: Yup.string().required("Bus is Required"),
   });
 
-  const AssignmentHandler = (formikProps) => {
+  // const AssignmentHandler = (formikProps) => {
+  //   const { values, submitForm, resetForm, setSubmitting } = formikProps;
+
+  //   setData();
+  //   AssignedData(values);
+  //   sendEmail(values);
+  //   submitForm();
+
+  //   setSubmitting(true);
+  //   resetHandler(resetForm);
+  // };
+
+  const AssignmentHandler = async (formikProps) => {
     const { values, submitForm, resetForm, setSubmitting } = formikProps;
-    // console.log({ values })
+    // console.log(values);
+    // setdataValues(values);
 
-    setData();
-    AssignedData(values);
-    sendEmail(values);
+    await AssignedData(values);
+    // sendEmail(values);
     submitForm();
-
+    await setData();
     setSubmitting(true);
-    resetHandler(resetForm);
+    // resetHandler(resetForm);
   };
-
   const resetHandler = (resetForm) => {
     setTimeout(() => {
       // it will set formik.isDirty to false
@@ -69,7 +83,6 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
     // console.log(values.driver);
   };
 
-  // Retrieve all routes
   const allRoutes = () => {
     fetch(`http://localhost:7000/routes`)
       .then((res) => {
@@ -99,9 +112,9 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
       });
   };
   useEffect(() => {
-    allRoutes();
     allDrivers();
     allBuses();
+    allRoutes();
   }, []);
 
   return (
@@ -114,6 +127,7 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
           validateOnMount={true}
           initialValues={{ driver: "", bus: "", route: "" }}
           validationSchema={signUpSchema}
+          onSubmit={() => {}}
         >
           {(formikProps) => {
             const {
@@ -130,11 +144,21 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
               <Form
                 data-testid="form"
                 // onSubmit={handleSubmit}
-                className="overflow-auto "
+                className=""
               >
-                <div className="flex flex-col pb-1">
-                  <label for="name">Route Name</label>
-                  <select
+                {Routes && (
+                  <SearchbarDropdown
+                    Datas={Routes}
+                    formik={formikProps}
+                    Name="route"
+                    Routelabel="Route Name"
+                    dataproperty="route"
+                    // valueToSubmit={AssignmentHandler}
+                  />
+                )}
+
+                <br />
+                {/* <select
                     name="route"
                     data-testid="route-name"
                     id="route-select"
@@ -162,10 +186,32 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
                     >
                       {errors.route}
                     </span>
-                  ) : null}
-                </div>
-                <div className="flex flex-col pb-1">
-                  <label htmlFor="email">Driver Email</label>
+                  ) : null} */}
+                {console.log(formikProps)}
+                {Drivers && (
+                  <SearchbarDropdown
+                    Datas={Drivers}
+                    Name="driver"
+                    formik={formikProps}
+                    Routelabel="Driver Email"
+                    dataproperty="email"
+                    // valueToSubmit={AssignmentHandler}
+                  />
+                )}
+
+                <br />
+                {Buses && (
+                  <SearchbarDropdown
+                    Datas={Buses}
+                    Name="bus"
+                    formik={formikProps}
+                    Routelabel="Plate Number"
+                    dataproperty="platenumber"
+                    // valueToSubmit={AssignmentHandler}
+                  />
+                )}
+
+                {/* <label htmlFor="email">Driver Email</label>
                   <select
                     name="driver"
                     data-testid="driver-email"
@@ -194,9 +240,9 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
                     >
                       {errors.driver}
                     </span>
-                  ) : null}
-                </div>
-                <div className="flex flex-col pb-1">
+                  ) : null} */}
+
+                {/* <div className="flex flex-col pb-1">
                   <label for="role-select">Plate Number</label>
                   <select
                     name="bus"
@@ -223,7 +269,7 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
                       {errors.bus}
                     </span>
                   ) : null}
-                </div>
+                </div> */}
                 <div className="bg-gray-200 px-4 py-2 mt-4 text-left flex">
                   <button
                     className="py-2 px-4 bg-green-600 text-white rounded hover:bg-gray-700 mr-2"
@@ -234,7 +280,7 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
                     Back
                   </button>
                   <button
-                    type="submit"
+                    // type="submit"
                     className="py-2 px-4 bg-textBluePhant text-white rounded hover:bg-textBluePhant mr-2"
                     onClick={() => AssignmentHandler(formikProps)}
                     disabled={!formikProps.isValid}

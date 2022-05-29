@@ -13,20 +13,20 @@ import FooterBlock from "../component/footer-and-nav-template/FooterBlock";
 import NavBar from "../component/footer-and-nav-template/NavBar";
 
 const RegisterPage = ({ onSubmit }) => {
-	const [isLoading, setIsLoading] = useState(false);
-	const signUpSchema = Yup.object({
-		email: Yup.string()
-			.email("Invalid email address")
-			.required("Email is Required"),
-		username: Yup.string()
-			.min(4, "Minimum of 4 letters")
-			.required("Username is Required"),
-		password: Yup.string()
-			.min(4, "Minimum of 4 letters")
-			.required("password is Required"),
-	});
+  const [isLoading, setIsLoading] = useState(false);
+  const signUpSchema = Yup.object({
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is Required"),
+    username: Yup.string()
+      .min(4, "Minimum of 4 letters")
+      .required("Username is Required"),
+    password: Yup.string()
+      .min(4, "Minimum of 4 letters")
+      .required("password is Required"),
+  });
 
-	const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  // const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
   return (
     <>
