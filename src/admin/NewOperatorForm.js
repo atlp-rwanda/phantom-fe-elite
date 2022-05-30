@@ -2,15 +2,19 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { Formik, Form } from "formik";
 import SearchbarDropdown from "./DropDownSearch";
+import toast, { Toaster } from "react-hot-toast";
 import * as Yup from "yup";
 import emailjs from "emailjs-com";
+import { values } from "regenerator-runtime";
 
-const NewOperatorForm = ({ setOpenModal, setData }) => {
+const NewOperatorForm = ({ setOpenModal, setData, saveMessage }) => {
+  const [wordEntered, setWordEntered] = useState("");
+  const [wordEntered1, setWordEntered1] = useState("");
+  const [wordEntered2, setWordEntered2] = useState("");
   const form = useRef(null);
   const [Routes, setRoutes] = useState([]);
   const [Drivers, setDrivers] = useState(null);
   const [Buses, setBuses] = useState(null);
-  // const [dataValues, setdataValues] = useState({});
   function sendEmail(values) {
     emailjs
       .send(
@@ -53,34 +57,39 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
     // setdataValues(values);
 
     await AssignedData(values);
-    // sendEmail(values);
+    sendEmail(values);
     submitForm();
     await setData();
     setSubmitting(true);
-    // resetHandler(resetForm);
-  };
-  const resetHandler = (resetForm) => {
-    setTimeout(() => {
-      // it will set formik.isDirty to false
-      // it will also keep new values
-      resetForm({ values: { driver: "", bus: "", route: "" } });
-    }, 1000);
+    setWordEntered("");
+    setWordEntered1("");
+    setWordEntered2("");
+    // setTimeout(() => {
+    //   it will set formik.isDirty to false
+    //   it will also keep new values
+    //   resetForm({ values: { driver: "", bus: "", route: "" } });
+    //   resetForm({});
+
+    // }, 1000);
   };
 
   const AssignedData = async (values) => {
-    await fetch("http://localhost:7000/assigned", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // id: routeData.id,
-        routes: values.route,
-        driveremail: values.driver,
-        platenumber: values.bus,
-      }),
-    });
-    // console.log(values.driver);
+    try {
+      const dataToSave = await fetch("http://localhost:7000/assigned", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // id: routeData.id,
+          routes: values.route,
+          driveremail: values.driver,
+          platenumber: values.bus,
+        }),
+      });
+      saveMessage(dataToSave, "Save");
+      await deleteData;
+    } catch (err) {}
   };
 
   const allRoutes = () => {
@@ -127,7 +136,14 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
           validateOnMount={true}
           initialValues={{ driver: "", bus: "", route: "" }}
           validationSchema={signUpSchema}
-          onSubmit={() => {}}
+          // onSubmit={async (values, { resetForm }) => {
+          //   await AssignedData(values);
+          //   sendEmail(values);
+          //   submitForm();
+          //   await setData();
+          //   setSubmitting(true);
+          //   resetForm({ values: { driver: "", bus: "", route: "" } });
+          // }}
         >
           {(formikProps) => {
             const {
@@ -153,45 +169,21 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
                     Name="route"
                     Routelabel="Route Name"
                     dataproperty="route"
+                    setWordEntered={setWordEntered}
+                    wordEntered={wordEntered}
                     // valueToSubmit={AssignmentHandler}
                   />
                 )}
 
                 <br />
-                {/* <select
-                    name="route"
-                    data-testid="route-name"
-                    id="route-select"
-                    className="w-full bg-gray-100 p-2 "
-                    value={values.route}
-                    onBlur={handleBlur}
-                    onChange={(e) =>
-                      setFieldValue("route", e.target.value, {
-                        shouldValidate: true,
-                      })
-                    }
-                  >
-                    <option value="">Select Route</option>
-                    {Routes &&
-                      Routes.map((route) => (
-                        <option key={route.id} value={route.route}>
-                          {route.route}
-                        </option>
-                      ))}
-                  </select>
-                  {touched.route && errors.route ? (
-                    <span
-                      data-testid="error-msg"
-                      className="text-errorText text-xs z-10"
-                    >
-                      {errors.route}
-                    </span>
-                  ) : null} */}
+
                 {console.log(formikProps)}
                 {Drivers && (
                   <SearchbarDropdown
                     Datas={Drivers}
                     Name="driver"
+                    setWordEntered={setWordEntered1}
+                    wordEntered={wordEntered1}
                     formik={formikProps}
                     Routelabel="Driver Email"
                     dataproperty="email"
@@ -207,69 +199,12 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
                     formik={formikProps}
                     Routelabel="Plate Number"
                     dataproperty="platenumber"
+                    setWordEntered={setWordEntered2}
+                    wordEntered={wordEntered2}
                     // valueToSubmit={AssignmentHandler}
                   />
                 )}
 
-                {/* <label htmlFor="email">Driver Email</label>
-                  <select
-                    name="driver"
-                    data-testid="driver-email"
-                    id="route-select"
-                    className="w-full bg-gray-100 p-2 "
-                    value={values.driver}
-                    onBlur={handleBlur}
-                    onChange={(e) =>
-                      setFieldValue("driver", e.target.value, {
-                        shouldValidate: true,
-                      })
-                    }
-                  >
-                    <option value="">select email</option>
-                    {Drivers &&
-                      Drivers.map((driver) => (
-                        <option key={driver.id} value={driver.email}>
-                          {driver.email}
-                        </option>
-                      ))}
-                  </select>
-                  {touched.driver && errors.driver ? (
-                    <span
-                      data-testid="error-msg"
-                      className="text-errorText text-xs z-10"
-                    >
-                      {errors.driver}
-                    </span>
-                  ) : null} */}
-
-                {/* <div className="flex flex-col pb-1">
-                  <label for="role-select">Plate Number</label>
-                  <select
-                    name="bus"
-                    data-testid="bus-plate"
-                    id="plate-select"
-                    className="w-full bg-gray-100 p-2 "
-                    value={values.bus}
-                    onBlur={handleBlur}
-                    onChange={(e) => setFieldValue("bus", e.target.value)}
-                  >
-                    <option value="">Select plate</option>
-                    {Buses &&
-                      Buses.map((bus) => (
-                        <option key={bus.id} value={bus.platenumber}>
-                          {bus.platenumber}
-                        </option>
-                      ))}
-                  </select>
-                  {touched.bus && errors.bus ? (
-                    <span
-                      data-testid="error-msg"
-                      className="text-errorText text-xs"
-                    >
-                      {errors.bus}
-                    </span>
-                  ) : null}
-                </div> */}
                 <div className="bg-gray-200 px-4 py-2 mt-4 text-left flex">
                   <button
                     className="py-2 px-4 bg-green-600 text-white rounded hover:bg-gray-700 mr-2"
@@ -280,13 +215,14 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
                     Back
                   </button>
                   <button
-                    // type="submit"
+                    type="submit"
                     className="py-2 px-4 bg-textBluePhant text-white rounded hover:bg-textBluePhant mr-2"
                     onClick={() => AssignmentHandler(formikProps)}
-                    disabled={!formikProps.isValid}
+                    // disabled={!formikProps.isValid}
                   >
                     Assign
                   </button>
+                  <Toaster className="w-1/3" />
                 </div>
               </Form>
             );

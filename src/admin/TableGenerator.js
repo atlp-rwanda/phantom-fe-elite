@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-// import ErrorMessageDisplay from "./ErrorMessageDisplay";
-// import LoadingMessage from "./LoadingMessage";
+import ErrorMessageDisplay from "./ErrorMessageDisplay";
+import LoadingMessage from "./LoadingMessage";
 import TableRow from "./TableRow";
 
 const TableGenerator = (props) => {
@@ -13,31 +13,35 @@ const TableGenerator = (props) => {
     console.log(id);
     props.handleDelete(id);
   };
+  // const toOpenModal = () => {
 
+  // }
   return (
     <>
-      {/* {props.loading ? (
+      {props.loading ? (
         <LoadingMessage />
       ) : props.error.isError ? (
         <ErrorMessageDisplay error={props.error.message} />
-      ) : ( */}
-      {props.Data.map((newdata) => {
-        ++number;
-        return (
-          <TableRow
-            route={newdata.routes}
-            email={newdata.driveremail}
-            plate={newdata.platenumber}
-            id={newdata.id}
-            number={number}
-            // data_testid={`operator-row-${number}`}
-            // onSaveData={captureData}
-            onDelete={captureIdtoDelete}
-            setOpenModalRow={props.setOpenModal}
-            key={newdata.id}
-          />
-        );
-      })}
+      ) : (
+        props.Data.map((newdata) => {
+          ++number;
+          return (
+            <TableRow
+              route={newdata.routes}
+              email={newdata.driveremail}
+              plate={newdata.platenumber}
+              id={newdata.id}
+              number={number}
+              setDeleteModalOpen={props.openDeleteModal}
+              // data_testid={`operator-row-${number}`}
+              // onSaveData={captureData}
+              onDelete={captureIdtoDelete}
+              setOpenModalRow={props.setOpenModal}
+              key={newdata.id}
+            />
+          );
+        })
+      )}
     </>
   );
 };

@@ -89,13 +89,13 @@
       "id": 4
     },
     {
-      "routes": "Kimironko - Downtown",
-      "driveremail": "driver2@gmail.com",
-      "platenumber": "RAB3003",
+      "routes": "Kimironko - Remera",
+      "driveremail": "driver1@gmail.com",
+      "platenumber": "RAB3001",
       "id": 5
     },
     {
-      "routes": "Kimironko - Remera",
+      "routes": "Kimironko - Downtown",
       "driveremail": "driver1@gmail.com",
       "platenumber": "RAB3001",
       "id": 6
@@ -107,10 +107,16 @@
       "id": 7
     },
     {
-      "routes": "Kimironko - Batsinda",
+      "routes": "Kimironko - Downtown",
       "driveremail": "driver1@gmail.com",
       "platenumber": "RAB3001",
       "id": 8
+    },
+    {
+      "routes": "Kimironko - Downtown",
+      "driveremail": "driver1@gmail.com",
+      "platenumber": "RAB3001",
+      "id": 9
     }
   ]
 }

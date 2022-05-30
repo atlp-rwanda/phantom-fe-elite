@@ -1,9 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 
 const SearchbarDropdown = (props) => {
-  const { Datas, Name, Routelabel, dataproperty, formik } = props;
+  const {
+    Datas,
+    Name,
+    Routelabel,
+    dataproperty,
+    formik,
+    setWordEntered,
+    wordEntered,
+  } = props;
   const [filteredData, setFilteredData] = useState(Datas);
-  const [wordEntered, setWordEntered] = useState("");
 
   // valueToSubmit(wordEntered);
   useEffect(() => {
@@ -57,13 +64,13 @@ const SearchbarDropdown = (props) => {
         autocomplete="off"
         onChange={onInputChange}
       />
-      {formik?.touched[Name] && formik?.errors[Name] ? (
+      {/* {formik?.touched[Name] && formik?.errors[Name] ? (
         <span data-testid="error-msg" className="text-errorText text-xs z-10">
           {formik?.errors[Name]}
         </span>
-      ) : null}
+      ) : null} */}
       <div className=" w-full relative">
-        <ul className="flex-col bg-white absolute" ref={ulRef}>
+        <ul className="flex-col bg-white absolute hidden" ref={ulRef}>
           {filteredData.map((rowdata, index) => {
             return (
               <button
@@ -72,8 +79,8 @@ const SearchbarDropdown = (props) => {
                 onClick={(e) => {
                   inputRef.current.value = rowdata[dataproperty];
                   setWordEntered(rowdata[dataproperty]);
-                  console.log(">>>??>>>>????", rowdata[dataproperty]);
-                  // valueTosubmit = setValueTosubmit()
+                  // console.log(">>>??>>>>????", rowdata[dataproperty]);
+                  // // valueTosubmit = setValueTosubmit()
                   formik.setFieldValue(Name, rowdata[dataproperty]);
                 }}
                 className="bg-gray-200 mt-2 h-8 text-left"
