@@ -1,8 +1,8 @@
 import React from "react";
 import Topview from "../Topview";
-// import UserView from "../../views/user/UserView";
 import BusRoutedata from "../BusRoutedata";
-import { render, screen } from "@testing-library/react";
+import AdminViewLayout from "../layout/AdminViewLayout";
+import { render,waitFor, screen } from "@testing-library/react";
 
 describe("should check on Topview component ",()=>{
     it("it should check if text buses is in the document",()=>{
@@ -27,19 +27,6 @@ describe("check if use see the element  ",()=>{
 describe("should check on BusRoutedata component ",()=>{
     it("it should check if text buses is in the document",()=>{
         render(<BusRoutedata />);
-        const element = screen.getByText("Bus , Routes Data");
-        expect(element).toBeInTheDocument();
-    })
-    it("it should check if text buses is in the document",()=>{
-        render(<BusRoutedata />);
-        const element = screen.getByText("Task");
-        expect(element).toBeInTheDocument();
-    })
-})
-
-describe("should check on BusRoutedata component ",()=>{
-    it("it should check if text buses is in the document",()=>{
-        render(<BusRoutedata />);
         const element = screen.getByTitle("data");
         expect(element).toBeInTheDocument();
     })
@@ -50,15 +37,11 @@ describe("should check on BusRoutedata component ",()=>{
     })
     it("it should check if text buses is in the document",()=>{
         render(<BusRoutedata />);
-        const element = screen.getByTestId("Bus");
+        const element = screen.getByText("ETA");
         expect(element).toBeVisible;
     })
+   
+  
 })
-it("should check return the the link Reset Password of loginPage", async () => {
-    render(<Router>
-      <UserView title="users" />
-      </Router>);
-    const loginElement = screen.getByTitle("users");
-    expect(loginElement).not.toBeInTheDocument();
-  });
+
 

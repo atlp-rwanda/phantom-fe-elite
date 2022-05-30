@@ -13,7 +13,11 @@
       "!src/redux/store/store.js",
       "!src/redux/reducers/rootReducer.js",
       "!src/index.js",
-      "!src/postcss.config.js"
+      "!src/postcss.config.js",
+      "!src/component/MapView.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"
     ]
   },
   "scripts": {
@@ -75,13 +79,14 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.0",
     "@types/leaflet": "^1.7.10",
-    "babel-loader": "^8.2.4",
+    "axios": "^0.19.0",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^28.1.0",
+    "jest-dom": "^3.5.0",
     "postcss": "^8.4.12",
     "postcss-loader": "^6.2.1",
     "style-loader": "^3.3.1",
