@@ -1,13 +1,18 @@
-import React from 'react'
+import React from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import Reset from "../views/Reset";
 import RegisterPage from "../views/RegisterPage";
 import LoginPage from "../views/login";
 import LandingPage from "../views/LandingPage";
 import Bus from "../views/operator/Bus";
-import ConfirmPassword from '../views/confirmation-password'
+import ConfirmPassword from "../views/confirmation-password";
 import UpdateOperator from "../views/operator/UpdateOperator";
-import UpdateDriver from "../views/driver/UpdateDriver";
+import UpdateDriver from "./../views/Driver/UpdateDriver";
+import CreateDriver from "../views/Driver/Admin-Driver";
+import RouteLines from "../views/operator/RouteLines"
+import AdminOperator from "../views/Admin-operator";
+
+
 
 const Router = () => {
   	return (
@@ -22,10 +27,18 @@ const Router = () => {
 					<Route exact path="/login" element={<LoginPage />}></Route>
 					<Route exact path="/updateoperator" element={<UpdateOperator />}></Route>
 					<Route path="/updatedriver" element={<UpdateDriver />}></Route>
+					<Route path="/create-driver" element={<CreateDriver />}></Route>
+                   <Route path="/operator" element={<AdminOperator />}></Route>
+                   <Route exact path="/operator-routes" element={<RouteLines />}></Route>
 				</Routes>
 			</div>
 		</BrowserRouter>
 	);
 }
 
-export default Router
+
+
+
+export default Router;
+
+
