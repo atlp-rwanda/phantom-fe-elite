@@ -1,72 +1,49 @@
-import UpdateOperator from "../../views/operator/UpdateOperator";
+import UpdateDriver from "../../views/driver/UpdateDriver";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
-import { MemoryRouter as Router } from "react-router-dom";
+jest.spyOn(console, 'error').getMockImplementation(()=>{});
 
 describe('visibility of elements', () => {
     it('should see if the input is visible to the user', () => {
-        render(
-        <Router >
-        <UpdateOperator />
-        </Router>
-        );
+        render(<UpdateDriver />);
         const input = screen.getByTitle("input");
         expect(input).toBeVisible
     });
     it('should see if the input is visible to the user', () => {
-        render(
-            <Router >
-            <UpdateOperator />
-            </Router>
-        );
+        render(<UpdateDriver />);
         const input2 = screen.getByTitle("input2");
         expect(input2).toBeVisible
     });
     it('should see if the input is visible to the user', () => {
-        render(
-            <Router >
-            <UpdateOperator />
-            </Router>
-        );
+        render(<UpdateDriver />);
+        const input1 = screen.getByTitle("input1");
+        expect(input1).toBeVisible
+    });
+    it('should see if the input is visible to the user', () => {
+        render(<UpdateDriver />);
         const button = screen.getByTitle("button");
         expect(button).toBeVisible
     });
 });
 describe('what are in the document', () => {
     it("should render something which is not in react page",  () => {
-        render(
-            <Router >
-            <UpdateOperator />
-            </Router>
-        );
+        render(<UpdateDriver  />);
         const headingelement = screen.queryByText(/dogs/i)
         expect(headingelement).not.toBeInTheDocument;
     });
     it("should render something which is not in react page",  () => {
-        render(
-            <Router >
-            <UpdateOperator />
-            </Router>
-        );
+        render(<UpdateDriver  />);
         const headingelements = screen.getAllByRole("heading")
         expect(headingelements.length).toBe(2);
     });
     it("should render something if it visible to the user",  () => {
-        render(
-            <Router >
-            <UpdateOperator />
-            </Router>
-        );
+        render(<UpdateDriver  />);
         const headingelements = screen.getByTestId("head1")
         expect(headingelements).toBeVisible
     });
     it("should render something if it visible to the user",  () => {
-        render(
-            <Router >
-            <UpdateOperator />
-            </Router>
-        );
+        render(<UpdateDriver  />);
         const headingelements = screen.getByTestId("head2")
         expect(headingelements).toBeVisible
     });
@@ -74,9 +51,7 @@ describe('what are in the document', () => {
 describe('to test the user event in the document', () => {
     it("should accepts username input value more than 3 character",async () => {
         await act(async()=>{ render(
-            <Router >
-            <UpdateOperator />
-            </Router>
+           <UpdateDriver />
         );
         });
          const inputEl = screen.getByPlaceholderText("Username...");
@@ -91,9 +66,7 @@ describe('to test the user event in the document', () => {
         const handleSubmit = jest.fn();
         await act(async () => {
           render(
-            <Router >
-            <UpdateOperator onSubmit={handleSubmit}/>
-            </Router>
+            <UpdateDriver onSubmit={handleSubmit} />
             );
         });
         const user = userEvent.setup();
@@ -106,5 +79,5 @@ describe('to test the user event in the document', () => {
           expect(screen.getByText("Username Required")).toBeInTheDocument();
           expect(screen.getByText("Password is Required")).toBeInTheDocument();
         });
-      });
+    });
 });

@@ -19,29 +19,163 @@
     },
     {
       "id": 3,
-      "busNo": "buss-45",
-      "seats":"20-remaining",
-      "routes": "Kimironko - Downtown",
-      "drivers": "Andela Rwanda",
-      "current_status": "Near Kicukiro",
-      "Eta": "20 min"
+      "busNumber": "D-50",
+      "busPlate": "RAC346B",
+      "routes": "Kimironko - Downtown"
+    }
+  ],
+  "driver": [
+    {
+      "name": "Kamal",
+      "driverId": "099999",
+      "license": "86556",
+      "mobileNumber": "0788856",
+      "role": "driver",
+      "id": "c666e33a-efc0-4e55-834b-a4863807efc7"
     },
     {
-      "id": 4,
-      "busNo": "buss-35",
-      "seats":"20-remaining",
-      "routes": "Kimironko - Downtown",
-      "drivers": "Andela Rwanda",
-      "current_status": "Near Kicukiro",
-      "Eta": "20 min"
+      "name": "Remmy",
+      "driverId": "999888",
+      "license": "9876543",
+      "mobileNumber": "07894324",
+      "role": "driver",
+      "id": "1ce85e42-3593-4227-861a-e51df8519e1b"
     },
     {
-      "id": 5,
-      "busNo": "buss-55",
-      "seats":"20-remaining",
-      "routes": "Kimironko - Downtown",
-      "drivers": "Andela Rwanda",
-      "current_status": "Near Kicukiro",
-      "Eta": "20 min"
-    }]
+      "name": "hbj",
+      "driverId": "986765",
+      "license": "wesrr",
+      "mobileNumber": "078865443",
+      "role": "driver",
+      "id": "44237d9d-a86f-44bf-be4a-c36a80145ab7"
+    }
+  ],
+  "operator": [
+    {
+      "name": "hummer",
+      "email": "eric@gmail.com",
+      "role": "operator",
+      "id": "cce51f76-c48a-443a-9c08-02588778fbcb"
+    },
+    {
+      "name": "williams",
+      "email": "sylvainniyonkuru6@gmail.com",
+      "role": "operator",
+      "id": "c23eb607-1306-4030-8e35-b58b57a2a1b9"
+    },
+    {
+      "name": "Niyibizi Fabrice Salkozie",
+      "email": "thegame@gmail.com",
+      "role": "operator",
+      "id": "f86c7280-c7e6-4c90-9119-acd5ceb3e48a"
+    },
+    {
+      "name": "welcome",
+      "email": "suruR@gmaile.com",
+      "role": "operator",
+      "id": "79fadfa5-3fac-4d65-8da0-a6f6b60f867f"
+    }
+  ],
+  "routes": [
+    {
+      "id": 1,
+      "origin": "Jabana",
+      "destination": "Kacyiru"
+    },
+    {
+      "id": 2,
+      "origin": "Jabana",
+      "destination": "Kacyiru"
+    },
+    {
+      "id": 3,
+      "origin": "Jabana",
+      "destination": "Kacyiru"
+    },
+    {
+      "origin": "cxm",
+      "destination": "cnbsdj",
+      "id": 4
+    },
+    {
+      "origin": "zxnxn",
+      "destination": "xmx",
+      "id": 5
+    },
+    {
+      "origin": "cxmXMC",
+      "destination": "ruierCMX,",
+      "id": 6
+    },
+    {
+      "origin": "cxm",
+      "destination": "c,m,x",
+      "id": 7
+    },
+    {
+      "origin": "cxm",
+      "destination": "ckxcx",
+      "id": 8
+    },
+    {
+      "origin": "Kanombe",
+      "destination": "gdfngjnjd",
+      "id": 9
+    },
+    {
+      "origin": "cxm",
+      "destination": "cxcmxm,c",
+      "id": 10
+    },
+    {
+      "origin": "zxnxn",
+      "destination": "c,m,x",
+      "id": 11
+    },
+    {
+      "origin": ",mxz,mz",
+      "destination": "zxmzmmxzm",
+      "id": 12
+    },
+    {
+      "origin": "Kanombe",
+      "destination": "ISI YA9",
+      "id": 13
+    },
+    {
+      "origin": "Nyanza",
+      "destination": "Kinamba",
+      "id": 14
+    },
+    {
+      "origin": "Kanombe",
+      "destination": "Kicukiro",
+      "id": 15
+    },
+    {
+      "origin": "Kibagabagajjd",
+      "destination": "Kaguguiajsd",
+      "id": 16
+    },
+    {
+      "origin": "Kanombekl",
+      "destination": "ccxxhjhj",
+      "id": 17
+    },
+    {
+      "origin": "Karongm",
+      "destination": "Kagitumbu",
+      "id": 18
+    },
+    {
+      "origin": "Kanombe",
+      "destination": "ncvdns",
+      "id": 19
+    },
+    {
+      "origin": "hanze",
+      "destination": "imbere",
+      "id": 20
+    }
+  ]
 }

@@ -43,6 +43,7 @@
     "@testing-library/user-event": "^14.1.1",
     "autoprefixer": "^10.2.1",
     "babel-jest": "^27.5.1",
+    "babel-polyfill": "^6.26.0",
     "caniuse-lite": "^1.0.30001335",
     "dotenv": "^16.0.0",
     "dotenv-webpack": "^7.1.0",
