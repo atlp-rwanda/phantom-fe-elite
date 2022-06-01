@@ -44,3 +44,7 @@
 .image {
   background-image: url("/src/assets/Imigo.jpg");
 } 
+.leaflet-container{
+  width: 1160px;
+  height: 614px;
+}

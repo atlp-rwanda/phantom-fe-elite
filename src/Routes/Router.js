@@ -11,6 +11,7 @@ import UpdateDriver from "./../views/Driver/UpdateDriver";
 import CreateDriver from "../views/Driver/Admin-Driver";
 import RouteLines from "../views/operator/RouteLines"
 import AdminOperator from "../views/Admin-operator";
+import DriverView from "../views/Driver/DriverView";
 
 
 
@@ -30,6 +31,7 @@ const Router = () => {
 					<Route path="/create-driver" element={<CreateDriver />}></Route>
                    <Route path="/operator" element={<AdminOperator />}></Route>
                    <Route exact path="/operator-routes" element={<RouteLines />}></Route>
+				   <Route exact path="/test" element={<DriverView />}></Route>
 				</Routes>
 			</div>
 		</BrowserRouter>
