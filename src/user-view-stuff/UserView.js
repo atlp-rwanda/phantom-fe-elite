@@ -7,9 +7,9 @@ import HeaderUser from './TemplateComponent/HeaderUser';
 
 const UserView = () => {
   return (
-    <div className="grid h-screen w-screen overflow-x-hidden grid-cols-12 grid-rows-16 font-Nunito bg-[#f3f3f3] overflow-y-hidden">
+    <div className="grid h-screen w-screen overflow-x-hidden grid-cols-12 grid-rows-12 font-Nunito bg-[#f3f3f3] overflow-y-hidden">
       <HeaderUser />
-      <main className="flex flex-col col-start-1 sm:col-start-4 md:col-start-5 lg:col-start-4 col-end-13 row-start-3 row-end-17 bg-red-800">
+      <main className="flex flex-col col-start-1 sm:col-start-4 md:col-start-5 lg:col-start-4 col-end-13 row-start-3 row-end-13 bg-red-800">
         {/* component for rendering the map on the screen */}
         <MapContainer
 
