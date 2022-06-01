@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdMyLocation } from "react-icons/md";
 import { CgSearch } from "react-icons/cg";
+import { RiCloseFill } from "react-icons/ri";
 
+const AsideUser = ({ setAsideOpen }) => {
+  let sideRef = useRef();
+  useEffect(() => {
+    let handler = (event) => {
+      if (!sideRef.current.contains(event.target)) {
+        setAsideOpen(false);
+      }
+    };
 
-const AsideUser = () => {
+    document.addEventListener("mousedown", handler);
+    return () => {
+      document.addEventListener("mousedown", handler);
+    };
+  });
+
   return (
-    <aside className="bg-[#f3f3f3] sm:col-start-1 sm:col-end-4 md:col-end-5 lg:col-end-4 hidden sm:block text-black row-start-2 sm:row-start-3 row-end-13 border-r-2 border-solid border-[#f3f3f3]">
-      <label
+    <aside
+      className="absolute bg-[#f3f3f3] w-full row-start-1 row-end-13 text-black"
+      ref={sideRef}
+    >
+      {/* <div className=" flex flex-between"> */}
+      {/* <label
         htmlFor="email"
         className="relative text-black focus-within:text-black block w-[95%] mx-auto my-3"
       >
@@ -20,15 +38,22 @@ const AsideUser = () => {
           placeholder="Search bus, route"
           className="h-8 rounded-lg mt-2 w-full text-black pl-12 placeholder:text-black bg-white"
         />
-      </label>
+      </label> */}
+      {/* <RiCloseFill
+          className="m-3 w-[10%] text-4xl"
+          onClick={() => {
+            setAsideOpen(false);
+          }}
+        /> */}
+      {/* </div> */}
       <section className="h-fit w-[95%] px-5 bg-white rounded mx-auto mt-5 shadow-xl">
         <div className="font-semibold">Plan your trip</div>
         <form role="form" className="w-full h-fit">
           <label
             htmlFor="email"
-            className="relative text-black focus-within:text-black block"
+            className=" text-black focus-within:text-black block"
           >
-            <MdMyLocation className="pointer-events-none w-7 h-7 absolute top-[60%] transform -translate-y-1/2 right-2" />
+            {/* <MdMyLocation className="pointer-events-none w-7 h-7 absolute top-[60%] transform -translate-y-1/2 right-2" /> */}
             <input
               id="email"
               name="name"

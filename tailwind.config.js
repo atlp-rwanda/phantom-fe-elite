@@ -16,8 +16,8 @@ module.exports = {
         Nunito: ["Nunito", "sans-serif"],
       },
       gridTemplateRows: {
-        // Simple 16 row grid
-        16: "repeat(16, minmax(0, 1fr))",
+        // Simple 12 row grid
+        12: "repeat(12, minmax(0, 1fr))",
       },
       gridRowStart: {
         8: "8",
@@ -26,10 +26,6 @@ module.exports = {
         11: "11",
         12: "12",
         13: "13",
-        14: "14",
-        15: "15",
-        16: "16",
-        17: "17",
       },
       gridRowEnd: {
         8: "8",
@@ -38,11 +34,8 @@ module.exports = {
         11: "11",
         12: "12",
         13: "13",
-        14: "14",
-        15: "15",
-        16: "16",
-        17: "17",
       },
+  
       colors: {
         transparent: "transparent",
         current: "currentColor",
