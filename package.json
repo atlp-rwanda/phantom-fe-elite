@@ -88,7 +88,7 @@
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^28.1.0",
-    "jest-dom": "^3.5.0",
+    "jest-dom": "^4.0.0",
     "postcss": "^8.4.14",
     "postcss-loader": "^7.0.0",
     "style-loader": "^3.3.1",
