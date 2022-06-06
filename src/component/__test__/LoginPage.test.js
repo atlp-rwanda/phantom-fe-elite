@@ -170,9 +170,10 @@ describe("display on Login page", () => {
     );
 
     const user = userEvent.setup();
-
     await user.type(screen.getByTestId("email-input"), "rachel@blbla.com");
     await user.type(screen.getByTestId("password-input"), "N#@!Pass");
+
+    await user.click(screen.getByTestId("submit-form"));
 
     await user.click(screen.getByTestId("submit-form"));
 
