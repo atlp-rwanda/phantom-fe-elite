@@ -5,7 +5,7 @@ import "@testing-library/jest-dom/extend-expect";
 import "./matchMedia.mock";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter as Router } from "react-router-dom";
-import Login from "./../../views/login"
+import Login from "../../views/login"
 jest.spyOn(console, "error").mockImplementation(()=>{});
 
 describe("display on Login page", () => {
@@ -161,26 +161,26 @@ describe("display on Login page", () => {
     expect(inputEl.value.length).toBeGreaterThan(3);
     expect(screen.queryByTestId("error-msg")).not.toBeInTheDocument();
   });
-  // it("Test form submit and validation", async () => {
-  //   const handleSubmit = jest.fn();
-  //   render(
-  //     <Router>
-  //       <Login onSubmit={handleSubmit} />
-  //     </Router>
-  //   );
+  it("Test form submit and validation", async () => {
+    const handleSubmit = jest.fn();
+    render(
+      <Router>
+        <Login onSubmit={handleSubmit} />
+      </Router>
+    );
 
-  //   const user = userEvent.setup();
+    const user = userEvent.setup();
 
-  //   await user.type(screen.getByTestId("email-input"), "rachel@blbla.com");
-  //   await user.type(screen.getByTestId("password-input"), "N#@!Pass");
+    await user.type(screen.getByTestId("email-input"), "rachel@blbla.com");
+    await user.type(screen.getByTestId("password-input"), "N#@!Pass");
 
-  //   await user.click(screen.getByTestId("submit-form"));
+    await user.click(screen.getByTestId("submit-form"));
 
-  //   await waitFor(() =>
-  //     expect(handleSubmit).toHaveBeenCalledTimes({
-  //       email: "rachel@blbla.com",
-  //        password: "N#@!Pass"
-  //     })
-  //   );
-  // });
+    // await waitFor(() =>
+    //   expect(handleSubmit).toHaveBeenCalledTimes({
+    //     email: "rachel@blbla.com",
+    //      password: "N#@!Pass"
+    //   })
+    // ); 
+  });
 });

@@ -4,6 +4,9 @@
 	"description": "setting up the react project for phantom app",
 	"main": "index.js",
 	"jest": {
+		"transform": {
+			"\\.js$": "<rootDir>/node_modules/babel-jest"
+		  },
 		"collectCoverageFrom": [
 			"src/**/*.{js, jsx, ts, tsx}",
 			"!src/component/starter-files-draft/NumCounter.js",
@@ -16,7 +19,10 @@
 			"!src/postcss.config.js",
 			"!src/redux/actions/rootAction/index.js",
 			"!src/redux/reducers/RootReducer/index.js"
-		]
+		],
+		"transformIgnorePatterns": [
+			"node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"
+		  ]
 	},
 	"scripts": {
 		"start": "webpack serve --mode development --open",
@@ -59,6 +65,7 @@
 		"react-router": "^6.3.0",
 		"react-router-dom": "^6.3.0",
 		"react-scripts": "^5.0.1",
+		"react-select": "^5.3.2",
 		"react-test-renderer": "^18.0.0",
 		"redux": "^4.1.2",
 		"regenerator-runtime": "^0.13.9",
