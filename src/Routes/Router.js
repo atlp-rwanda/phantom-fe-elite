@@ -7,13 +7,11 @@ import LandingPage from "../views/LandingPage";
 import Bus from "../views/operator/Bus";
 import ConfirmPassword from "../views/confirmation-password";
 import UpdateOperator from "../views/operator/UpdateOperator";
-import UpdateDriver from "../views/driver/UpdateDriver";
 import AdminView from '../views/user/AdminView';
 import CreateDriver from "../views/Driver/Admin-Driver";
 import RouteLines from "../views/operator/RouteLines"
 import AdminOperator from "../views/Admin-operator";
-
-
+import UpdateDriver from "./../views/driver/UpdateDriver";
 
 const Router = () => {
   	return (
@@ -28,7 +26,7 @@ const Router = () => {
 					<Route exact path="/login" element={<LoginPage />}></Route>
 					<Route exact path="/updateoperator" element={<UpdateOperator />}></Route>
 					<Route path="/admin-over-view" element={<AdminView />}></Route>
-					<Route path="/updatedriver" element={<UpdateDriver />}></Route>
+					<Route path="/updatedriver" element={<UpdateDriver/>}></Route>
 					<Route path="/create-driver" element={<CreateDriver />}></Route>
                    <Route path="/operator" element={<AdminOperator />}></Route>
                    <Route exact path="/operator-routes" element={<RouteLines />}></Route>
