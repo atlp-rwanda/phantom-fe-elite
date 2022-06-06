@@ -11,7 +11,7 @@ import AdminView from '../views/user/AdminView';
 import CreateDriver from "../views/Driver/Admin-Driver";
 import RouteLines from "../views/operator/RouteLines"
 import AdminOperator from "../views/Admin-operator";
-import UpdateDriver from "./../views/driver/UpdateDriver";
+import UpdateDriver from "../views/Driver/UpdateDriver";
 
 
 
