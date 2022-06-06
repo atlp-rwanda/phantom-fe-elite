@@ -3,10 +3,9 @@ import { IoLocationOutline } from "react-icons/io5";
 import { MdMyLocation } from "react-icons/md";
 import { CgSearch } from "react-icons/cg";
 
-
 const AsideUser = () => {
   return (
-    <aside className="bg-[#f3f3f3] sm:col-start-1 sm:col-end-4 md:col-end-5 lg:col-end-4 hidden lg:block text-black row-start-2 sm:row-start-3 row-end-13 border-r-2 border-solid border-[#f3f3f3]">
+    <aside className="bg-[#f3f3f3] sm:col-start-1 sm:col-end-4 md:col-end-5 lg:col-end-4 hidden sm:block text-black row-start-3 row-end-13 border-r-2 border-solid border-[#f3f3f3]">
       <label
         htmlFor="email"
         className="relative text-black focus-within:text-black block w-[95%] mx-auto my-3"
