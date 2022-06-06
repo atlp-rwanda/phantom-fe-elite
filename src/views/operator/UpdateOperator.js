@@ -21,7 +21,6 @@ const UpdateOperator = () => {
     }
   });
 
-  console.log(formik.touched);
   return (
     <>
     <Admin>

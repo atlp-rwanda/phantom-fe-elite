@@ -14,7 +14,7 @@ const Driverlayout=({ children })=> {
 				{children}
 			</main>
 			<SideBarDriver />
-			<Footer />
+			<Footer/>
 		</div>
 	);
 }
