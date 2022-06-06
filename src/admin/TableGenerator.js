@@ -23,12 +23,13 @@ const TableGenerator = (props) => {
       ) : props.error.isError ? (
         <ErrorMessageDisplay error={props.error.message} />
       ) : (
+        Array.isArray(props.Data) &&
         props.Data.map((newdata) => {
           ++number;
           return (
             <TableRow
               route={newdata.routes}
-              email={newdata.driveremail}
+              names={newdata.names}
               plate={newdata.platenumber}
               id={newdata.id}
               number={number}

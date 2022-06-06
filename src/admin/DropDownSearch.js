@@ -40,17 +40,17 @@ const SearchbarDropdown = (props) => {
   useEffect(() => {
     inputRef.current.addEventListener("click", (event) => {
       event.stopPropagation();
-      ulRef.current.style.display = "flex ";
+      if (ulRef.current) ulRef.current.style.display = "flex ";
       onInputChange(event);
     });
     document.addEventListener("click", (event) => {
-      ulRef.current.style.display = "none";
+      if (ulRef.current) ulRef.current.style.display = "none";
     });
   }, []);
   // console.log(formik);
   return (
     <div className=" flex flex-col ">
-      <label for="name" className="">
+      <label aria-labelledby={Name} className="">
         {Routelabel}
       </label>
       <input
@@ -64,11 +64,11 @@ const SearchbarDropdown = (props) => {
         autocomplete="off"
         onChange={onInputChange}
       />
-      {/* {formik?.touched[Name] && formik?.errors[Name] ? (
+      {formik?.touched[Name] && formik?.errors[Name] ? (
         <span data-testid="error-msg" className="text-errorText text-xs z-10">
           {formik?.errors[Name]}
         </span>
-      ) : null} */}
+      ) : null}
       <div className=" w-full relative">
         <ul className="flex-col bg-white absolute hidden" ref={ulRef}>
           {filteredData.map((rowdata, index) => {

@@ -64,6 +64,7 @@ const NewOperatorForm = ({ setOpenModal, setData, saveMessage }) => {
     setWordEntered("");
     setWordEntered1("");
     setWordEntered2("");
+    setOpenModal(false);
     // setTimeout(() => {
     //   it will set formik.isDirty to false
     //   it will also keep new values
@@ -83,7 +84,7 @@ const NewOperatorForm = ({ setOpenModal, setData, saveMessage }) => {
         body: JSON.stringify({
           // id: routeData.id,
           routes: values.route,
-          driveremail: values.driver,
+          names: values.driver,
           platenumber: values.bus,
         }),
       });
@@ -127,8 +128,11 @@ const NewOperatorForm = ({ setOpenModal, setData, saveMessage }) => {
   }, []);
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50">
-      <div className="w-5/6 sm:w-3/5 h-2/4 sm:h-3/5 md:w-3/5 md:h-2/5 lg:w-2/6 lg:h-3/5 xl:w-1/3 xl:h-4/6 bg-white rounded-md px-3 pt-2 sm:p-4 box-border">
+    <div
+      className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50"
+      data-testid="data-form"
+    >
+      <div className="w-5/6 sm:w-3/5 h-4/6 sm:h-4/6 md:w-3/5 md:h-2/5 lg:w-2/6 lg:h-3/5 xl:w-1/3 xl:h-3/4 bg-white rounded-md px-3 pt-2 sm:p-4 box-border">
         <div className="mb-4 font-bold border-b-2 border-solid border-darkBluePhant w-[250px] pt-2">
           Assign New Driver To buses
         </div>
@@ -185,8 +189,8 @@ const NewOperatorForm = ({ setOpenModal, setData, saveMessage }) => {
                     setWordEntered={setWordEntered1}
                     wordEntered={wordEntered1}
                     formik={formikProps}
-                    Routelabel="Driver Email"
-                    dataproperty="email"
+                    Routelabel="Driver Names"
+                    dataproperty="names"
                     // valueToSubmit={AssignmentHandler}
                   />
                 )}
@@ -205,9 +209,10 @@ const NewOperatorForm = ({ setOpenModal, setData, saveMessage }) => {
                   />
                 )}
 
-                <div className="bg-gray-200 px-4 py-2 mt-4 text-left flex">
+                <div className="bg-gray-200 px-4 py-2 mt-8 text-left flex">
                   <button
                     className="py-2 px-4 bg-green-600 text-white rounded hover:bg-gray-700 mr-2"
+                    data-testid="close-modal"
                     onClick={() => {
                       setOpenModal(false);
                     }}
@@ -217,8 +222,9 @@ const NewOperatorForm = ({ setOpenModal, setData, saveMessage }) => {
                   <button
                     type="submit"
                     className="py-2 px-4 bg-textBluePhant text-white rounded hover:bg-textBluePhant mr-2"
+                    data-testid="submit-value"
                     onClick={() => AssignmentHandler(formikProps)}
-                    // disabled={!formikProps.isValid}
+                    disabled={!formikProps.isValid}
                   >
                     Assign
                   </button>

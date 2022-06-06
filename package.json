@@ -19,7 +19,7 @@
 	"scripts": {
 		"start": "webpack serve --mode development --open",
 		"build": "webpack --mode production",
-		"test": "react-scripts test assign.test.js --watchAll=false",
+		"test": "react-scripts test Assign.test.js --watchAll=false",
 		"coverage": "react-scripts test --coverage --watchAll=false",
 		"db": "json-server --watch --port 7000 data/db.json"
 	},

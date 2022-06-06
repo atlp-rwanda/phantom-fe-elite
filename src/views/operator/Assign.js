@@ -158,9 +158,9 @@ const AssignDriversToBuses = () => {
   return (
     <>
       {modalOpen && showModal()}
-      {deleteModalOpen && showDeleteModal()}
+
       <Admin>
-        <div className="flex flex-col justify-center sm:justify-start md:justify-center lg:justify-start ">
+        <div className="flex flex-col justify-center items-center md:items-start lg:items-start xl:items-start ">
           <div className="m-2 font-black text-xl border-b-2 border-solid border-darkBluePhant pt-6 lg:pt-0 w-[250px]">
             OPERATOR-DASHBOARD
           </div>
@@ -168,6 +168,7 @@ const AssignDriversToBuses = () => {
           <div className="bg-darkBluePhant  mt-3 p-1 sm:px-0 sm:p-2 rounded-md font-bold text-white flex items-center justify-evenly w-[250px]">
             <button
               className=""
+              data-testid="display-form"
               onClick={() => {
                 setModalOpen(true);
               }}
@@ -176,12 +177,12 @@ const AssignDriversToBuses = () => {
             </button>
           </div>
         </div>
-
+        {deleteModalOpen && showDeleteModal()}
         <div className="flex flex-col justify-between sm:justify-start md:justify-evenly lg:justify-start items-center my-3">
           <div className="grid grid-cols-12 border-b-2 border-black w-full font-bold border-solid">
             <div className="col-span-1">No</div>
             <div className="col-span-4 ">Routes</div>
-            <div className="col-span-3 ">Driver Email</div>
+            <div className="col-span-3 ">Driver Names</div>
             <div className="col-span-2 ">Bus Plate</div>
             <div className="col-span-2 text-center">Action</div>
           </div>

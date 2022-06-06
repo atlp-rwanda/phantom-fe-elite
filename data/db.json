@@ -29,20 +29,17 @@
     {
       "id": 1,
       "email": "driver1@gmail.com",
-      "firstname": "paul",
-      "lastname": "jean"
+      "names": "jean paul"
     },
     {
       "id": 2,
       "email": "driver2@gmail.com",
-      "firstname": "peter",
-      "lastname": "Ntwali"
+      "names": "peter Ntwali"
     },
     {
       "id": 3,
       "email": "driver3@gmail.com",
-      "firstname": "james",
-      "lastname": "zeni"
+      "names": "james zeni"
     }
   ],
   "buses": [
@@ -65,58 +62,28 @@
   ],
   "assigned": [
     {
-      "routes": "Kimironko - Downtown",
-      "driveremail": "driver1@gmail.com",
+      "routes": "Kimironko - Ndera",
+      "names": "james zeni",
       "platenumber": "RAB3002",
-      "id": 1
+      "id": 10
     },
     {
       "routes": "Kimironko - Downtown",
-      "driveremail": "driver1@gmail.com",
-      "platenumber": "RAB3002",
-      "id": 2
-    },
-    {
-      "routes": "Kimironko - Downtown",
-      "driveremail": "driver3@gmail.com",
-      "platenumber": "RAB3004",
-      "id": 3
-    },
-    {
-      "routes": "Kimironko - Downtown",
-      "driveremail": "driver2@gmail.com",
-      "platenumber": "RAB3002",
-      "id": 4
+      "names": "peter Ntwali",
+      "platenumber": "RAB3001",
+      "id": 11
     },
     {
       "routes": "Kimironko - Remera",
-      "driveremail": "driver1@gmail.com",
-      "platenumber": "RAB3001",
-      "id": 5
+      "names": "peter Ntwali",
+      "platenumber": "RAB3002",
+      "id": 12
     },
     {
-      "routes": "Kimironko - Downtown",
-      "driveremail": "driver1@gmail.com",
+      "routes": "Kimironko - Remera",
+      "names": "jean paul",
       "platenumber": "RAB3001",
-      "id": 6
-    },
-    {
-      "routes": "Kimironko - Downtown",
-      "driveremail": "driver1@gmail.com",
-      "platenumber": "RAB3001",
-      "id": 7
-    },
-    {
-      "routes": "Kimironko - Downtown",
-      "driveremail": "driver1@gmail.com",
-      "platenumber": "RAB3001",
-      "id": 8
-    },
-    {
-      "routes": "Kimironko - Downtown",
-      "driveremail": "driver1@gmail.com",
-      "platenumber": "RAB3001",
-      "id": 9
+      "id": 13
     }
   ]
 }
