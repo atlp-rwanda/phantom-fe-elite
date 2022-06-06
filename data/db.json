@@ -1,8 +1,9 @@
 {
-   "user":[ {
+  "user": [
+    {
       "id": 1,
       "busNo": "bus-009",
-      "seats":"20-remaining",
+      "seats": "20-remaining",
       "routes": "Kimironko - Downtown",
       "drivers": "Andela Rwanda",
       "current_status": "Near Kicukiro",
@@ -11,7 +12,7 @@
     {
       "id": 2,
       "busNo": "buss-35",
-      "seats":"20-remaining",
+      "seats": "20-remaining",
       "routes": "Kimironko - Downtown",
       "drivers": "Andela Rwanda",
       "current_status": "Near Kicukiro",
@@ -68,6 +69,12 @@
       "email": "suruR@gmaile.com",
       "role": "operator",
       "id": "79fadfa5-3fac-4d65-8da0-a6f6b60f867f"
+    },
+    {
+      "name": "hodal",
+      "email": "mhthodol@gmail.com",
+      "role": "operator",
+      "id": "fecbfb83-167c-44f1-9fc4-953b137c2568"
     }
   ],
   "routes": [
@@ -100,16 +107,6 @@
       "origin": "cxmXMC",
       "destination": "ruierCMX,",
       "id": 6
-    },
-    {
-      "origin": "cxm",
-      "destination": "c,m,x",
-      "id": 7
-    },
-    {
-      "origin": "cxm",
-      "destination": "ckxcx",
-      "id": 8
     },
     {
       "origin": "Kanombe",
