@@ -204,13 +204,6 @@ function BusMotion() {
 					)}
 				</div>
 			</div>
-
-			{/* <div className="flex flex-row h-screen">
-				<div className="bg-blue-500 h-100 w-1/2">
-					<div> this is map </div>
-				</div>
-				<div className="bg-gray-300 h-5/6 w-1/2 pb-2 ml-3 p-5"></div>
-			</div> */}
 		</Driverlayout>
 	);
 }

@@ -1,11 +1,11 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import AdminDriver from "./../../views/Driver/Admin-Driver";
+import AdminDriver from "../../views/Driver/Admin-Driver";
 import { BrowserRouter } from "react-router-dom";
 // import "jest-dom/extend-expect";
 import axios from "axios";
-import TableGenerator from "./../../admin-driver-stuff/TableGenerator";
-import NewDriverForm from "./../../admin-driver-stuff/NewDriverForm";
-import EditDriverForm from "./../../admin-driver-stuff/EditDriverForm";
+import TableGenerator from "../../admin-driver-stuff/TableGenerator";
+import NewDriverForm from "../../admin-driver-stuff/NewDriverForm";
+import EditDriverForm from "../../admin-driver-stuff/EditDriverForm";
 import React from 'react'
 
 jest.spyOn(console, 'error').getMockImplementation(()=>{});

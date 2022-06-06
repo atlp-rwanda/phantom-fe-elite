@@ -19,7 +19,6 @@ const Router = () => {
 		<BrowserRouter>
 			<div className="h-screen flex flex-col ">
 				<Routes>
-					<Route exact path="/" element={<LandingPage />}></Route>
 					<Route exact path="/register" element={<RegisterPage />}></Route>
 					<Route exact path="/operator-bus" element={<Bus />}></Route>
 					<Route path="/reset-password" element={<Reset />}></Route>
@@ -31,7 +30,8 @@ const Router = () => {
                    <Route path="/operator" element={<AdminOperator />}></Route>
                    <Route exact path="/operator-routes" element={<RouteLines />}></Route>
                    <Route exact path="/driver-journey" element={<BusMotion />}></Route>
-				   <Route exact path="/test" element={<DriverView />}></Route>
+				   <Route exact path="/driver-map" element={<DriverView />}></Route>
+					<Route exact path="/" element={<LandingPage />}></Route>
 				</Routes>
 			</div>
 		</BrowserRouter>

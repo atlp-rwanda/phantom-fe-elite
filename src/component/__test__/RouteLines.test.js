@@ -4,6 +4,7 @@ import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 import RouteLines from "../../views/operator/RouteLines";
 import "./matchMedia.mock";
+jest.spyOn(console, 'error').mockImplementation(()=>{});
 
 afterEach(() => {
   axios.get.mockClear();

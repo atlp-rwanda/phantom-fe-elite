@@ -4,6 +4,9 @@
 	"description": "setting up the react project for phantom app",
 	"main": "index.js",
 	"jest": {
+		"transform": {
+			"\\.js$": "<rootDir>/node_modules/babel-jest"
+		  },
 		"collectCoverageFrom": [
 			"src/**/*.{js, jsx, ts, tsx}",
 			"!src/component/starter-files-draft/NumCounter.js",
@@ -16,7 +19,10 @@
 			"!src/postcss.config.js",
 			"!src/redux/actions/rootAction/index.js",
 			"!src/redux/reducers/RootReducer/index.js"
-		]
+		],
+		"transformIgnorePatterns": [
+			"node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"
+		  ]
 	},
 	"scripts": {
 		"start": "webpack serve --mode development --open",
@@ -48,8 +54,9 @@
 		"mini-css-extract-plugin": "^2.6.0",
 		"path": "^0.12.7",
 		"postcss-cli": "^8.3.1",
-		"react": "^18.0.0",
-		"react-dom": "^18.0.0",
+		"react": "^18.1.0",
+		"react-dom": "^18.1.0",
+		"react-geolocated": "^4.0.1",
 		"react-hook-form": "^7.30.0",
 		"react-hot-toast": "^2.2.0",
 		"react-icons": "^4.3.1",
