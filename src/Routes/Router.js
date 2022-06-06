@@ -12,6 +12,7 @@ import CreateDriver from "../views/Driver/Admin-Driver";
 import RouteLines from "../views/operator/RouteLines"
 import AdminOperator from "../views/Admin-operator";
 import UserView from "../user-view-stuff/UserView";
+import UserChooseRoutes from "../user-view-stuff/UserChooseRoutes";
 
 
 
@@ -43,6 +44,7 @@ const Router = () => {
               element={<RouteLines />}
             ></Route>
             <Route path="/user-view" element={<UserView />}></Route>
+            <Route path="/user-plan" element={<UserChooseRoutes />}></Route>
           </Routes>
         </div>
       </BrowserRouter>

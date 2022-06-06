@@ -166,5 +166,17 @@
       "destination": "imbere",
       "id": 20
     }
+  ],
+  "userroutes": [
+    {
+      "descrption": "400m away from you",
+      "seats": "4seats remaining",
+      "status": "slow"
+    },
+    {
+      "descrption": "600m away from you",
+      "seats": "6seats remaining",
+      "status": "speed"
+    }
   ]
 }
