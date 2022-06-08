@@ -6,7 +6,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // extract css 
 
 module.exports = {
   //Where the webpack will look when starting to bundle the files. like starting point in the folder
-  entry: ["regenerator-runtime/runtime.js", "./src/index.js"],
+  // babel polyfill is added on the entry file so that it will allow our js to use async/await.
+  entry: ["babel-polyfill", "./src/index.js"],
+  // entry: ["regenerator-runtime/runtime.js", "./src/index.js"],
 
   // Where files should be sent once they are bundled
   output: {

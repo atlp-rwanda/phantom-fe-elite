@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import destImg from "./../assets/desti.jpg";
 import { FaLinkedin } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
@@ -6,7 +6,6 @@ import "./reset.css";
 import FooterBlock from "../component/footer-and-nav-template/FooterBlock";
 import NavBar from "../component/footer-and-nav-template/NavBar";
 import { Link } from "react-router-dom";
-// import { render } from "@testing-library/react";
 const Reset = () => {
   return (
     <>

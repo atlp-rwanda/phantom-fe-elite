@@ -2,6 +2,7 @@ import UpdateDriver from "../../views/driver/UpdateDriver";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
+jest.spyOn(console, 'error').getMockImplementation(()=>{});
 
 describe('visibility of elements', () => {
     it('should see if the input is visible to the user', () => {
