@@ -4,7 +4,7 @@ import App from "../../App";
 jest.spyOn(console, 'error').getMockImplementation(()=>{});
 
 describe("rendering of the landing page", () => {
-  test("It should display the the text of the heading pf the page ", () => {
+  test("It should display the text of the heading pf the page ", () => {
     render(<App />);
     const Title = screen.getByText(/Track bus movements/i);
     expect(Title).toBeInTheDocument();
