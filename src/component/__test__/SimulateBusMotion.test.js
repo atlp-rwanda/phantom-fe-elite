@@ -30,8 +30,8 @@ describe("to test bus motion functions", () => {
 				</Router>
 			);
 		});
-		const newBus = screen.getByTestId("newBusBtn");
-		fireEvent.click(newBus);
+		const startTrip = screen.getByTestId("submit-start");
+		fireEvent.click(startTrip);
 	});
 	it("should open edit bus modal", () => {
 		const toggleEditModal = jest.fn();
