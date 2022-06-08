@@ -235,6 +235,39 @@
       "description": "400m away from you",
       "journey_status": 1,
       "id": 6
+    },
+    {
+      "driver_id": 20,
+      "coming": "Downtown - Kwa Rwahama",
+      "destination": "Kwa Rwahama",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 7
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kanombe - Ex Remera Sector Office",
+      "destination": "Ex Remera Sector Office",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 8
+    },
+    {
+      "driver_id": 20,
+      "coming": "Downtown - Kwa Rwahama",
+      "destination": "Kwa Rwahama",
+      "seats": 2,
+      "bus_stop": "Remera",
+      "speed_status": "Slow",
+      "description": "400m away from you",
+      "journey_status": 0,
+      "id": 9
     }
   ]
 }

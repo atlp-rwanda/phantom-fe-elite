@@ -175,8 +175,7 @@ describe("display on Login page", () => {
 
   //   await user.click(screen.getByTestId("submit-form"));
 
-<<<<<<< HEAD
-    await user.click(screen.getByTestId("submit-form"));
+    // await user.click(screen.getByTestId("submit-form"));
 
     // await waitFor(() =>
     //   expect(handleSubmit).toHaveBeenCalledTimes({
@@ -184,13 +183,5 @@ describe("display on Login page", () => {
     //      password: "N#@!Pass"
     //   })
     // ); 
-=======
-  //   await waitFor(() =>
-  //     expect(handleSubmit).toHaveBeenCalledWith({
-  //       email: "rachel@blbla.com",
-  //       password: "N#@!Pass",
-  //     })
-  //   );
->>>>>>> 8ad4dde355d107f10e8c16ea1b2ac442325c96a5
   });
 });

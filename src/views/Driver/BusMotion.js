@@ -85,7 +85,7 @@ function BusMotion() {
 				.required("Bus Destination is required"),
 		}),
 		onSubmit: (values) => {
-			console.log(values);
+		
 			const driver_id = 20;
 			const coming = values.busFrom.concat(" - ", values.busTo);
 			const destination = values.busTo;
@@ -145,10 +145,6 @@ function BusMotion() {
 					bus_stop: values.busStop,
 				}),
 			});
-			console.log(values);
-		},
-		onChange: (values) => {
-			console.log(values);
 		},
 	});
 
