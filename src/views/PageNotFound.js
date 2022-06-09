@@ -13,7 +13,7 @@ import NavBar from "../component/footer-and-nav-template/NavBar";
 import FormSubscribe from "../component/FormSubscribe";
 import FooterBlock from "../component/footer-and-nav-template/FooterBlock";
 
-const Page404 = ({ onSubmit }) => {
+const Page404 = () => {
   var token = localStorage.getItem('token')
 	if (!token) {
     location.href = '/login'
