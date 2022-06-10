@@ -1,9 +1,13 @@
-import UserChooseRoutes from "../../user-view-stuff/UserChooseRoutes";
-import { render, screen } from "@testing-library/react";
 import React from "react";
+import { render, waitFor } from "@testing-library/react";
+import UserChooseRoutes from "../../user-view-stuff/UserChooseRoutes"
 
-test("It should display the image on the landing page ", () => {
-    render(<UserChooseRoutes />);
-    const image = screen.getByRole("image");
-    expect(image).toBeInTheDocument();
+
+it("render operators' name at each row", async () => {
+
+  const { findByTestId } = render(<UserChooseRoutes />);
+ const mainFile = await findByTestId("map-render");
+ await waitFor(()=> {
+   expect(mainFile).toBeInTheDocument();
+ })
 });

@@ -11,15 +11,14 @@ import SideSection from "./SideSection";
 const AsideUserPlan = () => { 
   
   const [routes, setRoutes] = useState ([])
-  const [destination, setdestination] = useState()
+  const [destination, setdestination] = useState({})
   const formik = useFormik({
     initialValues:{
       location:"",
       destination:"",
     },
     onSubmit: values => {
-      let desti = values.destination
-      setdestination(desti)
+      setdestination(values.destination)
     }
   })
   

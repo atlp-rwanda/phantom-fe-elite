@@ -3,7 +3,7 @@ import { fireEvent, render, waitFor, screen } from "@testing-library/react";
 import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 import "./matchMedia.mock";
-import DataFromServer from"../../user-view-stuff/TemplateComponent/DataFromServer"
+import Asideuserplan from "../../user-view-stuff/TemplateComponent/AsideUserPlan"
 
 afterEach(() => {
   axios.get.mockClear();
@@ -32,8 +32,7 @@ describe("Integration test of Editing the row and Deleting the row", () => {
 
 test("render operators' name at each row", async () => {
   mockCall();
-  render(<DataFromServer />);
-  expect(axios.get).toHaveBeenCalledTimes(1);
-  expect(axios.get).toHaveBeenCalledWith("http://localhost:7000/userroutes");
+  render(<Asideuserplan />);
+  expect(axios.get).toHaveBeenCalledTimes(0);
 })
 })
