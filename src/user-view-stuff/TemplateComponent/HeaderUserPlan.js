@@ -6,7 +6,7 @@ import "../../../src/main.css"
 
 const HeaderUserPlan = () => {  
   return (
-    <header id="header-user-view" className="bg-white col-start-1 col-end-13 border-solid border-b-4  row-start-1 row-end-3">
+    <header id="header-user-view" className="bg-white col-start-1 col-end-13 border-solid border-b-4 row-start-1 row-end-2 lg:row-end-3">
       <section className="w-full flex justify-between items-center h-full px-10">
         <div className="w-[10%]">
           <img className="w-full" src={image} alt="" />

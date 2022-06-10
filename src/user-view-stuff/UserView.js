@@ -1,31 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // leaflet prestyled component configured to link react with leaflet
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 // layout components imports
 import AsideUser from "./TemplateComponent/AsideUser";
 import AsideUserOnPhoneTwo from "./TemplateComponent/AsideUserOnPhoneTwo";
 import HeaderUser from "./TemplateComponent/HeaderUser";
-import axios from "axios";
+import BusGeolocation from "./TemplateComponent/BusGeolocation";
+
 
 const UserView = () => {
-  const [dataJson, setDataJson] = useState([]);
+  const location = BusGeolocation();
+  const mapref = useRef();
   const [asideOpen, setAsideOpen] = useState(false);
-  useEffect(() => {
-    const rwandaData = async () => {
-      try {
-        console.log("fetching from my local server");
-        const { data } = await axios.get("http://localhost:7000/user-view");
 
-        console.log("done getting");
-        setDataJson(data.coordinate);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    rwandaData();
-  }, []);
-
-  console.log(dataJson.length);
+const showMyLocation = () =>{
+  if(location.loaded && !location.error){
+    mapref.current.leafletElement.flyTo([location.coordinates.lat, location.coordinates.lng],ZOOM_LEVEL,{animate: true})
+  }else{
+    alert(location.error.message)
+  }
+}
   return (
     <div className="grid h-screen w-screen overflow-x-hidden grid-cols-12 grid-rows-12 font-Nunito bg-[#f3f3f3] overflow-y-hidden">
       <HeaderUser setAsideOpen={setAsideOpen} />
@@ -45,11 +39,9 @@ const UserView = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          {dataJson.map((coordinate, index) => {
-            return (
-              <Marker key={index} position={[coordinate[1], coordinate[0]]} />
-            );
-          })}
+          {location.loaded && !location.error &&(
+            <Marker position={[location.coordinates.lat,location.coordinates.lng]}></Marker>
+          )}
         </MapContainer>
       </main>
       {/* normal aside for desktop version */}

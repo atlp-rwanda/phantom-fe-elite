@@ -171,27 +171,37 @@
   ],
   "userroutes": [
     {
-      "descrption": "400m away from you",
-      "seats": "4seats remaining",
-      "status": "slow"
+      "driver_id": 20,
+      "coming": "Kimironko - Gishushu",
+      "destination": "Gishushu",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 0,
+      "id": 1
     },
     {
-      "descrption": "600m away from you",
-      "seats": "6seats remaining",
-      "status": "speed"
+      "driver_id": 20,
+      "coming": "Murindi - Gishushu",
+      "destination": "Kanombe",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 2
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kimironko - Gishushu",
+      "destination": "Gishushu",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 0,
+      "id": 1
     }
-  ],
-  "user-view":{
-    "coordinate": [
-      [29.7758191, -2.2240344],
-      [30.223384, -2.0725891],
-      [30.1680199, -1.9802784],
-      [29.6547947, -2.5140236],
-      [30.1373229, -1.9626765],
-      [28.8788885, -2.4998735],
-      [29.3331695, -1.7023843],
-      [29.9690579, -1.8554064],
-      [29.6334333, -1.8585103]
-    ]
-  }
+  ]
 }
