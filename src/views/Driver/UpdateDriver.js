@@ -24,7 +24,7 @@ function UpdateDriver() {
         onsubmit: values => {
         }
       });
-      console.log(formik.errors);
+     
   return (
     <>
     <Driverlayout>

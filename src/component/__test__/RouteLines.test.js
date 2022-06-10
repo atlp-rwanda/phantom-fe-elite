@@ -34,6 +34,7 @@ function mockCall() {
     data: operatorsArray,
   });
 }
+jest.spyOn(console, 'error').mockImplementation(()=>{});
 
 describe("Integration test of Editing the row and Deleting the row", () => {
 
