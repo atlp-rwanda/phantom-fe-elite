@@ -1,7 +1,7 @@
 import React from 'react'
 import AsideUserPlan from "./TemplateComponent/AsideUserPlan"
 import BusGeolocation from "./TemplateComponent/BusGeolocation";
-import HeaderUserPlan from './TemplateComponent/HeaderUserplan'
+import HeaderUserPlan from "./TemplateComponent/HeaderUserPlan"
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 
 
