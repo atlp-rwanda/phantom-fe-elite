@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 // leaflet prestyled component configured to link react with leaflet
 import { MapContainer, TileLayer, Marker, Polyline } from "react-leaflet";
 // layout components imports
-import AsideUser from "./TemplateComponent/AsideUser";
-import AsideUserOnPhoneTwo from "./TemplateComponent/AsideUserOnPhoneTwo";
 import HeaderUser from "./TemplateComponent/HeaderUser";
 import BusGeolocation from "./TemplateComponent/BusGeolocation";
 
@@ -13,9 +11,9 @@ const UserView = () => {
   const [asideOpen, setAsideOpen] = useState(false);
   return (
     <div className="grid h-screen w-screen overflow-x-hidden grid-cols-12 grid-rows-12 font-Nunito bg-[#f3f3f3] overflow-y-hidden">
-      <HeaderUser setAsideOpen={setAsideOpen} />
+      <HeaderUser />
       <main
-        className="flex z-0 flex-col col-start-1 lg:col-start-4 col-end-13 row-start-2 lg:row-start-3 row-end-13 bg-red-800"
+        className="flex z-0 flex-col col-start-1 lg:col-start-1 col-end-13 row-start-2 lg:row-start-2 row-end-13 bg-red-800"
         data-testid="map-rendering"
       >
         {/* component for rendering the map on the screen */}
@@ -44,10 +42,8 @@ const UserView = () => {
         </MapContainer>
       </main>
       {/* normal aside for desktop version */}
-      <AsideUser />
 
       {/* this aside is the modified version of the normal aside component to be popped out easily */}
-      {asideOpen && <AsideUserOnPhoneTwo setAsideOpen={setAsideOpen} />}
     </div>
   );
 };

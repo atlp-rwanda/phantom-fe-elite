@@ -38,7 +38,7 @@ const fetchroute = async () => {
    }
 }
   return (
-    <aside className="bg-[#f3f3f3] col-start-1 col-end-13 md:col-end-6 lg:col-end-4 sm:block text-black row-start-3 row-end-17 border-r-2 border-solid border-[#f3f3f3]">
+    <aside className="bg-[#f3f3f3] col-start-1 col-end-13 md:col-end-6 lg:col-end-4 sm:block text-black row-start-2 row-end-17 border-r-2 border-solid border-[#f3f3f3]">
       <section className="h-fit w-[95%] px-5 bg-white rounded mx-auto mt-5 shadow-xl">
         <div className="font-semibold">Plan your trip</div>
         <form role="form" className="w-full h-fit" onSubmit={formik.handleSubmit}>

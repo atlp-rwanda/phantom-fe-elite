@@ -30,7 +30,9 @@ const BusGeolocation = () => {
                 message: "Geolocation is not supported switch to the new broswer"
             })
         }
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        setInterval(() => {
+            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        }, 2000);
     }, []);
 
   return location;
