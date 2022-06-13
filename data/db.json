@@ -168,5 +168,40 @@
       "destination": "imbere",
       "id": 20
     }
+  ],
+  "userroutes": [
+    {
+      "driver_id": 20,
+      "coming": "Kimironko - Gishushu",
+      "destination": "Gishushu",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 0,
+      "id": 1
+    },
+    {
+      "driver_id": 20,
+      "coming": "Murindi - Gishushu",
+      "destination": "Kanombe",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 2
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kimironko - Gishushu",
+      "destination": "Gishushu",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 0,
+      "id": 1
+    }
   ]
 }

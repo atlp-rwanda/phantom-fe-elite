@@ -5,7 +5,7 @@ import "@testing-library/jest-dom/extend-expect";
 import "./matchMedia.mock";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter as Router } from "react-router-dom";
-import Login from "./../../views/login"
+import Login from "../../views/login"
 jest.spyOn(console, "error").mockImplementation(()=>{});
 
 describe("display on Login page", () => {

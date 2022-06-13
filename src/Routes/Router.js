@@ -12,6 +12,8 @@ import AdminView from '../views/user/AdminView';
 import CreateDriver from "../views/Driver/Admin-Driver";
 import RouteLines from "../views/operator/RouteLines"
 import AdminOperator from "../views/Admin-operator";
+import UserView from "../user-view-stuff/UserView";
+import UserChooseRoutes from "../user-view-stuff/UserChooseRoutes";
 import UpdateDriver from "../views/Driver/UpdateDriver";
 
 const Router = () => {
@@ -31,6 +33,8 @@ const Router = () => {
                    		<Route path="/operator" element={<AdminOperator />}></Route>
                    		<Route exact path="/operator-routes" element={<RouteLines />}></Route>
 						<Route path="/admin-over-view" element={<AdminView />}></Route>
+						<Route path="/user-view" element={<UserView />}></Route>
+                        <Route path="/user-plan" element={<UserChooseRoutes />}></Route>
 						<Route path="*" element={<PageNotFound />}></Route>
 					</Routes>
 				</div>

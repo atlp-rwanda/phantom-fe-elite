@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 const Dropdown = () => {
     let navigate =useNavigate()
   return (
-    <div className='absolute top-20 right-10 bg-white border w-24 h-16'>
+    <div className='absolute top-20 right-10 bg-white border w-24 h-16 z-10'>
         <ul>
             <li>
                 <button className='text-center px-4 py-0' data-testid="button1">Settings</button>
