@@ -61,7 +61,7 @@ const SearchbarDropdown = (props) => {
         onBlur={formik?.handleBlur}
         placeholder="Search"
         ref={inputRef}
-        autocomplete="off"
+        autoComplete="off"
         onChange={onInputChange}
       />
       {formik?.touched[Name] && formik?.errors[Name] ? (

@@ -104,7 +104,7 @@ const NewOperatorForm = ({ setOpenModal, setData, saveMessage }) => {
   };
 
   const allDrivers = () => {
-    fetch(`http://localhost:7000/drivers`)
+    fetch(`http://localhost:7000/driver`)
       .then((res) => {
         return res.json();
       })

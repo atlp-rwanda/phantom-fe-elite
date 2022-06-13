@@ -13,6 +13,7 @@ import CreateDriver from "../views/Driver/Admin-Driver";
 import RouteLines from "../views/operator/RouteLines"
 import AdminOperator from "../views/Admin-operator";
 import UpdateDriver from "../views/Driver/UpdateDriver";
+import Assign from "../views/operator/Assign";
 
 const Router = () => {
 	var token = localStorage.getItem('token')
@@ -31,6 +32,7 @@ const Router = () => {
                    		<Route path="/operator" element={<AdminOperator />}></Route>
                    		<Route exact path="/operator-routes" element={<RouteLines />}></Route>
 						<Route path="/admin-over-view" element={<AdminView />}></Route>
+						<Route path="/operator-assign" element={<Assign />}></Route>
 						<Route path="*" element={<PageNotFound />}></Route>
 					</Routes>
 				</div>
