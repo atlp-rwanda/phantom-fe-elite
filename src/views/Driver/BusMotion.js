@@ -8,6 +8,7 @@ import worldMap from "../../assets/images/world_map.png";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { values } from "regenerator-runtime";
+import axios from "axios";
 
 function BusMotion() {
 	const [startMotion, setStartMotion] = useState(0);
@@ -16,60 +17,46 @@ function BusMotion() {
 		setStartMotion(1);
 	};
 
-	const endJourney = (id) => {
-		fetch(`http://localhost:7000/userroutes/` + id, {
-			method: "PATCH",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ journey_status: 0 }),
-		}).then(() => {
-			setStartMotion(0);
-		});
-	};
-	const slowDown = (id) => {
-		fetch(`http://localhost:7000/userroutes/` + id, {
-			method: "PATCH",
-			headers: {
-				"Content-type": "application/json",
-			},
-			body: JSON.stringify({ speed_status: "Slow" }),
-		});
-	};
-	const speedUp = (id) => {
-		fetch(`http://localhost:7000/userroutes/` + id, {
-			method: "PATCH",
-			headers: {
-				"Content-type": "application/json",
-			},
-			body: JSON.stringify({ speed_status: "Speeding" }),
-		});
-	};
-	const jam = (id) => {
-		fetch(`http://localhost:7000/userroutes/` + id, {
-			method: "PATCH",
-			headers: {
-				"Content-type": "application/json",
-			},
-			body: JSON.stringify({ speed_status: "Jam" }),
-		});
-	};
-	const busStop = (id) => {
-		fetch(`http://localhost:7000/userroutes/` + id, {
-			method: "PATCH",
-			headers: {
-				"Content-type": "application/json",
-			},
-			body: JSON.stringify({ speed_status: "Bus Stop" }),
-		});
-	};
-	const changeBusStop = (id) => {
-		fetch(`http://localhost:7000/userroutes/` + id, {
-			method: "PATCH",
-			headers: {
-				"Content-type": "application/json",
-			},
-			body: JSON.stringify({ bus_stop: "Bus Stop" }),
-		});
-	};
+	
+	
+	const slowDown = async (id) => {
+		try {
+		  const slow = await axios.patch(`http://localhost:7000/userroutes/` + id, { speed_status: "Slow" });
+		} catch (error) {
+		  console.log(error)
+		}
+	  };
+	  const endJourney= async (id) => {
+		try {
+		  const slow = await axios.patch(`http://localhost:7000/userroutes/` + id, { journey_status: 0 });
+		  setStartMotion(0);
+
+		} catch (error) {
+		  console.log(error)
+		}
+	  };
+	  
+	const speedUp = async (id) => {
+		try {
+		  const speedUp = await axios.patch(`http://localhost:7000/userroutes/` + id, { speed_status: "Speeding" });
+		} catch (error) {
+		  console.log(error)
+		}
+	  };
+	const jam  = async (id) => {
+		try {
+		  const slow = await axios.patch(`http://localhost:7000/userroutes/` + id, { speed_status: "Jam" });
+		} catch (error) {
+		  console.log(error)
+		}
+	  };
+	const busStop  = async (id) => {
+		try {
+		  const slow = await axios.patch(`http://localhost:7000/userroutes/` + id, { speed_status: "Bus stop" });
+		} catch (error) {
+		  console.log(error)
+		}
+	  };
 
 	const formik_start = useFormik({
 		initialValues: {
@@ -84,10 +71,10 @@ function BusMotion() {
 				.min(3, "Minimum 3 characters")
 				.required("Bus Destination is required"),
 		}),
-		onSubmit: (values) => {
+		onSubmit: async (values) => {
 		
 			const driver_id = 20;
-			const coming = values.busFrom.concat(" - ", values.busTo);
+			const coming = values.busFrom;
 			const destination = values.busTo;
 			const seats = 20;
 			const bus_stop = "";
@@ -105,14 +92,14 @@ function BusMotion() {
 				description,
 				journey_status,
 			};
-
-			fetch("http://localhost:7000/userroutes", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify(newJourney),
-			}).then(() => {
+		
+			try {
+				const slow = await axios.post('http://localhost:7000/userroutes/', newJourney);
 				startJourney();
-			});
+				console.log(newJourney)
+			  } catch (error) {
+				console.log(error)
+			  }
 		},
 	});
 
@@ -134,17 +121,17 @@ function BusMotion() {
 				.min(3, "Minimum 3 characters")
 				.required("Bus Stop is required"),
 		}),
-		onSubmit: (values) => {
-			fetch(`http://localhost:7000/userroutes/` + values.journery_id, {
-				method: "PATCH",
-				headers: {
-					"Content-type": "application/json",
-				},
-				body: JSON.stringify({
+		onSubmit: async (values) => {
+
+			try {
+				const save = await axios.patch(`http://localhost:7000/userroutes/${values.journery_id}`, {
 					seats: values.outPassenger - values.inPassenger,
 					bus_stop: values.busStop,
-				}),
-			});
+				});
+				
+			  } catch (error) {
+				console.log(error)
+			  }
 		},
 	});
 
@@ -170,8 +157,10 @@ function BusMotion() {
 									</Link>
 								</div>
 
-								<div className="h-auto bg-gray-300 my-1 px-1 w-full overflow-hidden sm:my-1 sm:px-1 md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2">
-									<div>
+								<div 
+								className="h-auto bg-gray-300 my-1 px-1 w-full overflow-hidden sm:my-1 sm:px-1 md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2">
+									<div 
+									data-testid= "second-form">
 										<div className="flex flex-col">
 											<label>Available Seats</label>
 											20 Seats
@@ -257,9 +246,10 @@ function BusMotion() {
 							</div>
 							<div>
 								<button
+									
 									type="submit"
 									className="m-2 bg-blue-800 p-2 rounded-md font-bold"
-									data-testid="submit-slow">
+									data-testid="submit-save">
 									<span className="flex items-center justify-between">
 										<RiSaveFill className="text-white text-2xl mr-1" />
 										<span className="text-white">Save Changes</span>
@@ -323,7 +313,7 @@ function BusMotion() {
 						className="flex flex-col m-2">
 						<div className="w-full flex flex-wrap -mx-1 overflow-hidden sm:-mx-1 md:-mx-1 lg:-mx-1 xl:-mx-1">
 							<div className="my-1 px-1 w-full overflow-hidden sm:my-1 sm:px-1 md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-1 xl:px-1 xl:w-1/2">
-								<Link to={"/driver-map"}>
+								<Link to={"/test"}>
 									<div className="flex justify-center items-center">
 										<img src={`${worldMap}`} alt="Map Image" />
 										<br />
