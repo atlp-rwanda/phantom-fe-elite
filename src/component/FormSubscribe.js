@@ -6,12 +6,10 @@ const FormSubscribe = () => {
   const initialValues = {
     email: "",
   };
-
   const onSubmit = (values) => {
-    // this function runs when submit button is pressed and sueFormik automatically passes the values an objects containing the objects containing the
+    // this function runs when submit button is pressed and Formik automatically passes the values an objects containing the objects containing the
     // current values of the entered data with the properties equal to the name set on the input entered data with the properties equal to the name set on the input
   };
-
   // this function when passed in useFormik object, it automatically receive the objects containing the
   // current values of the
   // entered data with the properties equal to the name set on the input.
@@ -28,7 +26,6 @@ const FormSubscribe = () => {
     }
     return errors;
   };
-
   // use formik accepts the object containing some data and returns the object having
   // different methods and properties for handling easily the form in react.
   const formik = useFormik({
@@ -36,7 +33,6 @@ const FormSubscribe = () => {
     onSubmit,
     validate,
   });
-
   return (
     <form
       onSubmit={formik.handleSubmit}

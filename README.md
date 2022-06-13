@@ -2,6 +2,10 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/179c5fae9c505c838e74/test_coverage)](https://codeclimate.com/github/atlp-rwanda/phantom-fe-elite/test_coverage)
 
+[![Build](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/Build.yml/badge.svg)](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/Build.yml)
+
+[![Coverage](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/Coverage.yml/badge.svg)](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/Coverage.yml)
+
 # Phantom
 
 ## Description
@@ -81,5 +85,3 @@ To run the app in production build of the app, use either of the following.
 ## How to Contribute
 
 ## Tests
-
-[![react CI/CD](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/react.yml/badge.svg)](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/react.yml)

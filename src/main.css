@@ -14,9 +14,32 @@
 }
 
 /* background image at the footer */
-footer {
+.footers {
   background-image: url("/src/assets/Imigo.jpg");
 }
+
+.image {
+  background-image: url("/src/assets/images/secondImage.jpg");
+}
+
+/* for spinner animation / rotating */
+.spinner {
+    animation: spin infinite 1s linear;
+    /*You can increase or decrease the timer (2s) to 
+     increase or decrease the speed of the spinner*/
+  }
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* spin end! */
+/* footer {
+  background-image: url("/src/assets/Imigo.jpg");
+} */
 
 .image {
   background-image: url("/src/assets/Imigo.jpg");

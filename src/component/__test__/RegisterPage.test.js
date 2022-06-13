@@ -4,9 +4,6 @@ import {
   render,
   screen,
   fireEvent,
-  getByRole,
-  getByTestId,
-  getByText,
   waitFor,
 } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
@@ -15,6 +12,8 @@ import userEvent from "@testing-library/user-event";
 import RegisterPage from "../../Routes/RegisterPage";
 import { MemoryRouter as Router } from "react-router-dom";
 import { async } from "regenerator-runtime";
+
+jest.spyOn(console, "error").mockImplementation(()=>{});
 
 describe("<RegisterPage />", () => {
   it("render email input", async () => {
@@ -65,7 +64,7 @@ describe("<RegisterPage />", () => {
     });
   });
 
-  it("renders a submit button", async () => {
+  it("renders a create operator button", async () => {
     await act(async () => {
       render(
         <Router>
@@ -113,57 +112,3 @@ describe("<RegisterPage />", () => {
       expect(screen.queryByTestId("error-msg")).not.toBeInTheDocument();
     });
   });
-
-  it("should validate form", async () => {
-    const handleSubmit = jest.fn();
-    await act(async () => {
-      render(
-        <Router>
-          <RegisterPage onSubmit={handleSubmit} />
-        </Router>
-      );
-    });
-    const user = userEvent.setup();
-
-    const email = screen.getByTestId("email-input");
-    const username = screen.getByTestId("username-input");
-    const password = screen.getByTestId("password-input");
-
-    user.click(screen.getByTestId("submit-form"));
-
-    fireEvent.blur(email);
-    fireEvent.blur(username);
-    fireEvent.blur(password);
-
-    await waitFor(() => {
-      expect(screen.getByText("Email is Required")).toBeInTheDocument();
-      expect(screen.getByText("Username is Required")).toBeInTheDocument();
-      expect(screen.getByText("password is Required")).toBeInTheDocument();
-    });
-  });
-
-  it("Test form submit and validation", async () => {
-    const handleSubmit = jest.fn();
-    render(
-      <Router>
-        <RegisterPage onSubmit={handleSubmit} />
-      </Router>
-    );
-
-    const user = userEvent.setup();
-
-    await user.type(screen.getByTestId("email-input"), "rachel@blbla.com");
-    await user.type(screen.getByTestId("username-input"), "Rachel");
-    await user.type(screen.getByTestId("password-input"), "N#@!Pass");
-
-    await user.click(screen.getByTestId("submit-form"));
-
-    await waitFor(() =>
-      expect(handleSubmit).toHaveBeenCalledWith({
-        email: "rachel@blbla.com",
-        username: "Rachel",
-        password: "N#@!Pass",
-      })
-    );
-  });
-});

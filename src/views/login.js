@@ -7,9 +7,11 @@ import { FcGoogle } from "react-icons/fc";
 
 import secondimage from "../assets/images/secondImage.jpg";
 import { Formik } from "formik";
+import users from '../../data/users.json'
 import * as Yup from "yup";
-import NavBar from "./footer-and-nav-template/NavBar";
-import FooterBlock from "./footer-and-nav-template/FooterBlock";
+import toast, { Toaster } from 'react-hot-toast';
+import NavBar from "../component/footer-and-nav-template/NavBar";
+import FooterBlock from "../component/footer-and-nav-template/FooterBlock";
 
 const trackroute ="https://res.cloudinary.com/andela-hodal/image/upload/v1651660951/images/trackroute_hotaxz.jpg";
 const LoginPage = ({ onSubmit }) => {
@@ -23,19 +25,59 @@ const LoginPage = ({ onSubmit }) => {
       .required("password is Required"),
   });
 
+  const userData = users.users
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhwIjoxNDI2NDIwODAwLCJodHRwOi8vdG9wdGFsLmNvbS9qd3RfY2xhaW1zL2lzX2FkbWluIjp0cnVlLCJjb21wYW55IjoiVG9wdGFsIiwiYXdlc29tZSI6dHJ1ZX0.yRQYnWzskCZUxPwaQupWkiUzKELZ49eM7oWxAQK_ZXw"
+
+  onSubmit = fields => {
+    const { email, password } = fields;
+    var formData = new FormData();
+    formData.append('email', email);
+    formData.append('passsword', password);
+
+    if (email != userData.email) {
+      toast('Incorect username or password');
+    }
+
+    for (var i = 0; i < userData.length; i++) {
+      if (email == userData[i].email) {
+        if (password == userData[i].password) {
+          toast('User loged in sucessful');
+          localStorage.setItem('token', token);
+          location.href = '/updatedriver'
+        } else {
+          // toast('Incorect username or password');
+        }
+      }
+
+      
+    }
+  }
+
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
   return (
     <>
     <NavBar />
-    <div className=" flex flex-col w-full h-[70%] lg:w-full">
-      <h1 className="text-center text-2xl text-textBluePhant font-bold h-[8%] py-4">
+    <div className=" flex flex-col w-full h-full lg:w-full">
+    
+      <h1 className="text-center text-2xl text-textBluePhant font-bold h-[8%]">
         LOGIN
       </h1>
-
+      <div>
+      <Toaster
+        toastOptions={{
+          className: '',
+          style: {
+            border: '1px solid red',
+            padding: '16px',
+            color: 'red',
+          },
+        }}
+      />
+    </div>
       <div
         style={{ backgroundImage: `url(${secondimage})` }}
-        className="flex flex-row  justify-center items-start my-2 w-full h-[75%]"
+        className="flex flex-row  justify-center items-start my-6 w-full h-[90%]"
       >
         <div
           style={{ backgroundImage: `url(${trackroute})` }}
@@ -44,7 +86,7 @@ const LoginPage = ({ onSubmit }) => {
 
         <div className="w-72 lg:w-80 h-full lg:h-full flex justify-center items-start bg-whitePhant border border-darkBluePhant rounded-md sm:rounded-l-none  ">
           <Formik
-            initialValues={{ email: "", password: "" }}
+            initialValues={{ email: "", username: "", password: "" }}
             validationSchema={signUpSchema}
             onSubmit={async (values) => {
               setIsLoading(true);
@@ -117,7 +159,7 @@ const LoginPage = ({ onSubmit }) => {
                   data-testid="submit-form"
                   disabled={isLoading}
                   className={`h-10 lg:h-9 md:h-12 mt-2 lg:mt-2 md:mt-6 mb-3 w-full text-md ${
-                    isLoading ? "bg-blue-100" : "bg-adminFooterBackground"
+                    isLoading ? "bg-blue-100" : "bg-darkBluePhant"
                   } text-whitePhant rounded text-lg font-bold`}
                 >
                   Log In
