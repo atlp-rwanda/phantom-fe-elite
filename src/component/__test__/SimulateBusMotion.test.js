@@ -65,7 +65,7 @@ const userRoutes = [
 	});
 });
 describe("to test bus motion functions", () => {
-	it("should submit new journey and change the form", () => {
+	it("should submit new journey and change the form", async () => {
 		const data = {
                 driver_id: 20,
                 coming: "Kanombe",
@@ -75,19 +75,19 @@ describe("to test bus motion functions", () => {
                 speed_status: "Normal",
                 description: "400m away from you",
                 journey_status: 1,
-                
+
           }
               axios.post.mockResolvedValueOnce({
                 data: data,
               });
-            render(
+    const { findByTestId, getByTestId, queryByTestId, getByText } =  render(
               <BrowserRouter>
                 <BusMotion />
               </BrowserRouter>
             );
         const inputEl1 =  screen.getByTestId("busFrom-input");
         const inputEl2 =  screen.getByTestId("busTo-input");
-        
+
         fireEvent.change(inputEl1, { target: { value: "Kanombe" } });
         fireEvent.change(inputEl2, { target: { value: "Gishushu" } });
         expect(inputEl1.value).toBe("Kanombe");
@@ -106,26 +106,42 @@ describe("to test bus motion functions", () => {
         // const saveBtn = await findByTestId("submit-save");
 
         expect(newForm).toBeInTheDocument();
-  
-
         })
-	});
-	it("Should save the current data", async () => {
-        mockCall();
-        const id = 9;
-        axios.patch.mockResolvedValue({
-          id: id,
-        });
-        const { findByTestId, getByTestId, queryByTestId } = render(
-          <BrowserRouter>
-            <BusMotion />
-          </BrowserRouter>
-        );
-        const saveBtn =  findByTestId("submit-save");
-
-        // fireEvent.click(saveBtn);
-        // waitFor(() => {
-        // expect(axios.patch).toHaveBeenCalledTimes(1);
-        // });
+    // waitFor(() => expect(getByTestId("submit-save")).toBeInTheDocument());
+    mockCall();
+    const id = 9;
+    axios.patch.mockResolvedValue({
+      id: id,
     });
-});
+    const busStop = await screen.findByTestId("busStop-input");
+    const inPass = await screen.findByTestId("inPassenger-input");
+    const outPass = await screen.findByTestId("outPassenger-input");
+    expect(busStop.value).toBe("");
+    expect(inPass.value).toBe("0");
+    expect(outPass.value).toBe("0");
+
+    fireEvent.change(busStop, { target: { value: "Downtown" } });
+    fireEvent.change(inPass, { target: { value: "5" } });
+    fireEvent.change(outPass, { target: { value: "4" } });
+
+    expect(busStop.value).toBe("Downtown");
+    expect(inPass.value).toBe("5");
+    expect(outPass.value).toBe("4");
+    await waitFor(() =>{ fireEvent.click(getByTestId("submit-save"));
+    expect(axios.patch).toHaveBeenCalledTimes(1);
+  });
+  fireEvent.click(getByTestId("submit-slow"))
+  await waitFor(() => {
+    expect(axios.patch).toHaveBeenCalledTimes(3);
+    expect(axios.patch).toHaveBeenCalledWith(
+      `http://localhost:7000/userroutes/${id}`,
+      { speed_status: "Slow" }
+    );
+  });
+  fireEvent.click(getByTestId("submit-speed"))
+  fireEvent.click(getByTestId("submit-jam"))
+  fireEvent.click(getByTestId("submit-stop"))
+  fireEvent.click(getByTestId("submit-end"))
+	});
+	
+}); 

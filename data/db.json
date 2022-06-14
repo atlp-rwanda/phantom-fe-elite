@@ -262,8 +262,8 @@
       "driver_id": 20,
       "coming": "Downtown - Kwa Rwahama",
       "destination": "Kwa Rwahama",
-      "seats": 2,
-      "bus_stop": "Remera",
+      "seats": 0,
+      "bus_stop": "Murindi",
       "speed_status": "Slow",
       "description": "400m away from you",
       "journey_status": 0,
@@ -279,6 +279,50 @@
       "description": "400m away from you",
       "journey_status": 1,
       "id": 10
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kanombe",
+      "destination": "Gishushu",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 11
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kanombe",
+      "destination": "Gishushu",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 12
+    },
+    {
+      "driver_id": 20,
+      "coming": "Remera",
+      "destination": "Gishushu",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 13
+    },
+    {
+      "driver_id": 20,
+      "coming": "Remera",
+      "destination": "Gishushu",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 14
     }
   ]
 }

@@ -123,13 +123,14 @@ function BusMotion() {
 		}),
 		onSubmit: async (values) => {
 
+			const id = values.journery_id
 			try {
-				const save = await axios.patch(`http://localhost:7000/userroutes/${values.journery_id}`, {
+				const save = await axios.patch(`http://localhost:7000/userroutes/${id}`, {
 					seats: values.outPassenger - values.inPassenger,
 					bus_stop: values.busStop,
 				});
-				
-			  } catch (error) {
+				console.log(values.outPassenger - values.inPassenger, values.busStop)				
+			} catch (error) {
 				console.log(error)
 			  }
 		},
