@@ -18,6 +18,11 @@
   background-image: url("/src/assets/Imigo.jpg");
 }
 
+#header-user-view {
+  background-image: url("/src/assets/images/Imigongo_simulation.png");
+  background-size: cover;
+}
+
 .image {
   background-image: url("/src/assets/images/secondImage.jpg");
 }
