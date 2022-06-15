@@ -206,5 +206,161 @@
       "platenumber": "RAB3002",
       "id": 12
     }
+  ],
+  "userroutes": [
+    {
+      "driver_id": 20,
+      "coming": "Kimironko - Gishushu",
+      "destination": "Gishushu",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 0,
+      "id": 1
+    },
+    {
+      "driver_id": 20,
+      "coming": "Murindi - Kwa Rwahama",
+      "destination": "Kwa Rwahama",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 2
+    },
+    {
+      "driver_id": 20,
+      "coming": "Remera - Kwa Rwahama",
+      "destination": "Kwa Rwahama",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 3
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kimironko - Kwa Rwahama",
+      "destination": "Kwa Rwahama",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 4
+    },
+    {
+      "driver_id": 20,
+      "coming": "Remera - Ex Kie",
+      "destination": "Ex Kie",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 5
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kanombe - Ex Remera Sector Office",
+      "destination": "Ex Remera Sector Office",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 6
+    },
+    {
+      "driver_id": 20,
+      "coming": "Downtown - Kwa Rwahama",
+      "destination": "Kwa Rwahama",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 7
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kanombe - Ex Remera Sector Office",
+      "destination": "Ex Remera Sector Office",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 8
+    },
+    {
+      "driver_id": 20,
+      "coming": "Downtown - Kwa Rwahama",
+      "destination": "Kwa Rwahama",
+      "seats": 0,
+      "bus_stop": "Murindi",
+      "speed_status": "Slow",
+      "description": "400m away from you",
+      "journey_status": 0,
+      "id": 9
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kimironko - Kwa Rwahama",
+      "destination": "Kwa Rwahama",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 10
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kanombe",
+      "destination": "Gishushu",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 11
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kanombe",
+      "destination": "Gishushu",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 12
+    },
+    {
+      "driver_id": 20,
+      "coming": "Remera",
+      "destination": "Gishushu",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 13
+    },
+    {
+      "driver_id": 20,
+      "coming": "Remera",
+      "destination": "Gishushu",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 14
+    }
   ]
 }

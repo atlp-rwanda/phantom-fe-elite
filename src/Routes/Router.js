@@ -8,15 +8,20 @@ import Bus from "../views/operator/Bus";
 import ConfirmPassword from "../views/confirmation-password";
 import UpdateOperator from "../views/operator/UpdateOperator";
 import PageNotFound from "../views/PageNotFound";
-import AdminView from '../views/user/AdminView';
+import AdminView from "../views/user/AdminView";
 import CreateDriver from "../views/Driver/Admin-Driver";
-import RouteLines from "../views/operator/RouteLines"
+import RouteLines from "../views/operator/RouteLines";
 import AdminOperator from "../views/Admin-operator";
+import DriverView from "../views/Driver/DriverView";
+import BusMotion from "../views/Driver/BusMotion";
 import UpdateDriver from "../views/Driver/UpdateDriver";
 import Assign from "../views/operator/Assign";
+import UserView from "../user-view-stuff/UserView";
+import UserChooseRoutes from "../user-view-stuff/UserChooseRoutes";
 
 const Router = () => {
 	var token = localStorage.getItem('token')
+	console.log(token)
 	if (token) {
 		return (
 			<BrowserRouter>
@@ -32,7 +37,11 @@ const Router = () => {
                    		<Route path="/operator" element={<AdminOperator />}></Route>
                    		<Route exact path="/operator-routes" element={<RouteLines />}></Route>
 						<Route path="/admin-over-view" element={<AdminView />}></Route>
+						<Route exact path="/driver-journey" element={<BusMotion />}></Route>
+                        <Route exact path="/driver-map" element={<DriverView />}></Route>
 						<Route path="/operator-assign" element={<Assign />}></Route>
+						<Route path="/user-view" element={<UserView />}></Route>
+                        <Route path="/user-plan" element={<UserChooseRoutes />}></Route>
 						<Route path="*" element={<PageNotFound />}></Route>
 					</Routes>
 				</div>
@@ -55,5 +64,4 @@ const Router = () => {
   	
 }
 
-
-export default Router;
+export default Router

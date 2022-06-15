@@ -34,7 +34,7 @@ const TableGenerator = (props) => {
               id={newdata.id}
               number={number}
               setDeleteModalOpen={props.openDeleteModal}
-              // data_testid={`operator-row-${number}`}
+              data-testid='delete-modal'
               // onSaveData={captureData}
               onDelete={captureIdtoDelete}
               setOpenModalRow={props.setOpenModal}

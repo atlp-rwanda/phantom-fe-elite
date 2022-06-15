@@ -16,7 +16,7 @@ import userEvent from "@testing-library/user-event";
 import { MemoryRouter as Router } from "react-router-dom";
 import { async } from "regenerator-runtime";
 import { Select } from "react-select";
-import selectEvent from "react-select-event";
+// import selectEvent from "react-select-event";
 import { unmountComponentAtNode } from "react-dom";
 import AssignDriversToBuses from "../../views/operator/Assign";
 

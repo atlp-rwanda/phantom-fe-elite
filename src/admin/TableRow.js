@@ -1,7 +1,7 @@
 import React from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useState } from "react";
-import { confirmAlert } from "react-confirm-alert"; // Import
+// import { confirmAlert } from "react-confirm-alert"; // Import
 import { FiEdit } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
