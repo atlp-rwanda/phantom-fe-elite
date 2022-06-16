@@ -3,7 +3,7 @@
 import React from "react";
 import logo from "../../assets/images/logo.jpg";
 import { VscCompass } from "react-icons/vsc";
-import {RiArrowDropDownFill,} from "react-icons/ri";
+import { RiArrowDropDownFill } from "react-icons/ri";
 import { IoMdNotifications } from "react-icons/io";
 import { MdAssignmentTurnedIn } from "react-icons/md";
 import { FaBus, FaUserCircle } from "react-icons/fa";

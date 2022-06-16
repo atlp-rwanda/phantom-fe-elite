@@ -6,7 +6,7 @@
 	"jest": {
 		"transform": {
 			"\\.js$": "<rootDir>/node_modules/babel-jest"
-		  },
+		},
 		"collectCoverageFrom": [
 			"src/**/*.{js, jsx, ts, tsx}",
 			"!src/component/starter-files-draft/NumCounter.js",
@@ -22,7 +22,7 @@
 		],
 		"transformIgnorePatterns": [
 			"node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"
-		  ]
+		]
 	},
 	"scripts": {
 		"start": "webpack serve --mode development --open",
@@ -47,6 +47,7 @@
 		"caniuse-lite": "^1.0.30001335",
 		"dotenv": "^16.0.0",
 		"dotenv-webpack": "^7.1.0",
+		"emailjs-com": "^3.2.0",
 		"formik": "^2.2.9",
 		"jest": "^27.5.1",
 		"json-server": "^0.17.0",

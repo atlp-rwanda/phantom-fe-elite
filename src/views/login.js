@@ -91,7 +91,7 @@ const LoginPage = ({ onSubmit }) => {
             className="hidden md:flex text-center rounded-l-md  w-72 lg:w-80  h-full bg-no-repeat bg-cover"
           ></div>
 
-        <div className="w-72 lg:w-80 h-full lg:h-full flex justify-center items-start bg-whitePhant border border-darkBluePhant rounded-md sm:rounded-l-none  ">
+        <div className="w-72 lg:w-80 h-[95%] lg:h-full flex justify-center items-start bg-whitePhant border border-darkBluePhant rounded-md sm:rounded-l-none  ">
           <Formik
             initialValues={{ email: "", username: "", password: "" }}
             validationSchema={signUpSchema}
@@ -111,27 +111,6 @@ const LoginPage = ({ onSubmit }) => {
               handleSubmit,
             }) => (
               <form className=" h-full w-5/6 pb-10 " onSubmit={handleSubmit}>
-                <br />
-                
-                <input
-                  type="email"
-                  name="email"
-                  data-testid="email-input"
-                  placeholder="Email..."
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.email}
-                  className="mt-5 lg:mt-6 md:mt-10 pl-3 h-10 lg:h-9 md:h-12 w-full  border border-darkBluePhant rounded text-md font-Montserrat"
-                />
-                {touched.email && errors.email ? (
-                  <span
-                    data-testid="error-msg"
-                    className="text-errorText text-xs"
-                  >
-                    {errors.email}
-                  </span>
-                ) : null}
-
                   <input
                     type="email"
                     name="email"
@@ -151,8 +130,6 @@ const LoginPage = ({ onSubmit }) => {
                     </span>
                   ) : null}
 
-                  <br />
-
                   <input
                     type="password"
                     name="password"
@@ -171,7 +148,6 @@ const LoginPage = ({ onSubmit }) => {
                       {errors.password}
                     </span>
                   ) : null}
-                  <br />
 
                 <button
                   type="submit"
@@ -183,46 +159,23 @@ const LoginPage = ({ onSubmit }) => {
                 >
                   Log In
                 </button>
-                <br />
+                
                 <p className="border-secondary smallDev sm:small my-4 ">
                   Don't remember Password? <span><a href="">Forget Password</a></span>
                 </p>
 
                 <p className="flex flex-row mt-2 lg:mt-2 md:mt-10 font-Montserrat text-sm ">
                   or login with </ p>
+                  <div className="flex mt-0 mb-8 ">
+
                   <a href="" className="ml-4 ">
                     <FaLinkedin className="text-2xl text-darkBluePhant " />
                   </a>
-
-                  <br />
-
-                  <button
-                    type="submit"
-                    data-testid="submit-form"
-                    disabled={isLoading}
-                    className={`h-10 lg:h-9 md:h-12 mt-2 lg:mt-2 md:mt-6 mb-3 w-full text-md ${
-                      isLoading ? "bg-blue-100" : "bg-adminFooterBackground"
-                    } text-whitePhant rounded text-lg font-bold`}
-                  >
-                    <Link to = "/bus">Log In</Link>
-                  </button>
-                  <br />
-                  <p className="border-secondary smallDev sm:small my-4 ">
-                    Don't remember Password?{" "}
-                    <span>
-                      <a href="">Forget Password</a>
-                    </span>
-                  </p>
-
-                  <p className="flex flex-row mt-2 lg:mt-2 md:mt-10 font-Montserrat text-sm ">
-                    or login with
-                    <a href="" className="ml-4 ">
-                      <FaLinkedin className="text-2xl text-darkBluePhant " />
-                    </a>
-                    <a href="" className="ml-4">
+                  <a href="" className="ml-4">
                       <FcGoogle className="text-2xl " />
                     </a>
-                  </p>
+                  </div>
+                  
                 </form>
               )}
             </Formik>

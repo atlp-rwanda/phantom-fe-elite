@@ -169,6 +169,44 @@
       "id": 20
     }
   ],
+  "buses": [
+    {
+      "id": 1,
+      "platenumber": "RAB3001"
+    },
+    {
+      "id": 2,
+      "platenumber": "RAB3002"
+    },
+    {
+      "id": 3,
+      "platenumber": "RAB3003"
+    },
+    {
+      "id": 4,
+      "platenumber": "RAB3004"
+    }
+  ],
+  "assigned": [
+    {
+      "routes": "Kimironko - Ndera",
+      "names": "james zeni",
+      "platenumber": "RAB3002",
+      "id": 10
+    },
+    {
+      "routes": "Kimironko - Downtown",
+      "names": "peter Ntwali",
+      "platenumber": "RAB3001",
+      "id": 11
+    },
+    {
+      "routes": "Kimironko - Remera",
+      "names": "peter Ntwali",
+      "platenumber": "RAB3002",
+      "id": 12
+    }
+  ],
   "userroutes": [
     {
       "driver_id": 20,
