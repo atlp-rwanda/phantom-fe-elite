@@ -37,23 +37,40 @@ const LoginPage = ({ onSubmit }) => {
     formData.append('email', email);
     formData.append('passsword', password);
 
-    if (email != userData.email) {
+  
+
+    for (var i = 0; i < userData.length-1; i++) {
+      if (email == userData[i].email) {
+        
+        if (password == userData[i].password) {
+
+          if("ADMIN" == userData[i].role){
+           i=i+1;
+            toast('User loged in sucessful');
+            localStorage.setItem('token', token);
+            location.href = '/updatedriver'
+          }else if("operator" == userData[i].role){
+            toast('Operator loged in sucessful');
+            localStorage.setItem('token', token);
+            location.href = '/operator'
+          }else if("User" == userData[i].role){
+            toast('Operator loged in sucessful');
+            localStorage.setItem('token', token);
+            location.href = '/user-view'
+          }else{
+            toast("Your not Registered well!")
+          }
+        }
+       
+      } else {
+        // toast('Incorect username or password');
+      }
+      
+    }
+      if (email !== userData.email) {
       toast('Incorect username or password');
     }
 
-    for (var i = 0; i < userData.length; i++) {
-      if (email == userData[i].email) {
-        if (password == userData[i].password) {
-          toast('User loged in sucessful');
-          localStorage.setItem('token', token);
-          location.href = '/updatedriver'
-        } else {
-          // toast('Incorect username or password');
-        }
-      }
-
-      
-    }
   }
 
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

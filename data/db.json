@@ -29,20 +29,20 @@
       "id": "c666e33a-efc0-4e55-834b-a4863807efc7"
     },
     {
-      "name": "Remmy",
-      "driverId": "999888",
-      "license": "9876543",
-      "mobileNumber": "07894324",
-      "role": "driver",
-      "id": "1ce85e42-3593-4227-861a-e51df8519e1b"
-    },
-    {
       "name": "hbj",
       "driverId": "986765",
-      "license": "wesrr",
+      "license": "WQAR",
       "mobileNumber": "078865443",
       "role": "driver",
       "id": "44237d9d-a86f-44bf-be4a-c36a80145ab7"
+    },
+    {
+      "name": "fvfr",
+      "driverId": "4565",
+      "license": "gyh",
+      "mobileNumber": "5645475",
+      "role": "driver",
+      "id": "025f5ac2-8970-4eee-858a-081d3a9cd6a4"
     }
   ],
   "operator": [
@@ -124,7 +124,7 @@
       "id": 11
     },
     {
-      "origin": ",mxz,mz",
+      "origin": "ZmaRT",
       "destination": "zxmzmmxzm",
       "id": 12
     },
@@ -162,11 +162,6 @@
       "origin": "Kanombe",
       "destination": "ncvdns",
       "id": 19
-    },
-    {
-      "origin": "hanze",
-      "destination": "imbere",
-      "id": 20
     }
   ],
   "buses": [
@@ -300,9 +295,9 @@
       "driver_id": 20,
       "coming": "Downtown - Kwa Rwahama",
       "destination": "Kwa Rwahama",
-      "seats": 0,
-      "bus_stop": "Murindi",
-      "speed_status": "Slow",
+      "seats": -5,
+      "bus_stop": "Downtown",
+      "speed_status": "Bus stop",
       "description": "400m away from you",
       "journey_status": 0,
       "id": 9
@@ -361,6 +356,61 @@
       "description": "400m away from you",
       "journey_status": 1,
       "id": 14
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kimironko",
+      "destination": "Kwa Rwahama",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 15
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kimironko",
+      "destination": "Kwa Rwahama",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 16
+    },
+    {
+      "driver_id": 20,
+      "coming": "Remera",
+      "destination": "Gishushu",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 17
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kanombe",
+      "destination": "Amahoro Stadium",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 18
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kimironko",
+      "destination": "Kwa Rwahama",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 19
     }
   ]
 }

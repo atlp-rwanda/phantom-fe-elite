@@ -55,6 +55,8 @@ const Router = () => {
 						<Route exact path="/" element={<LandingPage />}></Route>
 						<Route exact path="/register" element={<RegisterPage />}></Route>
 						<Route exact path="/login" element={<LoginPage />}></Route>
+						<Route path="/user-view" element={<UserView />}></Route>
+                        <Route path="/user-plan" element={<UserChooseRoutes />}></Route>
 						<Route path="*" element={<PageNotFound />}></Route>
 					</Routes>
 				</div>
