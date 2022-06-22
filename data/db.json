@@ -433,6 +433,28 @@
       "description": "400m away from you",
       "journey_status": 1,
       "id": 21
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kimironko",
+      "destination": "Kwa Rwahama",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 22
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kimironko",
+      "destination": "Kwa Rwahama",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 23
     }
   ]
 }

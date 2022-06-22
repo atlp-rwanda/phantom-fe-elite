@@ -36,7 +36,9 @@ const LoginPage = ({ onSubmit }) => {
     formData.append('email', email);
     formData.append('passsword', password);
 
-  
+    if (email !== userData.email) {
+      toast('Incorect username or password');
+    }
 
     for (var i = 0; i < userData.length-1; i++) {
       if (email == userData[i].email) {
@@ -71,11 +73,10 @@ const LoginPage = ({ onSubmit }) => {
       }
       
     }
-      if (email !== userData.email) {
-      toast('Incorect username or password');
-    }
+      
 
   }
+
 
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
