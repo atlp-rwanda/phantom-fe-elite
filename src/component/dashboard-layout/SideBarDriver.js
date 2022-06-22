@@ -31,9 +31,9 @@ const SideBarDriver = () => {
 
             <div className="flex gap-5">
             <AiOutlineSetting size={25} className="text-darkBluePhant" />
-            <Link to='/operator'>
+            <Link to='/updatedriver'>
 
-            <p className="mt-1">Operator</p>
+            <p className="mt-1">Setting</p>
             </Link>
             </div>
            </div>

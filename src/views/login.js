@@ -1,5 +1,4 @@
 
-
 import "regenerator-runtime/runtime";
 import React, { useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
@@ -48,7 +47,7 @@ const LoginPage = ({ onSubmit }) => {
            i=i+1;
             toast('User loged in sucessful');
             localStorage.setItem('token', token);
-            location.href = '/updatedriver'
+            location.href = '/admin-over-view'
           }else if("operator" == userData[i].role){
             toast('Operator loged in sucessful');
             localStorage.setItem('token', token);
@@ -57,7 +56,12 @@ const LoginPage = ({ onSubmit }) => {
             toast('Operator loged in sucessful');
             localStorage.setItem('token', token);
             location.href = '/user-view'
-          }else{
+          }else if("Driver" == userData[i].role){
+            toast('Operator loged in sucessful');
+            localStorage.setItem('token', token);
+            location.href = '/driver-journey'
+          }
+          else{
             toast("Your not Registered well!")
           }
         }
@@ -206,9 +210,3 @@ const LoginPage = ({ onSubmit }) => {
 };
 
 export default LoginPage;
-
-
-
-
-
-

@@ -295,8 +295,8 @@
       "driver_id": 20,
       "coming": "Downtown - Kwa Rwahama",
       "destination": "Kwa Rwahama",
-      "seats": -5,
-      "bus_stop": "Downtown",
+      "seats": -50,
+      "bus_stop": "Kimironko",
       "speed_status": "Bus stop",
       "description": "400m away from you",
       "journey_status": 0,
@@ -411,6 +411,28 @@
       "description": "400m away from you",
       "journey_status": 1,
       "id": 19
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kimironko",
+      "destination": "Kwa Rwahama",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 20
+    },
+    {
+      "driver_id": 20,
+      "coming": "Kimironko",
+      "destination": "Kwa Rwahama",
+      "seats": 20,
+      "bus_stop": "",
+      "speed_status": "Normal",
+      "description": "400m away from you",
+      "journey_status": 1,
+      "id": 21
     }
   ]
 }

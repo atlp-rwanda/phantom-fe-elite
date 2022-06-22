@@ -19,13 +19,14 @@
       "names": "MUHETO Hodal",
       "email": "hodal@gmail.com",
       "password": "hodal",
-      "role": "ADMIN"
+      "role": "Driver"
     },
     {
       "userid": 4,
       "names": "MUHETO",
       "email": "muheto@gmail.com",
-      "password": "hodal"
+      "password": "hodal",
+      "role":"Driver"
       
     }
   ]

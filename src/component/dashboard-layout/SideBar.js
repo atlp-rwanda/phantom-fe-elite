@@ -1,10 +1,12 @@
 /** @format */
 
 import { VscCompass } from "react-icons/vsc";
-import { FaBus } from "react-icons/fa";
+import { FaBus, FaRoute } from "react-icons/fa";
 import { MdAltRoute } from "react-icons/md";
 import { GiGearStickPattern } from "react-icons/gi"
 import { VscSymbolProperty } from "react-icons/vsc"
+import { MdAssignmentTurnedIn } from "react-icons/md";
+import { AiFillSetting } from "react-icons/ai"
 import logo from "../../assets/images/logo.jpg";
 
 import React from "react";
@@ -23,30 +25,45 @@ const SideBar = () => {
         Management
       </p>
       <div className="ml-5 flex flex-col gap-4">
-        <div className="flex gap-5">
-          <FaBus size={25} className="mt-1 text-darkBluePhant " />
-          <Link to="/bus">
-            <p className="ml-1">Bus</p>
-          </Link>
-        </div>
-        <div className="flex gap-5 ">
-          <MdAltRoute size={25} className="mt-1 text-darkBluePhant " />
-          <Link to="/route">
-            <p className="ml-1">Route</p>
-          </Link>
-        </div>
-        <div className="flex gap-5">
-          <GiGearStickPattern size={25} className="mt-1 text-darkBluePhant " />
-          <Link to="/driver">
-            <p className="ml-1">Driver</p>
-          </Link>
-        </div>
-        <div className="flex gap-5">
-          <VscSymbolProperty size={25} className="mt-1 text-darkBluePhant " />
-          <Link to="/operator">
-            <p className="ml-1">Operator</p>
-          </Link>
-        </div>
+      <div className="flex gap-5">
+				    <MdAssignmentTurnedIn size={25} className="mt-1 text-darkBluePhant " />
+					<Link to='/operator-assign' >
+
+					<p className="ml-1 mt-1">Assign</p>
+					</Link>
+				</div>
+				<div className="flex gap-5 ">
+			        <FaBus size={25} className="mt-1 text-darkBluePhant " />
+					<Link to='/operator-bus'>
+
+					<p className="ml-1 mt-1">Bus</p>
+					</Link>
+				</div>
+				<div className="flex gap-5">
+					<Link to='/driver-journey'>
+
+					<FaRoute size={25} className="mt-1 text-darkBluePhant " />
+					</Link>
+					<Link to="/operator-routes">
+						<p className="ml-1 mt-1">Routes</p>
+					</Link>
+				</div>
+				<div className="flex gap-5">
+					<Link to='/driver-map'>
+
+					<MdAltRoute size={25} className="mt-1 text-darkBluePhant " />
+					</Link>
+					<Link to="/create-driver">
+						<p className="ml-1">Driver</p>
+					</Link>
+				</div>
+
+				<div className="flex gap-5">
+					<AiFillSetting size={25} className="mt-1 text-darkBluePhant " />
+					<Link to="/operator">
+						<p className="ml-1 mt-1">Settings</p>
+					</Link>
+				</div>
       </div>
     </aside>
   );

@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import Admin from "../../component/layout/Admin";
+import Admin from "../../component/layout/admin";
 import { RiAddCircleLine } from "react-icons/ri";
 
 const Operator = () => {
