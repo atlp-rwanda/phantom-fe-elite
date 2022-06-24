@@ -31,47 +31,48 @@ const LoginPage = ({ onSubmit }) => {
   const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhwIjoxNDI2NDIwODAwLCJodHRwOi8vdG9wdGFsLmNvbS9qd3RfY2xhaW1zL2lzX2FkbWluIjp0cnVlLCJjb21wYW55IjoiVG9wdGFsIiwiYXdlc29tZSI6dHJ1ZX0.yRQYnWzskCZUxPwaQupWkiUzKELZ49eM7oWxAQK_ZXw"
 
   onSubmit = fields => {
+    let index =0;
     const { email, password } = fields;
     var formData = new FormData();
     formData.append('email', email);
     formData.append('passsword', password);
 
-    if (email !== userData.email) {
-      toast('Incorect username or password');
-    }
+    
 
     for (var i = 0; i < userData.length-1; i++) {
-      if (email == userData[i].email) {
+     
+      if (email == userData[index].email) {
         
-        if (password == userData[i].password) {
+         if(password == userData[index].password) {
 
-          if("ADMIN" == userData[i].role){
+          if("ADMIN" == userData[index].role){
            i=i+1;
             toast('User loged in sucessful');
             localStorage.setItem('token', token);
             location.href = '/admin-over-view'
-          }else if("operator" == userData[i].role){
+          }else if("operator" == userData[index+1].role){
             toast('Operator loged in sucessful');
             localStorage.setItem('token', token);
             location.href = '/operator'
-          }else if("User" == userData[i].role){
+          }else if("User" == userData[index+1].role){
             toast('Operator loged in sucessful');
             localStorage.setItem('token', token);
             location.href = '/user-view'
-          }else if("Driver" == userData[i].role){
+          }else if("Driver" == userData[index+1].role){
             toast('Operator loged in sucessful');
             localStorage.setItem('token', token);
             location.href = '/driver-journey'
           }
-          else{
-            toast("Your not Registered well!")
-          }
         }
-       
-      } else {
-        // toast('Incorect username or password');
       }
+      else  {
+        index+=2
+        toast('Incorect username or password');
       
+       
+      
+      }
+    
     }
       
 

@@ -1,50 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
-// leaflet prestyled component configured to link react with leaflet
-import { MapContainer, TileLayer, Marker, Polyline } from "react-leaflet";
-// layout components imports
-import HeaderUser from "./TemplateComponent/HeaderUser";
-import BusGeolocation from "./TemplateComponent/BusGeolocation";
+import Layout from './../component/layout/LayoutUser'
+import MapView from "../component/MapView";
 
 
 const UserView = () => {
-  const location = BusGeolocation();
-  const [asideOpen, setAsideOpen] = useState(false);
+  // const location = BusGeolocation();
+  // const [asideOpen, setAsideOpen] = useState(false);
   return (
-    <div className="grid h-screen w-screen overflow-x-hidden grid-cols-12 grid-rows-12 font-Nunito bg-[#f3f3f3] overflow-y-hidden">
-      <HeaderUser />
-      <main
-        className="flex z-0 flex-col col-start-1 lg:col-start-1 col-end-13 row-start-2 lg:row-start-2 row-end-13 bg-red-800"
-        data-testid="map-rendering"
-      >
-        {/* component for rendering the map on the screen */}
-        <MapContainer
-
-          // size of the map
-          className="w-full h-full"
-
-          //   focused location to be shown at the initial render of the map
-          center={[-1.9441, 30.0619]}
-
-          //   default zoom level at the initial render of the map
-          zoom={9}
-
-          // enabling zoom with swapping in or out with finger on the mouse or on scrolling
-          scrollWheelZoom={true}
+    <Layout>
+    <div className="w-full flex flex-wrap justify-center xl:justify-start -mx-1 overflow-hidden sm:-mx-1  md:-mx-1 lg:-mx-1 xl:-mx-1">
+      <div className="">
+        <h3
+          className="font-bold underline decoration-sky-500 "
+          data-testid="head1"
         >
-          {/* Using tilelayer provider to get the actual map image url hosted on the cloud */}
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          {location.loaded && !location.error &&(
-            <Marker position={[location.coordinates.lat,location.coordinates.lng]}></Marker>
-          )}
-        </MapContainer>
-      </main>
-      {/* normal aside for desktop version */}
-
-      {/* this aside is the modified version of the normal aside component to be popped out easily */}
+          User View Bus Motion
+        </h3>
+      </div>
+      <MapView />
     </div>
+  </Layout>
   );
 };
 

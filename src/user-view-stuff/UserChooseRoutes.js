@@ -10,7 +10,7 @@ const UserChooseRoutes = () => {
   return (
   <div className="grid h-screen w-screen overflow-x-hidden grid-cols-12 grid-rows-16 font-Nunito bg-[#f3f3f3] overflow-y-hidden">
     <HeaderUserPlan />
-    <main className="flex z-0 flex-col col-start-4 col-end-13 row-start-2 row-end-13 bg-red-800 md:col-start-6 lg:col-start-4 hidden md:block lg:block" data-testid = "map-render">
+    <main className=" z-0 flex-col col-start-2 col-end-13 row-start-2 row-end-13 bg-red-800 md:col-start-6 lg:col-start-4 hidden md:block lg:block" data-testid = "map-render">
         {/* component for rendering the map on the screen */}
         <MapContainer
           // size of the map
