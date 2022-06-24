@@ -1,4 +1,5 @@
 
+
 import "regenerator-runtime/runtime";
 import React, { useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
@@ -31,53 +32,53 @@ const LoginPage = ({ onSubmit }) => {
   const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b3B0YWwuY29tIiwiZXhwIjoxNDI2NDIwODAwLCJodHRwOi8vdG9wdGFsLmNvbS9qd3RfY2xhaW1zL2lzX2FkbWluIjp0cnVlLCJjb21wYW55IjoiVG9wdGFsIiwiYXdlc29tZSI6dHJ1ZX0.yRQYnWzskCZUxPwaQupWkiUzKELZ49eM7oWxAQK_ZXw"
 
   onSubmit = fields => {
-    let index =0;
     const { email, password } = fields;
     var formData = new FormData();
     formData.append('email', email);
     formData.append('passsword', password);
 
+   
+
     
 
-    for (var i = 0; i < userData.length-1; i++) {
-     
-      if (email == userData[index].email) {
-        
-         if(password == userData[index].password) {
+      for (var i = 0; i < userData.length; i++) {
+        if (email !== userData[i].email || password !== userData[i].password) {
+          toast('Incorect username or password');
+          
+        }
+      else if (email == userData[i].email) {
+        if (password == userData[i].password) {
+          if("User" == userData[i].role){
 
-          if("ADMIN" == userData[index].role){
-           i=i+1;
             toast('User loged in sucessful');
             localStorage.setItem('token', token);
-            location.href = '/admin-over-view'
-          }else if("operator" == userData[index+1].role){
-            toast('Operator loged in sucessful');
-            localStorage.setItem('token', token);
-            location.href = '/operator'
-          }else if("User" == userData[index+1].role){
-            toast('Operator loged in sucessful');
-            localStorage.setItem('token', token);
             location.href = '/user-view'
-          }else if("Driver" == userData[index+1].role){
-            toast('Operator loged in sucessful');
-            localStorage.setItem('token', token);
-            location.href = '/driver-journey'
+            break;
           }
+         if("operator" == userData[i].role){
+          toast('Operator loged in sucessful');
+          localStorage.setItem('token', token);
+          location.href = '/operator'
+          break;
+        } if("ADMIN" == userData[i].role){
+          toast('Admin loged in sucessful');
+          localStorage.setItem('token', token);
+          location.href = '/admin-over-view'
+          break;
+        }if("Driver" == userData[i].role){
+          toast('Driver loged in sucessful');
+          localStorage.setItem('token', token);
+          location.href = '/driver-journey'
+          break;
         }
+        }
+        
       }
-      else  {
-        index+=2
-        toast('Incorect username or password');
+   
       
-       
-      
-      }
     
-    }
-      
-
   }
-
+  }
 
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -212,3 +213,9 @@ const LoginPage = ({ onSubmit }) => {
 };
 
 export default LoginPage;
+
+
+
+
+
+
