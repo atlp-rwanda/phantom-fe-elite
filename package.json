@@ -18,7 +18,9 @@
 			"!src/index.js",
 			"!src/postcss.config.js",
 			"!src/redux/actions/rootAction/index.js",
-			"!src/redux/reducers/RootReducer/index.js"
+			"!src/redux/reducers/RootReducer/index.js",
+			"!src/redux/reducers/authLoginReducer.js",
+			"!src/redux/store/index.js"
 		],
 		"transformIgnorePatterns": [
 			"node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"

@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/images/logo.jpg";
 import { VscCompass } from "react-icons/vsc";
 import { RiArrowDropDownFill } from "react-icons/ri";
@@ -10,8 +10,10 @@ import { FaBus, FaUserCircle } from "react-icons/fa";
 import { MdAltRoute } from "react-icons/md";
 import { AiOutlineSetting } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import Dropdown from "../dashboard-layout/Dropdown";
 
 const Admin = ({ children }) => {
+	const[open, setopen]=useState(false);
 	return (
 		<div className="grid h-screen w-screen grid-cols-12 grid-rows-12 font-Nunito bg-[#f3f3f3]">
 			<header className="bg-white col-start-3 col-end-13  row-start-1 row-end-2 ">
@@ -19,7 +21,8 @@ const Admin = ({ children }) => {
 					<section className="w-1/3 flex justify-between items-center h-full">
 						<div className="flex items-center">
 							<div className="font-black text-xl">EN</div>
-							<RiArrowDropDownFill className="text-4xl" />
+							<RiArrowDropDownFill className="text-[50px] text-darkBluePhant" onClick={() => setopen(!open)} />
+                            {open && <Dropdown />}
 							<IoMdNotifications className="text-4xl" />
 						</div>
 						<div className="flex items-center border-l-2 border-solid border-black h-full">
@@ -29,7 +32,8 @@ const Admin = ({ children }) => {
 									<div className="font-black text-lg">Andela Rwanda</div>
 									<div className="font-gray-400">User</div>
 								</div>
-								<RiArrowDropDownFill className="text-[50px] text-darkBluePhant" />
+								<RiArrowDropDownFill className="text-[50px] text-darkBluePhant" onClick={() => setopen(!open)} />
+                            {open && <Dropdown />}
 							</div>
 						</div>
 					</section>
@@ -50,25 +54,32 @@ const Admin = ({ children }) => {
 				</p>
 				<div className="ml-5 flex flex-col gap-4">
 					<div className="flex gap-5">
-						<MdAssignmentTurnedIn size={25} className="mt-1 " />
+						
+						<FaBus size={25} className="mt-1 text-darkBluePhant " />
+						<Link to='/operator-bus'>
+
 						<p className="ml-1">Bus</p>
+						</Link>
 					</div>
 					<div className="flex gap-5 ">
-						<FaBus size={25} className="mt-1 " />
-                        <Link to=''>
+					<MdAssignmentTurnedIn size={25} className="mt-1 text-darkBluePhant " />
+                        <Link to='/operator-routes'>
 						<p className="ml-1">Route</p>
                         </Link>
 					</div>
 					<div className="flex gap-5">
-						<MdAltRoute size={25} className="mt-1 " />
-						<Link to='/driver'>
+						<MdAltRoute size={25} className="mt-1 text-darkBluePhant " />
+						<Link to='/create-driver'>
                         <p className="ml-1">Driver</p>
                         </Link>
 					</div>
 
 					<div className="flex gap-5">
-						<AiOutlineSetting size={25} className="mt-1 darkBluePhant" />
+						<AiOutlineSetting size={25} className="mt-1 text-darkBluePhant" />
+						<Link to='/updateoperator'>
+
 						<p className="ml-1">Operator</p>
+						</Link>
 					</div>
 				</div>
 			</aside>

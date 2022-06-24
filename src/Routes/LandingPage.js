@@ -5,6 +5,7 @@ import landing from "../assets/images/landing-image.jpg";
 import FooterBlock from "../component/footer-and-nav-template/FooterBlock";
 import NavBar from "../component/footer-and-nav-template/NavBar";
 import FormSubscribe from "../component/FormSubscribe";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
@@ -37,9 +38,12 @@ const LandingPage = () => {
           </section>
           <section className="flex flex-col sm:flex-row sm:justify-around sm:items-center md:h-1/2 mx-0 sm:mt-8 md:pt-24 lg:pt-8 sm:mb-16 my-8">
             <div className="flex w-full justify-around sm:w-2/5 ">
+              <Link to='/user-plan'>
+
               <button className=" w-40 sm:w-72 h-8 sm:h-12 text-whitePhant rounded-3xl p-0 cursor-pointer border-none bg-darkBluePhant font-Montserrat">
                 See for yourself
               </button>
+              </Link>
             </div>
             <FormSubscribe />
           </section>

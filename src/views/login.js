@@ -37,23 +37,47 @@ const LoginPage = ({ onSubmit }) => {
     formData.append('email', email);
     formData.append('passsword', password);
 
-    if (email != userData.email) {
-      toast('Incorect username or password');
-    }
+   
 
-    for (var i = 0; i < userData.length; i++) {
-      if (email == userData[i].email) {
-        if (password == userData[i].password) {
-          toast('User loged in sucessful');
-          localStorage.setItem('token', token);
-          location.href = '/updatedriver'
-        } else {
-          // toast('Incorect username or password');
+    
+
+      for (var i = 0; i < userData.length; i++) {
+        if (email !== userData[i].email || password !== userData[i].password) {
+          toast('Incorect username or password');
+          
         }
-      }
+      else if (email == userData[i].email) {
+        if (password == userData[i].password) {
+          if("User" == userData[i].role){
 
+            toast('User loged in sucessful');
+            localStorage.setItem('token', token);
+            location.href = '/user-view'
+            break;
+          }
+         if("operator" == userData[i].role){
+          toast('Operator loged in sucessful');
+          localStorage.setItem('token', token);
+          location.href = '/operator'
+          break;
+        } if("ADMIN" == userData[i].role){
+          toast('Admin loged in sucessful');
+          localStorage.setItem('token', token);
+          location.href = '/admin-over-view'
+          break;
+        }if("Driver" == userData[i].role){
+          toast('Driver loged in sucessful');
+          localStorage.setItem('token', token);
+          location.href = '/driver-journey'
+          break;
+        }
+        }
+        
+      }
+   
       
-    }
+    
+  }
   }
 
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

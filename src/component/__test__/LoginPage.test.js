@@ -55,15 +55,7 @@ describe("display on Login page", () => {
     const loginElement = screen.queryByText(/forget password/i);
     expect(loginElement).toBeInTheDocument();
   });
-  it("should check return the the link forgot password of loginPage", async () => {
-    render(
-      <Router>
-        <Login title="Login" />
-      </Router>
-    );
-    const loginElement = screen.queryByText(/Reset Password/i);
-    expect(loginElement).toBeInTheDocument();
-  });
+ 
   it("should check if text Don't remember Password? apear in  loginPage", async () => {
     render(
       <Router>
@@ -93,15 +85,7 @@ describe("display on Login page", () => {
     const loginButton = screen.getByRole("link", { name: "Forget Password" });
     expect(loginButton).toBeInTheDocument();
   });
-  it("should check if our link called Reset Password is avilable in our loginPage", async () => {
-    render(
-      <Router>
-        <Login />
-      </Router>
-    );
-    const loginButton = screen.getByRole("link", { name: "Reset Password" });
-    expect(loginButton).toBeInTheDocument();
-  });
+ 
   it("should check if the email should recieve the text value", () => {
     render(
       <Router>

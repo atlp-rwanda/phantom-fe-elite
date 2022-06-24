@@ -1,10 +1,5 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/179c5fae9c505c838e74/maintainability)](https://codeclimate.com/github/atlp-rwanda/phantom-fe-elite/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/179c5fae9c505c838e74/maintainability)](https://codeclimate.com/github/atlp-rwanda/phantom-fe-elite/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/179c5fae9c505c838e74/test_coverage)](https://codeclimate.com/github/atlp-rwanda/phantom-fe-elite/test_coverage) [![Build](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/Build.yml/badge.svg)](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/Build.yml) [![Coverage](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/Coverage.yml/badge.svg)](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/Coverage.yml)
 
-[![Test Coverage](https://api.codeclimate.com/v1/badges/179c5fae9c505c838e74/test_coverage)](https://codeclimate.com/github/atlp-rwanda/phantom-fe-elite/test_coverage)
-
-[![Build](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/Build.yml/badge.svg)](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/Build.yml)
-
-[![Coverage](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/Coverage.yml/badge.svg)](https://github.com/atlp-rwanda/phantom-fe-elite/actions/workflows/Coverage.yml)
 
 # Phantom
 

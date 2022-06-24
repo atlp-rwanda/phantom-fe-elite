@@ -6,6 +6,8 @@ import axios from 'axios'
 import { useFormik } from "formik"
 import { useState, useEffect } from "react";
 import SideSection from "./SideSection";
+import logo from './../../assets/imgs/logo.jpg'
+import { Link } from "react-router-dom";
 
 
 const AsideUserPlan = () => { 
@@ -38,8 +40,12 @@ const fetchroute = async () => {
    }
 }
   return (
-    <aside className="bg-[#f3f3f3] col-start-1 col-end-13 md:col-end-6 lg:col-end-4 sm:block text-black row-start-2 row-end-17 border-r-2 border-solid border-[#f3f3f3]">
-      <section className="h-fit w-[95%] px-5 bg-white rounded mx-auto mt-5 shadow-xl">
+    <aside className="bg-[#f3f3f30d] col-start-1 col-end-13 md:col-end-6 lg:col-end-4 sm:block text-black row-start-2 row-end-17 border-r-2 border-solid border-[#f3f3f3]">
+      <Link to='/'>
+
+<img src={logo} className="mx-4 mt-0" />
+</Link>
+      <section className="h-fit w-[70%] px-5 bg-white rounded ml-2 mt-1 shadow-xl">
         <div className="font-semibold">Plan your trip</div>
         <form role="form" className="w-full h-fit" onSubmit={formik.handleSubmit}>
           <label
