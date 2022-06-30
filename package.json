@@ -53,6 +53,7 @@
 		"formik": "^2.2.9",
 		"jest": "^27.5.1",
 		"json-server": "^0.17.0",
+		"jwt-decode": "^3.1.2",
 		"leaflet": "^1.8.0",
 		"mini-css-extract-plugin": "^2.6.0",
 		"path": "^0.12.7",
