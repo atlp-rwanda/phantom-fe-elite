@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import logoImg from "../../assets/FINAL-LOGO.png";
 import './style.css';
+import LanguageButton from "../../component/LanguageOption"
 
 const NavBar = () => {
   return (
@@ -25,6 +26,7 @@ const NavBar = () => {
         <li>
           <Link to="/register" className='text-textBluePhant font-medium sm:font-semibold'>Sign Up</Link>
         </li>
+        <LanguageButton/>
       </ul>
     </nav>
   );

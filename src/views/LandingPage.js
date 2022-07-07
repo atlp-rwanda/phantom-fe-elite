@@ -6,7 +6,11 @@ import FooterBlock from "../component/footer-and-nav-template/FooterBlock";
 import NavBar from "../component/footer-and-nav-template/NavBar";
 import FormSubscribe from "../component/FormSubscribe";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
+
 const LandingPage = () => {
+  const {t, i18n} = useTranslation();
   return (
     <>
       <NavBar />
@@ -27,7 +31,7 @@ const LandingPage = () => {
             />
             <div>
               <h1 className="text-textBluePhant font-bold leading-9 text-3xl sm:text-4xl font-Montserrat">
-                Track bus movements
+                {t("headbanner")}
               </h1>
               <h2 className="text-lg font-blackPhant font-medium mt-4 sm:text-4xl font-Montserrat">
                 within you hand device
