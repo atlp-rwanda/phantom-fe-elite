@@ -6,12 +6,10 @@ import { FaLinkedin } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import secondimage from "../assets/images/secondImage.jpg";
 import { Formik } from "formik";
-import users from "../../data/users.json";
 import * as Yup from "yup";
 import toast, { Toaster } from "react-hot-toast";
 import NavBar from "../component/footer-and-nav-template/NavBar";
 import FooterBlock from "../component/footer-and-nav-template/FooterBlock";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { url } from "../api/index";
@@ -27,8 +25,8 @@ const LoginPage = ({ onSubmit }) => {
 		password: Yup.string()
 			.min(4, "Minimum of 4 letters")
 			.required("password is Required"),
-  });
-  
+	});
+
 	onSubmit = async (fields) => {
 		const { email, password } = fields;
 		var formData = new FormData();
@@ -76,11 +74,6 @@ const LoginPage = ({ onSubmit }) => {
 					<Toaster
 						toastOptions={{
 							className: "",
-							// style: {
-							// 	border: "1px solid red",
-							// 	padding: "16px",
-							// 	color: "blue",
-							// },
 						}}
 					/>
 				</div>
