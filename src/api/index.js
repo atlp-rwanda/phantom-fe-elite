@@ -1,7 +1,8 @@
 /** @format */
 
-// export const url = "https://chaoo-todo-app.herokuapp.com/api";
+
 export const url = "http://localhost:3001/api/v1";
+// export const url = "http://localhost:3001/api/v1";
 
 export const setHeaders = () => {
 	const headers = {
