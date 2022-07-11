@@ -5,14 +5,14 @@
       "names": "SHYAKA Benjamin",
       "email": "benjamin@gmail.com",
       "password": "ben123",
-      "role": "ADMIN"
+      "role": "operator"
     },
     {
       "userid": 2,
       "names": "NIYONSHUTI Prince",
       "email": "prince@gmail.com",
       "password": "prince123",
-      "role": "ADMIN"
+      "role": "User"
     },
     {
       "userid": 3,
@@ -20,6 +20,14 @@
       "email": "hodal@gmail.com",
       "password": "hodal",
       "role": "ADMIN"
+    },
+    {
+      "userid": 4,
+      "names": "MUHETO Kamali",
+      "email": "muheto@gmail.com",
+      "password": "hodal",
+      "role":"Driver"
+      
     }
   ]
 }

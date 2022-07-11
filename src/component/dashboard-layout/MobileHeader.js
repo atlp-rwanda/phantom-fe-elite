@@ -9,14 +9,14 @@ import logo from "../../assets/images/logo.jpg";
 import { RiCloseFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 const MobileHeader = ({ setAsideOpen }) => {
-	let sideRef = useRef();
+  let sideRef = useRef();
 
-	useEffect(() => {
-		let handler = (event) => {
-			if (!sideRef.current.contains(event.target)) {
-				setAsideOpen(false);
-			}
-		};
+  useEffect(() => {
+    let handler = (event) => {
+      if (!sideRef.current.contains(event.target)) {
+        setAsideOpen(false);
+      }
+    };
 
 		document.addEventListener("mousedown", handler);
 		return () => {
@@ -60,15 +60,18 @@ const MobileHeader = ({ setAsideOpen }) => {
 					</Link>
 				</div>
 
-				<div className="flex gap-5">
-					<AiOutlineSetting size={25} className="mt-1 text-darkBluePhant darkBluePhant" />
-					<Link to="/dmin/operator">
-						<p className="ml-1">Operator</p>
-					</Link>
-				</div>
-			</div>
-		</aside>
-	);
+        <div className="flex gap-5">
+          <AiOutlineSetting
+            size={25}
+            className="mt-1 text-darkBluePhant darkBluePhant"
+          />
+          <Link to="/dmin/operator">
+            <p className="ml-1">Operator</p>
+          </Link>
+        </div>
+      </div>
+    </aside>
+  );
 };
 
 export default MobileHeader;

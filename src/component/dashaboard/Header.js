@@ -5,10 +5,12 @@ import { RiArrowDropDownFill, RiMenuLine } from "react-icons/ri";
 import { IoMdNotifications } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
 import MobileHeader from "./MobileHeader";
+import Dropdown from "../dashboard-layout/Dropdown";
 // import AsideAdminOnPhone from "./AsideAdminOnPhone";
 
 const Header = () => {
 	const [asideOpen, setAsideOpen] = useState(false);
+	const [open, setopen] = useState(false);
 	return (
 		<header className="bg-white col-start-1 sm:col-start-3 md:col-start-4 lg:col-start-3 col-end-13  row-start-1 row-end-2">
 			{asideOpen && <MobileHeader setAsideOpen={setAsideOpen} />}
@@ -33,7 +35,8 @@ const Header = () => {
 								<div className="font-black text-lg">Andela Rwanda</div>
 								<div className="font-gray-400">User</div>
 							</div>
-							<RiArrowDropDownFill className="text-[50px] text-darkBluePhant" />
+							<RiArrowDropDownFill className="text-[50px] text-darkBluePhant" onClick={() => setopen(!open)} />
+                            {open && <Dropdown />}
 						</div>
 					</div>
 				</section>

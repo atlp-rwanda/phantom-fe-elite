@@ -5,7 +5,7 @@ import "@testing-library/jest-dom/extend-expect";
 import "./matchMedia.mock";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter as Router } from "react-router-dom";
-import Login from "./../../views/login"
+import Login from "../../views/login"
 jest.spyOn(console, "error").mockImplementation(()=>{});
 
 describe("display on Login page", () => {
@@ -55,15 +55,7 @@ describe("display on Login page", () => {
     const loginElement = screen.queryByText(/forget password/i);
     expect(loginElement).toBeInTheDocument();
   });
-  it("should check return the the link forgot password of loginPage", async () => {
-    render(
-      <Router>
-        <Login title="Login" />
-      </Router>
-    );
-    const loginElement = screen.queryByText(/Reset Password/i);
-    expect(loginElement).toBeInTheDocument();
-  });
+ 
   it("should check if text Don't remember Password? apear in  loginPage", async () => {
     render(
       <Router>
@@ -93,15 +85,7 @@ describe("display on Login page", () => {
     const loginButton = screen.getByRole("link", { name: "Forget Password" });
     expect(loginButton).toBeInTheDocument();
   });
-  it("should check if our link called Reset Password is avilable in our loginPage", async () => {
-    render(
-      <Router>
-        <Login />
-      </Router>
-    );
-    const loginButton = screen.getByRole("link", { name: "Reset Password" });
-    expect(loginButton).toBeInTheDocument();
-  });
+ 
   it("should check if the email should recieve the text value", () => {
     render(
       <Router>
@@ -154,32 +138,34 @@ describe("display on Login page", () => {
         <Login />
       </Router>
     );
-  //   const inputEl = screen.getByPlaceholderText("Password...");
-  //   fireEvent.change(inputEl, { target: { value: "hodal123" } });
+    const inputEl = screen.getByPlaceholderText("Password...");
+    fireEvent.change(inputEl, { target: { value: "hodal123" } });
 
-  //   expect(inputEl.value).toBe("hodal123");
-  //   expect(inputEl.value.length).toBeGreaterThan(3);
-  //   expect(screen.queryByTestId("error-msg")).not.toBeInTheDocument();
-  // });
-  // it("Test form submit and validation", async () => {
-  //   const handleSubmit = jest.fn();
-  //   render(
-  //     <Router>
-  //       <Login onSubmit={handleSubmit} />
-  //     </Router>
-  //   );
+    expect(inputEl.value).toBe("hodal123");
+    expect(inputEl.value.length).toBeGreaterThan(3);
+    expect(screen.queryByTestId("error-msg")).not.toBeInTheDocument();
+  });
+  it("Test form submit and validation", async () => {
+    const handleSubmit = jest.fn();
+    render(
+      <Router>
+        <Login onSubmit={handleSubmit} />
+      </Router>
+    );
 
-  //   const user = userEvent.setup();
-  //   await user.type(screen.getByTestId("email-input"), "rachel@blbla.com");
-  //   await user.type(screen.getByTestId("password-input"), "N#@!Pass");
+    const user = userEvent.setup();
+    await user.type(screen.getByTestId("email-input"), "prince@gmail.com");
+    await user.type(screen.getByTestId("password-input"), "password@123");
 
-  //   await user.click(screen.getByTestId("submit-form"));
+    await user.click(screen.getByTestId("submit-form"));
 
-  //   await waitFor(() =>
-  //     expect(handleSubmit).toHaveBeenCalledWith({
-  //       email: "rachel@blbla.com",
-  //       password: "N#@!Pass",
-  //     })
-  //   );
+    await user.click(screen.getByTestId("submit-form"));
+
+    // await waitFor(() =>
+    //   expect(handleSubmit).toHaveBeenCalledTimes({
+    //     email: "rachel@blbla.com",
+    //      password: "N#@!Pass"
+    //   })
+    // ); 
   });
 });

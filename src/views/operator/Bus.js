@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useState, useEffect } from "react";
-import Admin from "../../component/layout/Layout";
+import Admin from "../../component/layout/admin";
 import { RiAddCircleLine } from "react-icons/ri";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiEdit } from "react-icons/fi";
