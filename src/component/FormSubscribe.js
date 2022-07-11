@@ -1,7 +1,9 @@
 import React from "react";
 import { useFormik } from "formik";
+import { useTranslation } from "react-i18next";
 
 const FormSubscribe = () => {
+  const {t, i18n} = useTranslation();
   // initial values of the form input data before being interacted by the user.
   const initialValues = {
     email: "",
@@ -43,7 +45,7 @@ const FormSubscribe = () => {
         <input
           className="border-2 w-44 sm:w-40 lg:w-80 h-9 sm:h-12 sm:mr- pl-2 rounded-sm border-black border-solid"
           type="text"
-          placeholder="Email ...."
+          placeholder={t("email")}
           name="email"
           onChange={formik.handleChange}
           value={formik.values.email}
@@ -60,7 +62,7 @@ const FormSubscribe = () => {
         type="submit"
         className="w-24 sm:w-24 lg:w-40 h-9 sm:h-12 border-0 border-none lg:ml-6 rounded bg-blackPhant text-whitePhant cursor-pointer"
       >
-        Subcribe
+        {t("subscribe")}
       </button>
     </form>
   );

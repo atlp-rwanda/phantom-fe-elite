@@ -1,3 +1,21 @@
 {
-    "headbanner": "Track bus movements"
+    "headbanner": "Track bus movements",
+    "headbanner2": "within your hand device!",
+    "signin": "Sign In",
+    "signup": "Sign Up",
+    "banner3": "Check the location of any bus on any Kigali route. waiting is nolonger an option, with Phantom you can see from the sky!",
+    "see": "See for yourself",
+    "email": "Email . . . ",
+    "password": "Password . . .",
+    "subscribe": "Subscribe",
+    "contact": "Contact us",
+    "partners": "Partners",
+    "loginTitle": "LOGIN",
+    "signupTitle": "REGISTER",
+    "remember": "Don't remember Password?",
+    "forget": "Forget Password",
+    "with": "or login with",
+    "reset": "Reset Password",
+    "name": "Username . . .",
+    "copy": "Andela 2022. All Rights reserved. Designed by Elite Team"
 }

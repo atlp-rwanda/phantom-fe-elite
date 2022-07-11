@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import {
   FaGithub,
@@ -13,13 +14,14 @@ import loyal from "../../assets/images/partners/loyal.jpg";
 import kbs from "../../assets/images/partners/kbs.jpg";
 
 const FooterBlock = () => {
+  const {t, i18n} = useTranslation();
   return (
     <footer className="footers h-17.5%" role="footer">
       <div className="flex justify-around flex-col border-t border-solid border-darkBluePhant sm:flex-row-reverse  my-2 mx-0">
         <section className="contact-box w-full sm:w-1/3 sm:border-l-4 sm:border-solid sm:border-darkBluePhant my-2">
           <div>
             <h3 className="text-center font-semibold mx-0 mt-1 mb-4 font-Sensation tracking-widest">
-              Contact Us
+            {t("contact")}
             </h3>
           </div>
           <div className="flex justify-around ">
@@ -40,7 +42,7 @@ const FooterBlock = () => {
         <section className="sm:w-2/3 mx-8 sm:mx-0">
           <div>
             <h3 className="text-center font-semibold mx-0 mt-1 mb-4 font-Sensation tracking-widest">
-              Partners
+            {t("partners")}
             </h3>
           </div>
           <div className="flex justify-around w-full">
@@ -54,7 +56,7 @@ const FooterBlock = () => {
       </div>
       <div>
         <p className="text-center text-xs pb-4">
-          Andela 2022. All Rights reserved. Designed by Elite Team
+        {t("copy")}
         </p>
       </div>
     </footer>

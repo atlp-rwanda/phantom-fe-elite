@@ -27,7 +27,7 @@ const NewRouteModal = ({ newData,setModalOpen,isModalOpen }) => {
     setDestination(event.target.value);
   };
   const handleSubmit = (event) => {
-    event.preventDefault();
+  event.preventDefault();
 	newData({
 		origin:origin,
 		destination: destination

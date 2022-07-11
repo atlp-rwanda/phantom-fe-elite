@@ -35,6 +35,7 @@ const RouteLine = () => {
 	   setModalOpen(false);
 
    } catch (error) {
+     
      console.log(error);
 
 

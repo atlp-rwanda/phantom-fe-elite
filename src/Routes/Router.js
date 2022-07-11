@@ -40,7 +40,6 @@ const Router = () => {
 						<Route exact path="/driver-journey" element={<BusMotion />}></Route>
                         <Route exact path="/driver-map" element={<DriverView />}></Route>
 						<Route path="/operator-assign" element={<Assign />}></Route>
-						<Route path="/user-view" element={<UserView />}></Route>
                         <Route path="/user-plan" element={<UserChooseRoutes />}></Route>
 						<Route path="*" element={<PageNotFound />}></Route>
 					</Routes>
@@ -52,6 +51,7 @@ const Router = () => {
 			<BrowserRouter>
 				<div className="h-screen flex flex-col ">
 					<Routes>
+						<Route path="/user-plan" element={<UserView />}></Route>
 						<Route exact path="/" element={<LandingPage />}></Route>
 						<Route exact path="/register" element={<RegisterPage />}></Route>
 						<Route exact path="/login" element={<LoginPage />}></Route>
