@@ -1,24 +1,30 @@
-import React from 'react';
-import { date, number } from 'yup';
-import TableRow from './TableRow';
+import React from "react";
+import { date, number } from "yup";
+import TableRow from "./TableRow";
 
+const ListContent = ({ data, handleDelete, setRoutes }) => {
+  const handling = (id) => {
+    handleDelete(id);
+  };
 
-const ListContent = ({data, handleDelete, setRoutes}) => {
+  return (
+    <>
+      {data.map((dataItem) => {
+        return (
+          <TableRow
+            removeDeletedItem={handling}
+            key={dataItem.id}
+            origin={dataItem.origin}
+            number={dataItem.id}
+            id={dataItem.id}
+            handleDelete={handling}
+            destination={dataItem.destination}
+            setRoutes={setRoutes}
+          />
+        );
+      })}
+    </>
+  );
+};
 
-let i = 0;
-
-const handling = (id) => {
-  handleDelete(id)
-}
-
-return (
- <>
-  {data.map((dataItem) => {
-    i++
-    return <TableRow removeDeletedItem={handling} key= {dataItem.id} origin={dataItem.origin} number={i} id = {dataItem.id} handleDelete = {handling} destination={dataItem.destination} setRoutes={setRoutes} />;
-  })}
-</>
- );
-}
-
-export default ListContent
+export default ListContent;
