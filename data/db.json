@@ -79,89 +79,74 @@
   ],
   "routes": [
     {
-      "id": 1,
-      "origin": "Jabana",
-      "destination": "Kacyiru"
+      "origin": "kigalirrrr",
+      "destination": "muhanga",
+      "id": 1
     },
     {
-      "id": 2,
-      "origin": "Jabana",
-      "destination": "Kacyiru"
+      "origin": "muhanga",
+      "destination": "kigali",
+      "id": 2
     },
     {
-      "id": 3,
-      "origin": "Jabana",
-      "destination": "Kacyiru"
+      "origin": "",
+      "destination": "",
+      "id": 3
     },
     {
-      "origin": "cxm",
-      "destination": "cnbsdj",
+      "origin": "dfad",
+      "destination": "sadfasdf",
       "id": 4
     },
     {
-      "origin": "zxnxn",
-      "destination": "xmx",
+      "origin": "fasfd",
+      "destination": "asdfasd",
       "id": 5
     },
     {
-      "origin": "cxmXMC",
-      "destination": "ruierCMX,",
+      "origin": "asgdf",
+      "destination": "asdf",
       "id": 6
     },
     {
-      "origin": "Kanombe",
-      "destination": "gdfngjnjd",
+      "origin": "fasdf",
+      "destination": "sdfsadf",
+      "id": 7
+    },
+    {
+      "origin": "asdfa",
+      "destination": "asdfasdf",
+      "id": 8
+    },
+    {
+      "origin": "sdf",
+      "destination": "fsdg",
       "id": 9
     },
     {
-      "origin": "cxm",
-      "destination": "cxcmxm,c",
+      "origin": "jbjhbjbh",
+      "destination": "hjkjbhj",
       "id": 10
     },
     {
-      "origin": "zxnxn",
-      "destination": "c,m,x",
+      "origin": "asdf",
+      "destination": "fasdf",
       "id": 11
     },
     {
-      "origin": "ZmaRT",
-      "destination": "zxmzmmxzm",
+      "origin": "",
+      "destination": "",
       "id": 12
     },
     {
-      "origin": "Kanombe",
-      "destination": "ISI YA9",
+      "origin": "",
+      "destination": "",
       "id": 13
     },
     {
-      "origin": "Nyanza",
-      "destination": "Kinamba",
+      "origin": "",
+      "destination": "",
       "id": 14
-    },
-    {
-      "origin": "Kanombe",
-      "destination": "Kicukiro",
-      "id": 15
-    },
-    {
-      "origin": "Kibagabagajjd",
-      "destination": "Kaguguiajsd",
-      "id": 16
-    },
-    {
-      "origin": "Kanombekl",
-      "destination": "ccxxhjhj",
-      "id": 17
-    },
-    {
-      "origin": "Karongm",
-      "destination": "Kagitumbu",
-      "id": 18
-    },
-    {
-      "origin": "Kanombe",
-      "destination": "ncvdns",
-      "id": 19
     }
   ],
   "buses": [
