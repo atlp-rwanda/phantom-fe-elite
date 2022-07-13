@@ -25,9 +25,9 @@ const TableGenerator = (props) => {
           return (
             <TableRow
               name={user.name}
-              driverId={user.driverId}
-              license={user.license}
-              mobileNumber={user.mobileNumber}
+              driverId={user.id_number}
+              license={user.permit_id}
+              mobileNumber={user.phone}
               id={user.id}
               // pass id automatically from the index to dispay the number of the operator currently rendere
               // on the screen

@@ -7,9 +7,10 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
   // Initial data is prefilled with data from row being updated
   let initialData = {
     name: "",
-    driverId: "",
-    license: "",
-    mobileNumber: "",
+    id_number: "",
+    permit_id: "",
+    phone: "",
+    email:""
   };
 
   //  the function which is called by formik by default and it passes values object automatically
@@ -34,13 +35,13 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
        .min(3, "Too Short Name!")
        .max(50, "Too Long name!")
        .required("Name Required"),
-     mobileNumber: Yup.string()
+       phone: Yup.string()
        .matches(phoneRegExp, "Phone number is not valid")
        .required("Enter the driver phone number"),
-     driverId: Yup.number("Enter the number")
+      id_number: Yup.number("Enter the number")
       .positive("They should not be negative")
       .required("Please fill the form with number").min(1),
-     license: Yup.string().required("license is required").min(3, "too short"),
+     permit_id: Yup.string().required("license is required").min(3, "too short"),
    });
 
   //  the formik is the object which is returned by useFormik. this use formik is receiving
@@ -82,23 +83,42 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
               <div className="text-errorText">{formik.errors.name}</div>
             ) : null}
           </div>
+          <div className="flex flex-col pb-1 sm:px-4 px-3">
+            <label for="name" className=" my-2 md:my-0  md:py-3 lg:py-0">
+              Driver Email
+            </label>
+            <input
+              onChange={formik.handleChange}
+              value={formik.values.email}
+              onBlur={formik.handleBlur}
+              name="email"
+              data-testid="email"
+              type="text"
+              placeholder="Driver Email"
+              className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
+            />
+            {/* conditional rendering of the error message for validating the name input field */}
+            {formik.touched.email && formik.errors.email ? (
+              <div className="text-errorText">{formik.errors.email}</div>
+            ) : null}
+          </div>
           <div className="flex flex-col pb-1 sm:px-4 px-3 md:my-5 lg:my-0">
             <label htmlFor="email" className="my-2 md:my-0 md:py-3 lg:py-0">
               Driver Id
             </label>
             <input
               onChange={formik.handleChange}
-              value={formik.values.driverId}
+              value={formik.values.id_number}
               onBlur={formik.handleBlur}
-              name="driverId"
+              name="id_number"
               data-testid="email"
               type="text"
               placeholder="Driver Id"
               className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
             />
             {/* conditional rendering of the error message for validating the name input field */}
-            {formik.touched.driverId && formik.errors.driverId ? (
-              <div className="text-errorText">{formik.errors.driverId}</div>
+            {formik.touched.id_number && formik.errors.id_number ? (
+              <div className="text-errorText">{formik.errors.id_number}</div>
             ) : null}
           </div>
           <div className="flex flex-col pb-1 sm:px-4 px-3 md:my-5 lg:my-0">
@@ -107,17 +127,17 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
             </label>
             <input
               onChange={formik.handleChange}
-              value={formik.values.mobileNumber}
+              value={formik.values.phone}
               onBlur={formik.handleBlur}
-              name="mobileNumber"
+              name="phone"
               data-testid="email"
               type="text"
               placeholder="Mobile number"
               className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
             />
             {/* conditional rendering of the error message for validating the name input field */}
-            {formik.touched.mobileNumber && formik.errors.mobileNumber ? (
-              <div className="text-errorText">{formik.errors.mobileNumber}</div>
+            {formik.touched.phone && formik.errors.phone ? (
+              <div className="text-errorText">{formik.errors.phone}</div>
             ) : null}
           </div>
           <div className="flex flex-col pb-1 sm:px-4 px-3 md:my-5 lg:my-0">
@@ -126,17 +146,17 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
             </label>
             <input
               onChange={formik.handleChange}
-              value={formik.values.license}
+              value={formik.values.permit_id}
               onBlur={formik.handleBlur}
-              name="license"
+              name="permit_id"
               data-testid="email"
               type="text"
               placeholder="Driver License"
               className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
             />
             {/* conditional rendering of the error message for validating the name input field */}
-            {formik.touched.license && formik.errors.license ? (
-              <div className="text-errorText">{formik.errors.license}</div>
+            {formik.touched.permit_id && formik.errors.permit_id ? (
+              <div className="text-errorText">{formik.errors.permit_id}</div>
             ) : null}
           </div>
           <div className="bg-gray-200 px-4 py-2 mt-4 md:12 sm:mt-8 md:mt-12 lg:mt-4 rounded-b-md text-left flex">

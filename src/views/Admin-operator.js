@@ -10,6 +10,7 @@ import FooterAdmin from "../admin-operator-stuff/TemplateComponent/FooterAdmin";
 import HeaderAdmin from "../admin-operator-stuff/TemplateComponent/HeaderAdmin";
 import toast, { Toaster } from "react-hot-toast";
 import AsideAdmin from "../admin-operator-stuff/TemplateComponent/AsideAdmin";
+import { url } from "../api";
 
 const AdminOperator = () => {
   // to change the state for toggling the modal
@@ -117,8 +118,8 @@ const AdminOperator = () => {
       // allow display the loading component
       setLoading(true);
       try {
-        const operatorsData = await axios.get("http://localhost:7000/operator");
-        setDatas(operatorsData.data);
+        const operatorsData = await axios.get(`${url}/operators`);
+        setDatas(operatorsData.data.data);
         setLoading(false);
         setError({
           message: "",
@@ -156,12 +157,15 @@ const AdminOperator = () => {
       if (isRegisterDuplicated(dataFromForm.email)) {
         toast.error("The operator already exists! Register different operator");
       } else {
-        const operator = axios.post(
-          "http://localhost:7000/operator",
-          dataFromForm
-        );
+        const operator = axios.post(`${url}/operators`,dataFromForm,{
+          headers:{
+            'Content-Type': 'application/json',
+          }
+        }).then((response)=>{
+          console.log(response)
+          displayPopupMessage(response, "Save");
+        })
         // function to handle popup loading while saving and display the status message
-        displayPopupMessage(operator, "Save");
         // the promise is awaited to resove so that it can have the values. NB: The following code
         // cant run before promise is resolved due to this await.
         await operator;

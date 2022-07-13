@@ -10,6 +10,7 @@ import FooterAdmin from "./../../admin-driver-stuff/TemplateComponent/FooterAdmi
 import HeaderAdmin from "./../../admin-driver-stuff/TemplateComponent/HeaderAdmin";
 import toast, { Toaster } from "react-hot-toast";
 import AsideAdmin from "./../../admin-driver-stuff/TemplateComponent/AsideAdmin";
+import { url } from "../../api";
 
 const AdminDriver = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -80,8 +81,8 @@ const AdminDriver = () => {
     const fetchAll = async () => {
       setLoading(true);
       try {
-        const driverData = await axios.get("http://localhost:7000/driver");
-        setDatas(driverData.data);
+        const driverData = await axios.get( `${url}/drivers`);
+        setDatas(driverData.data.data);
         setLoading(false);
         setError({
           message: "",
@@ -108,17 +109,19 @@ const AdminDriver = () => {
   const addDataFromForm = async (dataFromForm) => {
     dataFromForm.id = uuidv4();
     try {
-      const driver = axios.post("http://localhost:7000/driver", dataFromForm);
+      const driver = await axios.post(`${url}/drivers`, dataFromForm,{
+        headers:{
+          'Content-Type': 'application/json',
+        }
+      })
+      .then((response)=>{
+        console.log(response)
+        displayPopupMessage(response, "Save");
+      })
 
-      displayPopupMessage(driver, "Save");
+      const driverDataCurrrent = await axios.get(`${url}/drivers`);
 
-      await driver;
-
-      const driverDataCurrrent = await axios.get(
-        "http://localhost:7000/driver"
-      );
-
-      setDatas(driverDataCurrrent.data);
+      setDatas(driverDataCurrrent.data.data);
     } catch (error) {
       console.log(error);
     }

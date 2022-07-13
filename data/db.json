@@ -43,6 +43,14 @@
       "mobileNumber": "5645475",
       "role": "driver",
       "id": "025f5ac2-8970-4eee-858a-081d3a9cd6a4"
+    },
+    {
+      "name": "axel",
+      "id_number": "2222",
+      "permit_id": "33333333333333",
+      "phone": "07800000000",
+      "role": "driver",
+      "id": "a091c896-3f71-439c-81c8-f06151654585"
     }
   ],
   "operator": [
