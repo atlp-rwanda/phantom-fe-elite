@@ -19,6 +19,26 @@
       "Eta": "20 min"
     }
   ],
+  "bus": [
+    {
+      "id": 2,
+      "busName": "Yutongo version",
+      "busPlate": "RAD 129 B",
+      "busRoute": "Kimironko - Downtown"
+    },
+    {
+      "id": 3,
+      "busName": "Volks wagen",
+      "busPlate": "RAC 1299 GY",
+      "busRoute": "Kimironko - Downtown"
+    },
+    {
+      "busName": "welcome",
+      "busPlate": "RAD 1200 RD",
+      "busRoute": "kinyinya - remera",
+      "id": 4
+    }
+  ],
   "driver": [
     {
       "name": "Kamal",

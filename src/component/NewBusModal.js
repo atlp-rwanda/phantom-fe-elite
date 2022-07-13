@@ -28,6 +28,7 @@ const NewBusModal = () => {
 		}),
 		onsubmit: (values) => {},
 	});
+	
 	return (
 		<div
 			className="fixed z-10 overflow-y-auto top-0 w-full left-0 hidden"
