@@ -56,7 +56,7 @@ const Admin = ({ children }) => {
 					<div className="flex gap-5">
 						
 						<FaBus size={25} className="mt-1 text-darkBluePhant " />
-						<Link to='/operator-bus'>
+						<Link to='/bus'>
 
 						<p className="ml-1">Bus</p>
 						</Link>

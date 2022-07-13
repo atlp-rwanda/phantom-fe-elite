@@ -258,7 +258,7 @@ const AdminBus = () => {
       {modalOpen && showModal()}
       <main className=" flex flex-col col-start-1 sm:col-start-3 md:col-start-4 lg:col-start-3 col-end-13 row-start-2 row-end-12 px-3 mx-0 sm:mx-2  mt-2 bg-white">
         <div className="flex justify-center sm:justify-start md:justify-center lg:justify-start ">
-          <div className="m-2 font-black text-xl border-b-2 border-solid border-darkBluePhant w-[90px]">
+          <div className="m-2 font-black text-xl border-b-2 border-solid border-darkBluePhant w-[45px]">
             Bus
           </div>
         </div>
