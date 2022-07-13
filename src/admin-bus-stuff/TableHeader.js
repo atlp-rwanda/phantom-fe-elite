@@ -7,7 +7,7 @@ const TableHeader = () => {
       role="row-header"
     >
       <div className="col-span-1">No</div>
-      <div className="col-span-3 ">Bus Number</div>
+      <div className="col-span-3 ">Bus Name</div>
       <div className="col-span-3 ">Bus Plate</div>
       <div className="col-span-3 ">Routes</div>
       <div className="col-span-2 ">Actions</div>

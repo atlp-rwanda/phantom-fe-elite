@@ -63,15 +63,15 @@ const EditOperatorForm = ({
       className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50"
       data-testid="edit-form"
     >
-      <div className="w-5/6 sm:w-3/5 h-1/3 sm:h-3/5 md:w-3/5 lg:h-2/5 md:h-1/3 lg:w-2/6 xl:w-1/3 xl:h-2/5 bg-white rounded-md pt-2 md:pt-9 lg:pt-2 box-border">
+      <div className="w-5/6 sm:w-3/5 h-1/3 sm:h-3/5 md:w-3/5 lg:h-3/5 md:h-1/3 lg:w-2/6 xl:w-1/3 xl:h-3/5 bg-white rounded-md pt-2 md:pt-9 lg:pt-0 box-border">
         <div className="sm:px-4 px-3">
-          <div className="mb-4 font-bold border-b-2 border-solid border-darkBluePhant w-[130px] pt-2">
+          <div className="mb-2 font-bold border-b-2 border-solid border-darkBluePhant w-[75px] pt-4">
             {update ? "Edit Bus" : "Create New Bus"}
           </div>
         </div>
         <form action="" onSubmit={formik.handleSubmit} role="form">
           <div className="flex flex-col pb-1 sm:px-4 px-3">
-            <label for="name" className=" my-2 md:my-0  md:py-3 lg:py-0">
+            <label for="name" className=" my-2 md:my-0  md:py-3 lg:py-2">
               Bus Name
             </label>
             <input
@@ -91,7 +91,7 @@ const EditOperatorForm = ({
             ) : null}
           </div>
           <div className="flex flex-col pb-0 sm:px-4 px-3 md:my-5 lg:my-0">
-            <label htmlFor="email" className="my-2 md:my-0 md:py-2 lg:py-0">
+            <label htmlFor="email" className="my-2 md:my-0 md:py-2 lg:py-2">
               Bus Plate
             </label>
             <input
@@ -110,7 +110,7 @@ const EditOperatorForm = ({
             ) : null}
           </div>
           <div className="flex flex-col pb-0 sm:px-4 px-3 md:my-5 lg:my-0">
-            <label htmlFor="email" className="my-2 md:my-0 md:py-2 lg:py-0">
+            <label htmlFor="email" className="my-2 md:my-0 md:py-2 lg:py-2">
               Bus Route
             </label>
             <input
@@ -128,7 +128,7 @@ const EditOperatorForm = ({
               <div className="text-errorText">{formik.errors.busRoute}</div>
             ) : null}
           </div>
-          <div className="bg-gray-200 px-4 py-2 mt-4 sm:mt-8 md:mt-5 lg:mt-2 rounded-b-md text-left flex">
+          <div className="bg-gray-200 px-4 py-2 mt-4 sm:mt-8 md:mt-5 lg:mt-5 rounded-b-md text-left flex">
             <button
               className="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-600 mr-2"
               onClick={() => {
