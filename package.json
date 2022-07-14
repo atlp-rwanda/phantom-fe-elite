@@ -47,6 +47,7 @@
 		"babel-jest": "^27.5.1",
 		"babel-polyfill": "^6.26.0",
 		"caniuse-lite": "^1.0.30001335",
+		"cors": "^2.8.5",
 		"dotenv": "^16.0.0",
 		"dotenv-webpack": "^7.1.0",
 		"emailjs-com": "^3.2.0",

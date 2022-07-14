@@ -17,5 +17,12 @@
     "with": "or login with",
     "reset": "Reset Password",
     "name": "Username . . .",
-    "copy": "Andela 2022. All Rights reserved. Designed by Elite Team"
+    "copy": "Andela 2022. All Rights reserved. Designed by Elite Team",
+    "view": "View Bus Motion",
+    "plan": "Plan your trip",
+    "depart": "Depart Now",
+    "location": "Current Location",
+    "destination": "Destination",
+    "recommendation": "Recommendend Routes",
+    "user": "User"
 }

@@ -6,6 +6,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
 import MobileHeader from "./MobileHeader";
 import Dropdown from "../dashboard-layout/Dropdown";
+import LanguageButton from "../LanguageOption";
 // import AsideAdminOnPhone from "./AsideAdminOnPhone";
 
 const Header = () => {
@@ -23,17 +24,13 @@ const Header = () => {
 						}}>
 						<RiMenuLine />
 					</div>
-					<div className="flex items-center">
-						<div className="font-black text-xl">EN</div>
-						<RiArrowDropDownFill className="text-2xl sm:text-4xl" />
-						<IoMdNotifications className="text-2xl sm:text-4xl" />
-					</div>
+					<LanguageButton/>
 					<div className="flex items-center border-l-2 border-solid border-black h-full">
 						<FaUserCircle className="text-[30px] sm:text-[40px] bg-white text-darkBluePhant mx-3 my-1" />
 						<div className="flex">
 							<div className="flex flex-col">
 								<div className="font-black text-lg">Andela Rwanda</div>
-								<div className="font-gray-400">User</div>
+								<div className="font-gray-400">Usher</div>
 							</div>
 							<RiArrowDropDownFill className="text-[50px] text-darkBluePhant" onClick={() => setopen(!open)} />
                             {open && <Dropdown />}
