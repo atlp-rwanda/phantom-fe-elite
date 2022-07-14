@@ -48,7 +48,7 @@ const AdminOperator = () => {
           // this is the success function which receive anonymous function which is automatically
           //  passed the response for RESOLVED promise
           success: (response) =>
-            `Successfully saved ${response.data.name.toUpperCase()}`,
+            `Successfully saved ${response.data.data.name.toUpperCase()}`,
 
           // this is the error function which receive anonymous function which is automatically
           //  passed the response for REJECTED promise
@@ -161,10 +161,8 @@ const AdminOperator = () => {
           headers:{
             'Content-Type': 'application/json',
           }
-        }).then((response)=>{
-          console.log(response)
-          displayPopupMessage(response, "Save");
         })
+        displayPopupMessage(operator, "Save");
         // function to handle popup loading while saving and display the status message
         // the promise is awaited to resove so that it can have the values. NB: The following code
         // cant run before promise is resolved due to this await.
@@ -172,11 +170,9 @@ const AdminOperator = () => {
       }
 
       // fetch all data from the database
-      const operatorsDataCurrrent = await axios.get(
-        "http://localhost:7000/operator"
-      );
+      const operatorsDataCurrrent = await axios.get(`${url}/operators`);
       // update what is renderd on the screen
-      setDatas(operatorsDataCurrrent.data);
+      setDatas(operatorsDataCurrrent.data.data);
     } catch (error) {
       console.log(error);
     }

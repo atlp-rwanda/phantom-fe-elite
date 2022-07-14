@@ -33,7 +33,7 @@ const AdminDriver = () => {
           loading: "Saving driver ...",
 
           success: (response) =>
-            `Successfully saved ${response.data.name.toUpperCase()}`,
+            `Successfully saved ${response.data.data.name.toUpperCase()}`,
 
           error: (err) =>
             `This error occured while saving: ${err.message.toUpperCase()}`,
@@ -109,15 +109,14 @@ const AdminDriver = () => {
   const addDataFromForm = async (dataFromForm) => {
     dataFromForm.id = uuidv4();
     try {
-      const driver = await axios.post(`${url}/drivers`, dataFromForm,{
+      const driver = axios.post(`${url}/drivers`, dataFromForm,{
         headers:{
           'Content-Type': 'application/json',
         }
       })
-      .then((response)=>{
-        console.log(response)
-        displayPopupMessage(response, "Save");
-      })
+      displayPopupMessage(driver, "Save");
+
+      await driver
 
       const driverDataCurrrent = await axios.get(`${url}/drivers`);
 
