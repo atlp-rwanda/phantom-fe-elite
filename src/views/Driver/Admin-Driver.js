@@ -130,7 +130,7 @@ const AdminDriver = () => {
     dataFromEditForm.id = update.id;
     try {
       const driver = axios.put(
-        `http://localhost:7000/driver/${update.id}`,
+        `${url}/profile/update/${update.id}`,
         dataFromEditForm
       );
 
@@ -138,11 +138,9 @@ const AdminDriver = () => {
 
       await driver;
 
-      const driverDataCurrrent = await axios.get(
-        "http://localhost:7000/driver"
-      );
+      const driverDataCurrrent = await axios.get(`${url}/drivers`);
 
-      setDatas(driverDataCurrrent.data);
+      setDatas(driverDataCurrrent.data.data);
     } catch (error) {
       console.log(error);
     }

@@ -27,6 +27,9 @@ const TableGenerator = (props) => {
               name={user.name}
               email={user.email}
               role={user.role}
+              id_number={user.id_number}
+              permit_id={user.permit_id}
+              phone={user.phone}
               id={user.id}
               // pass id automatically from the index to dispay the number of the operator currently rendere
               // on the screen

@@ -9,14 +9,15 @@ const EditOperatorForm = ({
   setCloseUpdate,
 }) => {
   // destructure name and email from the data coming from the row to be updated
-  const { name, mobileNumber, license, driverId } = update;
+  const { name, email, id_number, permit_id,phone } = update;
 
   // Initial data is prefilled with data from row being updated
   let initialData = {
     name: name,
-    driverId: driverId,
-    license: license,
-    mobileNumber: mobileNumber,
+    email: email,
+    driverId: id_number,
+    license: permit_id,
+    mobileNumber: phone,
   };
 
   // validationSchema which validate the form before being submitted
@@ -99,6 +100,25 @@ const EditOperatorForm = ({
             {/* conditional rendering of the error message for validating the name input field */}
             {formik.touched.name && formik.errors.name ? (
               <div className="text-errorText">{formik.errors.name}</div>
+            ) : null}
+          </div>
+          <div className="flex flex-col pb-1 sm:px-4 px-3">
+            <label for="name" className=" my-2 md:my-0  md:py-3 lg:py-0">
+              Driver email
+            </label>
+            <input
+              onChange={formik.handleChange}
+              value={formik.values.email}
+              onBlur={formik.handleBlur}
+              name="email"
+              data-testid="email"
+              type="text"
+              placeholder="Driver email"
+              className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
+            />
+            {/* conditional rendering of the error message for validating the name input field */}
+            {formik.touched.email && formik.errors.email ? (
+              <div className="text-errorText">{formik.errors.email}</div>
             ) : null}
           </div>
           <div className="flex flex-col pb-1 sm:px-4 px-3 md:my-5 lg:my-0">

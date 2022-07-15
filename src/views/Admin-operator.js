@@ -63,7 +63,7 @@ const AdminOperator = () => {
           // this is the success function which receive anonymous function which is automatically
           //  passed the response for RESOLVED promise
           success: (response) =>
-            `Successfully updated ${response.data.name.toUpperCase()}`,
+            `Successfully updated ${response.data.data.name.toUpperCase()}`,
 
           // this is the error function which receive anonymous function which is automatically
           //  passed the response for REJECTED promise
@@ -183,10 +183,7 @@ const AdminOperator = () => {
     dataFromEditForm.id = update.id;
     try {
       // this axios returns a promise which is stored into the operator
-      const operator = axios.put(
-        `http://localhost:7000/operator/${update.id}`,
-        dataFromEditForm
-      );
+      const operator = axios.put(`${url}/profile/update/${update.id}`,dataFromEditForm);
       // function to handle popup loading while saving and display the status message
       displayPopupMessage(operator, "Update");
       // the promise is awaited to resove so that it can have the values. NB: The following code
@@ -195,11 +192,9 @@ const AdminOperator = () => {
       // }
 
       // fetch all data from the database
-      const operatorsDataCurrrent = await axios.get(
-        "http://localhost:7000/operator"
-      );
+      const operatorsDataCurrrent = await axios.get(`${url}/operators`);
       // update what is renderd on the screen
-      setDatas(operatorsDataCurrrent.data);
+      setDatas(operatorsDataCurrrent.data.data);
     } catch (error) {
       console.log(error);
     }

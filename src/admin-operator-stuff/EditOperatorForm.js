@@ -10,12 +10,16 @@ const EditOperatorForm = ({
 }) => {
 
   // destructure name and email from the data coming from the row to be updated
-  const { name, email } = update;
+  const { name, email, id_number, permit_id,phone } = update;
 
+  console.log(update)
   // Initial data is prefilled with data from row being updated
   let initialData = {
     name:name,
-    email:email
+    email:email,
+    id_number:id_number,
+    permit_id:permit_id,
+    phone:phone
   };
 
   // validationSchema which validate the form before being submitted
@@ -101,6 +105,63 @@ const EditOperatorForm = ({
             {/* conditional rendering of the error message for validating the name input field */}
             {formik.touched.email && formik.errors.email ? (
               <div className="text-errorText">{formik.errors.email}</div>
+            ) : null}
+          </div>
+          <div className="flex flex-col pb-1 sm:px-4 px-3">
+            <label for="name" className=" my-2 md:my-0  md:py-3 lg:py-0">
+               id_number
+            </label>
+            <input
+              onChange={formik.handleChange}
+              value={formik.values.id_number}
+              onBlur={formik.handleBlur}
+              name="id_number"
+              data-testid="id_number"
+              type="text"
+              placeholder="id_number"
+              className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
+            />
+            {/* conditional rendering of the error message for validating the name input field */}
+            {formik.touched.id_number && formik.errors.id_number ? (
+              <div className="text-errorText">{formik.errors.id_number}</div>
+            ) : null}
+          </div>         
+          <div className="flex flex-col pb-1 sm:px-4 px-3">
+            <label for="name" className=" my-2 md:my-0  md:py-3 lg:py-0">
+            permit_id
+            </label>
+            <input
+              onChange={formik.handleChange}
+              value={formik.values.permit_id}
+              onBlur={formik.handleBlur}
+              name="permit_id"
+              data-testid="permit_id"
+              type="text"
+              placeholder="permit_id"
+              className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
+            />
+            {/* conditional rendering of the error message for validating the name input field */}
+            {formik.touched.permit_id && formik.errors.permit_id ? (
+              <div className="text-errorText">{formik.errors.permit_id}</div>
+            ) : null}
+          </div>
+          <div className="flex flex-col pb-1 sm:px-4 px-3">
+            <label for="name" className=" my-2 md:my-0  md:py-3 lg:py-0">
+               phone
+            </label>
+            <input
+              onChange={formik.handleChange}
+              value={formik.values.phone}
+              onBlur={formik.handleBlur}
+              name="phone"
+              data-testid="phone"
+              type="text"
+              placeholder="phone"
+              className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
+            />
+            {/* conditional rendering of the error message for validating the name input field */}
+            {formik.touched.phone && formik.errors.phone ? (
+              <div className="text-errorText">{formik.errors.phone}</div>
             ) : null}
           </div>
           <div className="bg-gray-200 px-4 py-2 mt-4 sm:mt-8 md:mt-5 lg:mt-2 rounded-b-md text-left flex">
