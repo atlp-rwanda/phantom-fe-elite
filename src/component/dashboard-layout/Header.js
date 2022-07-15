@@ -5,6 +5,7 @@ import { RiArrowDropDownFill, RiMenuLine } from "react-icons/ri";
 import { IoMdNotifications } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
 import MobileHeaderOperator from "./MobileHeaderOperator";
+import LanguageButton from "../../component/LanguageOption"
 // import AsideAdminOnPhone from "./AsideAdminOnPhone";
 import Dropdown from "./Dropdown";
 
@@ -24,9 +25,7 @@ const Header = () => {
 						<RiMenuLine />
 					</div>
 					<div className="flex items-center">
-						<div className="font-black text-xl">EN</div>
-						<RiArrowDropDownFill className="text-2xl sm:text-4xl" />
-						<IoMdNotifications className="text-2xl sm:text-4xl" />
+					<LanguageButton/>
 					</div>
 					<div className="flex items-center border-l-2 border-solid border-black h-full">
 						<FaUserCircle className="text-[30px] sm:text-[40px] bg-white text-darkBluePhant mx-3 my-1" />

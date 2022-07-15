@@ -10,6 +10,7 @@ import { FaBus, FaUserCircle } from "react-icons/fa";
 import { MdAltRoute } from "react-icons/md";
 import { AiOutlineSetting } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import LanguageButton from "../../component/LanguageOption"
 import Dropdown from "../dashboard-layout/Dropdown";
 
 const Admin = ({ children }) => {
@@ -20,8 +21,8 @@ const Admin = ({ children }) => {
 				<div className="flex justify-end h-full">
 					<section className="w-1/3 flex justify-between items-center h-full">
 						<div className="flex items-center">
-							<div className="font-black text-xl">EN</div>
-							<RiArrowDropDownFill className="text-[50px] text-darkBluePhant" onClick={() => setopen(!open)} />
+						<LanguageButton/>
+							<RiArrowDropDownFill className="text-[50px] text-darkBluePhant" onClick={()=>{}} />
                             {open && <Dropdown />}
 							<IoMdNotifications className="text-4xl" />
 						</div>
