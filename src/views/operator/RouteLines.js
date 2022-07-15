@@ -36,7 +36,6 @@ const RouteLine = () => {
       );
       const allData = await axios.get("http://localhost:3001/api/v1/route");
       setRoutes(allData.data.routes);
-
       setModalOpen(false);
     } catch (error) {
       console.log(error);

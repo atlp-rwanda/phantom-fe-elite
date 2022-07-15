@@ -14,6 +14,7 @@ function TableRow({ removeDeletedItem, setRoutes, ...props }) {
   function toggleUpdate() {
     setModalOpen(true);
   }
+<<<<<<< HEAD
 
   const fetchRoute = async () => {
     setDataFetched(false);
@@ -36,6 +37,29 @@ function TableRow({ removeDeletedItem, setRoutes, ...props }) {
       `http://localhost:3001/api/v1/route/${props.id}`
     );
 
+=======
+
+  const fetchRoute = async () => {
+    setDataFetched(false);
+    // const dataObject = await axios.get(`http://localhost:7000/routes/${props.id}`);
+    // let oneRoute = dataObject.data;
+    const dataObject = await axios.get(
+      `http://localhost:3001/api/v1/route/${props.id}`
+    );
+    let oneRoute = dataObject.data.routes;
+    setDataFetched(true);
+    return oneRoute;
+  };
+
+  const deleteHandle = async () => {
+    // const dataObject = await axios.delete(
+    //   `http://localhost:7000/routes/${props.id}`
+    // );
+    // setData(dataObject.data);
+    const dataObject = await axios.delete(
+      `localhost:3001/api/v1/route/${props.id}`
+    );
+>>>>>>> 5aead1937859d047487d2d2c62a6ab3cd678d787
     setData(dataObject.data.routes);
     removeDeletedItem(props.id);
   };
@@ -48,7 +72,11 @@ function TableRow({ removeDeletedItem, setRoutes, ...props }) {
   const handleDeleting = () => {
     props.handleDelete(data.id);
   };
+<<<<<<< HEAD
   //const dataObject = fetchRoute()
+=======
+  // const dataObject = fetchRoute()
+>>>>>>> 5aead1937859d047487d2d2c62a6ab3cd678d787
 
   return (
     <>
