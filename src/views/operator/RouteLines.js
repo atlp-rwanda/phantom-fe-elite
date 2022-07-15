@@ -6,7 +6,7 @@ import { RiAddCircleLine } from "react-icons/ri";
 import NewRouteModal from "../../component/NewRouteModal";
 import ListHeader from "../../component/new_route/ListHeader";
 import ListContent from "../../component/new_route/ListContent";
-import url from "../../api/index";
+
 import axios from "axios";
 
 const RouteLine = () => {
@@ -26,15 +26,13 @@ const RouteLine = () => {
     // data.id = routes.length + 1;
     data.description = "the best routes ever";
     try {
-      //  const routesData = await axios.post("http://localhost:7000/routes", data);
-      //  const allData = await axios.get("http://localhost:7000/routes");
-      //  setRoutes(allData.data);
       console.log(data);
       const routesData = await axios.post(
         "http://localhost:3001/api/v1/route",
         data
       );
       const allData = await axios.get("http://localhost:3001/api/v1/route");
+      console.log(allData);
       setRoutes(allData.data.routes);
       setModalOpen(false);
     } catch (error) {

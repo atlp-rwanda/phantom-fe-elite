@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const UpdateRouteLine = ({ update, setDataFetched, setRoutes }) => {
+const UpdateRouteLine = ({ update, closeModal, setRoutes }) => {
   const { origin, destination } = update;
 
   let initialData = {
@@ -21,9 +23,13 @@ const UpdateRouteLine = ({ update, setDataFetched, setRoutes }) => {
       .max(50, "Too Long name!")
       .required("Destination Required"),
   });
+  const setOutModal = () => {
+    closeModal();
+  };
 
   const onSubmit = (values, { resetForm }) => {
-    updateHandle(update.id, values);
+    const newData = { ...values, description: "the best routes ever" };
+    updateHandle(update.id, newData);
     resetForm({});
   };
 
@@ -34,24 +40,28 @@ const UpdateRouteLine = ({ update, setDataFetched, setRoutes }) => {
   });
   const updateHandle = async (id, updated) => {
     try {
-      // const renewed = await axios.patch(`http://localhost:7000/routes/${id}`, updated);
-      // const allData = await axios.get("http://localhost:7000/routes");
-      // setRoutes(allData.data);
-
-      // data.description = "the best routes ever";
-
+      const routeData = await axios.put(
+        `http://localhost:3001/api/v1/route/${id}`,
+        updated
+      );
       const allData = await axios.get("http://localhost:3001/api/v1/route");
+      console.log(allData);
       setRoutes(allData.data.routes);
-      console.log("My Updateee is:: ", allData);
-
-      setDataFetched();
+      closeModal();
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     }
   };
-
-  const setOutModal = () => {
-    setDataFetched();
+  const showNotification = () => {
+    toast.success("🦄 Wow so easy!", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (
@@ -60,6 +70,7 @@ const UpdateRouteLine = ({ update, setDataFetched, setRoutes }) => {
       id="UpdateRouteLine"
       data-testid="UpdateRouteLine"
     >
+      <ToastContainer />
       <div className="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div className="fixed inset-0 transition-opacity">
           <div className="absolute inset-0 bg-gray-900 opacity-75" />
@@ -126,6 +137,7 @@ const UpdateRouteLine = ({ update, setDataFetched, setRoutes }) => {
                 type="submit"
                 data-testid="updateBtn"
                 className="py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 mr-2"
+                onClick={showNotification}
               >
                 <i className="fas fa-plus"></i> Update Route
               </button>

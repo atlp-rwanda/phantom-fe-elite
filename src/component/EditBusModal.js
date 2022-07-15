@@ -3,7 +3,6 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 
 const EditBusModal = () => {
-  // modal
   function toggleEditModal() {
     document.getElementById("editBusModal").classList.toggle("hidden");
   }
