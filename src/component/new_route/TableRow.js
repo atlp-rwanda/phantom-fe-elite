@@ -17,26 +17,19 @@ function TableRow({ removeDeletedItem, setRoutes, ...props }) {
 
   const fetchRoute = async () => {
     setDataFetched(false);
-    // const dataObject = await axios.get(`http://localhost:7000/routes/${props.id}`);
-    // let oneRoute = dataObject.data;
     const dataObject = await axios.get(
       `http://localhost:3001/api/v1/route/${props.id}`
     );
-    let oneRoute = dataObject.data.routes;
+    let oneRoute = dataObject.data;
     setDataFetched(true);
     return oneRoute;
   };
 
   const deleteHandle = async () => {
-    // const dataObject = await axios.delete(
-    //   `http://localhost:7000/routes/${props.id}`
-    // );
-    // setData(dataObject.data);
     const dataObject = await axios.delete(
       `http://localhost:3001/api/v1/route/${props.id}`
     );
-
-    setData(dataObject.data.routes);
+    setData(dataObject.data);
     removeDeletedItem(props.id);
   };
 

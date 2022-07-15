@@ -38,13 +38,11 @@ const UpdateRouteLine = ({ update, setDataFetched, setRoutes }) => {
       // const allData = await axios.get("http://localhost:7000/routes");
       // setRoutes(allData.data);
 
-      const renewed = await axios.put(
-        `http://localhost:3001/api/v1/route/${id}`,
-        updated
-      );
-      console.log("My Id::::", id);
+      // data.description = "the best routes ever";
+
       const allData = await axios.get("http://localhost:3001/api/v1/route");
       setRoutes(allData.data.routes);
+      console.log("My Updateee is:: ", allData);
 
       setDataFetched();
     } catch (error) {
