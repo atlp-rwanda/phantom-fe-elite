@@ -23,12 +23,8 @@ const RouteLine = () => {
   };
 
   const handleData = async (data) => {
-    // data.id = routes.length + 1;
     data.description = "the best routes ever";
     try {
-      //  const routesData = await axios.post("http://localhost:7000/routes", data);
-      //  const allData = await axios.get("http://localhost:7000/routes");
-      //  setRoutes(allData.data);
       console.log(data);
       const routesData = await axios.post(
         "http://localhost:3001/api/v1/route",
@@ -45,9 +41,6 @@ const RouteLine = () => {
   useEffect(() => {
     const fetchRoutes = async () => {
       try {
-        // const routesData = await axios.get("http://localhost:7000/routes");
-        // const allData = await axios.get("http://localhost:7000/routes");
-        // setRoutes(allData.data);
         const routesData = await axios.get(
           "http://localhost:3001/api/v1/route"
         );

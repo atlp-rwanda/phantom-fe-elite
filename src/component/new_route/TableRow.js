@@ -3,7 +3,6 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiEdit } from "react-icons/fi";
 import UpdateRouteLine from "../UpdateRouteModal";
 import axios from "axios";
-// modal toggle
 
 function TableRow({ removeDeletedItem, setRoutes, ...props }) {
   const [data, setData] = useState({});
@@ -41,8 +40,6 @@ function TableRow({ removeDeletedItem, setRoutes, ...props }) {
   const handleDeleting = () => {
     props.handleDelete(data.id);
   };
-  // const dataObject = fetchRoute()
-
   return (
     <>
       <div className="grid grid-cols-12 border-b border-black border-solid">
@@ -58,7 +55,6 @@ function TableRow({ removeDeletedItem, setRoutes, ...props }) {
           <FiEdit
             data-testid={`row-edit-${props.id}`}
             className=" w-4 h-4 cursor-pointer"
-            // data-testid="updateRouteBtn"
             onClick={dataToFill}
           />
           <RiDeleteBin6Line

@@ -4,6 +4,11 @@ import * as Yup from "yup";
 import axios from "axios";
 
 const UpdateRouteLine = ({ update, setDataFetched, setRoutes }) => {
+  console.log("My updadasdfad;;;::: ", update);
+  console.log("My updadasdfad;;;::: ", setDataFetched);
+
+  console.log("My updadasdfad;;;::: ", setRoutes);
+
   const { origin, destination } = update;
 
   let initialData = {
@@ -23,8 +28,10 @@ const UpdateRouteLine = ({ update, setDataFetched, setRoutes }) => {
   });
 
   const onSubmit = (values, { resetForm }) => {
-    updateHandle(update.id, values);
+    const newData = { ...values, description: "the best routes ever" };
+    updateHandle(update.id, newData);
     resetForm({});
+    console.log(values);
   };
 
   const formik = useFormik({
@@ -34,19 +41,15 @@ const UpdateRouteLine = ({ update, setDataFetched, setRoutes }) => {
   });
   const updateHandle = async (id, updated) => {
     try {
-      // const renewed = await axios.patch(`http://localhost:7000/routes/${id}`, updated);
-      // const allData = await axios.get("http://localhost:7000/routes");
-      // setRoutes(allData.data);
-
-      // data.description = "the best routes ever";
-
-      const allData = await axios.get("http://localhost:3001/api/v1/route");
-      setRoutes(allData.data.routes);
-      console.log("My Updateee is:: ", allData);
+      const allData = await axios.put(
+        `http://localhost:3001/api/v1/route/${id}`,
+        updated
+      );
 
       setDataFetched();
+      window.location.reload();
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     }
   };
 
