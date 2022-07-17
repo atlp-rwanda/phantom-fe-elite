@@ -4,7 +4,6 @@ import * as Yup from "yup";
 import axios from "axios";
 
 const UpdateRouteLine = ({ update, closeModal, setRoutes }) => {
-  console.log("close model ::::: ", closeModal);
   const { origin, destination } = update;
 
   let initialData = {
