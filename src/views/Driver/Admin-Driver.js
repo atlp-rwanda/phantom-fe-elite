@@ -42,7 +42,7 @@ const AdminDriver = () => {
           loading: "Updating Driver ...",
 
           success: (response) =>
-            `Successfully updated ${response.data.name.toUpperCase()}`,
+            `Successfully updated ${response.data.data.name.toUpperCase()}`,
 
           error: (err) =>
             `This error occured while updating: ${err.message.toUpperCase()}`,
@@ -127,10 +127,11 @@ const AdminDriver = () => {
   const addDataToUpdate = async (dataFromEditForm) => {
     dataFromEditForm.id = update.id;
     try {
-      const driver = axios.put(
-        `http://localhost:7000/driver/${update.id}`,
-        dataFromEditForm
-      );
+      const driver = axios.put(`${url}/profile/update/${update.id}`,dataFromEditForm, {
+        headers:{
+          'Content-Type': 'application/json',
+        }
+      })
 
       displayPopupMessage(driver, "Update");
 
@@ -149,14 +150,14 @@ const AdminDriver = () => {
   const deleteHandle = async (id) => {
     try {
       const deletedDriver = axios.delete(
-        `http://localhost:7000/driver/${id}`
+        `${url}/profile/delete/${id}`
       );
 
       displayPopupMessage(deletedDriver, "Delete");
       await deletedDriver;
 
-      const remainingDriver = await axios.get(`http://localhost:7000/driver`);
-      setDatas(remainingDriver.data);
+      const remainingDriver = await axios.get(`${url}/drivers`);
+      setDatas(remainingDriver.data.data);
     } catch (error) {
       console.log(error);
     }

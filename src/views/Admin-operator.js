@@ -208,16 +208,14 @@ const AdminOperator = () => {
   const deleteHandle = async (id) => {
     try {
       const deletedOperator = axios.delete(
-        `http://localhost:7000/operator/${id}`
+        `${url}/profile/delete/${id}`
       );
 
       displayPopupMessage(deletedOperator, "Delete");
       await deletedOperator;
 
-      const remainingOperator = await axios.get(
-        `http://localhost:7000/operator`
-      );
-      setDatas(remainingOperator.data);
+      const remainingOperator = await axios.get(`${url}/operators`);
+      setDatas(remainingOperator.data.data);
     } catch (error) {
       console.log(error);
     }

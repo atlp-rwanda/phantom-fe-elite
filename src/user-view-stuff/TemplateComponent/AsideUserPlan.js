@@ -9,30 +9,35 @@ import SideSection from "./SideSection";
 
 
 const AsideUserPlan = () => { 
-  
   const [routes, setRoutes] = useState ([])
-  const [destination, setdestination] = useState({})
+  const [formvalues, setformvalues] = useState();
   const formik = useFormik({
     initialValues:{
       location:"",
       destination:"",
     },
     onSubmit: values => {
-      setdestination(values.destination)
+      Route(values)
+      console.log(values)
     }
   })
   
-    const Route = async () => {
-      const Routefromserver = await fetchroute()
+    const Route = async (values) => {
+      const Routefromserver = await fetchroute(values)
       setRoutes(Routefromserver)
     }
-
-
-const fetchroute = async () => {
-  console.log(destination);
+const fetchroute = async (values) => {
    try{
-    const response =  await axios.get(`http://localhost:7000/userroutes?destination=${destination}`)
-    return response.data
+    // fetch(`http://localhost:3001/api/v1/busmotion/businroad`,values, {
+    //   method: "GET",
+    // }).then((response) => response.json())
+    // .then((json) => {
+    //   result = json.data;
+    //   return result.data
+    // })
+    const response = await axios.post("http://localhost:3001/api/v1/busmotion/businroad", values)
+    console.log(response.data.data);
+    return response.data.data
    }catch(e){
        console.log(e);
    }
@@ -70,7 +75,7 @@ const fetchroute = async () => {
               className="h-8 rounded-lg w-full mt-5 bg-gray-200 text-black pl-3 placeholder:text-black focus-within:bg-gray-100"
             />
           </div>
-          <button type="submit" className="mt-2 font-semibold" onClick={Route}>
+          <button type="submit" className="mt-2 font-semibold">
             Depart Now
           </button>
         </form>
