@@ -2,8 +2,6 @@
 import { useState, useEffect } from "react";
 
 import React from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const NewRouteModal = ({ newData, setModalOpen, isModalOpen }) => {
   const [origin, setOrigin] = useState("");
@@ -34,27 +32,12 @@ const NewRouteModal = ({ newData, setModalOpen, isModalOpen }) => {
     });
   };
 
-  const saveRoute = (e) => {
-    e.preventDefault();
-
-    toast.success("Route Saved !!!!", {
-      position: "top-center",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
-
   return (
     <div
       className="fixed z-10 overflow-y-auto top-0 w-full left-0"
       id="NewRouteModal"
       data-testid="NewRouteModal"
     >
-      <ToastContainer />
       <div className="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div className="fixed inset-0 transition-opacity">
           <div className="absolute inset-0 bg-gray-900 opacity-75" />
@@ -110,7 +93,6 @@ const NewRouteModal = ({ newData, setModalOpen, isModalOpen }) => {
               <button
                 type="submit"
                 data-testid="saveBtn"
-                onClick={(e) => saveRoute()}
                 className="py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 mr-2"
               >
                 <i className="fas fa-plus"></i> Save Route
