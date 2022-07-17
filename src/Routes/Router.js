@@ -21,7 +21,6 @@ import UserChooseRoutes from "../user-view-stuff/UserChooseRoutes";
 
 const Router = () => {
 	var token = localStorage.getItem('token')
-	console.log(token)
 	if (token) {
 		return (
 			<BrowserRouter>
@@ -29,8 +28,7 @@ const Router = () => {
 					<Routes>
 						<Route exact path="/" element={<LandingPage />}></Route>
 						<Route exact path="/operator-bus" element={<Bus />}></Route>
-						<Route path="/reset-password" element={<Reset />}></Route>
-						<Route path="/confirm-new-password" element={<ConfirmPassword />}></Route>
+						
 						<Route exact path="/updateoperator" element={<UpdateOperator />}></Route>
 						<Route path="/updatedriver" element={<UpdateDriver />}></Route>
 						<Route path="/create-driver" element={<CreateDriver />}></Route>
@@ -55,6 +53,8 @@ const Router = () => {
 						<Route exact path="/" element={<LandingPage />}></Route>
 						<Route exact path="/register" element={<RegisterPage />}></Route>
 						<Route exact path="/login" element={<LoginPage />}></Route>
+						<Route path="/reset-password" element={<Reset />}></Route>
+						<Route path="/confirm-new-password" element={<ConfirmPassword />}></Route>
 						{/* <Route path="/user-view" element={<UserView />}></Route>
                         <Route path="/user-plan" element={<UserChooseRoutes />}></Route> */}
 						<Route path="*" element={<PageNotFound />}></Route>
