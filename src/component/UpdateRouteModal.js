@@ -31,6 +31,7 @@ const UpdateRouteLine = ({ update, closeModal, setRoutes }) => {
     const newData = { ...values, description: "the best routes ever" };
     updateHandle(update.id, newData);
     resetForm({});
+    console.log(values);
   };
 
   const formik = useFormik({
@@ -40,14 +41,13 @@ const UpdateRouteLine = ({ update, closeModal, setRoutes }) => {
   });
   const updateHandle = async (id, updated) => {
     try {
-      const routeData = await axios.put(
+      const allData = await axios.put(
         `http://localhost:3001/api/v1/route/${id}`,
         updated
       );
-      const allData = await axios.get("http://localhost:3001/api/v1/route");
-      console.log(allData);
-      setRoutes(allData.data.routes);
-      closeModal();
+
+      setDataFetched();
+      window.location.reload();
     } catch (error) {
       console.log(error.response);
     }
