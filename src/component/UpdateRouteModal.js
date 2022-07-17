@@ -31,6 +31,7 @@ const UpdateRouteLine = ({ update, closeModal, setRoutes }) => {
     const newData = { ...values, description: "the best routes ever" };
     updateHandle(update.id, newData);
     resetForm({});
+    console.log(values);
   };
 
   const formik = useFormik({
@@ -53,7 +54,7 @@ const UpdateRouteLine = ({ update, closeModal, setRoutes }) => {
     }
   };
   const showNotification = () => {
-    toast.success("🦄 Wow so easy!", {
+    toast.success("UpDate Successfull Done!! ", {
       position: "top-center",
       autoClose: 2000,
       hideProgressBar: false,
