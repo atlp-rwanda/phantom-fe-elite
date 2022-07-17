@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const UpdateRouteLine = ({ update, closeModal, setRoutes }) => {
+  console.log("close model ::::: ", closeModal);
   const { origin, destination } = update;
 
   let initialData = {
@@ -31,7 +30,6 @@ const UpdateRouteLine = ({ update, closeModal, setRoutes }) => {
     const newData = { ...values, description: "the best routes ever" };
     updateHandle(update.id, newData);
     resetForm({});
-    console.log(values);
   };
 
   const formik = useFormik({
@@ -53,17 +51,6 @@ const UpdateRouteLine = ({ update, closeModal, setRoutes }) => {
       console.log(error.response);
     }
   };
-  const showNotification = () => {
-    toast.success("UpDate Successfull Done!! ", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
 
   return (
     <div
@@ -71,7 +58,6 @@ const UpdateRouteLine = ({ update, closeModal, setRoutes }) => {
       id="UpdateRouteLine"
       data-testid="UpdateRouteLine"
     >
-      <ToastContainer />
       <div className="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div className="fixed inset-0 transition-opacity">
           <div className="absolute inset-0 bg-gray-900 opacity-75" />
@@ -138,7 +124,6 @@ const UpdateRouteLine = ({ update, closeModal, setRoutes }) => {
                 type="submit"
                 data-testid="updateBtn"
                 className="py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 mr-2"
-                onClick={showNotification}
               >
                 <i className="fas fa-plus"></i> Update Route
               </button>
