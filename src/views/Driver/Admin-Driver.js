@@ -46,7 +46,7 @@ const AdminDriver = () => {
             `Successfully updated ${response.data.data.name.toUpperCase()}`,
 
           error: (err) =>
-            `This error occured while updating: ${response.data.message.toUpperCase()}`,
+            `This error occured while updating: ${err.message.toUpperCase()}`,
         };
       } else {
         return {

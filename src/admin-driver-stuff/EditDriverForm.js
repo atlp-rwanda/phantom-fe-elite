@@ -15,9 +15,9 @@ const EditOperatorForm = ({
   let initialData = {
     name: name,
     email: email,
-    driverId: id_number,
-    license: permit_id,
-    mobileNumber: phone,
+    id_number: id_number,
+    permit_id: permit_id,
+    phone: phone,
   };
 
   // validationSchema which validate the form before being submitted
@@ -32,16 +32,16 @@ const EditOperatorForm = ({
       .min(3, "Too Short Name!")
       .max(50, "Too Long name!")
       .required("Name Required"),
-    mobileNumber: Yup.string()
+    phone : Yup.string()
       .matches(phoneRegExp, "Phone number is not valid")
       .required("Enter the driver phone number"),
     email: Yup.string().email("Invalid email").required("Required"),
-    driverId: Yup
+    id_number: Yup
       .number("Enter the number")
       .positive("They should not be negative")
       .required("Please fill the form enter")
       .min(2),
-    license: Yup
+    permit_id: Yup
     .string()
     .required("license is required")
     .min(3, "too short"),
@@ -128,17 +128,17 @@ const EditOperatorForm = ({
             </label>
             <input
               onChange={formik.handleChange}
-              value={formik.values.driverId}
+              value={formik.values.id_number}
               onBlur={formik.handleBlur}
-              name="driverId"
-              data-testid="email"
+              name="id_number"
+              data-testid="id_number"
               type="text"
               placeholder="Driver Id"
               className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
             />
             {/* conditional rendering of the error message for validating the name input field */}
-            {formik.touched.driverId && formik.errors.driverId ? (
-              <div className="text-errorText">{formik.errors.driverId}</div>
+            {formik.touched.id_number && formik.errors.id_number ? (
+              <div className="text-errorText">{formik.errors.id_number}</div>
             ) : null}
           </div>
           <div className="flex flex-col pb-1 sm:px-4 px-3 md:my-5 lg:my-0">
@@ -147,17 +147,17 @@ const EditOperatorForm = ({
             </label>
             <input
               onChange={formik.handleChange}
-              value={formik.values.mobileNumber}
+              value={formik.values.phone}
               onBlur={formik.handleBlur}
-              name="mobileNumber"
+              name="phone"
               data-testid="email"
               type="text"
               placeholder="Mobile number"
               className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
             />
             {/* conditional rendering of the error message for validating the name input field */}
-            {formik.touched.mobileNumber && formik.errors.mobileNumber ? (
-              <div className="text-errorText">{formik.errors.mobileNumber}</div>
+            {formik.touched.phone && formik.errors.phone ? (
+              <div className="text-errorText">{formik.errors.phone}</div>
             ) : null}
           </div>
           <div className="flex flex-col pb-1 sm:px-4 px-3 md:my-5 lg:my-0">
@@ -166,17 +166,17 @@ const EditOperatorForm = ({
             </label>
             <input
               onChange={formik.handleChange}
-              value={formik.values.license}
+              value={formik.values.permit_id}
               onBlur={formik.handleBlur}
-              name="license"
+              name="permit_id"
               data-testid="email"
               type="text"
               placeholder="Driver License"
               className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
             />
             {/* conditional rendering of the error message for validating the name input field */}
-            {formik.touched.license && formik.errors.license ? (
-              <div className="text-errorText">{formik.errors.license}</div>
+            {formik.touched.permit_id && formik.errors.permit_id ? (
+              <div className="text-errorText">{formik.errors.permit_id}</div>
             ) : null}
           </div>
           <div className="bg-gray-200 px-4 py-2 mt-4 md:12 sm:mt-8 md:mt-12 lg:mt-4 rounded-b-md text-left flex">
