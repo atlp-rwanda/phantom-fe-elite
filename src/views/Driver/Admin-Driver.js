@@ -9,9 +9,13 @@ import TableHeader from "./../../admin-driver-stuff/TableHeader";
 import FooterAdmin from "./../../admin-driver-stuff/TemplateComponent/FooterAdmin";
 import HeaderAdmin from "./../../admin-driver-stuff/TemplateComponent/HeaderAdmin";
 import toast, { Toaster } from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 import AsideAdmin from "./../../admin-driver-stuff/TemplateComponent/AsideAdmin";
 
 const AdminDriver = () => {
+
+  const {t, i18n} = useTranslation();
+
   const [modalOpen, setModalOpen] = useState(false);
 
   const [loading, setLoading] = useState(false);
@@ -190,7 +194,7 @@ const AdminDriver = () => {
       <main className=" flex flex-col col-start-1 sm:col-start-3 md:col-start-4 lg:col-start-3 col-end-13 row-start-2 row-end-12 px-3 mx-0 sm:mx-2  mt-2 bg-white">
         <div className="flex justify-center sm:justify-start md:justify-center lg:justify-start ">
           <div className="m-2 font-black text-xl border-b-2 border-solid border-darkBluePhant w-[90px]" data-testid="head">
-            Driver
+            {t("driver")}
           </div>
         </div>
         <div className="flex flex-row justify-between sm:justify-start md:justify-evenly lg:justify-start items-center my-3">
@@ -202,7 +206,7 @@ const AdminDriver = () => {
               }}
               title="button"
             >
-              Create Driver
+              {t("newDriver")}
             </button>
           </div>
           <form

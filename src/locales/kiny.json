@@ -33,7 +33,7 @@
     "origin": "Intangiriro",
     "action": "Igikorwa",
     "map": "Ishusho ku Ikarita",
-    "manage": "Jyena",
+    "manage": "Ijyena Bikorwa",
     "bnumber": "Umubare wa Bisi",
     "bplate": "Pulaki za Bisi",
     "routes": "Imihanda",
@@ -43,5 +43,10 @@
     "mobile": "Nimero ya telefone",
     "actions": "Ibikorwa",
     "oemail": "Imeri",
-    "role": "Inshingana"
+    "role": "Inshingana",
+    "search": "Shakisha . . . ",
+    "newBus": "Bisi Nshya",
+    "newDriver": "Umushoferi Mushya",
+    "newOperator": "Umukozi Mushya",
+    "oname": "Izina"
 }

@@ -43,5 +43,10 @@
     "mobile": "mobileNumber",
     "actions": "Actions",
     "oemail": "Email",
-    "role": "Roles"
+    "role": "Roles",
+    "search": "Search . . . ",
+    "newBus": "Add New Bus",
+    "newDriver": "Create Driver",
+    "newOperator": "Create Operator",
+    "oname": "Name"
 }

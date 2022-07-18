@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Admin from "../../component/layout/admin";
+import { useTranslation } from "react-i18next";
 import { RiAddCircleLine } from "react-icons/ri";
 import NewRouteModal from "../../component/NewRouteModal";
 import ListHeader from "../../component/new_route/ListHeader";
@@ -11,7 +12,7 @@ import axios from "axios";
 
 
 const RouteLine = () => {
-
+  const {t, i18n} = useTranslation();
 	const [modalOpen,setModalOpen] = useState(false);
   const [routes, setRoutes] = useState([]);
 
@@ -66,7 +67,7 @@ const RouteLine = () => {
             className="m-2 font-black text-xl border-b-2 border-solid border-darkBluePhant w-[90px]"
             data-testid="head1"
           >
-            Route
+            {t("route")}
           </div>
         </div>
         <div className="flex flex-row justify-between sm:justify-start md:justify-evenly lg:justify-start items-center my-3">
@@ -75,7 +76,7 @@ const RouteLine = () => {
             className="bg-darkBluePhant cursor-pointer p-1 sm:px-0 sm:p-2 rounded-md font-bold text-white flex items-center justify-evenly w-1/2 sm:w-1/6 md:w-2/6 xl:w-1/6"
           >
             <RiAddCircleLine className="text-white text-xl sm:text-2xl" />
-            <button data-testid="newRouteBtn">Add New Route</button>
+            <button data-testid="newRouteBtn">{t("addRoute")}</button>
           </div>
           <form
             action=""
@@ -83,7 +84,7 @@ const RouteLine = () => {
           >
             <input
               type="text"
-              placeholder="Search"
+              placeholder={t("search")}
               className="w-full h-5/6 sm:h-full pl-2 border-2 border-solid border-[#6C757D] rounded-md"
             />
           </form>
