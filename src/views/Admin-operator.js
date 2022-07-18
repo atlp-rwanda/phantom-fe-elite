@@ -203,19 +203,19 @@ const AdminOperator = () => {
   const deleteHandle = async (id) => {
     try {
       const deletedOperator = axios.delete(
-        `http://localhost:7000/operator/${id}`
-      );
+        `${url}/profile/delete/${id}`
+      ); 
 
       displayPopupMessage(deletedOperator, "Delete");
       await deletedOperator;
 
       const remainingOperator = await axios.get(
-        `http://localhost:7000/operator`
+        `${url}/operators`
       );
-      setDatas(remainingOperator.data);
+      setDatas(remainingOperator.data.data);
     } catch (error) {
       console.log(error);
-    }
+    } 
   };
 
   // showing modals when new operator or edit button is clicked

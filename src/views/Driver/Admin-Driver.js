@@ -43,10 +43,10 @@ const AdminDriver = () => {
           loading: "Updating Driver ...",
 
           success: (response) =>
-            `Successfully updated ${response.data.name.toUpperCase()}`,
+            `Successfully updated ${response.data.data.name.toUpperCase()}`,
 
           error: (err) =>
-            `This error occured while updating: ${err.message.toUpperCase()}`,
+            `This error occured while updating: ${response.data.message.toUpperCase()}`,
         };
       } else {
         return {
@@ -81,7 +81,7 @@ const AdminDriver = () => {
     const fetchAll = async () => {
       setLoading(true);
       try {
-        const driverData = await axios.get( `${url}/drivers`);
+        const driverData = await axios.get(`${url}/drivers`);
         setDatas(driverData.data.data);
         setLoading(false);
         setError({
@@ -129,10 +129,21 @@ const AdminDriver = () => {
   const addDataToUpdate = async (dataFromEditForm) => {
     dataFromEditForm.id = update.id;
     try {
-      const driver = axios.put(
-        `${url}/profile/update/${update.id}`,
-        dataFromEditForm
-      );
+      const driver = axios.put(`${url}/profile/update/${update.id}`,dataFromEditForm).catch(function (error) {
+        if (error.response) {
+          // Request made and server responded
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error', error.message);
+        }
+    
+      });
 
       displayPopupMessage(driver, "Update");
 
@@ -149,14 +160,14 @@ const AdminDriver = () => {
   const deleteHandle = async (id) => {
     try {
       const deletedDriver = axios.delete(
-        `http://localhost:7000/driver/${id}`
+        `${url}/profile/delete/${id}`
       );
 
       displayPopupMessage(deletedDriver, "Delete");
       await deletedDriver;
 
-      const remainingDriver = await axios.get(`http://localhost:7000/driver`);
-      setDatas(remainingDriver.data);
+      const remainingDriver = await axios.get(`${url}/drivers`);
+      setDatas(remainingDriver.data.data);
     } catch (error) {
       console.log(error);
     }
