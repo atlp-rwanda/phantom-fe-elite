@@ -6,48 +6,47 @@ import { RiAddCircleLine } from "react-icons/ri";
 import NewRouteModal from "../../component/NewRouteModal";
 import ListHeader from "../../component/new_route/ListHeader";
 import ListContent from "../../component/new_route/ListContent";
+
 import axios from "axios";
 
-
-
 const RouteLine = () => {
-
-	const [modalOpen,setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [routes, setRoutes] = useState([]);
 
+  function toggleModal() {
+    setModalOpen(true);
+  }
 
-	function toggleModal() {
-		setModalOpen(true);
-	}
+  const removeItem = (id) => {
+    const newData = routes.filter((route) => route.id != id);
+    setRoutes(newData);
+  };
 
-
-	const removeItem=(id)=>{
-		const newData = routes.filter(route=>route.id!=id);
-		setRoutes(newData);
-	}
-
- const handleData = async (data) => {
-	 data.id = routes.length + 1;
-   try {
-     const routesData = await axios.post("http://localhost:7000/routes", data);
-     const allData = await axios.get("http://localhost:7000/routes");
-     setRoutes(allData.data);
-	   setModalOpen(false);
-
-   } catch (error) {
-     console.log(error);
-
-
-   } 
- };
-
+  const handleData = async (data) => {
+    data.description = "the best routes ever";
+    try {
+      console.log(data);
+      const routesData = await axios.post(
+        "http://localhost:3001/api/v1/route",
+        data
+      );
+      const allData = await axios.get("http://localhost:3001/api/v1/route");
+      console.log(allData);
+      setRoutes(allData.data.routes);
+      setModalOpen(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     const fetchRoutes = async () => {
       try {
-        const routesData = await axios.get("http://localhost:7000/routes");
-		    const allData = await axios.get("http://localhost:7000/routes");
-        setRoutes(allData.data);
+        const routesData = await axios.get(
+          "http://localhost:3001/api/v1/route"
+        );
+        const allData = await axios.get("http://localhost:3001/api/v1/route");
+        setRoutes(allData.data.routes);
       } catch (error) {
         console.log(error);
       }
@@ -55,9 +54,7 @@ const RouteLine = () => {
     fetchRoutes();
   }, []);
 
-
-
-	return (
+  return (
     <>
       <Admin>
         <div className="flex justify-center sm:justify-start md:justify-center lg:justify-start ">
@@ -89,9 +86,19 @@ const RouteLine = () => {
         </div>
         <ListHeader />
         <div className="overflow-auto ">
-          <ListContent handleDelete={removeItem} data={routes} setRoutes={setRoutes}/>
+          <ListContent
+            handleDelete={removeItem}
+            data={routes}
+            setRoutes={setRoutes}
+          />
         </div>
-        {modalOpen && (<NewRouteModal isModalOpen={modalOpen} setModalOpen={()=>setModalOpen(false)} newData = {handleData} />)}
+        {modalOpen && (
+          <NewRouteModal
+            isModalOpen={modalOpen}
+            setModalOpen={() => setModalOpen(false)}
+            newData={handleData}
+          />
+        )}
       </Admin>
     </>
   );
