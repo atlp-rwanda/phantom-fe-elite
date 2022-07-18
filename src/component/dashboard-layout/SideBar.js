@@ -50,7 +50,6 @@ const SideBar = () => {
 				</div>
 				<div className="flex gap-5">
 					<Link to='/driver-map'>
-
 					<MdAltRoute size={25} className="mt-1 text-darkBluePhant " />
 					</Link>
 					<Link to="/create-driver">
@@ -59,10 +58,12 @@ const SideBar = () => {
 				</div>
 
 				<div className="flex gap-5">
-					<AiFillSetting size={25} className="mt-1 text-darkBluePhant " />
-					<Link to="/operator">
-						<p className="ml-1 mt-1">Settings</p>
-					</Link>
+				<Link to="/operator">
+                <VscSymbolProperty size={25} className="mt-1 text-darkBluePhant " />
+                </Link>
+				<Link to="/operator">
+						<p className="ml-1">Operator</p>
+				</Link>
 				</div>
       </div>
     </aside>

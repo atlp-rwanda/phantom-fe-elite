@@ -10,6 +10,7 @@ import FooterAdmin from "../admin-operator-stuff/TemplateComponent/FooterAdmin";
 import HeaderAdmin from "../admin-operator-stuff/TemplateComponent/HeaderAdmin";
 import toast, { Toaster } from "react-hot-toast";
 import AsideAdmin from "../admin-operator-stuff/TemplateComponent/AsideAdmin";
+import { url } from "../api";
 
 const AdminOperator = () => {
   // to change the state for toggling the modal
@@ -47,7 +48,7 @@ const AdminOperator = () => {
           // this is the success function which receive anonymous function which is automatically
           //  passed the response for RESOLVED promise
           success: (response) =>
-            `Successfully saved ${response.data.name.toUpperCase()}`,
+            `Successfully saved ${response.data.data.name.toUpperCase()}`,
 
           // this is the error function which receive anonymous function which is automatically
           //  passed the response for REJECTED promise
@@ -62,7 +63,7 @@ const AdminOperator = () => {
           // this is the success function which receive anonymous function which is automatically
           //  passed the response for RESOLVED promise
           success: (response) =>
-            `Successfully updated ${response.data.name.toUpperCase()}`,
+            `Successfully updated ${response.data.data.name.toUpperCase()}`,
 
           // this is the error function which receive anonymous function which is automatically
           //  passed the response for REJECTED promise
@@ -117,8 +118,8 @@ const AdminOperator = () => {
       // allow display the loading component
       setLoading(true);
       try {
-        const operatorsData = await axios.get("http://localhost:7000/operator");
-        setDatas(operatorsData.data);
+        const operatorsData = await axios.get(`${url}/operators`);
+        setDatas(operatorsData.data.data);
         setLoading(false);
         setError({
           message: "",
@@ -156,23 +157,22 @@ const AdminOperator = () => {
       if (isRegisterDuplicated(dataFromForm.email)) {
         toast.error("The operator already exists! Register different operator");
       } else {
-        const operator = axios.post(
-          "http://localhost:7000/operator",
-          dataFromForm
-        );
-        // function to handle popup loading while saving and display the status message
+        const operator = axios.post(`${url}/operators`,dataFromForm,{
+          headers:{
+            'Content-Type': 'application/json',
+          }
+        })
         displayPopupMessage(operator, "Save");
+        // function to handle popup loading while saving and display the status message
         // the promise is awaited to resove so that it can have the values. NB: The following code
         // cant run before promise is resolved due to this await.
         await operator;
       }
 
       // fetch all data from the database
-      const operatorsDataCurrrent = await axios.get(
-        "http://localhost:7000/operator"
-      );
+      const operatorsDataCurrrent = await axios.get(`${url}/operators`);
       // update what is renderd on the screen
-      setDatas(operatorsDataCurrrent.data);
+      setDatas(operatorsDataCurrrent.data.data);
     } catch (error) {
       console.log(error);
     }
@@ -183,10 +183,7 @@ const AdminOperator = () => {
     dataFromEditForm.id = update.id;
     try {
       // this axios returns a promise which is stored into the operator
-      const operator = axios.put(
-        `http://localhost:7000/operator/${update.id}`,
-        dataFromEditForm
-      );
+      const operator = axios.put(`${url}/profile/update/${update.id}`,dataFromEditForm);
       // function to handle popup loading while saving and display the status message
       displayPopupMessage(operator, "Update");
       // the promise is awaited to resove so that it can have the values. NB: The following code
@@ -195,11 +192,9 @@ const AdminOperator = () => {
       // }
 
       // fetch all data from the database
-      const operatorsDataCurrrent = await axios.get(
-        "http://localhost:7000/operator"
-      );
+      const operatorsDataCurrrent = await axios.get(`${url}/operators`);
       // update what is renderd on the screen
-      setDatas(operatorsDataCurrrent.data);
+      setDatas(operatorsDataCurrrent.data.data);
     } catch (error) {
       console.log(error);
     }
@@ -208,19 +203,19 @@ const AdminOperator = () => {
   const deleteHandle = async (id) => {
     try {
       const deletedOperator = axios.delete(
-        `http://localhost:7000/operator/${id}`
-      );
+        `${url}/profile/delete/${id}`
+      ); 
 
       displayPopupMessage(deletedOperator, "Delete");
       await deletedOperator;
 
       const remainingOperator = await axios.get(
-        `http://localhost:7000/operator`
+        `${url}/operators`
       );
-      setDatas(remainingOperator.data);
+      setDatas(remainingOperator.data.data);
     } catch (error) {
       console.log(error);
-    }
+    } 
   };
 
   // showing modals when new operator or edit button is clicked
