@@ -35,9 +35,10 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
        .min(3, "Too Short Name!")
        .max(50, "Too Long name!")
        .required("Name Required"),
-       phone: Yup.string()
+      phone: Yup.string()
        .matches(phoneRegExp, "Phone number is not valid")
        .required("Enter the driver phone number"),
+      email: Yup.string().email("Invalid email").required("Required"),
       id_number: Yup.number("Enter the number")
       .positive("They should not be negative")
       .required("Please fill the form with number").min(1),

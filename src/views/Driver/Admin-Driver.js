@@ -7,7 +7,7 @@ import NewDriverForm from "../../admin-driver-stuff/NewDriverForm";
 import TableGenerator from "./../../admin-driver-stuff/TableGenerator";
 import TableHeader from "./../../admin-driver-stuff/TableHeader";
 import FooterAdmin from "./../../admin-driver-stuff/TemplateComponent/FooterAdmin";
-import HeaderAdmin from "./../../admin-driver-stuff/TemplateComponent/HeaderAdmin";
+import HeaderAdmin from "../../admin-operator-stuff/TemplateComponent/HeaderAdmin";
 import toast, { Toaster } from "react-hot-toast";
 import AsideAdmin from "./../../admin-driver-stuff/TemplateComponent/AsideAdmin";
 import { url } from "../../api";
