@@ -108,7 +108,7 @@ const LoginPage = ({ onSubmit }) => {
 									handleSubmit,
 								}) => (
 									<form
-										className=" h-full w-5/6 pb-10 "
+										className=" h-full w-5/6 pb-20 m-10"
 										onSubmit={handleSubmit}>
 										<input
 											type="email"
@@ -162,18 +162,6 @@ const LoginPage = ({ onSubmit }) => {
 												<a href="/reset-password" className="text-blue-700">Forget Password</a>
 											</span>
 										</p>
-
-										<p className="flex flex-row mt-2 lg:mt-2 md:mt-10 font-Montserrat text-sm ">
-											or login with{" "}
-										</p>
-										<div className="flex mt-0 mb-8">
-											<a href="" className="ml-4 ">
-												<FaLinkedin className="text-2xl text-darkBluePhant " />
-											</a>
-											<a href="" className="ml-4">
-												<FcGoogle className="text-2xl " />
-											</a>
-										</div>
 									</form>
 								)}
 							</Formik>
