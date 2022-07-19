@@ -7,7 +7,8 @@ import Dropdown from "../../component/dashboard-layout/Dropdown";
 
 const HeaderAdmin = () => {
   const [asideOpen, setAsideOpen] = useState(false);
-  const [open, setopen] = useState(false);
+	const [open, setopen] = useState(false);
+
   return (
     <header className="bg-white col-start-1 sm:col-start-3 md:col-start-4 lg:col-start-3 col-end-13  row-start-1 row-end-2">
       {asideOpen && <AsideAdminOnPhone setAsideOpen={setAsideOpen} />}

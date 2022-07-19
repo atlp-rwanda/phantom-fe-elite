@@ -48,7 +48,7 @@ const AsideAdminOnPhone = ({ setAsideOpen }) => {
       <div className="ml-5 flex flex-col gap-4">
         <div className="flex gap-5">
           <FaBus size={25} className="mt-1 text-darkBluePhant " />
-          <Link to="/bus">
+          <Link to="/operator-bus">
             <p className="ml-1">Bus</p>
           </Link>
         </div>
