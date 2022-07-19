@@ -1,28 +1,28 @@
 import React from "react";
-import { useFormik } from "formik"
-import * as Yup from "yup"
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
-const EditOperatorForm = ({
-  setOpenModal,
-  update,
-  setData,
-  setCloseUpdate,
-}) => {
-
-  // destructure name and email from the data coming from the row to be updated
-  const { busName,
-			busPlate,
-			busRoute } = update;
+const NewOperatorForm = ({ setOpenModal, setData }) => {
 
   // Initial data is prefilled with data from row being updated
-  let initialData = {
-    busName,
-    busPlate,
-    busRoute,
+  const initialData =  {
+			busName: "",
+			busPlate: "",
+			busRoute: "",
+		};
+
+  //  the function which is called by formik by default and it passes values object automatically
+  // to this onSubmit function and we can capture those values and use them!
+  const onSubmit = (values, { resetForm }) => {
+    // prefilling the each and every submitted data from form with default role = operator
+    console.log(values);
+    setData(values);
+    resetForm({});
+    setOpenModal(false);
   };
 
   // validationSchema which validate the form before being submitted
-   const validate = Yup.object({
+  const validate = Yup.object({
     busName: Yup.string()
       .max(15, "Must be 15 characters or less")
       .required("Bus Name Required"),
@@ -34,39 +34,23 @@ const EditOperatorForm = ({
       .required("Bus Route is required"),
   });
 
-  //  the function which is called by formik by default and it passes values object automatically 
-  // to this onSubmit function and we can capture those values and use them!
- const onSubmit = (values, { resetForm }) => {
-   // prefilling the each and every submitted data from form with default role = operator
-   setData(values);
-   resetForm({});
-   setCloseUpdate("");
-   setOpenModal(false);
- };
-
-//  the formik is the object which is returned by useFormik. this use formik is receiving
-// functions onSubmit, InitialValues Object and Validate schema from yup
+  //  the formik is the object which is returned by useFormik. this use formik is receiving
+  // functions onSubmit, InitialValues Object and Validate schema from yup
   const formik = useFormik({
     initialValues: initialData,
-    onSubmit:onSubmit,
+    onSubmit: onSubmit,
     validationSchema: validate,
   });
-
-  // triggered when back button is clicked
-  const handleBack = () => {
-     setCloseUpdate("");
-      setOpenModal(false);
-  }
 
   return (
     <div
       className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50"
-      data-testid="edit-form"
+      data-testid="new-form"
     >
-      <div className="w-5/6 sm:w-3/5 h-1/3 sm:h-3/5 md:w-3/5 lg:h-3/5 md:h-1/3 lg:w-2/6 xl:w-1/3 xl:h-3/5 bg-white rounded-md pt-2 md:pt-9 lg:pt-0 box-border">
+      <div className="w-5/6 sm:w-3/5 h-2/5 sm:h-3/5 md:w-3/5 lg:h-3/5 md:h-2/5 lg:w-2/6 xl:w-1/3 xl:h-3/5 bg-white rounded-md pt-2 md:pt-9 lg:pt-0 box-border">
         <div className="sm:px-4 px-3">
-          <div className="mb-2 font-bold border-b-2 border-solid border-darkBluePhant w-[75px] pt-4">
-            {update ? "Edit Bus" : "Create New Bus"}
+          <div className="mb-2 font-bold border-b-2 border-solid border-darkBluePhant w-[90px] pt-4">
+            Create Bus
           </div>
         </div>
         <form action="" onSubmit={formik.handleSubmit} role="form">
@@ -128,7 +112,7 @@ const EditOperatorForm = ({
               <div className="text-errorText">{formik.errors.busRoute}</div>
             ) : null}
           </div>
-          <div className="bg-gray-200 px-4 py-2 mt-4 sm:mt-8 md:mt-5 lg:mt-5 rounded-b-md text-left flex">
+          <div className="bg-gray-200 px-4 py-2 mt-4 sm:mt-8 md:mt-5 lg:mt-9 rounded-b-md text-left flex">
             <button
               className="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-600 mr-2"
               onClick={() => {
@@ -141,7 +125,7 @@ const EditOperatorForm = ({
               type="submit"
               className="py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 mr-2"
             >
-              Save Operator
+              Save Bus
             </button>
           </div>
         </form>
@@ -150,4 +134,4 @@ const EditOperatorForm = ({
   );
 };
 
-export default EditOperatorForm;
+export default NewOperatorForm;

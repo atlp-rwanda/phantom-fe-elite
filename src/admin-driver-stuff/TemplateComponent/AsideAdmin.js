@@ -25,7 +25,7 @@ const AsideAdmin = () => {
       </p>
       <div className="flex flex-col">
         <div className="flex pl-5  gap-5 py-2 hover:bg-[#f3f3f3] w-full">
-          <Link to="/bus" className="flex ">
+          <Link to="/operator-bus" className="flex ">
             <FaBus size={25} className="mt-1 text-darkBluePhant " />
             <p className="ml-1 px-3 hover:bg-[#f3f3f3] w-full">Bus</p>
           </Link>

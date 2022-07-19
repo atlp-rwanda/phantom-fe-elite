@@ -10,11 +10,11 @@ const UserChooseRoutes = () => {
   return (
   <div className="grid h-screen w-screen overflow-x-hidden grid-cols-12 grid-rows-16 font-Nunito bg-[#f3f3f3] overflow-y-hidden">
     <HeaderUserPlan />
-    <main className=" z-0 flex-col col-start-2 col-end-13 row-start-2 row-end-13 bg-red-800 md:col-start-6 lg:col-start-4 hidden md:block lg:block" data-testid = "map-render">
+    <main className=" flex z-0 flex-col col-start-4 col-end-13 row-start-2 row-end-13 bg-red-800 md:col-start-6 lg:col-start-4 md:block lg:block" data-testid = "map-render">
         {/* component for rendering the map on the screen */}
         <MapContainer
           // size of the map
-          className="w-full h-full"
+          style={{ height: "90vh", width: "80vw" }}
           //   focused location to be showed at the initial render of the map
           center={[-1.9441, 30.0619]}
           //   default zoom level at the initial render of the map

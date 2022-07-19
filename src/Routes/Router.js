@@ -22,14 +22,13 @@ import AdminBus from "../views/Admin-bus";
 
 const Router = () => {
 	var token = localStorage.getItem('token')
-	console.log(token)
 	if (token) {
 		return (
       <BrowserRouter>
         <div className="h-screen flex flex-col ">
           <Routes>
             <Route exact path="/" element={<LandingPage />}></Route>
-            <Route exact path="/operator-bus" element={<Bus />}></Route>
+            <Route exact path="/operator-bus" element={<AdminBus />}></Route>
             <Route path="/reset-password" element={<Reset />}></Route>
             <Route
               path="/confirm-new-password"
@@ -43,7 +42,6 @@ const Router = () => {
             <Route path="/updatedriver" element={<UpdateDriver />}></Route>
             <Route path="/create-driver" element={<CreateDriver />}></Route>
             <Route path="/operator" element={<AdminOperator />}></Route>
-            <Route path="/bus" element={<AdminBus />}></Route>
             <Route
               exact
               path="/operator-routes"
@@ -68,8 +66,10 @@ const Router = () => {
 						<Route exact path="/" element={<LandingPage />}></Route>
 						<Route exact path="/register" element={<RegisterPage />}></Route>
 						<Route exact path="/login" element={<LoginPage />}></Route>
-						{/* <Route path="/user-view" element={<UserView />}></Route>
-                        <Route path="/user-plan" element={<UserChooseRoutes />}></Route> */}
+						<Route path="/reset-password" element={<Reset />}></Route>
+						<Route path="/confirm-new-password" element={<ConfirmPassword />}></Route>
+						<Route path="/user-view" element={<UserView />}></Route>
+                        <Route path="/user-plan" element={<UserChooseRoutes />}></Route>
 						<Route path="*" element={<PageNotFound />}></Route>
 					</Routes>
 				</div>

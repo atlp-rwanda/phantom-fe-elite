@@ -8,6 +8,9 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
   const initialData = {
     name: "",
     email: "",
+    id_number: "",
+    permit_id: "",
+    phone: "",
   };
 
   //  the function which is called by formik by default and it passes values object automatically
@@ -21,6 +24,8 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
   };
 
   // validationSchema which validate the form before being submitted
+  const phoneRegExp =
+    /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
   const validate = Yup.object({
     name: Yup.string()
       .matches(
@@ -31,6 +36,18 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
       .max(50, "Too Long name!")
       .required("Required"),
     email: Yup.string().email("Invalid email").required("Required"),
+    phone: Yup.string()
+    .matches(phoneRegExp, "Phone number is not valid")
+    .required("Enter the driver phone number"),
+    id_number: Yup
+    .number("Enter the number")
+    .positive("They should not be negative")
+    .required("Please fill the form enter")
+    .min(2),
+   permit_id: Yup
+    .string()
+    .required("license is required")
+    .min(3, "too short"),
   });
 
   //  the formik is the object which is returned by useFormik. this use formik is receiving
@@ -43,10 +60,10 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
 
   return (
     <div
-      className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50"
-      data-testid="new-form"
+    className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50"
+    data-testid="new_form"
     >
-      <div className="w-5/6 sm:w-3/5 h-1/3 sm:h-3/5 md:w-3/5 lg:h-2/5 md:h-1/3 lg:w-2/6 xl:w-1/3 xl:h-2/5 bg-white rounded-md pt-2 md:pt-9 lg:pt-0 box-border">
+      <div className="w-5/6 sm:w-3/5 h-auto sm:h-[90%] md:w-3/5 lg:h-2/5 md:h-[55%] lg:w-2/6 xl:w-1/3 xl:h-auto bg-white rounded-md pt-2 md:pt-9 lg:pt-2 box-border">
         <div className="sm:px-4 px-3">
           <div className="mb-4 font-bold border-b-2 border-solid border-darkBluePhant w-[130px] pt-2">
             Create Operator
@@ -89,6 +106,63 @@ const NewOperatorForm = ({ setOpenModal, setData }) => {
             {/* conditional rendering of the error message for validating the name input field */}
             {formik.touched.email && formik.errors.email ? (
               <div className="text-errorText">{formik.errors.email}</div>
+            ) : null}
+          </div>
+          <div className="flex flex-col pb-1 sm:px-4 px-3">
+            <label for="name" className=" my-2 md:my-0  md:py-3 lg:py-0">
+              Operator id
+            </label>
+            <input
+              onChange={formik.handleChange}
+              value={formik.values.id_number}
+              onBlur={formik.handleBlur}
+              name="id_number"
+              data-testid="id_number"
+              type="text"
+              placeholder="id_number"
+              className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
+            />
+            {/* conditional rendering of the error message for validating the name input field */}
+            {formik.touched.id_number && formik.errors.id_number ? (
+              <div className="text-errorText">{formik.errors.id_number}</div>
+            ) : null}
+          </div>
+          <div className="flex flex-col pb-1 sm:px-4 px-3">
+            <label for="name" className=" my-2 md:my-0  md:py-3 lg:py-0">
+              Operator permit
+            </label>
+            <input
+              onChange={formik.handleChange}
+              value={formik.values.permit_id}
+              onBlur={formik.handleBlur}
+              name="permit_id"
+              data-testid="permit_id"
+              type="text"
+              placeholder="permit_id"
+              className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
+            />
+            {/* conditional rendering of the error message for validating the name input field */}
+            {formik.touched.permit_id && formik.errors.permit_id ? (
+              <div className="text-errorText">{formik.errors.permit_id}</div>
+            ) : null}
+          </div>
+          <div className="flex flex-col pb-1 sm:px-4 px-3">
+            <label for="name" className=" my-2 md:my-0  md:py-3 lg:py-0">
+              Operator phone
+            </label>
+            <input
+              onChange={formik.handleChange}
+              value={formik.values.phone}
+              onBlur={formik.handleBlur}
+              name="phone"
+              data-testid="phone"
+              type="text"
+              placeholder="phone"
+              className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
+            />
+            {/* conditional rendering of the error message for validating the name input field */}
+            {formik.touched.phone && formik.errors.phone ? (
+              <div className="text-errorText">{formik.errors.phone}</div>
             ) : null}
           </div>
           <div className="bg-gray-200 px-4 py-2 mt-4 sm:mt-8 md:mt-5 lg:mt-2 rounded-b-md text-left flex">

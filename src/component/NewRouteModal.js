@@ -3,22 +3,20 @@ import { useState, useEffect } from "react";
 
 import React from "react";
 
-const NewRouteModal = ({ newData,setModalOpen,isModalOpen }) => {
+const NewRouteModal = ({ newData, setModalOpen, isModalOpen }) => {
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
 
-  useEffect(()=>{
-	if(!isModalOpen){
-		setOrigin("");
-		setDestination("");
-	}
-  },[isModalOpen])
+  useEffect(() => {
+    if (!isModalOpen) {
+      setOrigin("");
+      setDestination("");
+    }
+  }, [isModalOpen]);
 
   function toggleModal() {
-	setModalOpen();
-}
-
-
+    setModalOpen();
+  }
 
   const handleChangeOrigin = (event) => {
     setOrigin(event.target.value);
@@ -28,17 +26,17 @@ const NewRouteModal = ({ newData,setModalOpen,isModalOpen }) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-	newData({
-		origin:origin,
-		destination: destination
-	});
+    newData({
+      origin: origin,
+      destination: destination,
+    });
   };
- 
+
   return (
     <div
       className="fixed z-10 overflow-y-auto top-0 w-full left-0"
       id="NewRouteModal"
-      data-testid ='NewRouteModal'
+      data-testid="NewRouteModal"
     >
       <div className="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div className="fixed inset-0 transition-opacity">
@@ -80,7 +78,6 @@ const NewRouteModal = ({ newData,setModalOpen,isModalOpen }) => {
                 placeholder="Destination"
                 className="w-full bg-gray-100 p-2 mt-2 mb-3"
               />
-
             </div>
             <div className="bg-gray-200 px-4 py-3 text-left">
               <button

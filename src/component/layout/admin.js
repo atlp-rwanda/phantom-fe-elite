@@ -8,7 +8,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { MdAssignmentTurnedIn } from "react-icons/md";
 import { FaBus, FaUserCircle } from "react-icons/fa";
 import { MdAltRoute } from "react-icons/md";
-import { AiOutlineSetting } from "react-icons/ai";
+import { VscSymbolProperty } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import Dropdown from "../dashboard-layout/Dropdown";
 
@@ -56,7 +56,7 @@ const Admin = ({ children }) => {
 					<div className="flex gap-5">
 						
 						<FaBus size={25} className="mt-1 text-darkBluePhant " />
-						<Link to='/bus'>
+						<Link to='/operator-bus'>
 
 						<p className="ml-1">Bus</p>
 						</Link>
@@ -75,8 +75,8 @@ const Admin = ({ children }) => {
 					</div>
 
 					<div className="flex gap-5">
-						<AiOutlineSetting size={25} className="mt-1 text-darkBluePhant" />
-						<Link to='/updateoperator'>
+						<VscSymbolProperty size={25} className="mt-1 text-darkBluePhant" />
+						<Link to='/operator'>
 
 						<p className="ml-1">Operator</p>
 						</Link>

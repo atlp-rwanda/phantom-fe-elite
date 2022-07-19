@@ -18,9 +18,9 @@ const TableRow = (props) => {
     >
       <div className="col-span-1 pl-1">{props.number}</div>
       <div className="col-span-2 pl-1" data-testid='row-name'>{props.name}</div>
-      <div className="col-span-2 lg:span-1 pl-1">{props.driverId}</div>
-      <div className="col-span-2  pl-2">{props.license}</div>
-      <div className="col-span-3  pl-2">{props.mobileNumber}</div>
+      <div className="col-span-2 lg:span-1 pl-1">{props.id_number}</div>
+      <div className="col-span-2  pl-2">{props.permit_id}</div>
+      <div className="col-span-3  pl-2">{props.phone}</div>
       <div className=" col-span-2 flex justify-between lg:justify-between w-5/6 lg:w-2/3 xl:w-1/2">
         <button onClick={handleUpdate} data-testid={`row-${props.number}`}>
           <Link to="">
