@@ -11,6 +11,7 @@ import ListContent from "../../component/new_route/ListContent";
 import axios from "axios";
 
 const RouteLine = () => {
+  const {t, i18n} = useTranslation();
   const [modalOpen, setModalOpen] = useState(false);
   const [routes, setRoutes] = useState([]);
 

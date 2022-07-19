@@ -7,6 +7,7 @@ import { RiArrowDropDownFill } from "react-icons/ri";
 import { IoMdNotifications } from "react-icons/io";
 import { MdAssignmentTurnedIn } from "react-icons/md";
 import { FaBus, FaUserCircle } from "react-icons/fa";
+import { GiGearStickPattern } from "react-icons/gi";
 import { MdAltRoute } from "react-icons/md";
 import { VscSymbolProperty } from "react-icons/vsc";
 import { Link } from "react-router-dom";
@@ -45,47 +46,50 @@ const Admin = ({ children }) => {
 			<main className=" flex flex-col col-start-1 sm:col-start-3 md:col-start-4 lg:col-start-3 col-end-13 row-start-2 row-end-12 px-3 mx-0 sm:mx-2  mt-2 bg-white">
 				{children}
 			</main>
-			<aside className="bg-white col-start-1 col-end-3 text-black row-span-full border-r-2 border-solid border-[#f3f3f3]">
-				<img src={logo} className="mx-7 mt-3" />
-				<br />
-				<div className=" tracking-wider mt-8 ml-5 flex justify-start gap-5 ">
-					<VscCompass className="text-[26px]" />
-					<p className="ml-1">{t("map")}</p>
-				</div>
-				<p className="text-xl tracking-wider  m-auto font-bold mt-3 ml-3 mb-2 ">
-				{t("manage")}
-				</p>
-				<div className="ml-5 flex flex-col gap-4">
-					<div className="flex gap-5">
-						
-						<FaBus size={25} className="mt-1 text-darkBluePhant " />
-						<Link to='/operator-bus'>
+			<aside className="bg-white sm:col-start-1 sm:col-end-3 md:col-end-4 lg:col-end-3 hidden sm:block text-black row-span-full border-r-2 border-solid border-[#f3f3f3]">
+      <Link to='/'>
 
-						<p className="ml-1">{t("bus")}</p>
-						</Link>
-					</div>
-					<div className="flex gap-5 ">
-					<MdAssignmentTurnedIn size={25} className="mt-1 text-darkBluePhant " />
-                        <Link to='/operator-routes'>
-						<p className="ml-1">{t("route")}</p>
-                        </Link>
-					</div>
-					<div className="flex gap-5">
-						<MdAltRoute size={25} className="mt-1 text-darkBluePhant " />
-						<Link to='/create-driver'>
-                        <p className="ml-1">{t("driver")}</p>
-                        </Link>
-					</div>
+      <img src={logo} className="mx-7 mt-3" />
+      </Link>
 
-					<div className="flex gap-5">
-						<VscSymbolProperty size={25} className="mt-1 text-darkBluePhant" />
-						<Link to='/operator'>
-
-						<p className="ml-1">{t("operator")}</p>
-						</Link>
-					</div>
-				</div>
-			</aside>
+      <br />
+      <div className="text-xl tracking-wider m-auto font-semibold mt-8 ml-3 mb-3 flex justify-evenly">
+        <VscCompass className="text-[26px] text-darkBluePhant" />
+        <p>{t("map")}</p>
+      </div>
+      <p className="text-xl tracking-wider  m-auto font-bold mt-3 ml-3 mb-2 ">
+      {t("manage")}
+      </p>
+      <div className="flex flex-col">
+        <div className="flex pl-5  gap-5 py-2 hover:bg-[#f3f3f3] w-full">
+          <Link to="/operator-bus" className="flex ">
+            <FaBus size={25} className="mt-1 text-darkBluePhant " />
+            <p className="ml-1 px-3 hover:bg-[#f3f3f3] w-full">Bus</p>
+          </Link>
+        </div>
+        <div className="flex pl-5  gap-5 py-2 hover:bg-[#f3f3f3] w-full">
+          <Link to="/operator-routes" className="flex">
+            <MdAltRoute size={25} className="mt-1 text-darkBluePhant" />
+            <p className="ml-1 px-3">{t("route")}</p>
+          </Link>
+        </div>
+        <div className="flex pl-5  gap-5 py-2 hover:bg-[#f3f3f3] w-full">
+          <Link to="/create-driver" className="flex">
+            <GiGearStickPattern
+              size={25}
+              className="mt-1 text-darkBluePhant "
+            />
+            <p className="ml-1 px-3">{t("driver")}</p>
+          </Link>
+        </div>
+        <div className="flex pl-5  gap-5 py-2 hover:bg-[#f3f3f3] w-full">
+          <Link to="/operator" className="flex">
+            <VscSymbolProperty size={25} className="mt-1 text-darkBluePhant " />
+            <p className="ml-1 px-3">{t("operator")}</p>
+          </Link>
+        </div>
+      </div>
+    </aside>
 			<div className="bg-adminFooterBackground font-Montserrat font-medium col-start-3 col-end-13 row-start-12 row-end-13  flex justify-center items-center ">
 				<p className="text-white text-xs">
 				{t("copy")}
