@@ -8,7 +8,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { MdAssignmentTurnedIn } from "react-icons/md";
 import { FaBus, FaUserCircle } from "react-icons/fa";
 import { MdAltRoute } from "react-icons/md";
-import { AiOutlineSetting } from "react-icons/ai";
+import { VscSymbolProperty } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LanguageButton from "../../component/LanguageOption"
@@ -78,8 +78,8 @@ const Admin = ({ children }) => {
 					</div>
 
 					<div className="flex gap-5">
-						<AiOutlineSetting size={25} className="mt-1 text-darkBluePhant" />
-						<Link to='/updateoperator'>
+						<VscSymbolProperty size={25} className="mt-1 text-darkBluePhant" />
+						<Link to='/operator'>
 
 						<p className="ml-1">{t("operator")}</p>
 						</Link>

@@ -24,12 +24,9 @@ const TableGenerator = (props) => {
         props.data.map((user, index) => {
           return (
             <TableRow
-              name={user.name}
-              email={user.email}
-              role={user.role}
-              id_number={user.id_number}
-              permit_id={user.permit_id}
-              phone={user.phone}
+              busName={user.bus_number}
+              busPlate={user.plate_number}
+              busRoute={user.route}
               id={user.id}
               // pass id automatically from the index to dispay the number of the operator currently rendere
               // on the screen

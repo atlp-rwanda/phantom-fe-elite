@@ -9,14 +9,15 @@ const EditOperatorForm = ({
   setCloseUpdate,
 }) => {
   // destructure name and email from the data coming from the row to be updated
-  const { name, mobileNumber, license, driverId } = update;
+  const { name, email, id_number, permit_id,phone } = update;
 
   // Initial data is prefilled with data from row being updated
   let initialData = {
     name: name,
-    driverId: driverId,
-    license: license,
-    mobileNumber: mobileNumber,
+    email: email,
+    id_number: id_number,
+    permit_id: permit_id,
+    phone: phone,
   };
 
   // validationSchema which validate the form before being submitted
@@ -31,15 +32,16 @@ const EditOperatorForm = ({
       .min(3, "Too Short Name!")
       .max(50, "Too Long name!")
       .required("Name Required"),
-    mobileNumber: Yup.string()
+    phone : Yup.string()
       .matches(phoneRegExp, "Phone number is not valid")
       .required("Enter the driver phone number"),
-    driverId: Yup
+    email: Yup.string().email("Invalid email").required("Required"),
+    id_number: Yup
       .number("Enter the number")
       .positive("They should not be negative")
       .required("Please fill the form enter")
-      .min(1),
-    license: Yup
+      .min(2),
+    permit_id: Yup
     .string()
     .required("license is required")
     .min(3, "too short"),
@@ -72,10 +74,10 @@ const EditOperatorForm = ({
 
   return (
     <div
-      className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50"
-      data-testid="edit-form"
+    className="w-screen h-screen flex justify-center items-center absolute bg-black bg-opacity-50"
+    data-testid="edit-form"
     >
-      <div className="w-5/6 sm:w-3/5 h-[50%] sm:h-[90%] md:w-3/5 lg:h-2/5 md:h-[55%] lg:w-2/6 xl:w-1/3 xl:h-2/5 bg-white rounded-t-md pt-2 md:pt-9 lg:pt-2 box-border">
+      <div className="w-5/6 sm:w-3/5 h-auto sm:h-[90%] md:w-3/5 lg:h-2/5 md:h-[55%] lg:w-2/6 xl:w-1/3 xl:h-auto bg-white rounded-md pt-2 md:pt-9 lg:pt-2 box-border">
         <div className="sm:px-4 px-3">
           <div className="mb-4 font-bold border-b-2 border-solid border-darkBluePhant w-[130px] pt-2">
             {update ? "Edit Driver" : "Create New "}
@@ -101,23 +103,42 @@ const EditOperatorForm = ({
               <div className="text-errorText">{formik.errors.name}</div>
             ) : null}
           </div>
+          <div className="flex flex-col pb-1 sm:px-4 px-3">
+            <label for="name" className=" my-2 md:my-0  md:py-3 lg:py-0">
+              Driver email
+            </label>
+            <input
+              onChange={formik.handleChange}
+              value={formik.values.email}
+              onBlur={formik.handleBlur}
+              name="email"
+              data-testid="email"
+              type="text"
+              placeholder="Driver email"
+              className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
+            />
+            {/* conditional rendering of the error message for validating the name input field */}
+            {formik.touched.email && formik.errors.email ? (
+              <div className="text-errorText">{formik.errors.email}</div>
+            ) : null}
+          </div>
           <div className="flex flex-col pb-1 sm:px-4 px-3 md:my-5 lg:my-0">
             <label htmlFor="email" className="my-2 md:my-0 md:py-3 lg:py-0">
               Driver Id
             </label>
             <input
               onChange={formik.handleChange}
-              value={formik.values.driverId}
+              value={formik.values.id_number}
               onBlur={formik.handleBlur}
-              name="driverId"
-              data-testid="email"
+              name="id_number"
+              data-testid="id_number"
               type="text"
               placeholder="Driver Id"
               className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
             />
             {/* conditional rendering of the error message for validating the name input field */}
-            {formik.touched.driverId && formik.errors.driverId ? (
-              <div className="text-errorText">{formik.errors.driverId}</div>
+            {formik.touched.id_number && formik.errors.id_number ? (
+              <div className="text-errorText">{formik.errors.id_number}</div>
             ) : null}
           </div>
           <div className="flex flex-col pb-1 sm:px-4 px-3 md:my-5 lg:my-0">
@@ -126,17 +147,17 @@ const EditOperatorForm = ({
             </label>
             <input
               onChange={formik.handleChange}
-              value={formik.values.mobileNumber}
+              value={formik.values.phone}
               onBlur={formik.handleBlur}
-              name="mobileNumber"
+              name="phone"
               data-testid="email"
               type="text"
               placeholder="Mobile number"
               className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
             />
             {/* conditional rendering of the error message for validating the name input field */}
-            {formik.touched.mobileNumber && formik.errors.mobileNumber ? (
-              <div className="text-errorText">{formik.errors.mobileNumber}</div>
+            {formik.touched.phone && formik.errors.phone ? (
+              <div className="text-errorText">{formik.errors.phone}</div>
             ) : null}
           </div>
           <div className="flex flex-col pb-1 sm:px-4 px-3 md:my-5 lg:my-0">
@@ -145,17 +166,17 @@ const EditOperatorForm = ({
             </label>
             <input
               onChange={formik.handleChange}
-              value={formik.values.license}
+              value={formik.values.permit_id}
               onBlur={formik.handleBlur}
-              name="license"
+              name="permit_id"
               data-testid="email"
               type="text"
               placeholder="Driver License"
               className="h-8 rounded-sm bg-[#F4F4F4] text-black pl-3"
             />
             {/* conditional rendering of the error message for validating the name input field */}
-            {formik.touched.license && formik.errors.license ? (
-              <div className="text-errorText">{formik.errors.license}</div>
+            {formik.touched.permit_id && formik.errors.permit_id ? (
+              <div className="text-errorText">{formik.errors.permit_id}</div>
             ) : null}
           </div>
           <div className="bg-gray-200 px-4 py-2 mt-4 md:12 sm:mt-8 md:mt-12 lg:mt-4 rounded-b-md text-left flex">

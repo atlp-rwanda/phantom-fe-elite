@@ -34,8 +34,11 @@ const HeaderAdmin = () => {
                 <div className="font-black text-lg">Andela Rwanda</div>
                 <div className="font-gray-400">User</div>
               </div>
-              <RiArrowDropDownFill className="text-[50px] text-darkBluePhant" onClick={()=>setopen(!open)} />
-              {open && Dropdown}
+              <RiArrowDropDownFill
+                className="text-[50px] text-darkBluePhant"
+                onClick={() => setopen(!open)}
+              />
+              {open && <Dropdown />}
             </div>
           </div>
         </section>

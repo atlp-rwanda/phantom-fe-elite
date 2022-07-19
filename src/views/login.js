@@ -78,11 +78,6 @@ const LoginPage = ({ onSubmit }) => {
 					<Toaster
 						toastOptions={{
 							className: "",
-							// style: {
-							// 	border: "1px solid red",
-							// 	padding: "16px",
-							// 	color: "blue",
-							// },
 						}}
 					/>
 				</div>
@@ -166,14 +161,14 @@ const LoginPage = ({ onSubmit }) => {
 										<p className="border-secondary smallDev sm:small my-4 ">
 										{t("remember")}{" "}
 											<span>
-												<a href="">{t("forget")}</a>
+												<a href="/reset-password" className="text-blue-700">{t("forget")}</a>
 											</span>
 										</p>
 
 										<p className="flex flex-row mt-2 lg:mt-2 md:mt-10 font-Montserrat text-sm ">
 										{t("with")}{" "}
 										</p>
-										<div className="flex mt-0 mb-8 ">
+										<div className="flex mt-0 mb-8">
 											<a href="" className="ml-4 ">
 												<FaLinkedin className="text-2xl text-darkBluePhant " />
 											</a>

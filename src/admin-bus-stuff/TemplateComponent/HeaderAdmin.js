@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { RiArrowDropDownFill, RiMenuLine } from "react-icons/ri";
 import { IoMdNotifications } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
-import LanguageButton from "../../component/LanguageOption"
 import AsideAdminOnPhone from "./AsideAdminOnPhone";
 import Dropdown from "../../component/dashboard-layout/Dropdown";
 
 const HeaderAdmin = () => {
   const [asideOpen, setAsideOpen] = useState(false);
-  const [open, setopen] = useState(false);
+	const [open, setopen] = useState(false);
+
   return (
     <header className="bg-white col-start-1 sm:col-start-3 md:col-start-4 lg:col-start-3 col-end-13  row-start-1 row-end-2">
       {asideOpen && <AsideAdminOnPhone setAsideOpen={setAsideOpen} />}
@@ -23,7 +23,7 @@ const HeaderAdmin = () => {
             <RiMenuLine />
           </div>
           <div className="flex items-center">
-            <LanguageButton/>
+            <div className="font-black text-xl">EN</div>
             <RiArrowDropDownFill className="text-2xl sm:text-4xl" />
             <IoMdNotifications className="text-2xl sm:text-4xl" />
           </div>

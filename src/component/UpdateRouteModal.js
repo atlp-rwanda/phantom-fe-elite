@@ -1,65 +1,61 @@
 import React, { useEffect, useState } from "react";
-import { useFormik } from "formik"
-import * as Yup from "yup"
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import axios from "axios";
 
-const UpdateRouteLine = ({ update,setDataFetched, setRoutes }) => {
+const UpdateRouteLine = ({ update, closeModal, setRoutes }) => {
+  const { origin, destination } = update;
 
-  const {origin,destination } = update
-  
   let initialData = {
-    origin:origin,
-    destination:destination
+    origin: origin,
+    destination: destination,
   };
 
-   const validate = Yup.object({
-     origin: Yup.string()
-       .min(3, "Too Short Name!")
-       .max(50, "Too Long name!")
-       .required("Origin Required"),
-     destination: Yup.string()
-     .min(3, "Too Short Name!")
-     .max(50, "Too Long name!")
-     .required("Destination Required"),
-   });
+  const validate = Yup.object({
+    origin: Yup.string()
+      .min(3, "Too Short Name!")
+      .max(50, "Too Long name!")
+      .required("Origin Required"),
+    destination: Yup.string()
+      .min(3, "Too Short Name!")
+      .max(50, "Too Long name!")
+      .required("Destination Required"),
+  });
+  const setOutModal = () => {
+    closeModal();
+  };
 
   const onSubmit = (values, { resetForm }) => {
+    const newData = { ...values, description: "the best routes ever" };
+    updateHandle(update.id, newData);
+    resetForm({});
+  };
 
-   updateHandle(update.id,values);
-   resetForm({});
- };
-
-   const formik = useFormik({
+  const formik = useFormik({
     initialValues: initialData,
-    onSubmit:onSubmit,
+    onSubmit: onSubmit,
     validationSchema: validate,
   });
-  const updateHandle = async (id,updated) => {
+  const updateHandle = async (id, updated) => {
     try {
-      const renewed = await axios.patch(`http://localhost:7000/routes/${id}`, updated);
-      const allData = await axios.get("http://localhost:7000/routes");
-      setRoutes(allData.data);
-
-      setDataFetched();
+      const routeData = await axios.put(
+        `http://localhost:3001/api/v1/route/${id}`,
+        updated
+      );
+      const allData = await axios.get("http://localhost:3001/api/v1/route");
+      console.log(allData);
+      setRoutes(allData.data.routes);
+      closeModal();
     } catch (error) {
-      console.log(error)
+      console.log(error.response);
     }
   };
-  
-
-
-  const setOutModal = () => {
-	setDataFetched();
-  }
-
 
   return (
     <div
       className="fixed z-10 overflow-y-auto top-0 w-full left-0 "
       id="UpdateRouteLine"
       data-testid="UpdateRouteLine"
-
-      
     >
       <div className="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div className="fixed inset-0 transition-opacity">
@@ -74,10 +70,7 @@ const UpdateRouteLine = ({ update,setDataFetched, setRoutes }) => {
           aria-modal="true"
           aria-labelledby="modal-headline"
         >
-          <form onSubmit={
-            formik.handleSubmit}
-           >
-            
+          <form onSubmit={formik.handleSubmit}>
             <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div className="flex flex-row my-2 font-black text-xl border-b-2 border-solid border-darkBluePhant w-fit">
                 Update Route
@@ -88,16 +81,16 @@ const UpdateRouteLine = ({ update,setDataFetched, setRoutes }) => {
                 id="origin"
                 name="origin"
                 data-testid="busName-input"
-               onChange={formik.handleChange}
+                onChange={formik.handleChange}
                 value={formik.values.origin}
                 onBlur={formik.handleBlur}
                 placeholder="Origin"
                 className="w-full bg-gray-100 p-2 mt-2 mb-3"
               />
 
-            {formik.touched.origin && formik.errors.origin ? (
-              <div className="text-errorText">{formik.errors.origin}</div>
-            ) : null}
+              {formik.touched.origin && formik.errors.origin ? (
+                <div className="text-errorText">{formik.errors.origin}</div>
+              ) : null}
 
               <label className="font-semibold">Destination</label>
               <input
@@ -105,15 +98,17 @@ const UpdateRouteLine = ({ update,setDataFetched, setRoutes }) => {
                 name="destination"
                 id="destination"
                 data-testid="busPlate-input"
-                 onChange={formik.handleChange}
-                 value={formik.values.destination}
-                 onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
+                value={formik.values.destination}
+                onBlur={formik.handleBlur}
                 placeholder="Destination"
                 className="w-full bg-gray-100 p-2 mt-2 mb-3"
               />
-            {formik.touched.destination && formik.errors.destination ? (
-              <div className="text-errorText">{formik.errors.destination}</div>
-            ) : null}
+              {formik.touched.destination && formik.errors.destination ? (
+                <div className="text-errorText">
+                  {formik.errors.destination}
+                </div>
+              ) : null}
             </div>
             <div className="bg-gray-200 px-4 py-3 text-left">
               <button

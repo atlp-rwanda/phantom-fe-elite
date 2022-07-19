@@ -2,22 +2,18 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { RiAddCircleLine } from "react-icons/ri";
-import EditOperatorForm from "../admin-operator-stuff/EditOperatorForm";
-import NewOperatorForm from "../admin-operator-stuff/NewOperatorForm";
-import TableGenerator from "../admin-operator-stuff/TableGenerator";
-import TableHeader from "../admin-operator-stuff/TableHeader";
-import FooterAdmin from "../admin-operator-stuff/TemplateComponent/FooterAdmin";
-import HeaderAdmin from "../admin-operator-stuff/TemplateComponent/HeaderAdmin";
+import EditOperatorForm from "../admin-bus-stuff/EditBusForm";
+import NewOperatorForm from "../admin-bus-stuff/NewBusForm";
+import TableGenerator from "../admin-bus-stuff/TableGenerator";
+import TableHeader from "../admin-bus-stuff/TableHeader";
+import FooterAdmin from "../admin-bus-stuff/TemplateComponent/FooterAdmin";
+import HeaderAdmin from "../admin-bus-stuff/TemplateComponent/HeaderAdmin";
 import toast, { Toaster } from "react-hot-toast";
-import AsideAdmin from "../admin-operator-stuff/TemplateComponent/AsideAdmin";
-import { useTranslation } from "react-i18next";
-import { url } from "../api";
+import AsideAdmin from "../admin-bus-stuff/TemplateComponent/AsideAdmin";
 
-const AdminOperator = () => {
+const AdminBus = () => {
   // to change the state for toggling the modal
   const [modalOpen, setModalOpen] = useState(false);
-
-  const {t, i18n} = useTranslation();
 
   // loading screen rendering is managed by this state is here
   const [loading, setLoading] = useState(false);
@@ -51,7 +47,7 @@ const AdminOperator = () => {
           // this is the success function which receive anonymous function which is automatically
           //  passed the response for RESOLVED promise
           success: (response) =>
-            `Successfully saved ${response.data.data.name.toUpperCase()}`,
+            `Successfully saved ${response.data.data.bus_number.toUpperCase()}`,
 
           // this is the error function which receive anonymous function which is automatically
           //  passed the response for REJECTED promise
@@ -66,7 +62,7 @@ const AdminOperator = () => {
           // this is the success function which receive anonymous function which is automatically
           //  passed the response for RESOLVED promise
           success: (response) =>
-            `Successfully updated ${response.data.data.name.toUpperCase()}`,
+            `Successfully updated ${response.data.data.bus_number.toUpperCase()}`,
 
           // this is the error function which receive anonymous function which is automatically
           //  passed the response for REJECTED promise
@@ -121,7 +117,9 @@ const AdminOperator = () => {
       // allow display the loading component
       setLoading(true);
       try {
-        const operatorsData = await axios.get(`${url}/operators`);
+        const operatorsData = await axios.get(
+          "http://localhost:3001/api/v1/bus"
+        );
         setDatas(operatorsData.data.data);
         setLoading(false);
         setError({
@@ -130,6 +128,7 @@ const AdminOperator = () => {
         });
       } catch (errors) {
         // if an error occur it should render it
+        console.log(errors)
         setLoading(false);
         setError((prev) => {
           return {
@@ -151,29 +150,27 @@ const AdminOperator = () => {
 
   // function for handling updating data into the database and rerendering UI.
   const addDataFromForm = async (dataFromForm) => {
-    // uuid for creating the random id onCreating the new operator
-    if (dataFromForm.email !== "gunpowder@mail.com") {
-      dataFromForm.id = uuidv4();
-    }
+    const dataMapper = {
+      bus_number: dataFromForm.busName,
+      plate_number: dataFromForm.busPlate,
+      route: dataFromForm.busRoute
+    };
     try {
-      // this axios returns a promise which is stored into the operator
-      if (isRegisterDuplicated(dataFromForm.email)) {
-        toast.error("The operator already exists! Register different operator");
-      } else {
-        const operator = axios.post(`${url}/operators`,dataFromForm,{
-          headers:{
-            'Content-Type': 'application/json',
-          }
-        })
-        displayPopupMessage(operator, "Save");
+        const operator = axios.post(
+          "http://localhost:3001/api/v1/bus",
+          dataMapper
+        );
         // function to handle popup loading while saving and display the status message
+        displayPopupMessage(operator, "Save");
         // the promise is awaited to resove so that it can have the values. NB: The following code
         // cant run before promise is resolved due to this await.
         await operator;
-      }
+      // }
 
       // fetch all data from the database
-      const operatorsDataCurrrent = await axios.get(`${url}/operators`);
+      const operatorsDataCurrrent = await axios.get(
+        "http://localhost:3001/api/v1/bus"
+      );
       // update what is renderd on the screen
       setDatas(operatorsDataCurrrent.data.data);
     } catch (error) {
@@ -183,10 +180,20 @@ const AdminOperator = () => {
 
   // function to add the data from edit form to the the database and rerender UI with the updated data
   const addDataToUpdate = async (dataFromEditForm) => {
-    dataFromEditForm.id = update.id;
+    // dataFromEditForm.id = update.id;
+      const dataMapper = {
+        bus_number: dataFromEditForm.busName,
+        plate_number: dataFromEditForm.busPlate,
+        route: dataFromEditForm.busRoute,
+      };
     try {
       // this axios returns a promise which is stored into the operator
-      const operator = axios.put(`${url}/profile/update/${update.id}`,dataFromEditForm);
+      console.log(update.id);
+      console.log(dataMapper);
+      const operator = axios.put(
+        `http://localhost:3001/api/v1/bus/${update.id}`,
+        dataMapper
+      );
       // function to handle popup loading while saving and display the status message
       displayPopupMessage(operator, "Update");
       // the promise is awaited to resove so that it can have the values. NB: The following code
@@ -195,7 +202,9 @@ const AdminOperator = () => {
       // }
 
       // fetch all data from the database
-      const operatorsDataCurrrent = await axios.get(`${url}/operators`);
+      const operatorsDataCurrrent = await axios.get(
+        "http://localhost:3001/api/v1/bus"
+      );
       // update what is renderd on the screen
       setDatas(operatorsDataCurrrent.data.data);
     } catch (error) {
@@ -206,19 +215,19 @@ const AdminOperator = () => {
   const deleteHandle = async (id) => {
     try {
       const deletedOperator = axios.delete(
-        `${url}/profile/delete/${id}`
-      ); 
+        `http://localhost:3001/api/v1/bus/${id}`
+      );
 
       displayPopupMessage(deletedOperator, "Delete");
       await deletedOperator;
 
       const remainingOperator = await axios.get(
-        `${url}/operators`
+        `http://localhost:3001/api/v1/bus`
       );
       setDatas(remainingOperator.data.data);
     } catch (error) {
       console.log(error);
-    } 
+    }
   };
 
   // showing modals when new operator or edit button is clicked
@@ -243,15 +252,14 @@ const AdminOperator = () => {
   };
 
   return (
-    
     <div className="grid h-screen w-screen overflow-x-hidden grid-cols-12 grid-rows-12 font-Nunito bg-[#f3f3f3]">
       <HeaderAdmin />
       {/* conditional rendering of the edit when the button is pressed and modalOpen variable became true */}
       {modalOpen && showModal()}
       <main className=" flex flex-col col-start-1 sm:col-start-3 md:col-start-4 lg:col-start-3 col-end-13 row-start-2 row-end-12 px-3 mx-0 sm:mx-2  mt-2 bg-white">
         <div className="flex justify-center sm:justify-start md:justify-center lg:justify-start ">
-          <div className="m-2 font-black text-xl border-b-2 border-solid border-darkBluePhant w-[90px]">
-          {t("operator")}
+          <div className="m-2 font-black text-xl border-b-2 border-solid border-darkBluePhant w-[45px]">
+            Bus
           </div>
         </div>
         <div className="flex flex-row justify-between sm:justify-start md:justify-evenly lg:justify-start items-center my-3">
@@ -262,7 +270,7 @@ const AdminOperator = () => {
                 setModalOpen(true);
               }}
             >
-              {t("newOperator")}
+              Create Bus
             </button>
           </div>
           <form
@@ -296,4 +304,4 @@ const AdminOperator = () => {
   );
 };
 
-export default AdminOperator;
+export default AdminBus;
