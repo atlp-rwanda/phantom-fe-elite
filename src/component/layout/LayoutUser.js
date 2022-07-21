@@ -3,9 +3,11 @@ import { RiAddCircleLine } from "react-icons/ri";
 import Footer from "../dashaboard/Footer";
 import Header from "../dashaboard/Header";
 import SideBar from "../dashaboard/SideBar";
+import { useTranslation } from "react-i18next";
 import SideBarDriver from "../../user-view-stuff/TemplateComponent/AsideUserPlan";
 
 const LayoutUser=({ children })=> {
+	const {t, i18n} = useTranslation();
 	return (
 		<div className="grid h-screen w-screen overflow-x-hidden grid-cols-12 grid-rows-12 font-Nunito bg-[#f3f3f3]">
 			<Header />

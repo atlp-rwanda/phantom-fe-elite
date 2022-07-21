@@ -8,9 +8,11 @@ import { useState, useEffect } from "react";
 import SideSection from "./SideSection";
 import logo from './../../assets/imgs/logo.jpg'
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 
 const AsideUserPlan = () => { 
+  const {t, i18n} = useTranslation();
   
   const [routes, setRoutes] = useState ([])
   const [destination, setdestination] = useState({})
@@ -46,7 +48,7 @@ const fetchroute = async () => {
 <img src={logo} className="mx-4 mt-0" />
 </Link>
       <section className="h-fit w-[95%] px-5 bg-white rounded ml-2 mt-1 shadow-xl">
-        <div className="font-semibold">Plan your trip</div>
+        <div className="font-semibold">{t("plan")}</div>
         <form role="form" className="w-full h-fit" onSubmit={formik.handleSubmit}>
           <label
             htmlFor="email"
@@ -60,7 +62,7 @@ const fetchroute = async () => {
               type="text"
               value={formik.values.location}
               onChange={formik.handleChange}
-              placeholder="Current Location"
+              placeholder={t("location")}
               className="h-8 rounded-lg mt-2 w-full text-black pl-3 pr-10 placeholder:text-black bg-gray-200 focus-within:bg-gray-100"
             />
           </label>
@@ -72,16 +74,16 @@ const fetchroute = async () => {
               type="text"
               onChange={formik.handleChange}
               value={formik.values.destination}
-              placeholder="Destination"
+              placeholder={t("destination")}
               className="h-8 rounded-lg w-full mt-5 bg-gray-200 text-black pl-3 placeholder:text-black focus-within:bg-gray-100"
             />
           </div>
           <button type="submit" className="mt-2 font-semibold" onClick={Route}>
-            Depart Now
+          {t("depart")}
           </button>
         </form>
       </section>
-      <p className="mt-8 ml-6">Recommendend Routes</p>
+      <p className="mt-8 ml-6">{t("recommendation")}</p>
       <div>
       {routes.map((route) =>{
        return <SideSection route={route}/>

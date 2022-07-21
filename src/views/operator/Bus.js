@@ -6,9 +6,11 @@ import Admin from "../../component/layout/admin";
 import { RiAddCircleLine } from "react-icons/ri";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiEdit } from "react-icons/fi";
+import { useTranslation } from "react-i18next";
 import NewBusModal from "../../component/NewBusModal";
 import EditBusModal from "../../component/EditBusModal";
 const Bus = () => {
+	const {t, i18n} = useTranslation();
 	const [busData, setBusData] = useState(null);
 	// modal toggle
 	function toggleModal() {
@@ -25,7 +27,7 @@ const Bus = () => {
 					<div
 						className="m-2 font-black text-xl border-b-2 border-solid border-darkBluePhant w-[90px]"
 						data-testid="head1">
-						Bus
+						{t("bus")}
 					</div>
 				</div>
 				<div className="flex flex-row justify-between sm:justify-start md:justify-evenly lg:justify-start items-center my-3">
@@ -34,7 +36,7 @@ const Bus = () => {
 						data-testid="newBusBtn"
 						className="bg-darkBluePhant cursor-pointer p-1 sm:px-0 sm:p-2 rounded-md font-bold text-white flex items-center justify-evenly w-1/2 sm:w-1/6 md:w-2/6 xl:w-1/6">
 						<RiAddCircleLine className="text-white text-xl sm:text-2xl" />
-						<button>Add New Bus</button>
+						<button>{t("newBus")}</button>
 					</div>
 					<form
 						action=""
@@ -48,10 +50,10 @@ const Bus = () => {
 				</div>
 				<div className="grid grid-cols-12 border-b-2 border-black font-bold border-solid">
 					<div className="col-span-1">No</div>
-					<div className="col-span-3 ">Bus Number</div>
-					<div className="col-span-3 ">Bus Plate</div>
-					<div className="col-span-3 ">Routes</div>
-					<div className="col-span-2 ">Actions</div>
+					<div className="col-span-3 ">{t("bnumber")}</div>
+					<div className="col-span-3 ">{t("bplate")}</div>
+					<div className="col-span-3 ">{t("routes")}</div>
+					<div className="col-span-2 ">{t("actions")}</div>
 				</div>
 				<div className="overflow-auto ">
 					<div

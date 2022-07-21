@@ -9,11 +9,13 @@ import trackroute from "../assets/imgs/trackroute.jpg";
 import secondimage from "../assets/images/secondImage.jpg";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { useTranslation } from "react-i18next";
 import NavBar from "../component/footer-and-nav-template/NavBar";
 import FormSubscribe from "../component/FormSubscribe";
 import FooterBlock from "../component/footer-and-nav-template/FooterBlock";
 
 const RegisterPage = ({ onSubmit }) => {
+  const {t, i18n} = useTranslation();
 	const [isLoading, setIsLoading] = useState(false);
 	const signUpSchema = Yup.object({
 		email: Yup.string()
@@ -34,7 +36,7 @@ const RegisterPage = ({ onSubmit }) => {
       <NavBar />
       <div className="flex flex-col w-full h-[70%] lg:w-full">
         <h1 className="text-center text-2xl text-textBluePhant font-bold h-[8%] pt-4">
-          REGISTER
+        {t("signupTitle")}
         </h1>
 
         <div
@@ -70,7 +72,7 @@ const RegisterPage = ({ onSubmit }) => {
                     type="email"
                     name="email"
                     data-testid="email-input"
-                    placeholder="Email..."
+                    placeholder={t("email")}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.email}
@@ -90,7 +92,7 @@ const RegisterPage = ({ onSubmit }) => {
                   <input
                     type="text"
                     name="username"
-                    placeholder="Username..."
+                    placeholder={t("name")}
                     value={values.username}
                     data-testid="username-input"
                     onChange={handleChange}
@@ -110,7 +112,7 @@ const RegisterPage = ({ onSubmit }) => {
                   <input
                     type="password"
                     name="password"
-                    placeholder="Password..."
+                    placeholder={t("password")}
                     data-testid="password-input"
                     value={values.password}
                     onBlur={handleBlur}
@@ -128,7 +130,7 @@ const RegisterPage = ({ onSubmit }) => {
                   <br />
 
                   <a href="/reset-password" className="font-Montserrat text-sm">
-                    Reset Password
+                  {t("reset")}
                   </a>
                   <br />
 
@@ -140,12 +142,12 @@ const RegisterPage = ({ onSubmit }) => {
                       isLoading ? "bg-blue-100" : "bg-adminFooterBackground"
                     } text-whitePhant rounded text-lg font-bold`}
                   >
-                    Register
+                    {t("signup")}
                   </button>
                   <br />
 
                   <p className="flex flex-row mt-2 lg:mt-2 md:mt-10 font-Montserrat text-sm">
-                    or login with
+                  {t("with")}
                     <a href="" className="ml-4 ">
                       <FaLinkedin className="text-2xl text-darkBluePhant " />
                     </a>

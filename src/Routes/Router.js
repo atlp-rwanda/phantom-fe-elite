@@ -63,6 +63,7 @@ const Router = () => {
 			<BrowserRouter>
 				<div className="h-screen flex flex-col ">
 					<Routes>
+						<Route path="/user-plan" element={<UserView />}></Route>
 						<Route exact path="/" element={<LandingPage />}></Route>
 						<Route exact path="/register" element={<RegisterPage />}></Route>
 						<Route exact path="/login" element={<LoginPage />}></Route>

@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const FooterUser = () => {
+  const {t, i18n} = useTranslation();
   return (
     <footer
       className="bg-adminFooterBackground font-Montserrat font-medium col-start-1 sm:col-start-4 md:col-start-5 lg:col-start-4
@@ -8,7 +10,7 @@ const FooterUser = () => {
        "
     >
       <p className="text-white text-xs">
-        Andela 2022 All rights Reserved. Designed by Elite Team
+      {t("copy")}
       </p>
     </footer>
   );

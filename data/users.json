@@ -1,33 +1,31 @@
 {
-  "users": [
-    {
-      "userid": 1,
-      "names": "SHYAKA Benjamin",
-      "email": "benjamin@gmail.com",
-      "password": "ben123",
-      "role": "operator"
-    },
-    {
-      "userid": 2,
-      "names": "NIYONSHUTI Prince",
-      "email": "prince@gmail.com",
-      "password": "prince123",
-      "role": "User"
-    },
-    {
-      "userid": 3,
-      "names": "MUHETO Hodal",
-      "email": "hodal@gmail.com",
-      "password": "hodal",
-      "role": "ADMIN"
-    },
-    {
-      "userid": 4,
-      "names": "MUHETO Kamali",
-      "email": "muheto@gmail.com",
-      "password": "hodal",
-      "role":"Driver"
-      
-    }
-  ]
+    "users": [{
+            "userid": 1,
+            "names": "SHYAKA Benjamin",
+            "email": "benjamin@gmail.com",
+            "password": "ben123",
+            "role": "operator"
+        },
+        {
+            "userid": 2,
+            "names": "NIYONSHUTI Prince",
+            "email": "prince@gmail.com",
+            "password": "prince123",
+            "role": "User"
+        },
+        {
+            "userid": 3,
+            "names": "MUHETO Hodal",
+            "email": "hodal@gmail.com",
+            "password": "hodal",
+            "role": "ADMIN"
+        },
+        {
+            "userid": 4,
+            "names": "MUHETO Kamali",
+            "email": "muheto@gmail.com",
+            "password": "hodal",
+            "role": "Driver"
+        }
+    ]
 }

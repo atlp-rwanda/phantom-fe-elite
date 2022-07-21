@@ -10,11 +10,14 @@ import FooterAdmin from "../admin-operator-stuff/TemplateComponent/FooterAdmin";
 import HeaderAdmin from "../admin-operator-stuff/TemplateComponent/HeaderAdmin";
 import toast, { Toaster } from "react-hot-toast";
 import AsideAdmin from "../admin-operator-stuff/TemplateComponent/AsideAdmin";
+import { useTranslation } from "react-i18next";
 import { url } from "../api";
 
 const AdminOperator = () => {
   // to change the state for toggling the modal
   const [modalOpen, setModalOpen] = useState(false);
+
+  const {t, i18n} = useTranslation();
 
   // loading screen rendering is managed by this state is here
   const [loading, setLoading] = useState(false);
@@ -240,6 +243,7 @@ const AdminOperator = () => {
   };
 
   return (
+    
     <div className="grid h-screen w-screen overflow-x-hidden grid-cols-12 grid-rows-12 font-Nunito bg-[#f3f3f3]">
       <HeaderAdmin />
       {/* conditional rendering of the edit when the button is pressed and modalOpen variable became true */}
@@ -247,7 +251,7 @@ const AdminOperator = () => {
       <main className=" flex flex-col col-start-1 sm:col-start-3 md:col-start-4 lg:col-start-3 col-end-13 row-start-2 row-end-12 px-3 mx-0 sm:mx-2  mt-2 bg-white">
         <div className="flex justify-center sm:justify-start md:justify-center lg:justify-start ">
           <div className="m-2 font-black text-xl border-b-2 border-solid border-darkBluePhant w-[90px]">
-            Operator
+          {t("operator")}
           </div>
         </div>
         <div className="flex flex-row justify-between sm:justify-start md:justify-evenly lg:justify-start items-center my-3">
@@ -258,7 +262,7 @@ const AdminOperator = () => {
                 setModalOpen(true);
               }}
             >
-              Create Operator
+              {t("newOperator")}
             </button>
           </div>
           <form

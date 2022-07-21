@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import Layout from './../component/layout/LayoutUser'
 import MapView from "../component/MapView";
+import { useTranslation } from "react-i18next";
 
 
 const UserView = () => {
+  const {t, i18n} = useTranslation();
   // const location = BusGeolocation();
   // const [asideOpen, setAsideOpen] = useState(false);
   return (
@@ -14,7 +16,7 @@ const UserView = () => {
           className="font-bold underline decoration-sky-500 "
           data-testid="head1"
         >
-          User View Bus Motion
+         {t("view")}
         </h3>
       </div>
       <MapView />

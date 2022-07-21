@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { RiArrowDropDownFill, RiMenuLine } from "react-icons/ri";
 import { IoMdNotifications } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
+import LanguageButton from "../../component/LanguageOption";
 import AsideAdminOnPhone from "./AsideAdminOnPhone";
 import Dropdown from "../../component/dashboard-layout/Dropdown";
 
@@ -22,7 +23,7 @@ const HeaderAdmin = () => {
             <RiMenuLine />
           </div>
           <div className="flex items-center">
-            <div className="font-black text-xl">EN</div>
+            <LanguageButton/>
             <RiArrowDropDownFill className="text-2xl sm:text-4xl" />
             <IoMdNotifications className="text-2xl sm:text-4xl" />
           </div>

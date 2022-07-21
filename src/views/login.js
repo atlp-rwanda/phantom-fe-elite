@@ -14,11 +14,13 @@ import FooterBlock from "../component/footer-and-nav-template/FooterBlock";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+import { useTranslation } from "react-i18next";
 import { url } from "../api/index";
 const trackroute =
 	"https://res.cloudinary.com/andela-hodal/image/upload/v1651660951/images/trackroute_hotaxz.jpg";
 
 const LoginPage = ({ onSubmit }) => {
+	const {t, i18n} = useTranslation();
 	const [isLoading, setIsLoading] = useState(false);
 	const signUpSchema = Yup.object({
 		email: Yup.string()
@@ -70,7 +72,7 @@ const LoginPage = ({ onSubmit }) => {
 			<NavBar />
 			<div className=" flex flex-col w-full h-full lg:w-full">
 				<h1 className="text-center text-2xl text-textBluePhant font-bold h-[8%]">
-					LOGIN
+				{t("loginTitle")}
 				</h1>
 				<div>
 					<Toaster
@@ -114,7 +116,7 @@ const LoginPage = ({ onSubmit }) => {
 											type="email"
 											name="email"
 											data-testid="email-input"
-											placeholder="Email..."
+											placeholder={t("email")}
 											onChange={handleChange}
 											onBlur={handleBlur}
 											value={values.email}
@@ -131,7 +133,7 @@ const LoginPage = ({ onSubmit }) => {
 										<input
 											type="password"
 											name="password"
-											placeholder="Password..."
+											placeholder={t("password")}
 											data-testid="password-input"
 											value={values.password}
 											onBlur={handleBlur}
@@ -153,13 +155,13 @@ const LoginPage = ({ onSubmit }) => {
 											className={`h-10 lg:h-9 md:h-12 mt-2 lg:mt-2 md:mt-6 mb-3 w-full text-md ${
 												isLoading ? "bg-blue-100" : "bg-darkBluePhant"
 											} text-whitePhant rounded text-lg font-bold`}>
-											Log In
+											{t("signin")}
 										</button>
 
 										<p className="border-secondary smallDev sm:small my-4 ">
-											Don't remember Password?{" "}
+										{t("remember")}{" "}
 											<span>
-												<a href="/reset-password" className="text-blue-700">Forget Password</a>
+												<a href="/reset-password" className="text-blue-700">{t("forget")}</a>
 											</span>
 										</p>
 									</form>
